@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
-import App from './App';
-import userLoadInfoActionCreator from './redux/action-creators/user/load-info';
+import UserInfo from './UserInfo';
+import userLoadInfoActionCreator from '../../../redux/action-creators/user/load-info';
 
 /**
  * @description
- * Maps Redux state to app props.
+ * Maps Redux state to user info props.
  *
  * @param {State} state - The state.
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  isLoggedIn: state.shared.isLoggedIn,
+  userId: state.user.userId,
+  userName: state.user.userName,
+  userType: state.user.userType,
+  accessTokenExpires: state.user.accessTokenExpires,
+  refreshTokenExpires: state.user.refreshTokenExpires,
 });
 
 /**
@@ -26,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

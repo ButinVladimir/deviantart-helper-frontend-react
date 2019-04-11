@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Header from './Header';
-import '../../redux/state';
+import userRevokeActionCreator from '../../redux/action-creators/user/revoke';
+import userRefreshActionCreator from '../../redux/action-creators/user/refresh';
+import deviationsLoadActionCreator from '../../redux/action-creators/deviations/load';
 
 /**
  * @description
@@ -11,12 +13,21 @@ import '../../redux/state';
  */
 const mapStateToProps = state => ({
   isLoggedIn: state.shared.isLoggedIn,
-  userId: state.user.userId,
-  userName: state.user.userName,
   userIcon: state.user.userIcon,
-  userType: state.user.userType,
-  accessTokenExpires: state.user.accessTokenExpires,
-  refreshTokenExpires: state.user.refreshTokenExpires,
 });
 
-export default connect(mapStateToProps)(Header);
+/**
+ * @description
+ * Maps Redux dispatch to header props.
+ *
+ * @param {Function} dispatch - The dispatch.
+ * @param {Object} ownProps - Component own props.
+ * @returns {Object} Props.
+ */
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  revokeHandler: () => dispatch(userRevokeActionCreator(ownProps.config)),
+  refreshHandler: () => dispatch(userRefreshActionCreator(ownProps.config)),
+  deviationsLoadHandler: () => dispatch(deviationsLoadActionCreator(ownProps.config)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

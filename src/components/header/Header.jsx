@@ -1,21 +1,22 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import * as serverRoutes from '../../consts/server-routes';
+import * as routes from '../../consts/routes';
 import Config from '../../config/config';
 
 export default function Header({
   isLoggedIn,
-  userId,
   userIcon,
-  userName,
-  userType,
-  accessTokenExpires,
-  refreshTokenExpires,
   config,
+  revokeHandler,
+  refreshHandler,
+  deviationsLoadHandler,
 }) {
   if (!isLoggedIn) {
     return (
       <div>
-        <a href={`${config.serverUrl}/auth/connect/deviantart`}>Login</a>
+        <a href={`${config.serverUrl}${serverRoutes.AUTH_CONNECT}`}>Login</a>
       </div>
     );
   }
@@ -26,24 +27,26 @@ export default function Header({
         <img src={userIcon} alt="" />
       </div>
       <div>
-        <span>User: </span>
-        <b>{userName}</b>
+        <span>User </span>
+        <span>
+          {'( '}
+          <NavLink to={routes.USER_INFO}>Info</NavLink>
+          {' | '}
+          <button type="button" onClick={revokeHandler}>Revoke</button>
+          {' | '}
+          <button type="button" onClick={refreshHandler}>Refresh</button>
+          {' )'}
+        </span>
       </div>
       <div>
-        <span>User id: </span>
-        <b>{userId}</b>
-      </div>
-      <div>
-        <span>User type: </span>
-        <b>{userType}</b>
-      </div>
-      <div>
-        <span>Access token expires: </span>
-        <b>{new Date(accessTokenExpires).toLocaleString()}</b>
-      </div>
-      <div>
-        <span>Refresh token expires: </span>
-        <b>{new Date(refreshTokenExpires).toLocaleString()}</b>
+        <span>Deviations </span>
+        <span>
+          {'( '}
+          <NavLink to={routes.DEVIATIONS_BROWSE}>Browse</NavLink>
+          {' | '}
+          <button type="button" onClick={deviationsLoadHandler}>Refresh</button>
+          {' )'}
+        </span>
       </div>
     </div>
   );
@@ -51,20 +54,13 @@ export default function Header({
 
 Header.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  userId: PropTypes.string,
   userIcon: PropTypes.string,
-  userName: PropTypes.string,
-  userType: PropTypes.string,
-  accessTokenExpires: PropTypes.number,
-  refreshTokenExpires: PropTypes.number,
   config: PropTypes.instanceOf(Config).isRequired,
+  revokeHandler: PropTypes.func.isRequired,
+  refreshHandler: PropTypes.func.isRequired,
+  deviationsLoadHandler: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
-  userId: '',
   userIcon: '',
-  userName: '',
-  userType: '',
-  accessTokenExpires: 0,
-  refreshTokenExpires: 0,
 };
