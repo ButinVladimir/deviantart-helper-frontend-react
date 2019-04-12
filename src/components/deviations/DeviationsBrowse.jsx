@@ -10,7 +10,7 @@ export default function DeviationsBrowse({
   return (
     <div>
       <DeviationsBrowseForm config={config} />
-      <DeviationsBrowseList />
+      <DeviationsBrowseList config={config} />
     </div>
   );
 }

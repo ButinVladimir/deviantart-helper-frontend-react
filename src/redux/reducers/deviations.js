@@ -76,19 +76,7 @@ const changeSortOrder = (deviationsState, sharedState, action) => ({
  */
 const browse = (deviationsState, sharedState, action) => ({
   deviationsBrowse: Array.from(action.deviations),
-});
-
-/**
- * @description
- * Change browse page value reducer.
- *
- * @param {DeviationsState} deviationsState - Deviations state.
- * @param {SharedState} sharedState - Shared state.
- * @param {DeviationsChangeBrowsePageAction} action - The action.
- * @returns {DeviationsState} New deviations state.
- */
-const changeBrowsePage = (deviationsState, sharedState, action) => ({
-  browsePage: action.page,
+  pageBrowse: action.page,
 });
 
 /**
@@ -126,10 +114,6 @@ export default (deviationsState, sharedState, action) => {
 
     case actions.DEVIATIONS_BROWSE:
       difference = browse(deviationsState, sharedState, action);
-      break;
-
-    case actions.DEVIATIONS_CHANGE_BROWSE_PAGE:
-      difference = changeBrowsePage(deviationsState, sharedState, action);
       break;
 
     default:

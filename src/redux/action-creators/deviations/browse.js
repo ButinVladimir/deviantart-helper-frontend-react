@@ -14,22 +14,16 @@ import createFetchGetAction from '../fetch-get';
  * @description
  * Creates action to load page with deviations to browse.
  *
- * @param {Object} jsonResponse - JSON response.
- * @returns {DeviationsBrowseAction} Action.
+ * @param {number} page - Number of page to be loaded.
+ * @returns {Function} Function to return action.
  */
-const deviationsBrowseActionCreator = ({ deviations }) => ({
+const deviationsBrowseActionCreator = page => ({ deviations }) => ({
   type: DEVIATIONS_BROWSE_ACTION,
   deviations,
+  page,
 });
 
-/**
- * @description
- * Loads page with deviations to browse.
- *
- * @param {Config} config - The config.
- * @returns {Promise<any>} The promise object.
- */
-export default config => async (dispatch, getState) => {
+export const loadPage = (page, config) => (dispatch, getState) => {
   const { deviations: state } = getState();
 
   const params = {};
@@ -45,5 +39,14 @@ export default config => async (dispatch, getState) => {
   params.sortfield = state.sortField;
   params.sortorder = state.sortOrder;
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE_ROUTE}${state.pageBrowse}`, deviationsBrowseActionCreator, config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE_ROUTE}${page}`, deviationsBrowseActionCreator(page), config, params));
 };
+
+/**
+ * @description
+ * Loads page with deviations to browse.
+ *
+ * @param {Config} config - The config.
+ * @returns {Promise<any>} The promise object.
+ */
+export default config => loadPage(0, config);

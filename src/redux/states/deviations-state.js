@@ -13,13 +13,14 @@ import * as sort from '../../consts/sort';
  * @property {string} publishedTimeBegin - Published time begin value.
  * @property {boolean} publishedTimeEnd - Published time end value.
  * @property {any[]} deviationsBrowse - Deviations to browse.
+ * @property {any[]} deviationDetails - Deviation details.
  */
 
 /**
  * @description
  * Creates default shared state.
  *
- * @returns {SharedState} Default state.
+ * @returns {DeviationState} Default state.
  */
 export default () => ({
   pageBrowse: 0,
@@ -29,4 +30,6 @@ export default () => ({
   publishedTimeBegin: '',
   publishedTimeEnd: '',
   deviationsBrowse: [],
+  deviationDetailsId: '',
+  deviationDetails: {},
 });

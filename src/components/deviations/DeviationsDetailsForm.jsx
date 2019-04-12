@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function DeviationsPreview({
-  thumbnail,
+export default function DeviationsDetailsForm({
+  preview,
   title,
   url,
-  id,
   publishedTime,
   views,
   favourites,
@@ -15,17 +14,13 @@ export default function DeviationsPreview({
   return (
     <li>
       <div>
-        <img alt={title} src={thumbnail.src} width={thumbnail.width} height={thumbnail.height} />
+        <img alt={title} src={preview.src} width={preview.width} height={preview.height} />
       </div>
       <div>
         <span>{title}</span>
         <span> (</span>
         <a href={url}>See on DA</a>
         <span>)</span>
-      </div>
-      <div>
-        <span>Id: </span>
-        <span>{id}</span>
       </div>
       <div>
         <span>Published time: </span>
@@ -51,15 +46,14 @@ export default function DeviationsPreview({
   );
 }
 
-DeviationsPreview.propTypes = {
-  thumbnail: PropTypes.shape({
+DeviationsDetailsForm.propTypes = {
+  preview: PropTypes.shape({
     src: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
   }).isRequired,
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   publishedTime: PropTypes.number.isRequired,
   views: PropTypes.number.isRequired,
   favourites: PropTypes.number.isRequired,

@@ -5,6 +5,8 @@ import deviationsChangePublishedTimeEndActionCreator from '../../redux/action-cr
 import deviationsChangeSortFieldActionCreator from '../../redux/action-creators/deviations/change-sort-field';
 import deviationsChangeSortOrderActionCreator from '../../redux/action-creators/deviations/change-sort-order';
 import deviationsBrowseActionCreator from '../../redux/action-creators/deviations/browse';
+import deviationsBrowsePrevPageActionCreator from '../../redux/action-creators/deviations/browse-prev-page';
+import deviationsBrowseNextPageActionCreator from '../../redux/action-creators/deviations/browse-next-page';
 import DeviationsBrowseForm from './DeviationsBrowseForm';
 
 /**
@@ -40,6 +42,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   sortFieldChangeHandler: e => dispatch(deviationsChangeSortFieldActionCreator(e.target.value)),
   sortOrderChangeHandler: e => dispatch(deviationsChangeSortOrderActionCreator(e.target.value)),
   submitHandler: () => dispatch(deviationsBrowseActionCreator(ownProps.config)),
+  prevPageHandler: () => dispatch(deviationsBrowsePrevPageActionCreator(ownProps.config)),
+  nextPageHandler: () => dispatch(deviationsBrowseNextPageActionCreator(ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm);
