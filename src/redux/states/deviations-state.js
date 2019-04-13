@@ -13,8 +13,11 @@ import * as sort from '../../consts/sort';
  * @property {string} publishedTimeBegin - Published time begin value.
  * @property {boolean} publishedTimeEnd - Published time end value.
  * @property {any[]} deviationsBrowse - Deviations to browse.
- * @property {any[]} deviationDetails - Deviation details.
+ * @property {Object} deviationDetails - Deviation details.
  */
+
+const date = new Date();
+date.setDate(date.getDate() - 5);
 
 /**
  * @description
@@ -29,7 +32,24 @@ export default () => ({
   title: '',
   publishedTimeBegin: '',
   publishedTimeEnd: '',
+  timestampBegin: date.getTime(),
+  timestampEnd: '',
   deviationsBrowse: [],
   deviationDetailsId: '',
-  deviationDetails: {},
+  deviationDetails: {
+    title: '',
+    url: '',
+    publishedTime: 0,
+    preview: {
+      src: '',
+      height: 0,
+      width: 0,
+    },
+    description: '',
+    views: 0,
+    favourites: 0,
+    comments: 0,
+    downloads: 0,
+  },
+  deviationDetailsMetadata: [],
 });

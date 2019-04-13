@@ -23,6 +23,13 @@ const deviationsBrowseActionCreator = page => ({ deviations }) => ({
   page,
 });
 
+/**
+ * @description
+ * Loads page with deviations and adds them to state.
+ *
+ * @param {number} page - The page number.
+ * @param {Config} config - The config.
+ */
 export const loadPage = (page, config) => (dispatch, getState) => {
   const { deviations: state } = getState();
 

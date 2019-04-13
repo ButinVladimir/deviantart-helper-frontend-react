@@ -3,27 +3,21 @@ import DeviationsDetailsForm from './DeviationsDetailsForm';
 
 /**
  * @description
- * Maps Redux state to header props.
+ * Maps Redux state to props.
  *
- * @param {State} state - The state.
+ * @param {State} state - The Redux state.
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  page: state.deviations.pageBrowse,
-  sortField: state.deviations.sortField,
-  sortOrder: state.deviations.sortOrder,
-  title: state.deviations.title,
-  publishedTimeBegin: state.deviations.publishedTimeBegin,
-  publishedTimeEnd: state.deviations.publishedTimeEnd,
+  preview: state.deviations.deviationDetails.preview,
+  title: state.deviations.deviationDetails.title,
+  url: state.deviations.deviationDetails.url,
+  publishedTime: state.deviations.deviationDetails.publishedTime,
+  description: state.deviations.deviationDetails.description,
+  views: state.deviations.deviationDetails.views,
+  favourites: state.deviations.deviationDetails.favourites,
+  comments: state.deviations.deviationDetails.comments,
+  downloads: state.deviations.deviationDetails.downloads,
 });
 
-/**
- * @description
- * Maps Redux dispatch to header props.
- *
- * @returns {Object} Props.
- */
-const mapDispatchToProps = () => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsDetailsForm);
+export default connect(mapStateToProps)(DeviationsDetailsForm);

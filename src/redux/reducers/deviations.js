@@ -67,6 +67,32 @@ const changeSortOrder = (deviationsState, sharedState, action) => ({
 
 /**
  * @description
+ * Change timestamp begin value reducer.
+ *
+ * @param {DeviationsState} deviationsState - Deviations state.
+ * @param {SharedState} sharedState - Shared state.
+ * @param {DeviationsChangeSortOrderAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeTimestampBegin = (deviationsState, sharedState, action) => ({
+  timestampBegin: action.timestampBegin,
+});
+
+/**
+ * @description
+ * Change timestamp end value reducer.
+ *
+ * @param {DeviationsState} deviationsState - Deviations state.
+ * @param {SharedState} sharedState - Shared state.
+ * @param {DeviationsChangeSortOrderAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeTimestampEnd = (deviationsState, sharedState, action) => ({
+  timestampEnd: action.timestampEnd,
+});
+
+/**
+ * @description
  * Browse reducer.
  *
  * @param {DeviationsState} deviationsState - Deviations state.
@@ -77,6 +103,33 @@ const changeSortOrder = (deviationsState, sharedState, action) => ({
 const browse = (deviationsState, sharedState, action) => ({
   deviationsBrowse: Array.from(action.deviations),
   pageBrowse: action.page,
+});
+
+/**
+ * @description
+ * Set id for deviation details reducer.
+ *
+ * @param {DeviationsState} deviationsState - Deviations state.
+ * @param {SharedState} sharedState - Shared state.
+ * @param {DeviationsDetailsSetIdAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const detailsSetid = (deviationsState, sharedState, action) => ({
+  deviationDetailsId: action.deviationDetailsId,
+});
+
+/**
+ * @description
+ * Set data for deviation details reducer.
+ *
+ * @param {DeviationsState} deviationsState - Deviations state.
+ * @param {SharedState} sharedState - Shared state.
+ * @param {DeviationsDetailsSetIdAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const detailsSetData = (deviationsState, sharedState, action) => ({
+  deviationDetails: Object.assign({}, deviationsState.deviationDetails, action.deviationDetails),
+  deviationDetailsMetadata: [].concat(action.deviationDetailsMetadata),
 });
 
 /**
@@ -112,8 +165,24 @@ export default (deviationsState, sharedState, action) => {
       difference = changeSortOrder(deviationsState, sharedState, action);
       break;
 
+    case actions.DEVIATIONS_CHANGE_TIMESTAMP_BEGIN:
+      difference = changeTimestampBegin(deviationsState, sharedState, action);
+      break;
+
+    case actions.DEVIATIONS_CHANGE_TIMESTAMP_END:
+      difference = changeTimestampEnd(deviationsState, sharedState, action);
+      break;
+
     case actions.DEVIATIONS_BROWSE:
       difference = browse(deviationsState, sharedState, action);
+      break;
+
+    case actions.DEVIATIONS_DETAILS_SET_ID:
+      difference = detailsSetid(deviationsState, sharedState, action);
+      break;
+
+    case actions.DEVIATIONS_DETAILS_SET_DATA:
+      difference = detailsSetData(deviationsState, sharedState, action);
       break;
 
     default:

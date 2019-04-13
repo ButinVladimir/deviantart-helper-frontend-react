@@ -4,7 +4,7 @@ import userLoadInfoActionCreator from '../../../redux/action-creators/user/load-
 
 /**
  * @description
- * Maps Redux state to user info props.
+ * Maps Redux state to props.
  *
  * @param {State} state - The state.
  * @returns {Object} Props.
@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 
 /**
  * @description
- * Maps Redux dispatch to app props.
+ * Maps Redux dispatch to props.
  *
  * @param {Function} dispatch - Redux dispatch.
  * @returns {Object} Props.

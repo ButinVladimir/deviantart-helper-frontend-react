@@ -4,7 +4,7 @@ import deviationsBrowseActionCreator from '../../redux/action-creators/deviation
 
 /**
  * @description
- * Maps Redux state to header props.
+ * Maps Redux state to props.
  *
  * @param {State} state - The state.
  * @returns {Object} Props.
@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 
 /**
  * @description
- * Maps Redux dispatch to header props.
+ * Maps Redux dispatch to props.
  *
  * @param {Function} dispatch - The dispatch.
  * @param {Object} ownProps - The own component props.

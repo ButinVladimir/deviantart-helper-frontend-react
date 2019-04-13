@@ -1,5 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { DEVIATIONS_DETAILS } from '../../consts/routes';
 
 export default function DeviationsPreview({
   thumbnail,
@@ -21,6 +23,9 @@ export default function DeviationsPreview({
         <span>{title}</span>
         <span> (</span>
         <a href={url}>See on DA</a>
+        <span>)</span>
+        <span> (</span>
+        <NavLink to={`${DEVIATIONS_DETAILS}${id}`}>See details</NavLink>
         <span>)</span>
       </div>
       <div>
