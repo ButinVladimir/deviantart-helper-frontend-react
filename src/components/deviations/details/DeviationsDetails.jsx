@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsDetailsForm from './DeviationsDetailsFormContainer';
 import DeviationsDetailsMetadata from './DeviationsDetailsMetadataContainer';
-import Config from '../../config/config';
+import Config from '../../../config/config';
 
 export default class DeviationsDetails extends Component {
   componentDidMount() {
@@ -49,6 +49,6 @@ DeviationsDetails.propTypes = {
   timestampEnd: PropTypes.string.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
-  loadDeviationDetailsHandler: PropTypes.func.isRequired,  
+  loadDeviationDetailsHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
 };

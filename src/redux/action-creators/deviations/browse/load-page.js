@@ -1,13 +1,13 @@
-import { DEVIATIONS_BROWSE as DEVIATIONS_BROWSE_ROUTE } from '../../../consts/server-routes';
-import { DEVIATIONS_BROWSE as DEVIATIONS_BROWSE_ACTION } from '../../actions';
-import createFetchGetAction from '../fetch-get';
+import { DEVIATIONS_BROWSE } from '../../../../consts/server-routes';
+import { DEVIATIONS_BROWSE_LOAD_PAGE } from '../../../actions';
+import createFetchGetAction from '../../fetch-get';
 
 /**
  * @global
  * @description
  * Action to load page with deviations to browse.
  *
- * @typedef {Object} DeviationsBrowseAction
+ * @typedef {Object} DeviationsBrowseLoadPageAction
  */
 
 /**
@@ -17,8 +17,8 @@ import createFetchGetAction from '../fetch-get';
  * @param {number} page - Number of page to be loaded.
  * @returns {Function} Function to return action.
  */
-const deviationsBrowseActionCreator = page => ({ deviations }) => ({
-  type: DEVIATIONS_BROWSE_ACTION,
+const deviationsBrowseLoadPageActionCreator = page => ({ deviations }) => ({
+  type: DEVIATIONS_BROWSE_LOAD_PAGE,
   deviations,
   page,
 });
@@ -31,7 +31,7 @@ const deviationsBrowseActionCreator = page => ({ deviations }) => ({
  * @param {Config} config - The config.
  */
 export const loadPage = (page, config) => (dispatch, getState) => {
-  const { deviations: state } = getState();
+  const { deviations: { browse: state } } = getState();
 
   const params = {};
   if (state.title) {
@@ -46,12 +46,12 @@ export const loadPage = (page, config) => (dispatch, getState) => {
   params.sortfield = state.sortField;
   params.sortorder = state.sortOrder;
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE_ROUTE}${page}`, deviationsBrowseActionCreator(page), config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE}${page}`, deviationsBrowseLoadPageActionCreator(page), config, params));
 };
 
 /**
  * @description
- * Loads page with deviations to browse.
+ * Loads first page with deviations to browse.
  *
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.

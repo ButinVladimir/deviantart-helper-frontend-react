@@ -1,6 +1,6 @@
-import createDefaultSharedState from './shared-state';
-import createDefaultUserState from './user-state';
-import createDefaultDeviationsState from './deviations-state';
+import createDefaultSharedState from './shared';
+import createDefaultUserState from './user';
+import createDefaultDeviationsState from './deviations';
 
 /**
  * @global

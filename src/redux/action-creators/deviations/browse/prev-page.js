@@ -1,5 +1,12 @@
-import { loadPage } from './browse';
+import { loadPage } from './load-page';
 
+/**
+ * @global
+ * @description
+ * Loads previous page with deviations to browse.
+ *
+ * @param {Config} config - The config.
+ */
 export default config => (dispatch, getState) => {
   const state = getState();
 

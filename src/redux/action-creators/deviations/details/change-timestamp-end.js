@@ -1,11 +1,11 @@
-import { DEVIATIONS_CHANGE_TIMESTAMP_END } from '../../actions';
+import { DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END } from '../../../actions';
 
 /**
  * @global
  * @description
  * Action to change timestamp end value on deviations page.
  *
- * @typedef {Object} DeviationsChangeTimestampEndAction
+ * @typedef {Object} DeviationsDetailsChangeTimestampEndAction
  */
 
 /**
@@ -13,9 +13,9 @@ import { DEVIATIONS_CHANGE_TIMESTAMP_END } from '../../actions';
  * Creates action to change timestamp end value on deviations page.
  *
  * @param {string} timestampEnd - Timestamp end value.
- * @returns {DeviationsChangeTimestampEndAction} Action.
+ * @returns {DeviationsDetailsChangeTimestampEndAction} Action.
  */
 export default timestampEnd => ({
-  type: DEVIATIONS_CHANGE_TIMESTAMP_END,
+  type: DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END,
   timestampEnd,
 });

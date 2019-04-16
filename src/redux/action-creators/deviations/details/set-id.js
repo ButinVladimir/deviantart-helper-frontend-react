@@ -1,5 +1,5 @@
-import { DEVIATIONS_DETAILS_SET_ID } from '../../actions';
-import deviationsDetailsSetDataCreator from './details-set-data';
+import { DEVIATIONS_DETAILS_SET_ID } from '../../../actions';
+import deviationsDetailsSetDataCreator from './set-data';
 
 /**
  * @global
@@ -11,14 +11,14 @@ import deviationsDetailsSetDataCreator from './details-set-data';
 
 /**
  * @description
- * Creates action to change sort field value on deviations page.
+ * Creates action to set id value on deviations details page.
  *
- * @param {string} deviationDetailsId - Deviation id value.
+ * @param {string} id - Deviation id value.
  * @returns {DeviationsDetailsSetIdAction} Action.
  */
-const deviationDetailsSetIdActionCreator = deviationDetailsId => ({
+const deviationDetailsSetIdActionCreator = id => ({
   type: DEVIATIONS_DETAILS_SET_ID,
-  deviationDetailsId,
+  id,
 });
 
 /**

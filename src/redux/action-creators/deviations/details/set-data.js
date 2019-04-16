@@ -1,27 +1,27 @@
-import { DEVIATIONS_DETAILS } from '../../../consts/server-routes';
-import { DEVIATIONS_DETAILS_SET_DATA } from '../../actions';
-import createFetchGetAction from '../fetch-get';
+import { DEVIATIONS_DETAILS } from '../../../../consts/server-routes';
+import { DEVIATIONS_DETAILS_SET_DATA } from '../../../actions';
+import createFetchGetAction from '../../fetch-get';
 
 /**
  * @global
  * @description
- * Action to set deviations details data.
+ * Action to set deviations data on deviations details page.
  *
  * @typedef {Object} DeviationsDetailsSetDataAction
  */
 
 /**
  * @description
- * Creates action to set deviations details data.
+ * Creates action to set deviations data on deviations details page.
  *
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
 const deviationsDetailsSetDataCreator = ({ deviation, metadata }) => ({
   type: DEVIATIONS_DETAILS_SET_DATA,
-  deviationDetails: deviation,
-  deviationDetailsMetadata: metadata.map(md => ({
-    timestamp: new Date(md.timestamp).toLocaleString(),
+  deviation,
+  metadata: metadata.map(md => ({
+    timestamp: md.timestamp,
     views: md.views,
     favourites: md.favourites,
     comments: md.comments,
@@ -36,8 +36,8 @@ const deviationsDetailsSetDataCreator = ({ deviation, metadata }) => ({
  * @param {Config} config - The config.
  */
 export default config => (dispatch, getState) => {
-  const { deviations: state } = getState();
-  const deviationId = state.deviationDetailsId;
+  const { deviations: { details: state } } = getState();
+  const { id } = state;
 
   const params = {};
   if (state.timestampBegin) {
@@ -47,5 +47,5 @@ export default config => (dispatch, getState) => {
     params.timestampend = state.timestampEnd;
   }
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_DETAILS}${deviationId}`, deviationsDetailsSetDataCreator, config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_DETAILS}${id}`, deviationsDetailsSetDataCreator, config, params));
 };

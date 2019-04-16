@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as sort from '../../consts/sort';
-import Config from '../../config/config';
+import * as sort from '../../../consts/sort';
+import Config from '../../../config/config';
 
 export default function DeviationsBrowseForm({
   // eslint-disable-next-line no-unused-vars

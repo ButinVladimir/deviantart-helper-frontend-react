@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsPreview from './DeviationsPreview';
-import Config from '../../config/config';
+import Config from '../../../config/config';
 
 export default class DeviationsBrowseList extends Component {
   componentDidMount() {

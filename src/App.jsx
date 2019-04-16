@@ -2,13 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Config from './config/config';
-import AuthGuard from './components/AuthGuard';
 import Header from './components/header/HeaderContainer';
 import Message from './components/message/MessageContainer';
 import Error from './components/error/ErrorContainer';
 import UserInfo from './components/user/info/UserInfoContainer';
-import DeviationsBrowse from './components/deviations/DeviationsBrowse';
-import DeviationsDetails from './components/deviations/DeviationsDetailsContainer';
+import DeviationsBrowse from './components/deviations/browse/DeviationsBrowse';
+import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
 import * as routes from './consts/routes';
 
 export default class App extends Component {
@@ -26,37 +25,31 @@ export default class App extends Component {
         <Header config={config} />
         <Message />
         <Error />
-        {isLoggedIn && 
+        {isLoggedIn && (
           <Switch>
             <Route
               exact
               path={routes.USER_INFO}
               render={() => (
-                <AuthGuard isLoggedIn={isLoggedIn}>
-                  <UserInfo config={config} />
-                </AuthGuard>
+                <UserInfo config={config} />
               )}
             />
             <Route
               exact
               path={routes.DEVIATIONS_BROWSE}
               render={() => (
-                <AuthGuard isLoggedIn={isLoggedIn}>
-                  <DeviationsBrowse config={config} />
-                </AuthGuard>
+                <DeviationsBrowse config={config} />
               )}
             />
             <Route
               exact
               path={routes.DEVIATIONS_DETAILS_WITH_ID}
               render={props => (
-                <AuthGuard isLoggedIn={isLoggedIn}>
-                  <DeviationsDetails {...props} config={config} />
-                </AuthGuard>
+                <DeviationsDetails {...props} config={config} />
               )}
             />
           </Switch>
-        }
+        )}
       </Fragment>
     );
   }

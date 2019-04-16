@@ -1,4 +1,4 @@
-import { DEVIATIONS_CHANGE_TITLE } from '../../actions';
+import { DEVIATIONS_BROWSE_CHANGE_TITLE } from '../../../actions';
 
 /**
  * @global
@@ -16,6 +16,6 @@ import { DEVIATIONS_CHANGE_TITLE } from '../../actions';
  * @returns {DeviationsChangeTitleAction} Action.
  */
 export default title => ({
-  type: DEVIATIONS_CHANGE_TITLE,
+  type: DEVIATIONS_BROWSE_CHANGE_TITLE,
   title,
 });
