@@ -1,25 +1,26 @@
-import { DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../consts/server-routes';
-import { DEVIATIONS_BROWSE_LOAD_PAGE } from '../../../actions';
+import { DEVIATIONS_STATISTICS, PAGE_PARAM } from '../../../../consts/server-routes';
+import { DEVIATIONS_STATISTICS_LOAD_PAGE } from '../../../actions';
 import createFetchGetAction from '../../fetch-get';
 
 /**
  * @global
  * @description
- * Action to load page with deviations to browse.
+ * Action to load page with deviations to get statistics.
  *
- * @typedef {Object} DeviationsBrowseLoadPageAction
+ * @typedef {Object} DeviationsStatisticsLoadPageAction
  */
 
 /**
  * @description
- * Creates action to load page with deviations to browse.
+ * Creates action to load page with deviations to get statistics.
  *
  * @param {number} page - Number of page to be loaded.
  * @returns {Function} Function to return action.
  */
-const deviationsBrowseLoadPageActionCreator = page => ({ deviations }) => ({
-  type: DEVIATIONS_BROWSE_LOAD_PAGE,
+const deviationsStatisticsLoadPageActionCreator = page => ({ deviations, metadata }) => ({
+  type: DEVIATIONS_STATISTICS_LOAD_PAGE,
   deviations,
+  metadata,
   page,
 });
 
@@ -31,7 +32,7 @@ const deviationsBrowseLoadPageActionCreator = page => ({ deviations }) => ({
  * @param {Config} config - The config.
  */
 export const loadPage = (page, config) => (dispatch, getState) => {
-  const { deviations: { browse: state } } = getState();
+  const { deviations: { statistics: state } } = getState();
 
   const params = {};
   if (state.title) {
@@ -45,13 +46,19 @@ export const loadPage = (page, config) => (dispatch, getState) => {
   }
   params.sortfield = state.sortField;
   params.sortorder = state.sortOrder;
+  if (state.timestampBegin) {
+    params.timestampbegin = state.timestampBegin;
+  }
+  if (state.timestampEnd) {
+    params.timestampend = state.timestampEnd;
+  }
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE.replace(PAGE_PARAM, page)}`, deviationsBrowseLoadPageActionCreator(page), config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page)}`, deviationsStatisticsLoadPageActionCreator(page), config, params));
 };
 
 /**
  * @description
- * Loads first page with deviations to browse.
+ * Loads first page with deviations to get statistics.
  *
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.

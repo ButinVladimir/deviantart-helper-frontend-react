@@ -8,6 +8,7 @@ import Error from './components/error/ErrorContainer';
 import UserInfo from './components/user/info/UserInfoContainer';
 import DeviationsBrowse from './components/deviations/browse/DeviationsBrowse';
 import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
+import DeviationsStatistics from './components/deviations/statistics/DeviationsStatistics';
 import * as routes from './consts/routes';
 
 export default class App extends Component {
@@ -43,9 +44,16 @@ export default class App extends Component {
             />
             <Route
               exact
-              path={routes.DEVIATIONS_DETAILS_WITH_ID}
+              path={routes.DEVIATIONS_DETAILS}
               render={props => (
                 <DeviationsDetails {...props} config={config} />
+              )}
+            />
+            <Route
+              exact
+              path={routes.DEVIATIONS_STATISTICS}
+              render={() => (
+                <DeviationsStatistics config={config} />
               )}
             />
           </Switch>

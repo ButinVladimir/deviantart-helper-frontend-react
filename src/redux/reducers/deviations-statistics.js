@@ -1,0 +1,159 @@
+import * as actions from '../actions';
+
+/**
+ * @description
+ * Change title value reducer.
+ *
+ * @param {DeviationsStatisticsChangeTitleAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeTitle = action => ({
+  title: action.title,
+});
+
+/**
+ * @description
+ * Change published time begin value reducer.
+ *
+ * @param {DeviationsStatisticsChangePublishedTimeBeginAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changePublishedTimeBegin = action => ({
+  publishedTimeBegin: action.publishedTimeBegin,
+});
+
+/**
+ * @description
+ * Change published time end value reducer.
+ *
+ * @param {DeviationsStatisticsChangePublishedTimeEndAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changePublishedTimeEnd = action => ({
+  publishedTimeEnd: action.publishedTimeEnd,
+});
+
+/**
+ * @description
+ * Change sort field value reducer.
+ *
+ * @param {DeviationsStatisticsChangeSortFieldAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeSortField = action => ({
+  sortField: action.sortField,
+});
+
+/**
+ * @description
+ * Change sort order value reducer.
+ *
+ * @param {DeviationsStatisticsChangeSortOrderAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeSortOrder = action => ({
+  sortOrder: action.sortOrder,
+});
+
+/**
+ * @description
+ * Change timestamp begin value reducer.
+ *
+ * @param {DeviationsStatisticsChangeTimestampBeginAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeTimestampBegin = action => ({
+  timestampBegin: action.timestampBegin,
+});
+
+/**
+ * @description
+ * Change timestamp end value reducer.
+ *
+ * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeTimestampEnd = action => ({
+  timestampEnd: action.timestampEnd,
+});
+
+/**
+ * @description
+ * Change chart type value reducer.
+ *
+ * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const changeChartType = action => ({
+  chartType: action.chartType,
+});
+
+/**
+ * @description
+ * Load page reducer.
+ *
+ * @param {DeviationsStatisticsLoadPageAction} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+const loadPage = action => ({
+  deviations: Array.from(action.deviations),
+  metadata: Array.from(action.metadata),
+  page: action.page,
+});
+
+/**
+ * @description
+ * Deviations statistics page state reducer.
+ *
+ * @param {DeviationStatisticsState} deviationsStatisticsState - Deviations statistics page state.
+ * @param {SharedState} sharedState - Shared state.
+ * @param {Object} action - The action.
+ * @returns {DeviationsState} New deviations state.
+ */
+export default (deviationsStatisticsState, sharedState, action) => {
+  let difference = null;
+
+  switch (action.type) {
+    case actions.DEVIATIONS_STATISTICS_CHANGE_TITLE:
+      difference = changeTitle(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_PUBLISHED_TIME_BEGIN:
+      difference = changePublishedTimeBegin(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_PUBLISHED_TIME_END:
+      difference = changePublishedTimeEnd(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_SORT_FIELD:
+      difference = changeSortField(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_SORT_ORDER:
+      difference = changeSortOrder(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_TIMESTAMP_BEGIN:
+      difference = changeTimestampBegin(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_TIMESTAMP_END:
+      difference = changeTimestampEnd(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_CHANGE_CHART_TYPE:
+      difference = changeChartType(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_LOAD_PAGE:
+      difference = loadPage(action);
+      break;
+
+    default:
+  }
+
+  return difference !== null
+    ? Object.assign({}, deviationsStatisticsState, difference)
+    : deviationsStatisticsState;
+};

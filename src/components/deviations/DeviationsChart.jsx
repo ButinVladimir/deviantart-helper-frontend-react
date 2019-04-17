@@ -73,6 +73,8 @@ export const tooltipFormatter = titles => (value, name) => [
   value, titles.get(name),
 ];
 
+const millisecondsInDay = 24 * 60 * 60 * 1000;
+
 /**
  * @description
  * Label formatter for chart.
@@ -81,7 +83,18 @@ export const tooltipFormatter = titles => (value, name) => [
  * @param {number} timestamp - The metadata timestamp.
  * @returns {string} Converted date.
  */
-export const tooltipLabelFormatter = timestamp => new Date(timestamp).toLocaleString();
+export const tooltipLabelFormatter = timestamp => new Date(timestamp).toLocaleDateString();
+
+/**
+ * @description
+ * Rounds up the timestamp.
+ *
+ * @param {number} timestamp - The timestamp.
+ * @returns {number} Rounded timestamp.
+ */
+export const roundTimestamp = timestamp => Math.floor(
+  timestamp / millisecondsInDay,
+) * millisecondsInDay;
 
 export default function DeviationsChart({
   metadata,
@@ -100,9 +113,27 @@ export default function DeviationsChart({
     </option>
   ));
 
-  const convertedMetadata = metadata.map(md => ({
-    timestamp: md.timestamp,
-    [md.deviationId]: md[chartType],
+  /**
+   * Recharts doesn't merge data cells with same timestamp by itself.
+   * It had to be done manually.
+   */
+  const flattenedMetadataMap = new Map();
+  metadata.forEach((md) => {
+    const timestamp = roundTimestamp(md.timestamp);
+    let entry;
+
+    if (!flattenedMetadataMap.has(timestamp)) {
+      entry = {};
+      flattenedMetadataMap.set(timestamp, entry);
+    } else {
+      entry = flattenedMetadataMap.get(timestamp);
+    }
+
+    entry[md.deviationId] = md[chartType];
+  });
+  const convertedMetadata = Array.from(flattenedMetadataMap.entries()).map(e => ({
+    timestamp: e[0],
+    ...e[1],
   }));
 
   const lines = Array.from(titles.keys()).map(k => (
@@ -124,13 +155,13 @@ export default function DeviationsChart({
       <div>
         <LineChart
           width={800}
-          height={300}
+          height={500}
           data={convertedMetadata}
           margin={{
             top: 0,
             right: 0,
             left: 10,
-            bottom: 20,
+            bottom: 200,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

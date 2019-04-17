@@ -44,6 +44,8 @@ export default function Header({
           {'( '}
           <NavLink to={routes.DEVIATIONS_BROWSE}>Browse</NavLink>
           {' | '}
+          <NavLink to={routes.DEVIATIONS_STATISTICS}>Statistics</NavLink>
+          {' | '}
           <button type="button" onClick={deviationsLoadHandler}>Refresh</button>
           {' )'}
         </span>

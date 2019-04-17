@@ -10,5 +10,5 @@ import { loadPage } from './load-page';
 export default config => (dispatch, getState) => {
   const state = getState();
 
-  dispatch(loadPage(state.deviations.pageBrowse + 1, config));
+  dispatch(loadPage(state.deviations.browse.page + 1, config));
 };
