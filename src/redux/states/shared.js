@@ -5,6 +5,7 @@
  *
  * @typedef {Object} SharedState
  * @property {boolean} blocked - Is app blocked from user input.
+ * @property {boolean} menuToggled - Is menu is toggled.
  * @property {boolean} isLoggedIn - Is user logged in.
  * @property {string} message - Latest message.
  * @property {boolean} showMessage - Is message shown.
@@ -20,6 +21,7 @@
  */
 export default () => ({
   blocked: false,
+  menuToggled: false,
   isLoggedIn: false,
   message: '',
   showMessage: false,

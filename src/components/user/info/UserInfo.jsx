@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Content } from 'react-bulma-components';
 import Config from '../../../config/config';
 
 export default class UserInfo extends Component {
@@ -19,28 +20,29 @@ export default class UserInfo extends Component {
     } = this.props;
 
     return (
-      <div>
-        <div>
+      <Content>
+        <h2 className="title">Current user info</h2>
+        <p>
           <span>User: </span>
-          <b>{userName}</b>
-        </div>
-        <div>
+          <strong>{userName}</strong>
+        </p>
+        <p>
           <span>User id: </span>
-          <b>{userId}</b>
-        </div>
-        <div>
+          <strong>{userId}</strong>
+        </p>
+        <p>
           <span>User type: </span>
-          <b>{userType}</b>
-        </div>
-        <div>
+          <strong>{userType}</strong>
+        </p>
+        <p>
           <span>Access token expires: </span>
-          <b>{new Date(accessTokenExpires).toLocaleString()}</b>
-        </div>
-        <div>
+          <strong>{new Date(accessTokenExpires).toLocaleString()}</strong>
+        </p>
+        <p>
           <span>Refresh token expires: </span>
-          <b>{new Date(refreshTokenExpires).toLocaleString()}</b>
-        </div>
-      </div>
+          <strong>{new Date(refreshTokenExpires).toLocaleString()}</strong>
+        </p>
+      </Content>
     );
   }
 }

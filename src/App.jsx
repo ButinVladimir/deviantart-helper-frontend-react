@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Section, Container } from 'react-bulma-components';
 import Config from './config/config';
 import Header from './components/header/HeaderContainer';
 import Message from './components/message/MessageContainer';
@@ -11,7 +12,7 @@ import DeviationsDetails from './components/deviations/details/DeviationsDetails
 import DeviationsStatistics from './components/deviations/statistics/DeviationsStatistics';
 import * as routes from './consts/routes';
 
-export default class App extends Component {
+export default class App extends PureComponent {
   componentDidMount() {
     const { fetchUserData, config } = this.props;
 
@@ -27,36 +28,40 @@ export default class App extends Component {
         <Message />
         <Error />
         {isLoggedIn && (
-          <Switch>
-            <Route
-              exact
-              path={routes.USER_INFO}
-              render={() => (
-                <UserInfo config={config} />
-              )}
-            />
-            <Route
-              exact
-              path={routes.DEVIATIONS_BROWSE}
-              render={() => (
-                <DeviationsBrowse config={config} />
-              )}
-            />
-            <Route
-              exact
-              path={routes.DEVIATIONS_DETAILS}
-              render={props => (
-                <DeviationsDetails {...props} config={config} />
-              )}
-            />
-            <Route
-              exact
-              path={routes.DEVIATIONS_STATISTICS}
-              render={() => (
-                <DeviationsStatistics config={config} />
-              )}
-            />
-          </Switch>
+          <Section>
+            <Container>
+              <Switch>
+                <Route
+                  exact
+                  path={routes.USER_INFO}
+                  render={() => (
+                    <UserInfo config={config} />
+                  )}
+                />
+                <Route
+                  exact
+                  path={routes.DEVIATIONS_BROWSE}
+                  render={() => (
+                    <DeviationsBrowse config={config} />
+                  )}
+                />
+                <Route
+                  exact
+                  path={routes.DEVIATIONS_DETAILS}
+                  render={props => (
+                    <DeviationsDetails {...props} config={config} />
+                  )}
+                />
+                <Route
+                  exact
+                  path={routes.DEVIATIONS_STATISTICS}
+                  render={() => (
+                    <DeviationsStatistics config={config} />
+                  )}
+                />
+              </Switch>
+            </Container>
+          </Section>
         )}
       </Fragment>
     );

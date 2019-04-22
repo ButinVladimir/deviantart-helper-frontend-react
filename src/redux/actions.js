@@ -1,3 +1,4 @@
+export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const MESSAGE_SHOW = 'MESSAGE_SHOW';
 export const MESSAGE_HIDE = 'MESSAGE_HIDE';
 export const ERROR_SHOW = 'ERROR_SHOW';

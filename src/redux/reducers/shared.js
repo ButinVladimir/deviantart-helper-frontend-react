@@ -2,6 +2,17 @@ import * as actions from '../actions';
 
 /**
  * @description
+ * Toggle menu reducer.
+ *
+ * @param {SharedState} sharedState - Shared state.
+ * @returns {SharedState} New shared state.
+ */
+const toggleMenu = sharedState => ({
+  menuToggled: !sharedState.menuToggled,
+});
+
+/**
+ * @description
  * Load user info reducer.
  *
  * @returns {SharedState} New shared state.
@@ -79,6 +90,10 @@ export default (sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
+    case actions.TOGGLE_MENU:
+      difference = toggleMenu(sharedState);
+      break;
+
     case actions.USER_LOAD_INFO:
       difference = loadUserInfo();
       break;

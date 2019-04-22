@@ -1,5 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Section,
+  Container,
+  Button,
+  Notification,
+} from 'react-bulma-components';
 
 export default function Message({
   showMessage,
@@ -9,10 +15,14 @@ export default function Message({
   return (
     <Fragment>
       {showMessage && (
-        <div>
-          <span>{`Message: ${message}`}</span>
-          <button type="button" onClick={hideMessageHandler}>Hide</button>
-        </div>
+        <Section>
+          <Container breakpoint="fullhd">
+            <Notification color="info">
+              <Button remove onClick={hideMessageHandler}>Hide</Button>
+              {message}
+            </Notification>
+          </Container>
+        </Section>
       )}
     </Fragment>
   );
