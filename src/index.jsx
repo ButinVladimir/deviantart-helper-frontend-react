@@ -7,8 +7,7 @@ import thunk from 'redux-thunk';
 import config from './config';
 import App from './AppContainer';
 import reducer from './redux/reducers/reducer';
-import 'react-bulma-components/dist/react-bulma-components.min.css';
-import './index.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 ReactDOM.render(

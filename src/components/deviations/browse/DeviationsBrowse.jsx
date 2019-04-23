@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsBrowseForm from './DeviationsBrowseFormContainer';
 import DeviationsBrowseList from './DeviationsBrowseListContainer';
@@ -8,10 +8,10 @@ export default function DeviationsBrowse({
   config,
 }) {
   return (
-    <div>
+    <Fragment>
       <DeviationsBrowseForm config={config} />
       <DeviationsBrowseList config={config} />
-    </div>
+    </Fragment>
   );
 }
 

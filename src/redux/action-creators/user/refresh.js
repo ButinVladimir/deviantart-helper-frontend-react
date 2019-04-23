@@ -1,7 +1,10 @@
 import { AUTH_REFRESH } from '../../../consts/server-routes';
 import showMessageActionCreator from '../shared/show-message';
 import userLoadInfoActionCreator from './load-info';
+import userLoadInfoStartActionCreator from './load-info-start';
+import userLoadInfoFinishActionCreator from './load-info-finish';
 import createFetchAction from '../fetch-get';
+
 
 /**
  * @description
@@ -25,5 +28,12 @@ const refreshActionCreator = (config, dispatch) => () => {
  * @returns {Promise<any>} The promise object.
  */
 export default config => async (dispatch) => {
-  dispatch(createFetchAction(AUTH_REFRESH, refreshActionCreator(config, dispatch), config));
+  dispatch(userLoadInfoStartActionCreator());
+
+  dispatch(createFetchAction(
+    AUTH_REFRESH,
+    refreshActionCreator(config, dispatch),
+    userLoadInfoFinishActionCreator(),
+    config,
+  ));
 };

@@ -17,7 +17,7 @@ import createFetchGetAction from '../../fetch-get';
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsDetailsSetDataCreator = ({ deviation, metadata }) => ({
+const deviationsDetailsSetDataActionCreator = ({ deviation, metadata }) => ({
   type: DEVIATIONS_DETAILS_SET_DATA,
   deviation,
   metadata: metadata.map(md => ({
@@ -47,5 +47,5 @@ export default config => (dispatch, getState) => {
     params.timestampend = state.timestampEnd;
   }
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_DETAILS}${id}`, deviationsDetailsSetDataCreator, config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_DETAILS}${id}`, deviationsDetailsSetDataActionCreator, {}, config, params));
 };

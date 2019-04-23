@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Navbar } from 'react-bulma-components';
-import HeaderNotLoggedIn from './HeaderNotLoggedIn';
+import Container from 'react-bulma-components/lib/components/container';
+import Navbar from 'react-bulma-components/lib/components/navbar';
+import HeaderNotLoggedIn from './HeaderNotLoggedInContainer';
 import HeaderLoggedIn from './HeaderLoggedInContainer';
 import Config from '../../config/config';
 

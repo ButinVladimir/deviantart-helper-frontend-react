@@ -32,6 +32,7 @@ const loadUserInfo = () => ({
  */
 const showMessage = (sharedState, action) => ({
   showMessage: true,
+  messageColor: 'info',
   message: action.message,
 });
 
@@ -54,18 +55,29 @@ const hideMessage = () => ({
  * @returns {SharedState} New shared state.
  */
 const showError = (sharedState, action) => ({
-  showError: true,
-  errorMessage: action.errorMessage,
+  showMessage: true,
+  messageColor: 'danger',
+  message: action.message,
 });
 
 /**
  * @description
- * Hide error reducer.
+ * Start revoke reducer.
  *
  * @returns {SharedState} New shared state.
  */
-const hideError = () => ({
-  showError: false,
+const revokeStart = () => ({
+  revokeLoading: true,
+});
+
+/**
+ * @description
+ * Finish revoke reducer.
+ *
+ * @returns {SharedState} New shared state.
+ */
+const revokeFinish = () => ({
+  revokeLoading: false,
 });
 
 /**
@@ -75,6 +87,7 @@ const hideError = () => ({
  * @returns {SharedState} New shared state.
  */
 const revoke = () => ({
+  revokeLoading: false,
   isLoggedIn: false,
 });
 
@@ -110,11 +123,15 @@ export default (sharedState, action) => {
       difference = showError(sharedState, action);
       break;
 
-    case actions.ERROR_HIDE:
-      difference = hideError();
+    case actions.REVOKE_START:
+      difference = revokeStart();
       break;
 
-    case actions.USER_REVOKE:
+    case actions.REVOKE_FINISH:
+      difference = revokeFinish();
+      break;
+
+    case actions.REVOKE:
       difference = revoke();
       break;
 

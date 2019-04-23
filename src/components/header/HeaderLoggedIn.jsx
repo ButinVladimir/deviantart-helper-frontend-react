@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Button } from 'react-bulma-components';
+import Navbar from 'react-bulma-components/lib/components/navbar';
+import Button from 'react-bulma-components/lib/components/button';
 import * as routes from '../../consts/routes';
 import Config from '../../config/config';
 
 export default function HeaderLoggedIn({
+  deviationsLoading,
+  revokeLoading,
   userName,
   userIcon,
   // eslint-disable-next-line no-unused-vars
@@ -44,8 +47,8 @@ export default function HeaderLoggedIn({
         <Navbar.Container position="end">
           <Navbar.Item>
             <Button.Group>
-              <Button onClick={deviationsLoadHandler} color="light">Refresh data</Button>
-              <Button onClick={revokeHandler} color="danger">Log out</Button>
+              <Button onClick={deviationsLoadHandler} color="light" loading={deviationsLoading}>Refresh data</Button>
+              <Button onClick={revokeHandler} color="danger" loading={revokeLoading}>Log out</Button>
             </Button.Group>
           </Navbar.Item>
         </Navbar.Container>
@@ -55,6 +58,8 @@ export default function HeaderLoggedIn({
 }
 
 HeaderLoggedIn.propTypes = {
+  deviationsLoading: PropTypes.bool.isRequired,
+  revokeLoading: PropTypes.bool.isRequired,
   userName: PropTypes.string,
   userIcon: PropTypes.string,
   config: PropTypes.instanceOf(Config).isRequired,

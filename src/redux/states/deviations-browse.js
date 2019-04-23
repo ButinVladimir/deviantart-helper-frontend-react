@@ -53,7 +53,7 @@ export default () => ({
   sortField: sort.FIELD_PUBLISHED_TIME,
   sortOrder: sort.ORDER_DESC,
   title: '',
-  publishedTimeBegin: '',
-  publishedTimeEnd: '',
+  publishedTimeBegin: 0,
+  publishedTimeEnd: 0,
   deviations: [],
 });

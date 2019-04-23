@@ -36,9 +36,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   titleChangeHandler: e => dispatch(deviationsBrowseChangeTitleActionCreator(e.target.value)),
   publishedTimeBeginChangeHandler:
-    e => dispatch(deviationsBrowseChangePublishedTimeBeginActionCreator(e.target.value)),
+    value => dispatch(deviationsBrowseChangePublishedTimeBeginActionCreator(value)),
   publishedTimeEndChangeHandler:
-    e => dispatch(deviationsBrowseChangePublishedTimeEndActionCreator(e.target.value)),
+    value => dispatch(deviationsBrowseChangePublishedTimeEndActionCreator(value)),
   sortFieldChangeHandler:
     e => dispatch(deviationsBrowseChangeSortFieldActionCreator(e.target.value)),
   sortOrderChangeHandler:

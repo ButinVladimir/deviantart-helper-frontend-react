@@ -4,13 +4,12 @@
  * State shared between pages.
  *
  * @typedef {Object} SharedState
- * @property {boolean} blocked - Is app blocked from user input.
  * @property {boolean} menuToggled - Is menu is toggled.
  * @property {boolean} isLoggedIn - Is user logged in.
- * @property {string} message - Latest message.
+ * @property {boolean} revokeLoading - Is user revoking session.
+ * @property {string} messageColor - Message color.
+ * @property {string} message - Message text.
  * @property {boolean} showMessage - Is message shown.
- * @property {string} errorMessage - Latest error message.
- * @property {boolean} showError - Is error shown.
  */
 
 /**
@@ -20,11 +19,10 @@
  * @returns {SharedState} Default state.
  */
 export default () => ({
-  blocked: false,
   menuToggled: false,
   isLoggedIn: false,
+  revokeLoading: false,
+  messageColor: '',
   message: '',
   showMessage: false,
-  errorMessage: '',
-  showError: false,
 });

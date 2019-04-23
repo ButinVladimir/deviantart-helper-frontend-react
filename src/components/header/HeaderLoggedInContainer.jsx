@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import HeaderLoggedIn from './HeaderLoggedIn';
 import toggleMenuActionCreator from '../../redux/action-creators/shared/toggle-menu';
-import userRevokeActionCreator from '../../redux/action-creators/user/revoke';
+import revokeStartActionCreator from '../../redux/action-creators/shared/revoke-start';
 import userRefreshActionCreator from '../../redux/action-creators/user/refresh';
 import deviationsLoadActionCreator from '../../redux/action-creators/deviations/load';
 
@@ -13,6 +13,8 @@ import deviationsLoadActionCreator from '../../redux/action-creators/deviations/
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
+  deviationsLoading: state.deviations.common.deviationsLoading,
+  revokeLoading: state.shared.revokeLoading,
   userName: state.user.userName,
   userIcon: state.user.userIcon,
 });
@@ -27,7 +29,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleMenuHandler: () => dispatch(toggleMenuActionCreator()),
-  revokeHandler: () => dispatch(userRevokeActionCreator(ownProps.config)),
+  revokeHandler: () => dispatch(revokeStartActionCreator(ownProps.config)),
   refreshHandler: () => dispatch(userRefreshActionCreator(ownProps.config)),
   deviationsLoadHandler: () => dispatch(deviationsLoadActionCreator(ownProps.config)),
 });

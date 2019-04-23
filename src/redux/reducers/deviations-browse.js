@@ -5,7 +5,7 @@ import * as actions from '../actions';
  * Change title value reducer.
  *
  * @param {DeviationsBrowseChangeTitleAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const changeTitle = action => ({
   title: action.title,
@@ -16,7 +16,7 @@ const changeTitle = action => ({
  * Change published time begin value reducer.
  *
  * @param {DeviationsBrowseChangePublishedTimeBeginAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const changePublishedTimeBegin = action => ({
   publishedTimeBegin: action.publishedTimeBegin,
@@ -27,7 +27,7 @@ const changePublishedTimeBegin = action => ({
  * Change published time end value reducer.
  *
  * @param {DeviationsBrowseChangePublishedTimeEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const changePublishedTimeEnd = action => ({
   publishedTimeEnd: action.publishedTimeEnd,
@@ -38,7 +38,7 @@ const changePublishedTimeEnd = action => ({
  * Change sort field value reducer.
  *
  * @param {DeviationsBrowseChangeSortFieldAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const changeSortField = action => ({
   sortField: action.sortField,
@@ -49,7 +49,7 @@ const changeSortField = action => ({
  * Change sort order value reducer.
  *
  * @param {DeviationsBrowseChangeSortOrderAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const changeSortOrder = action => ({
   sortOrder: action.sortOrder,
@@ -60,7 +60,7 @@ const changeSortOrder = action => ({
  * Load page reducer.
  *
  * @param {DeviationsBrowseLoadPageAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 const loadPage = action => ({
   deviations: Array.from(action.deviations),
@@ -74,7 +74,7 @@ const loadPage = action => ({
  * @param {DeviationBrowseState} deviationsBrowseState - Deviations browse page state.
  * @param {SharedState} sharedState - Shared state.
  * @param {Object} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
 export default (deviationsBrowseState, sharedState, action) => {
   let difference = null;

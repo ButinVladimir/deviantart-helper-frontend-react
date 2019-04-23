@@ -6,12 +6,21 @@ import revokeActionCreator from './shared/revoke';
  * Wrapper to fetch data from server and create appropriate action.
  *
  * @param {string} route - Server route.
- * @param {(jsonResponse: Function) => Object} createAction - Function to create action.
+ * @param {(jsonResponse: Function) => Object} successActionCreator
+ * - Function to create action when the result is successful.
+ * @param {(jsonResponse: Function) => Object} failureActionCreator
+ * - Function to create action when the result is failure.
  * @param {Config} config - The config.
  * @param {Object} params - The params.
  * @returns {Function} Async function for Redux.
  */
-export default (route, createAction, config, params = {}) => async (dispatch) => {
+export default (
+  route,
+  successActionCreator,
+  failureActionCreator,
+  config,
+  params = {},
+) => async (dispatch) => {
   try {
     const url = new URL(`${config.serverUrl}${route}`);
     Object.keys(params).forEach(property => url.searchParams.append(property, params[property]));
@@ -26,6 +35,7 @@ export default (route, createAction, config, params = {}) => async (dispatch) =>
     );
 
     if (response.status === 401) {
+      dispatch(failureActionCreator());
       dispatch(revokeActionCreator());
 
       return;
@@ -36,8 +46,9 @@ export default (route, createAction, config, params = {}) => async (dispatch) =>
     }
 
     const jsonResponse = await response.json();
-    dispatch(createAction(jsonResponse));
+    dispatch(successActionCreator(jsonResponse));
   } catch (e) {
+    dispatch(failureActionCreator());
     dispatch(showErrorActionCreator(e.message));
     console.error(e);
   }

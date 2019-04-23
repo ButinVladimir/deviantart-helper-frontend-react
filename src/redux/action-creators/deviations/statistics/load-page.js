@@ -53,7 +53,7 @@ export const loadPage = (page, config) => (dispatch, getState) => {
     params.timestampend = state.timestampEnd;
   }
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page)}`, deviationsStatisticsLoadPageActionCreator(page), config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page)}`, deviationsStatisticsLoadPageActionCreator(page), {}, config, params));
 };
 
 /**

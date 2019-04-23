@@ -17,5 +17,5 @@ import { DEVIATIONS_BROWSE_CHANGE_SORT_ORDER } from '../../../actions';
  */
 export default sortOrder => ({
   type: DEVIATIONS_BROWSE_CHANGE_SORT_ORDER,
-  sortOrder,
+  sortOrder: Number.parseInt(sortOrder, 10),
 });

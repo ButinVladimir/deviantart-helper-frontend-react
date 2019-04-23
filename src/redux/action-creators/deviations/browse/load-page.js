@@ -46,7 +46,7 @@ export const loadPage = (page, config) => (dispatch, getState) => {
   params.sortfield = state.sortField;
   params.sortorder = state.sortOrder;
 
-  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE.replace(PAGE_PARAM, page)}`, deviationsBrowseLoadPageActionCreator(page), config, params));
+  dispatch(createFetchGetAction(`${DEVIATIONS_BROWSE.replace(PAGE_PARAM, page)}`, deviationsBrowseLoadPageActionCreator(page), {}, config, params));
 };
 
 /**

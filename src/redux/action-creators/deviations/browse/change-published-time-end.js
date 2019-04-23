@@ -17,5 +17,5 @@ import { DEVIATIONS_BROWSE_CHANGE_PUBLISHED_TIME_END } from '../../../actions';
  */
 export default publishedTimeEnd => ({
   type: DEVIATIONS_BROWSE_CHANGE_PUBLISHED_TIME_END,
-  publishedTimeEnd,
+  publishedTimeEnd: publishedTimeEnd ? publishedTimeEnd.getTime() : null,
 });

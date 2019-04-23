@@ -11,6 +11,7 @@ import hideMessageActionCreator from '../../redux/action-creators/shared/hide-me
  */
 const mapStateToProps = state => ({
   showMessage: state.shared.showMessage,
+  messageColor: state.shared.messageColor,
   message: state.shared.message,
 });
 

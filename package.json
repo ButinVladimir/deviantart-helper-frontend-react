@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "install": "^0.12.2",
+    "node-sass": "^4.11.0",
     "npm": "^6.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bulma-components": "^2.3.0",
+    "react-datepicker": "^2.4.0",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
@@ -18,12 +21,12 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest",
-    "test:staged": "jest --env=jsdom --findRelatedTests",
-    "coverage": "jest --coverage --no-cache",
-    "eject": "react-scripts eject"
+    "start": "cross-env NODE_PATH=./src react-scripts start",
+    "build": "cross-env NODE_PATH=./src react-scripts build",
+    "test": "cross-env NODE_PATH=./src jest",
+    "test:staged": "cross-env NODE_PATH=./src jest --env=jsdom --findRelatedTests",
+    "coverage": "cross-env NODE_PATH=./src jest --coverage --no-cache",
+    "eject": "cross-env NODE_PATH=./src react-scripts eject"
   },
   "author": "VladimirButin",
   "license": "ISC",

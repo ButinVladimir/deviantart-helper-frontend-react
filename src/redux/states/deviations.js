@@ -1,6 +1,7 @@
 import createDefaultDeviationsBrowseState from './deviations-browse';
 import createDefaultDeviationsDetailsState from './deviations-details';
 import createDefaultDeviationsStatisticsState from './deviations-statistics';
+import createDefaultDeviationsCommonState from './deviations-common';
 
 /**
  * @global
@@ -11,6 +12,7 @@ import createDefaultDeviationsStatisticsState from './deviations-statistics';
  * @property {DeviationBrowseState} browse - Deviations browse page state.
  * @property {DeviationDetailsState} details - Deviations details page state.
  * @property {DeviationStatisticsState} statistics - Deviations statistics page state.
+ * @property {DeviationCommonState} common - Deviations common state.
  */
 
 /**
@@ -23,4 +25,5 @@ export default () => ({
   browse: createDefaultDeviationsBrowseState(),
   details: createDefaultDeviationsDetailsState(),
   statistics: createDefaultDeviationsStatisticsState(),
+  common: createDefaultDeviationsCommonState(),
 });

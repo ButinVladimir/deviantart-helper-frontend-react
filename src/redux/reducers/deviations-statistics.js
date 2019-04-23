@@ -5,7 +5,7 @@ import * as actions from '../actions';
  * Change title value reducer.
  *
  * @param {DeviationsStatisticsChangeTitleAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeTitle = action => ({
   title: action.title,
@@ -16,7 +16,7 @@ const changeTitle = action => ({
  * Change published time begin value reducer.
  *
  * @param {DeviationsStatisticsChangePublishedTimeBeginAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changePublishedTimeBegin = action => ({
   publishedTimeBegin: action.publishedTimeBegin,
@@ -27,7 +27,7 @@ const changePublishedTimeBegin = action => ({
  * Change published time end value reducer.
  *
  * @param {DeviationsStatisticsChangePublishedTimeEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changePublishedTimeEnd = action => ({
   publishedTimeEnd: action.publishedTimeEnd,
@@ -38,7 +38,7 @@ const changePublishedTimeEnd = action => ({
  * Change sort field value reducer.
  *
  * @param {DeviationsStatisticsChangeSortFieldAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeSortField = action => ({
   sortField: action.sortField,
@@ -49,7 +49,7 @@ const changeSortField = action => ({
  * Change sort order value reducer.
  *
  * @param {DeviationsStatisticsChangeSortOrderAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeSortOrder = action => ({
   sortOrder: action.sortOrder,
@@ -60,7 +60,7 @@ const changeSortOrder = action => ({
  * Change timestamp begin value reducer.
  *
  * @param {DeviationsStatisticsChangeTimestampBeginAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeTimestampBegin = action => ({
   timestampBegin: action.timestampBegin,
@@ -71,7 +71,7 @@ const changeTimestampBegin = action => ({
  * Change timestamp end value reducer.
  *
  * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeTimestampEnd = action => ({
   timestampEnd: action.timestampEnd,
@@ -82,7 +82,7 @@ const changeTimestampEnd = action => ({
  * Change chart type value reducer.
  *
  * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const changeChartType = action => ({
   chartType: action.chartType,
@@ -93,7 +93,7 @@ const changeChartType = action => ({
  * Load page reducer.
  *
  * @param {DeviationsStatisticsLoadPageAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const loadPage = action => ({
   deviations: Array.from(action.deviations),
@@ -108,7 +108,7 @@ const loadPage = action => ({
  * @param {DeviationStatisticsState} deviationsStatisticsState - Deviations statistics page state.
  * @param {SharedState} sharedState - Shared state.
  * @param {Object} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 export default (deviationsStatisticsState, sharedState, action) => {
   let difference = null;

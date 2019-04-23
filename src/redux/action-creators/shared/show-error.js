@@ -7,17 +7,17 @@ import { ERROR_SHOW } from '../../actions';
  *
  * @typedef {Object} ShowErrorAction
  *
- * @param {string} errorMessage - The error message.
+ * @param {string} message - The error message.
  */
 
 /**
  * @description
  * Creates action to show error.
  *
- * @param {string} errorMessage - The error message.
+ * @param {string} message - The error message.
  * @returns {ShowErrorAction} Action.
  */
-export default errorMessage => ({
+export default message => ({
   type: ERROR_SHOW,
-  errorMessage,
+  message,
 });

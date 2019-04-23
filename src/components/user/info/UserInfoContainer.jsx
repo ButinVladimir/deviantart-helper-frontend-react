@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import UserInfo from './UserInfo';
 import userLoadInfoActionCreator from '../../../redux/action-creators/user/load-info';
+import userRefreshActionCreator from '../../../redux/action-creators/user/refresh';
 
 /**
  * @description
@@ -10,6 +11,7 @@ import userLoadInfoActionCreator from '../../../redux/action-creators/user/load-
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
+  userInfoLoading: state.user.userInfoLoading,
   userId: state.user.userId,
   userName: state.user.userName,
   userType: state.user.userType,
@@ -22,12 +24,12 @@ const mapStateToProps = state => ({
  * Maps Redux dispatch to props.
  *
  * @param {Function} dispatch - Redux dispatch.
+ * @param {Object} ownProps - Component own props.
  * @returns {Object} Props.
  */
-const mapDispatchToProps = dispatch => ({
-  fetchUserData: (config) => {
-    dispatch(userLoadInfoActionCreator(config));
-  },
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchUserData: () => dispatch(userLoadInfoActionCreator(ownProps.config)),
+  refreshHandler: () => dispatch(userRefreshActionCreator(ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

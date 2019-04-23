@@ -5,7 +5,7 @@ import * as actions from '../actions';
  * Change timestamp begin value reducer.
  *
  * @param {DeviationsDetailsChangeTimestampBeginAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const changeTimestampBegin = action => ({
   timestampBegin: action.timestampBegin,
@@ -16,7 +16,7 @@ const changeTimestampBegin = action => ({
  * Change timestamp end value reducer.
  *
  * @param {DeviationsDetailsChangeTimestampEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const changeTimestampEnd = action => ({
   timestampEnd: action.timestampEnd,
@@ -27,7 +27,7 @@ const changeTimestampEnd = action => ({
  * Change chart type value reducer.
  *
  * @param {DeviationsDetailsChangeTimestampEndAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const changeChartType = action => ({
   chartType: action.chartType,
@@ -38,7 +38,7 @@ const changeChartType = action => ({
  * Set id for deviation details reducer.
  *
  * @param {DeviationsDetailsSetIdAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const detailsSetid = action => ({
   id: action.id,
@@ -49,7 +49,7 @@ const detailsSetid = action => ({
  * Set data for deviation details reducer.
  *
  * @param {DeviationsDetailsSetDataAction} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const detailsSetData = action => ({
   title: action.deviation.title,
@@ -75,7 +75,7 @@ const detailsSetData = action => ({
  * @param {DeviationDetailsState} deviationsDetailsState - Deviations details page state.
  * @param {SharedState} sharedState - Shared state.
  * @param {Object} action - The action.
- * @returns {DeviationsState} New deviations state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 export default (deviationsDetailsState, sharedState, action) => {
   let difference = null;
