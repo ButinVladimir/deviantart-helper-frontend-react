@@ -11,6 +11,7 @@ import deviationsBrowseLoadPageActionCreator from '../../../redux/action-creator
  */
 const mapStateToProps = state => ({
   deviations: state.deviations.browse.deviations,
+  pageLoading: state.deviations.browse.pageLoading,
 });
 
 /**

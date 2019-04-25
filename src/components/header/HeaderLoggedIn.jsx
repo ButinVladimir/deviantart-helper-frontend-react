@@ -47,8 +47,8 @@ export default function HeaderLoggedIn({
         <Navbar.Container position="end">
           <Navbar.Item>
             <Button.Group>
-              <Button onClick={deviationsLoadHandler} color="light" loading={deviationsLoading}>Refresh data</Button>
-              <Button onClick={revokeHandler} color="danger" loading={revokeLoading}>Log out</Button>
+              <Button color="light" loading={deviationsLoading} onClick={deviationsLoadHandler}>Refresh data</Button>
+              <Button color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
             </Button.Group>
           </Navbar.Item>
         </Navbar.Container>

@@ -1,11 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Columns from 'react-bulma-components/lib/components/columns';
+import Media from 'react-bulma-components/lib/components/media';
+import Content from 'react-bulma-components/lib/components/content';
+import Level from 'react-bulma-components/lib/components/level';
+import Heading from 'react-bulma-components/lib/components/heading';
+import Icon from 'react-bulma-components/lib/components/icon';
 import { DEVIATIONS_DETAILS, ID_PARAM } from '../../../consts/routes';
 
 export default function DeviationsPreview({
   thumbnail,
   title,
+  // eslint-disable-next-line no-unused-vars
   url,
   id,
   publishedTime,
@@ -14,45 +21,75 @@ export default function DeviationsPreview({
   comments,
   downloads,
 }) {
+  const publishedTimeDate = new Date(publishedTime);
+
   return (
-    <li>
-      <div>
-        <img alt={title} src={thumbnail.src} width={thumbnail.width} height={thumbnail.height} />
-      </div>
-      <div>
-        <span>{title}</span>
-        <span> (</span>
-        <a href={url}>See on DA</a>
-        <span>)</span>
-        <span> (</span>
-        <NavLink to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>See details</NavLink>
-        <span>)</span>
-      </div>
-      <div>
-        <span>Id: </span>
-        <span>{id}</span>
-      </div>
-      <div>
-        <span>Published time: </span>
-        <span>{new Date(publishedTime).toLocaleString()}</span>
-      </div>
-      <div>
-        <span>Views: </span>
-        <span>{views}</span>
-      </div>
-      <div>
-        <span>Favourites: </span>
-        <span>{favourites}</span>
-      </div>
-      <div>
-        <span>Comments: </span>
-        <span>{comments}</span>
-      </div>
-      <div>
-        <span>Downloads: </span>
-        <span>{downloads}</span>
-      </div>
-    </li>
+    <Media>
+      <Media.Item position="left" className="image-container">
+        <NavLink to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>
+          <img alt={title} src={thumbnail.src} width={thumbnail.width} height={thumbnail.height} />
+        </NavLink>
+      </Media.Item>
+      <Media.Item>
+        <Columns>
+          <Columns.Column>
+            <Content>
+              <NavLink to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>
+                <Heading size={4}>{title}</Heading>
+              </NavLink>
+              <Heading size={6} subtitle>
+                {`Published ${publishedTimeDate.toLocaleString()}`}
+              </Heading>
+            </Content>
+          </Columns.Column>
+          <Columns.Column narrow>
+            <Icon color="dark" icon="eye" size="small" />
+          </Columns.Column>
+        </Columns>
+        <Level breakpoint="tablet">
+          <Level.Item className="has-text-centered">
+            <Content>
+              <div>
+                <Heading size={4}>{views}</Heading>
+              </div>
+              <div>
+                <Heading size={6} subtitle>VIEWS</Heading>
+              </div>
+            </Content>
+          </Level.Item>
+          <Level.Item className="has-text-centered">
+            <Content>
+              <div>
+                <Heading size={4}>{favourites}</Heading>
+              </div>
+              <div>
+                <Heading size={6} subtitle>FAVOURITES</Heading>
+              </div>
+            </Content>
+          </Level.Item>
+          <Level.Item className="has-text-centered">
+            <Content>
+              <div>
+                <Heading size={4}>{comments}</Heading>
+              </div>
+              <div>
+                <Heading size={6} subtitle>COMMENTS</Heading>
+              </div>
+            </Content>
+          </Level.Item>
+          <Level.Item className="has-text-centered">
+            <Content>
+              <div>
+                <Heading size={4}>{downloads}</Heading>
+              </div>
+              <div>
+                <Heading size={6} subtitle>DOWNLOADS</Heading>
+              </div>
+            </Content>
+          </Level.Item>
+        </Level>
+      </Media.Item>
+    </Media>
   );
 }
 

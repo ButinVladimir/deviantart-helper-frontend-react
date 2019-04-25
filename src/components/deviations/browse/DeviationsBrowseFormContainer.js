@@ -4,9 +4,7 @@ import deviationsBrowseChangePublishedTimeBeginActionCreator from '../../../redu
 import deviationsBrowseChangePublishedTimeEndActionCreator from '../../../redux/action-creators/deviations/browse/change-published-time-end';
 import deviationsBrowseChangeSortFieldActionCreator from '../../../redux/action-creators/deviations/browse/change-sort-field';
 import deviationsBrowseChangeSortOrderActionCreator from '../../../redux/action-creators/deviations/browse/change-sort-order';
-import deviationsBrowseLoadPageActionCreator from '../../../redux/action-creators/deviations/browse/load-page';
-import deviationsBrowsePrevPageActionCreator from '../../../redux/action-creators/deviations/browse/prev-page';
-import deviationsBrowseNextPageActionCreator from '../../../redux/action-creators/deviations/browse/next-page';
+import deviationsBrowseLoadPageActionCreator, { loadPage } from '../../../redux/action-creators/deviations/browse/load-page';
 import DeviationsBrowseForm from './DeviationsBrowseForm';
 
 /**
@@ -18,11 +16,14 @@ import DeviationsBrowseForm from './DeviationsBrowseForm';
  */
 const mapStateToProps = state => ({
   page: state.deviations.browse.page,
+  pageCount: state.deviations.browse.pageCount,
   sortField: state.deviations.browse.sortField,
   sortOrder: state.deviations.browse.sortOrder,
   title: state.deviations.browse.title,
   publishedTimeBegin: state.deviations.browse.publishedTimeBegin,
   publishedTimeEnd: state.deviations.browse.publishedTimeEnd,
+  pageLoading: state.deviations.browse.pageLoading,
+  showPagination: state.deviations.browse.showPagination,
 });
 
 /**
@@ -44,8 +45,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   sortOrderChangeHandler:
     e => dispatch(deviationsBrowseChangeSortOrderActionCreator(e.target.value)),
   submitHandler: () => dispatch(deviationsBrowseLoadPageActionCreator(ownProps.config)),
-  prevPageHandler: () => dispatch(deviationsBrowsePrevPageActionCreator(ownProps.config)),
-  nextPageHandler: () => dispatch(deviationsBrowseNextPageActionCreator(ownProps.config)),
+  // Pagination in Bulma starts from 1 while pagination on backend start from 0.
+  loadPageHandler: page => dispatch(loadPage(page - 1, ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm);

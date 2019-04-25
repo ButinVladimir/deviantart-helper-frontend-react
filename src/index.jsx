@@ -8,6 +8,7 @@ import config from './config';
 import App from './AppContainer';
 import reducer from './redux/reducers/reducer';
 import 'react-datepicker/dist/react-datepicker.css';
+import './index.css';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 ReactDOM.render(

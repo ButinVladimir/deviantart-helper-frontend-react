@@ -33,7 +33,7 @@ export default config => async (dispatch) => {
   dispatch(createFetchAction(
     AUTH_REFRESH,
     refreshActionCreator(config, dispatch),
-    userLoadInfoFinishActionCreator(),
+    userLoadInfoFinishActionCreator,
     config,
   ));
 };

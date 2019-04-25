@@ -50,10 +50,13 @@ import * as sort from '../../consts/sort';
  */
 export default () => ({
   page: 0,
+  pageCount: 0,
   sortField: sort.FIELD_PUBLISHED_TIME,
   sortOrder: sort.ORDER_DESC,
   title: '',
   publishedTimeBegin: 0,
   publishedTimeEnd: 0,
   deviations: [],
+  pageLoading: false,
+  showPagination: false,
 });

@@ -22,7 +22,12 @@ const refreshActionCreator = () => (dispatch) => {
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => async (dispatch) => {
+export default config => async (dispatch, getState) => {
+  const { deviations: { common: state } } = getState();
+  if (state.deviationsLoading) {
+    return;
+  }
+
   dispatch(deviationsLoadStartActionCreator());
 
   dispatch(createFetchAction(

@@ -9,6 +9,7 @@ import * as actions from '../actions';
  */
 const changeTitle = action => ({
   title: action.title,
+  showPagination: false,
 });
 
 /**
@@ -20,6 +21,7 @@ const changeTitle = action => ({
  */
 const changePublishedTimeBegin = action => ({
   publishedTimeBegin: action.publishedTimeBegin,
+  showPagination: false,
 });
 
 /**
@@ -31,6 +33,7 @@ const changePublishedTimeBegin = action => ({
  */
 const changePublishedTimeEnd = action => ({
   publishedTimeEnd: action.publishedTimeEnd,
+  showPagination: false,
 });
 
 /**
@@ -42,6 +45,7 @@ const changePublishedTimeEnd = action => ({
  */
 const changeSortField = action => ({
   sortField: action.sortField,
+  showPagination: false,
 });
 
 /**
@@ -53,6 +57,27 @@ const changeSortField = action => ({
  */
 const changeSortOrder = action => ({
   sortOrder: action.sortOrder,
+  showPagination: false,
+});
+
+/**
+ * @description
+ * Load page start reducer.
+ *
+ * @returns {DeviationBrowseState} New deviations browse state.
+ */
+const loadPageStart = () => ({
+  pageLoading: true,
+});
+
+/**
+ * @description
+ * Load page finish reducer.
+ *
+ * @returns {DeviationBrowseState} New deviations browse state.
+ */
+const loadPageFinish = () => ({
+  pageLoading: false,
 });
 
 /**
@@ -65,6 +90,9 @@ const changeSortOrder = action => ({
 const loadPage = action => ({
   deviations: Array.from(action.deviations),
   page: action.page,
+  pageCount: action.pageCount,
+  pageLoading: false,
+  showPagination: true,
 });
 
 /**
@@ -98,6 +126,14 @@ export default (deviationsBrowseState, sharedState, action) => {
 
     case actions.DEVIATIONS_BROWSE_CHANGE_SORT_ORDER:
       difference = changeSortOrder(action);
+      break;
+
+    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_START:
+      difference = loadPageStart();
+      break;
+
+    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_FINISH:
+      difference = loadPageFinish();
       break;
 
     case actions.DEVIATIONS_BROWSE_LOAD_PAGE:

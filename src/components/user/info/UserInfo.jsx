@@ -4,6 +4,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
 import Button from 'react-bulma-components/lib/components/button';
+import Heading from 'react-bulma-components/lib/components/heading';
 import Config from '../../../config/config';
 
 export default class UserInfo extends Component {
@@ -28,7 +29,7 @@ export default class UserInfo extends Component {
       <Section>
         <Container>
           <Content>
-            <h2 className="title">Current user info</h2>
+            <Heading size={3}>Current user info</Heading>
             <p>
               <span>User: </span>
               <strong>{userName}</strong>
