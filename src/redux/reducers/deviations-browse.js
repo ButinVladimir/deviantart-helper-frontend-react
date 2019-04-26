@@ -1,4 +1,13 @@
 import * as actions from '../actions';
+import filterAction from '../../helpers/filter-action';
+
+const formFields = [
+  'publishedTimeBegin',
+  'publishedTimeEnd',
+  'sortField',
+  'sortOrder',
+  'title',
+];
 
 /**
  * @description
@@ -7,77 +16,20 @@ import * as actions from '../actions';
  * @param {DeviationsBrowseChangeTitleAction} action - The action.
  * @returns {DeviationBrowseState} New deviations browse state.
  */
-const changeTitle = action => ({
-  title: action.title,
+const changeFormFieldValues = action => ({
   showPagination: false,
+  ...filterAction(action, formFields),
 });
 
 /**
  * @description
- * Change published time begin value reducer.
+ * Load page lock toggle reducer.
  *
- * @param {DeviationsBrowseChangePublishedTimeBeginAction} action - The action.
+ * @param {DeviationsBrowseLoadPageLockToggleAction} action - The action.
  * @returns {DeviationBrowseState} New deviations browse state.
  */
-const changePublishedTimeBegin = action => ({
-  publishedTimeBegin: action.publishedTimeBegin,
-  showPagination: false,
-});
-
-/**
- * @description
- * Change published time end value reducer.
- *
- * @param {DeviationsBrowseChangePublishedTimeEndAction} action - The action.
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const changePublishedTimeEnd = action => ({
-  publishedTimeEnd: action.publishedTimeEnd,
-  showPagination: false,
-});
-
-/**
- * @description
- * Change sort field value reducer.
- *
- * @param {DeviationsBrowseChangeSortFieldAction} action - The action.
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const changeSortField = action => ({
-  sortField: action.sortField,
-  showPagination: false,
-});
-
-/**
- * @description
- * Change sort order value reducer.
- *
- * @param {DeviationsBrowseChangeSortOrderAction} action - The action.
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const changeSortOrder = action => ({
-  sortOrder: action.sortOrder,
-  showPagination: false,
-});
-
-/**
- * @description
- * Load page start reducer.
- *
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const loadPageStart = () => ({
-  pageLoading: true,
-});
-
-/**
- * @description
- * Load page finish reducer.
- *
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const loadPageFinish = () => ({
-  pageLoading: false,
+const loadPageLockToggle = action => ({
+  pageLoading: action.lock,
 });
 
 /**
@@ -108,32 +60,12 @@ export default (deviationsBrowseState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
-    case actions.DEVIATIONS_BROWSE_CHANGE_TITLE:
-      difference = changeTitle(action);
+    case actions.DEVIATIONS_BROWSE_CHANGE_FORM_FIELD_VALUES:
+      difference = changeFormFieldValues(action);
       break;
 
-    case actions.DEVIATIONS_BROWSE_CHANGE_PUBLISHED_TIME_BEGIN:
-      difference = changePublishedTimeBegin(action);
-      break;
-
-    case actions.DEVIATIONS_BROWSE_CHANGE_PUBLISHED_TIME_END:
-      difference = changePublishedTimeEnd(action);
-      break;
-
-    case actions.DEVIATIONS_BROWSE_CHANGE_SORT_FIELD:
-      difference = changeSortField(action);
-      break;
-
-    case actions.DEVIATIONS_BROWSE_CHANGE_SORT_ORDER:
-      difference = changeSortOrder(action);
-      break;
-
-    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_START:
-      difference = loadPageStart();
-      break;
-
-    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_FINISH:
-      difference = loadPageFinish();
+    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE:
+      difference = loadPageLockToggle(action);
       break;
 
     case actions.DEVIATIONS_BROWSE_LOAD_PAGE:

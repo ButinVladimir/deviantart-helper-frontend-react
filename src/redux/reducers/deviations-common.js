@@ -2,22 +2,13 @@ import * as actions from '../actions';
 
 /**
  * @description
- * Start loading deviations reducer.
+ * Loading deviations lock toggle reducer.
  *
- * @returns {DeviationsCommonState} New deviations common state.
+ * @param {DeviationsLoadLockToggleAction} action - The action.
+ * @returns {DeviationsCommonState} New deviations browse state.
  */
-const loadStart = () => ({
-  deviationsLoading: true,
-});
-
-/**
- * @description
- * Finish loading deviations reducer.
- *
- * @returns {DeviationsCommonState} New deviations common state.
- */
-const loadFinish = () => ({
-  deviationsLoading: false,
+const loadLockToggle = action => ({
+  deviationsLoading: action.lock,
 });
 
 /**
@@ -33,12 +24,8 @@ export default (deviationsCommonState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
-    case actions.DEVIATIONS_LOAD_START:
-      difference = loadStart();
-      break;
-
-    case actions.DEVIATIONS_LOAD_FINISH:
-      difference = loadFinish();
+    case actions.DEVIATIONS_LOAD_LOCK_TOGGLE:
+      difference = loadLockToggle(action);
       break;
 
     default:

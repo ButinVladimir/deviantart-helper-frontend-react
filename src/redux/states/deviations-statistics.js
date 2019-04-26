@@ -62,7 +62,7 @@ import { CHART_VIEWS } from '../../consts/chart-types';
  */
 
 const timestampBeginDate = new Date();
-timestampBeginDate.setDate(timestampBeginDate.getDate() - 19);
+timestampBeginDate.setDate(timestampBeginDate.getDate() - 2);
 
 /**
  * @description

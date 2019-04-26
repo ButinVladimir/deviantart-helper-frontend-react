@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import HeaderLoggedIn from './HeaderLoggedIn';
 import toggleMenuActionCreator from '../../redux/action-creators/shared/toggle-menu';
-import revokeStartActionCreator from '../../redux/action-creators/shared/revoke-start';
+import revokeQueryActionCreator from '../../redux/action-creators/shared/revoke-query';
 import userRefreshActionCreator from '../../redux/action-creators/user/refresh';
 import deviationsLoadActionCreator from '../../redux/action-creators/deviations/load';
 
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleMenuHandler: () => dispatch(toggleMenuActionCreator()),
-  revokeHandler: () => dispatch(revokeStartActionCreator(ownProps.config)),
+  revokeHandler: () => dispatch(revokeQueryActionCreator(ownProps.config)),
   refreshHandler: () => dispatch(userRefreshActionCreator(ownProps.config)),
   deviationsLoadHandler: () => dispatch(deviationsLoadActionCreator(ownProps.config)),
 });

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DeviationsBrowseList from './DeviationsBrowseList';
-import deviationsBrowseLoadPageActionCreator from '../../../redux/action-creators/deviations/browse/load-page';
+import { deviationsBrowseLoadCurrentPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
 
 /**
  * @description
@@ -23,7 +23,8 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  preloadDeviationsHandler: () => dispatch(deviationsBrowseLoadPageActionCreator(ownProps.config)),
+  preloadDeviationsHandler:
+    () => dispatch(deviationsBrowseLoadCurrentPageActionCreator(ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseList);

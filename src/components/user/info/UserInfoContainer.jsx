@@ -11,7 +11,7 @@ import userRefreshActionCreator from '../../../redux/action-creators/user/refres
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  userInfoLoading: state.user.userInfoLoading,
+  userInfoLoading: state.user.userInfoLoading || state.user.refreshLoading,
   userId: state.user.userId,
   userName: state.user.userName,
   userType: state.user.userType,

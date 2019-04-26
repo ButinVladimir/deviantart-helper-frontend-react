@@ -1,8 +1,6 @@
 import { DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../consts/server-routes';
-import { DEVIATIONS_BROWSE_LOAD_PAGE } from '../../../actions';
+import { DEVIATIONS_BROWSE_LOAD_PAGE, DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE } from '../../../actions';
 import createFetchGetAction from '../../fetch-get';
-import deviationsBrowseLoadPageStartActionCreator from './load-page-start';
-import deviationsBrowseLoadPageFinishActionCreator from './load-page-finish';
 
 /**
  * @global
@@ -11,6 +9,43 @@ import deviationsBrowseLoadPageFinishActionCreator from './load-page-finish';
  *
  * @typedef {Object} DeviationsBrowseLoadPageAction
  */
+
+/**
+ * @global
+ * @description
+ * Action to change lock on loading page with deviations to browse.
+ *
+ * @typedef {Object} DeviationsBrowseLoadPageLockToggleAction
+ * @property {bool} lock - Should deviations browse page be locked.
+ */
+
+/**
+ * @description
+ * Creates action to change lock on loading page with deviations to browse.
+ *
+ * @param {bool} lock - Should deviations browse page be locked.
+ * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
+ */
+const lockToggle = lock => ({
+  type: DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE,
+  lock,
+});
+
+/**
+ * @description
+ * Creates action to lock page with deviations to browse.
+ *
+ * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
+ */
+const lockActionCreator = () => lockToggle(true);
+
+/**
+ * @description
+ * Creates action to unlock page with deviations to browse.
+ *
+ * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
+ */
+const unlockActionCreator = () => lockToggle(false);
 
 /**
  * @description
@@ -34,13 +69,13 @@ const deviationsBrowseLoadPageActionCreator = page => ({ deviations, pageCount }
  * @param {Config} config - The config.
  * @returns {Function} Function to dispatch.
  */
-export const loadPage = (page, config) => (dispatch, getState) => {
+const loadPage = (page, config) => (dispatch, getState) => {
   const { deviations: { browse: state } } = getState();
   if (state.pageLoading) {
     return;
   }
 
-  dispatch(deviationsBrowseLoadPageStartActionCreator());
+  dispatch(lockActionCreator());
 
   const params = {};
   if (state.title) {
@@ -59,7 +94,7 @@ export const loadPage = (page, config) => (dispatch, getState) => {
     createFetchGetAction(
       `${DEVIATIONS_BROWSE.replace(PAGE_PARAM, page)}`,
       deviationsBrowseLoadPageActionCreator(page),
-      deviationsBrowseLoadPageFinishActionCreator,
+      unlockActionCreator,
       config,
       params,
     ),
@@ -68,9 +103,24 @@ export const loadPage = (page, config) => (dispatch, getState) => {
 
 /**
  * @description
- * Loads first page with deviations to browse.
+ * Creates action to load first page with deviations to browse.
  *
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => loadPage(0, config);
+export const deviationsBrowseLoadFirstPageActionCreator = config => loadPage(0, config);
+
+/**
+ * @description
+ * Creates action to load current page with deviations to browse.
+ *
+ * @param {Config} config - The config.
+ * @returns {Promise<any>} The promise object.
+ */
+export const deviationsBrowseLoadCurrentPageActionCreator = config => (dispatch, getState) => {
+  const { deviations: { browse: state } } = getState();
+
+  dispatch(loadPage(state.page, config));
+};
+
+export default loadPage;

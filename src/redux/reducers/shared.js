@@ -62,22 +62,13 @@ const showError = (sharedState, action) => ({
 
 /**
  * @description
- * Start revoke reducer.
+ * Revoke lock toggle reducer.
  *
+ * @param {RevokeLockToggleAction} action - The action.
  * @returns {SharedState} New shared state.
  */
-const revokeStart = () => ({
-  revokeLoading: true,
-});
-
-/**
- * @description
- * Finish revoke reducer.
- *
- * @returns {SharedState} New shared state.
- */
-const revokeFinish = () => ({
-  revokeLoading: false,
+const revokeLockToggle = action => ({
+  revokeLoading: action.lock,
 });
 
 /**
@@ -123,12 +114,8 @@ export default (sharedState, action) => {
       difference = showError(sharedState, action);
       break;
 
-    case actions.REVOKE_START:
-      difference = revokeStart();
-      break;
-
-    case actions.REVOKE_FINISH:
-      difference = revokeFinish();
+    case actions.REVOKE_LOCK_TOGGLE:
+      difference = revokeLockToggle(action);
       break;
 
     case actions.REVOKE:

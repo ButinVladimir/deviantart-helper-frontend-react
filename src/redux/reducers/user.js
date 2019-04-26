@@ -2,22 +2,13 @@ import * as actions from '../actions';
 
 /**
  * @description
- * Start load user info reducer.
+ * Load user info lock toggle reducer.
  *
- * @returns {UserState} New user state.
+ * @param {UserLoadInfoLockToggleAction} action - The action.
+ * @returns {UserState} New shared state.
  */
-const loadUserInfoStart = () => ({
-  userInfoLoading: true,
-});
-
-/**
- * @description
- * Finish load user info reducer.
- *
- * @returns {UserState} New user state.
- */
-const loadUserInfoFinish = () => ({
-  userInfoLoading: false,
+const loadUserInfoLockToggle = action => ({
+  userInfoLoading: action.lock,
 });
 
 /**
@@ -52,12 +43,9 @@ export default (userState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
-    case actions.USER_LOAD_INFO_START:
-      difference = loadUserInfoStart();
-      break;
-
-    case actions.USER_LOAD_INFO_FINISH:
-      difference = loadUserInfoFinish();
+    case actions.USER_LOAD_INFO_LOCK_TOGGLE:
+    case actions.USER_REFRESH_LOCK_TOGGLE:
+      difference = loadUserInfoLockToggle(action);
       break;
 
     case actions.USER_LOAD_INFO:

@@ -1,23 +1,60 @@
 import { DEVIATIONS_LOAD } from '../../../consts/server-routes';
+import { DEVIATIONS_LOAD_LOCK_TOGGLE } from '../../actions';
 import showMessageActionCreator from '../shared/show-message';
 import createFetchAction from '../fetch-get';
-import deviationsLoadStartActionCreator from './load-start';
-import deviationsLoadFinishActionCreator from './load-finish';
+
+/**
+ * @global
+ * @description
+ * Action to change lock on loading deviations.
+ *
+ * @typedef {Object} DeviationsLoadLockToggleAction
+ * @property {bool} lock - Should deviations loading be locked.
+ */
 
 /**
  * @description
- * Creates action to revoke.
+ * Creates action to change lock on loading deviations.
+ *
+ * @param {bool} lock - Should deviations loading be locked.
+ * @returns {DeviationsLoadLockToggleAction} Action.
+ */
+const lockToggle = lock => ({
+  type: DEVIATIONS_LOAD_LOCK_TOGGLE,
+  lock,
+});
+
+/**
+ * @description
+ * Creates action to lock loading deviations.
+ *
+ * @returns {DeviationsLoadLockToggleAction} Action.
+ */
+const lockActionCreator = () => lockToggle(true);
+
+/**
+ * @description
+ * Creates action to unlock loading deviations.
+ *
+ * @returns {DeviationsLoadLockToggleAction} Action.
+ */
+const unlockActionCreator = () => lockToggle(false);
+
+/**
+ * @description
+ * Creates action to load deviations.
  *
  * @returns {Function} Action.
  */
-const refreshActionCreator = () => (dispatch) => {
-  dispatch(deviationsLoadFinishActionCreator());
+const loadActionCreator = () => (dispatch) => {
+  dispatch(unlockActionCreator());
+
   dispatch(showMessageActionCreator('Deviations have been started loading'));
 };
 
 /**
  * @description
- * Revokes user session.
+ * Loads deviations.
  *
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
@@ -28,12 +65,12 @@ export default config => async (dispatch, getState) => {
     return;
   }
 
-  dispatch(deviationsLoadStartActionCreator());
+  dispatch(lockActionCreator());
 
   dispatch(createFetchAction(
     DEVIATIONS_LOAD,
-    refreshActionCreator,
-    deviationsLoadFinishActionCreator,
+    loadActionCreator,
+    unlockActionCreator,
     config,
   ));
 };

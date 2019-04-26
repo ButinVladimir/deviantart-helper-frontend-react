@@ -1,8 +1,6 @@
-import { USER_LOAD_INFO } from '../../actions';
+import { USER_LOAD_INFO, USER_LOAD_INFO_LOCK_TOGGLE } from '../../actions';
 import { USER_INFO } from '../../../consts/server-routes';
 import createFetchGetAction from '../fetch-get';
-import userLoadInfoStartActionCreator from './load-info-start';
-import userLoadInfoFinishActionCreator from './load-info-finish';
 
 /**
  * @global
@@ -15,6 +13,43 @@ import userLoadInfoFinishActionCreator from './load-info-finish';
  * @param {string} userName - The user name.
  * @param {string} userIcon - The user icon.
  */
+
+/**
+ * @global
+ * @description
+ * Action to change lock on loading user info.
+ *
+ * @typedef {Object} UserLoadInfoLockToggleAction
+ * @property {bool} lock - Should deviations browse page be locked.
+ */
+
+/**
+ * @description
+ * Creates action to change lock on loading user info.
+ *
+ * @param {bool} lock - Should deviations browse page be locked.
+ * @returns {UserLoadInfoLockToggleAction} Action.
+ */
+const lockToggle = lock => ({
+  type: USER_LOAD_INFO_LOCK_TOGGLE,
+  lock,
+});
+
+/**
+ * @description
+ * Creates action to lock loading user info.
+ *
+ * @returns {UserLoadInfoLockToggleAction} Action.
+ */
+const lockActionCreator = () => lockToggle(true);
+
+/**
+ * @description
+ * Creates action to unlock loading user info.
+ *
+ * @returns {UserLoadInfoLockToggleAction} Action.
+ */
+const unlockActionCreator = () => lockToggle(false);
 
 /**
  * @description
@@ -47,13 +82,18 @@ const userLoadInfoActionCreator = ({
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => async (dispatch) => {
-  dispatch(userLoadInfoStartActionCreator());
+export default config => async (dispatch, getState) => {
+  const { user: state } = getState();
+  if (state.userInfoLoading) {
+    return;
+  }
+
+  dispatch(lockActionCreator());
 
   dispatch(createFetchGetAction(
     USER_INFO,
     userLoadInfoActionCreator,
-    userLoadInfoFinishActionCreator,
+    unlockActionCreator,
     config,
   ));
 };

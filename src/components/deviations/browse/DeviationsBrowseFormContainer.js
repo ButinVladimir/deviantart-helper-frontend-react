@@ -1,10 +1,6 @@
 import { connect } from 'react-redux';
-import deviationsBrowseChangeTitleActionCreator from '../../../redux/action-creators/deviations/browse/change-title';
-import deviationsBrowseChangePublishedTimeBeginActionCreator from '../../../redux/action-creators/deviations/browse/change-published-time-begin';
-import deviationsBrowseChangePublishedTimeEndActionCreator from '../../../redux/action-creators/deviations/browse/change-published-time-end';
-import deviationsBrowseChangeSortFieldActionCreator from '../../../redux/action-creators/deviations/browse/change-sort-field';
-import deviationsBrowseChangeSortOrderActionCreator from '../../../redux/action-creators/deviations/browse/change-sort-order';
-import deviationsBrowseLoadPageActionCreator, { loadPage } from '../../../redux/action-creators/deviations/browse/load-page';
+import * as deviationsBrowseForm from '../../../redux/action-creators/deviations/browse/change-form-field-values';
+import deviationsBrowseLoadPageActionCreator, { deviationsBrowseLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
 import DeviationsBrowseForm from './DeviationsBrowseForm';
 
 /**
@@ -35,18 +31,19 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  titleChangeHandler: e => dispatch(deviationsBrowseChangeTitleActionCreator(e.target.value)),
+  titleChangeHandler: e => dispatch(deviationsBrowseForm.changeTitleActionCreator(e.target.value)),
   publishedTimeBeginChangeHandler:
-    value => dispatch(deviationsBrowseChangePublishedTimeBeginActionCreator(value)),
+    value => dispatch(deviationsBrowseForm.changePublishedTimeBeginActionCreator(value)),
   publishedTimeEndChangeHandler:
-    value => dispatch(deviationsBrowseChangePublishedTimeEndActionCreator(value)),
+    value => dispatch(deviationsBrowseForm.changePublishedTimeEndActionCreator(value)),
   sortFieldChangeHandler:
-    e => dispatch(deviationsBrowseChangeSortFieldActionCreator(e.target.value)),
+    e => dispatch(deviationsBrowseForm.changeSortFieldActionCreator(e.target.value)),
   sortOrderChangeHandler:
-    e => dispatch(deviationsBrowseChangeSortOrderActionCreator(e.target.value)),
-  submitHandler: () => dispatch(deviationsBrowseLoadPageActionCreator(ownProps.config)),
+    e => dispatch(deviationsBrowseForm.changeSortOrderActionCreator(e.target.value)),
+  submitHandler: () => dispatch(deviationsBrowseLoadFirstPageActionCreator(ownProps.config)),
   // Pagination in Bulma starts from 1 while pagination on backend start from 0.
-  loadPageHandler: page => dispatch(loadPage(page - 1, ownProps.config)),
+  loadPageHandler:
+    page => dispatch(deviationsBrowseLoadPageActionCreator(page - 1, ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm);

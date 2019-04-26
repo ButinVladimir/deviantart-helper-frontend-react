@@ -1,5 +1,5 @@
 import { DEVIATIONS_DETAILS_SET_ID } from '../../../actions';
-import deviationsDetailsSetDataCreator from './set-data';
+import deviationsDetailsSetDataActionCreator from './set-data';
 
 /**
  * @global
@@ -16,7 +16,7 @@ import deviationsDetailsSetDataCreator from './set-data';
  * @param {string} id - Deviation id value.
  * @returns {DeviationsDetailsSetIdAction} Action.
  */
-const deviationDetailsSetIdActionCreator = id => ({
+const deviationsDetailsSetIdActionCreator = id => ({
   type: DEVIATIONS_DETAILS_SET_ID,
   id,
 });
@@ -29,6 +29,6 @@ const deviationDetailsSetIdActionCreator = id => ({
  * @param {Config} config - The config.
  */
 export default (deviationDetailsId, config) => (dispatch) => {
-  dispatch(deviationDetailsSetIdActionCreator(deviationDetailsId));
-  dispatch(deviationsDetailsSetDataCreator(config));
+  dispatch(deviationsDetailsSetIdActionCreator(deviationDetailsId));
+  dispatch(deviationsDetailsSetDataActionCreator(config));
 };
