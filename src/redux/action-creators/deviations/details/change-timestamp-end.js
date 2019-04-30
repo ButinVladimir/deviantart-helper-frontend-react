@@ -1,4 +1,5 @@
 import { DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END } from '../../../actions';
+import getTimestamp from '../../../../helpers/get-timestamp';
 
 /**
  * @global
@@ -17,5 +18,5 @@ import { DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END } from '../../../actions';
  */
 export default timestampEnd => ({
   type: DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END,
-  timestampEnd,
+  timestampEnd: getTimestamp(timestampEnd),
 });

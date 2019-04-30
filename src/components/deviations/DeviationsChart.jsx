@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  ResponsiveContainer,
   LineChart,
   CartesianGrid,
   XAxis,
@@ -10,6 +11,13 @@ import {
   Label,
   Legend,
 } from 'recharts';
+import {
+  Field,
+  Label as FormLabel,
+  Control,
+  Select,
+} from 'react-bulma-components/lib/components/form';
+import Level from 'react-bulma-components/lib/components/level';
 import * as chartTypes from '../../consts/chart-types';
 
 /**
@@ -146,44 +154,52 @@ export default function DeviationsChart({
   ));
 
   return (
-    <div>
-      <div>
-        <select name="chart-type" value={chartType} onChange={chartTypeChangeHandler}>
-          {chartOptions}
-        </select>
-      </div>
-      <div>
-        <LineChart
-          width={800}
-          height={500}
-          data={convertedMetadata}
-          margin={{
-            top: 0,
-            right: 0,
-            left: 10,
-            bottom: 200,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
-            dataKey="timestamp"
-            type="number"
-            domain={['dataMin', 'dataMax']}
-            tickFormatter={tickFormatter}
-          />
-          <YAxis
-            allowDecimals={false}
-            type="number"
-            domain={['dataMin', 'dataMax']}
-          >
-            <Label value={getChartTitle(chartType)} angle={-90} offset={5} position="insideLeft" />
-          </YAxis>
-          <Tooltip formatter={tooltipFormatter(titles)} labelFormatter={tooltipLabelFormatter} />
-          <Legend formatter={legendFormatter(titles)} />
-          {lines}
-        </LineChart>
-      </div>
-    </div>
+    <>
+      <Field>
+        <FormLabel>Dataset</FormLabel>
+        <Control>
+          <Select name="chart-type" value={chartType} onChange={chartTypeChangeHandler}>
+            {chartOptions}
+          </Select>
+        </Control>
+      </Field>
+      <Level>
+        <Level.Item>
+          <ResponsiveContainer width="100%" height={550}>
+            <LineChart
+              data={convertedMetadata}
+              margin={{
+                top: 0,
+                right: 0,
+                left: 10,
+                bottom: 200,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey="timestamp"
+                type="number"
+                domain={['dataMin', 'dataMax']}
+                tickFormatter={tickFormatter}
+              />
+              <YAxis
+                allowDecimals={false}
+                type="number"
+                domain={['dataMin', 'dataMax']}
+              >
+                <Label value={getChartTitle(chartType)} angle={-90} offset={5} position="insideLeft" />
+              </YAxis>
+              <Tooltip
+                formatter={tooltipFormatter(titles)}
+                labelFormatter={tooltipLabelFormatter}
+              />
+              <Legend formatter={legendFormatter(titles)} />
+              {lines}
+            </LineChart>
+          </ResponsiveContainer>
+        </Level.Item>
+      </Level>
+    </>
   );
 }
 

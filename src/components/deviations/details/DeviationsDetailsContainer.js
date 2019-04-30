@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import DeviationDetails from './DeviationsDetails';
+import clearLoadedDataActionCreator from '../../../redux/action-creators/shared/clear-loaded-data';
+import deviationsDetailsChangeTabActionCreator from '../../../redux/action-creators/deviations/details/change-tab';
 import deviationsDetailsSetIdActionCreator from '../../../redux/action-creators/deviations/details/set-id';
-import deviationsDetailsSetDataActionCreator from '../../../redux/action-creators/deviations/details/set-data';
-import deviationsDetailsChangeTimestampBeginActionCreator from '../../../redux/action-creators/deviations/details/change-timestamp-begin';
-import deviationsDetailsChangeTimestampEndActionCreator from '../../../redux/action-creators/deviations/details/change-timestamp-end';
 
 /**
  * @description
@@ -13,8 +12,9 @@ import deviationsDetailsChangeTimestampEndActionCreator from '../../../redux/act
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  timestampBegin: state.deviations.details.timestampBegin,
-  timestampEnd: state.deviations.details.timestampEnd,
+  title: state.deviations.details.title,
+  tab: state.deviations.details.tab,
+  detailsLoading: state.deviations.details.detailsLoading,
 });
 
 /**
@@ -26,14 +26,11 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  clearDataHander: () => dispatch(clearLoadedDataActionCreator()),
+  changeTabHandler: tab => () => dispatch(deviationsDetailsChangeTabActionCreator(tab)),
   loadDeviationDetailsHandler: () => {
     dispatch(deviationsDetailsSetIdActionCreator(ownProps.match.params.id, ownProps.config));
   },
-  timestampBeginChangeHandler:
-    e => dispatch(deviationsDetailsChangeTimestampBeginActionCreator(e.target.value)),
-  timestampEndChangeHandler:
-    e => dispatch(deviationsDetailsChangeTimestampEndActionCreator(e.target.value)),
-  submitHandler: () => dispatch(deviationsDetailsSetDataActionCreator(ownProps.config)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationDetails);

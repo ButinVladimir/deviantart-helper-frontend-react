@@ -1,12 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Columns from 'react-bulma-components/lib/components/columns';
 import Media from 'react-bulma-components/lib/components/media';
 import Content from 'react-bulma-components/lib/components/content';
 import Level from 'react-bulma-components/lib/components/level';
 import Heading from 'react-bulma-components/lib/components/heading';
-import Icon from 'react-bulma-components/lib/components/icon';
 import { DEVIATIONS_DETAILS, ID_PARAM } from '../../../consts/routes';
 
 export default function DeviationsPreview({
@@ -26,26 +24,21 @@ export default function DeviationsPreview({
   return (
     <Media>
       <Media.Item position="left" className="image-container">
-        <NavLink to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>
-          <img alt={title} src={thumbnail.src} width={thumbnail.width} height={thumbnail.height} />
-        </NavLink>
+        <img alt={title} src={thumbnail.src} />
       </Media.Item>
       <Media.Item>
-        <Columns>
-          <Columns.Column>
-            <Content>
-              <NavLink to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>
-                <Heading size={4}>{title}</Heading>
-              </NavLink>
-              <Heading size={6} subtitle>
-                {`Published ${publishedTimeDate.toLocaleString()}`}
-              </Heading>
-            </Content>
-          </Columns.Column>
-          <Columns.Column narrow>
-            <Icon color="dark" icon="eye" size="small" />
-          </Columns.Column>
-        </Columns>
+        <Level>
+          <Level.Side>
+            <NavLink className="is-size-4 has-text-weight-semibold" to={`${DEVIATIONS_DETAILS.replace(ID_PARAM, id)}`}>
+              {title}
+            </NavLink>
+          </Level.Side>
+          <Level.Side align="right">
+            <small className="has-text-grey">
+              {publishedTimeDate.toLocaleString()}
+            </small>
+          </Level.Side>
+        </Level>
         <Level breakpoint="tablet">
           <Level.Item className="has-text-centered">
             <Content>
@@ -53,7 +46,7 @@ export default function DeviationsPreview({
                 <Heading size={4}>{views}</Heading>
               </div>
               <div>
-                <Heading size={6} subtitle>VIEWS</Heading>
+                <Heading size={6} subtitle textTransform="uppercase">Views</Heading>
               </div>
             </Content>
           </Level.Item>
@@ -63,7 +56,7 @@ export default function DeviationsPreview({
                 <Heading size={4}>{favourites}</Heading>
               </div>
               <div>
-                <Heading size={6} subtitle>FAVOURITES</Heading>
+                <Heading size={6} subtitle textTransform="uppercase">Favourites</Heading>
               </div>
             </Content>
           </Level.Item>
@@ -73,7 +66,7 @@ export default function DeviationsPreview({
                 <Heading size={4}>{comments}</Heading>
               </div>
               <div>
-                <Heading size={6} subtitle>COMMENTS</Heading>
+                <Heading size={6} subtitle textTransform="uppercase">Comments</Heading>
               </div>
             </Content>
           </Level.Item>
@@ -83,7 +76,7 @@ export default function DeviationsPreview({
                 <Heading size={4}>{downloads}</Heading>
               </div>
               <div>
-                <Heading size={6} subtitle>DOWNLOADS</Heading>
+                <Heading size={6} subtitle textTransform="uppercase">Downloads</Heading>
               </div>
             </Content>
           </Level.Item>

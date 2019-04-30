@@ -2,6 +2,17 @@ import * as actions from '../actions';
 
 /**
  * @description
+ * Clear loaded data reducer.
+ *
+ * @returns {DeviationStatisticsState} New deviations browse state.
+ */
+const clearLoadedData = () => ({
+  deviations: [],
+  metadata: [],
+});
+
+/**
+ * @description
  * Change title value reducer.
  *
  * @param {DeviationsStatisticsChangeTitleAction} action - The action.
@@ -114,6 +125,10 @@ export default (deviationsStatisticsState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
+    case actions.CLEAR_LOADED_DATA:
+      difference = clearLoadedData();
+      break;
+
     case actions.DEVIATIONS_STATISTICS_CHANGE_TITLE:
       difference = changeTitle(action);
       break;

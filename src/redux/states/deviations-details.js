@@ -1,4 +1,5 @@
 import { CHART_VIEWS } from '../../consts/chart-types';
+import { DESCRIPTION } from '../../consts/tabs';
 
 /**
  * @global
@@ -53,10 +54,16 @@ import { CHART_VIEWS } from '../../consts/chart-types';
  * @returns {DeviationDetailsState} Default state.
  */
 export default () => ({
+  tab: DESCRIPTION,
   id: '',
   title: '',
   url: '',
   publishedTime: 0,
+  thumbnail: {
+    src: '',
+    height: 0,
+    width: 0,
+  },
   preview: {
     src: '',
     height: 0,
@@ -71,4 +78,5 @@ export default () => ({
   timestampEnd: '',
   chartType: CHART_VIEWS,
   metadata: [],
+  detailsLoading: false,
 });

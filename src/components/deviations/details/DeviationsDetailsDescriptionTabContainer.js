@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DeviationsDetailsForm from './DeviationsDetailsForm';
+import DeviationsDetailsDescriptionTab from './DeviationsDetailsDescriptionTab';
 
 /**
  * @description
@@ -9,8 +9,8 @@ import DeviationsDetailsForm from './DeviationsDetailsForm';
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  preview: state.deviations.details.preview,
   title: state.deviations.details.title,
+  thumbnail: state.deviations.details.thumbnail,
   url: state.deviations.details.url,
   publishedTime: state.deviations.details.publishedTime,
   description: state.deviations.details.description,
@@ -20,4 +20,4 @@ const mapStateToProps = state => ({
   downloads: state.deviations.details.downloads,
 });
 
-export default connect(mapStateToProps)(DeviationsDetailsForm);
+export default connect(mapStateToProps)(DeviationsDetailsDescriptionTab);

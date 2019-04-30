@@ -5,7 +5,7 @@ import Config from './config/config';
 import Header from './components/header/HeaderContainer';
 import Message from './components/message/MessageContainer';
 import UserInfo from './components/user/info/UserInfoContainer';
-import DeviationsBrowse from './components/deviations/browse/DeviationsBrowse';
+import DeviationsBrowse from './components/deviations/browse/DeviationsBrowseContainer';
 import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
 import DeviationsStatistics from './components/deviations/statistics/DeviationsStatistics';
 import * as routes from './consts/routes';

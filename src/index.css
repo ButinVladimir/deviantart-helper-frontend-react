@@ -10,3 +10,7 @@
   border-top-color: transparent;
   border-right-color: transparent;
 }
+
+.react-datepicker__close-icon::after {
+  padding: 1px;
+}

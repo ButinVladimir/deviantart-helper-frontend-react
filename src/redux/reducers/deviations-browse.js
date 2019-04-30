@@ -1,6 +1,16 @@
 import * as actions from '../actions';
 import filterAction from '../../helpers/filter-action';
 
+/**
+ * @description
+ * Clear loaded data reducer.
+ *
+ * @returns {DeviationBrowseState} New deviations browse state.
+ */
+const clearLoadedData = () => ({
+  deviations: [],
+});
+
 const formFields = [
   'publishedTimeBegin',
   'publishedTimeEnd',
@@ -60,6 +70,10 @@ export default (deviationsBrowseState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
+    case actions.CLEAR_LOADED_DATA:
+      difference = clearLoadedData();
+      break;
+
     case actions.DEVIATIONS_BROWSE_CHANGE_FORM_FIELD_VALUES:
       difference = changeFormFieldValues(action);
       break;
