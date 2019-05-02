@@ -1,5 +1,4 @@
 import * as sort from '../../consts/sort';
-import { CHART_VIEWS } from '../../consts/chart-types';
 
 /**
  * @global
@@ -56,7 +55,6 @@ import { CHART_VIEWS } from '../../consts/chart-types';
  * @property {string} publishedTimeEnd - Published time end value.
  * @property {string} timestampBegin - The timestamp begin value.
  * @property {string} timestampEnd - The timestamp end value.
- * @property {string} chartType - The chart type.
  * @property {DeviationStatistic[]} deviations - Loaded deviations.
  * @property {DeviationMetadata[]} metadata - The metadata.
  */
@@ -80,6 +78,5 @@ export default () => ({
   timestampBegin: timestampBeginDate.getTime().toString(),
   timestampEnd: '',
   deviations: [],
-  chartType: CHART_VIEWS,
   metadata: [],
 });

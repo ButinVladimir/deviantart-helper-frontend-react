@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsStatistic from './DeviationsStatistic';
 import Config from '../../../config/config';
-import DeviationsChart from '../DeviationsChart';
+import Chart from '../shared/DeviationsChartContainer';
 
 export default class DeviationsStatisticsData extends Component {
   componentDidMount() {
@@ -13,15 +13,15 @@ export default class DeviationsStatisticsData extends Component {
   render() {
     const {
       deviations,
-      chartType,
       metadata,
-      chartTypeChangeHandler,
     } = this.props;
+
     const mappedDeviations = deviations.map(d => (
       <DeviationsStatistic key={d.id} {...d} />
     ));
-    const titles = new Map();
-    deviations.forEach(d => titles.set(d.id, d.title));
+
+    const titlesMap = new Map();
+    deviations.forEach(d => titlesMap.set(d.id, d.title));
 
     return (
       <div>
@@ -39,11 +39,9 @@ export default class DeviationsStatisticsData extends Component {
             {mappedDeviations}
           </tbody>
         </table>
-        <DeviationsChart
+        <Chart
           metadata={metadata}
-          titles={titles}
-          chartType={chartType}
-          chartTypeChangeHandler={chartTypeChangeHandler}
+          titlesMap={titlesMap}
         />
       </div>
     );
@@ -54,7 +52,7 @@ DeviationsStatisticsData.propTypes = {
   config: PropTypes.instanceOf(Config).isRequired,
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   metadata: PropTypes.arrayOf(PropTypes.any).isRequired,
-  chartType: PropTypes.string.isRequired,
+  dataSet: PropTypes.string.isRequired,
   preloadDeviationsHandler: PropTypes.func.isRequired,
-  chartTypeChangeHandler: PropTypes.func.isRequired,
+  dataSetChangeHandler: PropTypes.func.isRequired,
 };

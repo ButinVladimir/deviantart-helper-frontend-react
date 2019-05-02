@@ -1,6 +1,7 @@
 import deviationsBrowseReducer from './deviations-browse';
 import deviationsDetailsReducer from './deviations-details';
 import deviationsStatisticsReducer from './deviations-statistics';
+import deviationsChartReducer from './deviations-chart';
 import deviationsCommonReducer from './deviations-common';
 
 /**
@@ -16,5 +17,6 @@ export default (deviationsState, sharedState, action) => ({
   browse: deviationsBrowseReducer(deviationsState.browse, sharedState, action),
   details: deviationsDetailsReducer(deviationsState.details, sharedState, action),
   statistics: deviationsStatisticsReducer(deviationsState.statistics, sharedState, action),
+  chart: deviationsChartReducer(deviationsState.chart, sharedState, action),
   common: deviationsCommonReducer(deviationsState.common, sharedState, action),
 });

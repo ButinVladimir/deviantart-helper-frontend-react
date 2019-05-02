@@ -9,8 +9,7 @@ import {
   Control,
 } from 'react-bulma-components/lib/components/form';
 import Button from 'react-bulma-components/lib/components/button';
-
-import DeviationsChart from '../DeviationsChart';
+import Chart from '../shared/DeviationsChartContainer';
 
 export default function DeviationsDetailsMetadata({
   id,
@@ -18,14 +17,12 @@ export default function DeviationsDetailsMetadata({
   timestampBegin,
   timestampEnd,
   metadata,
-  chartType,
-  chartTypeChangeHandler,
   timestampBeginChangeHandler,
   timestampEndChangeHandler,
   submitHandler,
 }) {
-  const titles = new Map();
-  titles.set(id, title);
+  const titlesMap = new Map();
+  titlesMap.set(id, title);
   const mappedMetadata = metadata.map(md => Object.assign({}, md, { deviationId: id }));
 
   const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
@@ -35,68 +32,82 @@ export default function DeviationsDetailsMetadata({
     <>
       <Section>
         <Container>
-          <Field>
-            <Label>Timestamp range beginning</Label>
-            <Control>
-              <DatePicker
-                isClearable
-                className="input"
-                autoComplete="off"
-                withPortal
-                showYearDropdown
-                showMonthDropdown
-                showTimeSelect
-                dateFormat="dd.MM.yyyy HH:mm"
-                timeFormat="HH:mm"
-                selectsStart
-                name="publishedTimeBegin"
-                startDate={timestampBeginDate}
-                endDate={timestampEndDate}
-                selected={timestampBeginDate}
-                onChange={timestampBeginChangeHandler}
-              />
-            </Control>
+          <Field horizontal>
+            <Field.Label>
+              <Label>Timestamp range beginning</Label>
+            </Field.Label>
+            <Field.Body>
+              <Field>
+                <Control>
+                  <DatePicker
+                    isClearable
+                    className="input"
+                    autoComplete="off"
+                    withPortal
+                    showYearDropdown
+                    showMonthDropdown
+                    showTimeSelect
+                    dateFormat="dd.MM.yyyy HH:mm"
+                    timeFormat="HH:mm"
+                    selectsStart
+                    name="publishedTimeBegin"
+                    startDate={timestampBeginDate}
+                    endDate={timestampEndDate}
+                    selected={timestampBeginDate}
+                    onChange={timestampBeginChangeHandler}
+                  />
+                </Control>
+              </Field>
+            </Field.Body>
           </Field>
 
-          <Field>
-            <Label>Timestamp range end</Label>
-            <Control>
-              <DatePicker
-                isClearable
-                className="input"
-                autoComplete="off"
-                withPortal
-                showYearDropdown
-                showMonthDropdown
-                showTimeSelect
-                dateFormat="dd.MM.yyyy HH:mm"
-                timeFormat="HH:mm"
-                selectsEnd
-                name="publishedTimeBegin"
-                startDate={timestampBeginDate}
-                endDate={timestampEndDate}
-                selected={timestampEndDate}
-                onChange={timestampEndChangeHandler}
-              />
-            </Control>
+          <Field horizontal>
+            <Field.Label size="normal">
+              <Label>Timestamp range end</Label>
+            </Field.Label>
+            <Field.Body>
+              <Field>
+                <Control>
+                  <DatePicker
+                    isClearable
+                    className="input"
+                    autoComplete="off"
+                    withPortal
+                    showYearDropdown
+                    showMonthDropdown
+                    showTimeSelect
+                    dateFormat="dd.MM.yyyy HH:mm"
+                    timeFormat="HH:mm"
+                    selectsEnd
+                    name="publishedTimeBegin"
+                    startDate={timestampBeginDate}
+                    endDate={timestampEndDate}
+                    selected={timestampEndDate}
+                    onChange={timestampEndChangeHandler}
+                  />
+                </Control>
+              </Field>
+            </Field.Body>
           </Field>
 
           <Field kind="group">
-            <Control>
-              <Button color="primary" onClick={submitHandler}>Submit</Button>
-            </Control>
+            <Field.Label size="normal" />
+            <Field.Body>
+              <Field>
+                <Control>
+                  <Button color="primary" onClick={submitHandler}>Submit</Button>
+                </Control>
+              </Field>
+            </Field.Body>
           </Field>
         </Container>
       </Section>
 
       <Section>
         <Container>
-
-          <DeviationsChart
+          <Chart
             metadata={mappedMetadata}
-            titles={titles}
-            chartType={chartType}
-            chartTypeChangeHandler={chartTypeChangeHandler}
+            titlesMap={titlesMap}
           />
         </Container>
       </Section>
@@ -116,8 +127,6 @@ DeviationsDetailsMetadata.propTypes = {
     comments: PropTypes.number.isRequired,
     downloads: PropTypes.number.isRequired,
   })).isRequired,
-  chartType: PropTypes.string.isRequired,
-  chartTypeChangeHandler: PropTypes.func.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,

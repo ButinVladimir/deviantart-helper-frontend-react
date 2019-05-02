@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import filterAction from '../../helpers/filter-action';
 
 /**
  * @description
@@ -35,37 +36,20 @@ const changeTab = action => ({
   tab: action.tab,
 });
 
-/**
- * @description
- * Change timestamp begin value reducer.
- *
- * @param {DeviationsDetailsChangeTimestampBeginAction} action - The action.
- * @returns {DeviationDetailsState} New deviations details state.
- */
-const changeTimestampBegin = action => ({
-  timestampBegin: action.timestampBegin,
-});
+const formFields = [
+  'timestampBegin',
+  'timestampEnd',
+];
 
 /**
  * @description
- * Change timestamp end value reducer.
+ * Change title value reducer.
  *
- * @param {DeviationsDetailsChangeTimestampEndAction} action - The action.
- * @returns {DeviationDetailsState} New deviations details state.
+ * @param {DeviationsBrowseChangeTitleAction} action - The action.
+ * @returns {DeviationBrowseState} New deviations browse state.
  */
-const changeTimestampEnd = action => ({
-  timestampEnd: action.timestampEnd,
-});
-
-/**
- * @description
- * Change chart type value reducer.
- *
- * @param {DeviationsDetailsChangeTimestampEndAction} action - The action.
- * @returns {DeviationDetailsState} New deviations details state.
- */
-const changeChartType = action => ({
-  chartType: action.chartType,
+const changeFormFieldValues = action => ({
+  ...filterAction(action, formFields),
 });
 
 /**
@@ -141,16 +125,8 @@ export default (deviationsDetailsState, sharedState, action) => {
       difference = changeTab(action);
       break;
 
-    case actions.DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_BEGIN:
-      difference = changeTimestampBegin(action);
-      break;
-
-    case actions.DEVIATIONS_DETAILS_CHANGE_TIMESTAMP_END:
-      difference = changeTimestampEnd(action);
-      break;
-
-    case actions.DEVIATIONS_DETAILS_CHANGE_CHART_TYPE:
-      difference = changeChartType(action);
+    case actions.DEVIATIONS_DETAILS_CHANGE_FORM_FIELD_VALUES:
+      difference = changeFormFieldValues(action);
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_ID:

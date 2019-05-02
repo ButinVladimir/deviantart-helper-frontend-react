@@ -1,4 +1,3 @@
-import { CHART_VIEWS } from '../../consts/chart-types';
 import { DESCRIPTION } from '../../consts/tabs';
 
 /**
@@ -43,7 +42,6 @@ import { DESCRIPTION } from '../../consts/tabs';
  * @property {number} downloads - The downloads count.
  * @property {string} timestampBegin - The timestamp begin value.
  * @property {string} timestampEnd - The timestamp end value.
- * @property {string} chartType - The chart type.
  * @property {DeviationMetadata[]} metadata - The metadata.
  */
 
@@ -76,7 +74,6 @@ export default () => ({
   downloads: 0,
   timestampBegin: '',
   timestampEnd: '',
-  chartType: CHART_VIEWS,
   metadata: [],
   detailsLoading: false,
 });

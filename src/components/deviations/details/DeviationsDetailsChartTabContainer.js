@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTab';
 import deviationsDetailsSetDataActionCreator from '../../../redux/action-creators/deviations/details/set-data';
-import deviationsDetailsChangeTimestampBeginActionCreator from '../../../redux/action-creators/deviations/details/change-timestamp-begin';
-import deviationsDetailsChangeTimestampEndActionCreator from '../../../redux/action-creators/deviations/details/change-timestamp-end';
-import deviationsDetailsChangeChartTypeActionCreator from '../../../redux/action-creators/deviations/details/change-chart-type';
+import * as deviationsDetails from '../../../redux/action-creators/deviations/details/change-form-field-values';
 
 /**
  * @description
@@ -18,7 +16,6 @@ const mapStateToProps = state => ({
   timestampBegin: state.deviations.details.timestampBegin,
   timestampEnd: state.deviations.details.timestampEnd,
   metadata: state.deviations.details.metadata,
-  chartType: state.deviations.details.chartType,
 });
 
 /**
@@ -31,12 +28,10 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   timestampBeginChangeHandler:
-    value => dispatch(deviationsDetailsChangeTimestampBeginActionCreator(value)),
+    value => dispatch(deviationsDetails.changeTimestampBeginActionCreator(value)),
   timestampEndChangeHandler:
-    value => dispatch(deviationsDetailsChangeTimestampEndActionCreator(value)),
+    value => dispatch(deviationsDetails.changeTimestampEndActionCreator(value)),
   submitHandler: () => dispatch(deviationsDetailsSetDataActionCreator(ownProps.config)),
-  chartTypeChangeHandler:
-    e => dispatch(deviationsDetailsChangeChartTypeActionCreator(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsDetailsChartTab);
