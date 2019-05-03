@@ -76,6 +76,6 @@ export default () => ({
   downloads: 0,
   timestampBegin: 0,
   timestampEnd: 0,
-  metadata: [],
+  metadata: null,
   detailsLoading: false,
 });

@@ -23,7 +23,7 @@ export default function DeviationsDetailsChartTab({
 }) {
   const titlesMap = new Map();
   titlesMap.set(id, title);
-  const mappedMetadata = metadata.map(md => Object.assign({}, md, { deviationId: id }));
+  const mappedMetadata = (metadata || []).map(md => Object.assign({}, md, { deviationId: id }));
 
   const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
   const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
