@@ -1,11 +1,12 @@
 import * as actions from '../actions';
+import { LOCK_DEVIATION_DETAILS } from '../../consts/locks';
 import filterAction from '../../helpers/filter-action';
 
 /**
  * @description
  * Clear loaded data reducer.
  *
- * @returns {DeviationDetailsState} New deviations browse state.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const clearLoadedData = () => ({
   id: '',
@@ -22,7 +23,7 @@ const clearLoadedData = () => ({
   favourites: 0,
   comments: 0,
   downloads: 0,
-  metadata: [],
+  metadata: null,
 });
 
 /**
@@ -67,11 +68,11 @@ const detailsSetid = action => ({
  * @description
  * Set data for deviation details lock toggle reducer.
  *
- * @param {DeviationsDetailsSetDataLockToggleAction} action - The action.
- * @returns {DeviationDetailsState} New deviations browse state.
+ * @param {LockToggleAction} action - The action.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const detailsSetDataLockToggle = action => ({
-  detailsLoading: action.lock,
+  detailsLoading: action.value,
 });
 
 /**
@@ -134,8 +135,10 @@ export default (deviationsDetailsState, sharedState, action) => {
       difference = detailsSetid(action);
       break;
 
-    case actions.DEVIATIONS_DETAILS_SET_DATA_LOCK_TOGGLE:
-      difference = detailsSetDataLockToggle(action);
+    case actions.LOCK_TOGGLE:
+      if (action.lock === LOCK_DEVIATION_DETAILS) {
+        difference = detailsSetDataLockToggle(action);
+      }
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_DATA:

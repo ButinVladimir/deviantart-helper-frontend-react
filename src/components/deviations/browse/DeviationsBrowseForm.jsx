@@ -52,7 +52,7 @@ export default function DeviationsBrowseForm({
     <Section>
       <Container>
         <Content>
-          <Heading size={3}>Browse deviations</Heading>
+          <Heading size={2}>Browse deviations</Heading>
         </Content>
         <Field>
           <Label>Title</Label>

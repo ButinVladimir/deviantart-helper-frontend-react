@@ -1,6 +1,8 @@
-import { USER_LOAD_INFO, USER_LOAD_INFO_LOCK_TOGGLE } from '../../actions';
-import { USER_INFO } from '../../../consts/server-routes';
-import createFetchGetAction from '../fetch-get';
+import { USER_LOAD_INFO } from '../../actions';
+import { GET } from '../../../consts/fetch-methods';
+import { LOCK_LOAD_USER_INFO } from '../../../consts/locks';
+import { SERVER_ROUTE_USER_INFO } from '../../../consts/server-routes';
+import createFetchAction from '../fetch';
 
 /**
  * @global
@@ -13,43 +15,6 @@ import createFetchGetAction from '../fetch-get';
  * @param {string} userName - The user name.
  * @param {string} userIcon - The user icon.
  */
-
-/**
- * @global
- * @description
- * Action to change lock on loading user info.
- *
- * @typedef {Object} UserLoadInfoLockToggleAction
- * @property {bool} lock - Should deviations browse page be locked.
- */
-
-/**
- * @description
- * Creates action to change lock on loading user info.
- *
- * @param {bool} lock - Should deviations browse page be locked.
- * @returns {UserLoadInfoLockToggleAction} Action.
- */
-const lockToggle = lock => ({
-  type: USER_LOAD_INFO_LOCK_TOGGLE,
-  lock,
-});
-
-/**
- * @description
- * Creates action to lock loading user info.
- *
- * @returns {UserLoadInfoLockToggleAction} Action.
- */
-const lockActionCreator = () => lockToggle(true);
-
-/**
- * @description
- * Creates action to unlock loading user info.
- *
- * @returns {UserLoadInfoLockToggleAction} Action.
- */
-const unlockActionCreator = () => lockToggle(false);
 
 /**
  * @description
@@ -82,18 +47,11 @@ const userLoadInfoActionCreator = ({
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => async (dispatch, getState) => {
-  const { user: state } = getState();
-  if (state.userInfoLoading) {
-    return;
-  }
-
-  dispatch(lockActionCreator());
-
-  dispatch(createFetchGetAction(
-    USER_INFO,
-    userLoadInfoActionCreator,
-    unlockActionCreator,
-    config,
-  ));
-};
+export default config => createFetchAction(
+  GET,
+  SERVER_ROUTE_USER_INFO,
+  state => state.user.userInfoLoading,
+  LOCK_LOAD_USER_INFO,
+  userLoadInfoActionCreator,
+  config,
+);

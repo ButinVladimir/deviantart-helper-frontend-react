@@ -11,7 +11,7 @@ import {
 import Button from 'react-bulma-components/lib/components/button';
 import Chart from '../shared/DeviationsChartContainer';
 
-export default function DeviationsDetailsMetadata({
+export default function DeviationsDetailsChartTab({
   id,
   title,
   timestampBegin,
@@ -115,11 +115,11 @@ export default function DeviationsDetailsMetadata({
   );
 }
 
-DeviationsDetailsMetadata.propTypes = {
+DeviationsDetailsChartTab.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  timestampBegin: PropTypes.string.isRequired,
-  timestampEnd: PropTypes.string.isRequired,
+  timestampBegin: PropTypes.number,
+  timestampEnd: PropTypes.number,
   metadata: PropTypes.arrayOf(PropTypes.shape({
     timestamp: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
@@ -130,4 +130,9 @@ DeviationsDetailsMetadata.propTypes = {
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
+};
+
+DeviationsDetailsChartTab.defaultProps = {
+  timestampBegin: null,
+  timestampEnd: null,
 };

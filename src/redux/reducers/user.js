@@ -1,14 +1,15 @@
 import * as actions from '../actions';
+import { LOCK_LOAD_USER_INFO } from '../../consts/locks';
 
 /**
  * @description
  * Load user info lock toggle reducer.
  *
- * @param {UserLoadInfoLockToggleAction} action - The action.
+ * @param {LockToggleAction} action - The action.
  * @returns {UserState} New shared state.
  */
 const loadUserInfoLockToggle = action => ({
-  userInfoLoading: action.lock,
+  userInfoLoading: action.value,
 });
 
 /**
@@ -43,9 +44,10 @@ export default (userState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
-    case actions.USER_LOAD_INFO_LOCK_TOGGLE:
-    case actions.USER_REFRESH_LOCK_TOGGLE:
-      difference = loadUserInfoLockToggle(action);
+    case actions.LOCK_TOGGLE:
+      if (action.lock === LOCK_LOAD_USER_INFO) {
+        difference = loadUserInfoLockToggle(action);
+      }
       break;
 
     case actions.USER_LOAD_INFO:

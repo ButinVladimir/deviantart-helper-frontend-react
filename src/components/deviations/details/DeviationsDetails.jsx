@@ -38,7 +38,7 @@ export default class DeviationsDetails extends Component {
         <Section>
           <Container>
             <Content>
-              <Heading size={3}>{detailsLoading ? 'Deviation details' : title}</Heading>
+              <Heading size={2}>{detailsLoading ? 'Deviation details' : title}</Heading>
             </Content>
             <Tabs type="toggle">
               {mappedTabs}

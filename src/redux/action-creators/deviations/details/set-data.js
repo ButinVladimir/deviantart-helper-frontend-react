@@ -1,51 +1,30 @@
-import { DEVIATIONS_DETAILS } from '../../../../consts/server-routes';
-import { DEVIATIONS_DETAILS_SET_DATA, DEVIATIONS_DETAILS_SET_DATA_LOCK_TOGGLE } from '../../../actions';
-import createFetchGetAction from '../../fetch-get';
-
-/**
- * @global
- * @description
- * Action to set deviation data on deviation details page.
- *
- * @typedef {Object} DeviationsDetailsSetDataAction
- */
-
-/**
- * @global
- * @description
- * Action to change lock on loading page with deviation details.
- *
- * @typedef {Object} DeviationsDetailsSetDataLockToggleAction
- * @property {bool} lock - Should deviations browse page be locked.
- */
+import { GET } from '../../../../consts/fetch-methods';
+import { LOCK_DEVIATION_DETAILS } from '../../../../consts/locks';
+import { SERVER_ROUTE_DEVIATIONS_DETAILS } from '../../../../consts/server-routes';
+import { DEVIATIONS_DETAILS_SET_DATA } from '../../../actions';
+import createFetchAction from '../../fetch';
 
 /**
  * @description
- * Creates action to change lock on loading page with deviation details.
+ * Function to handle preparing params object.
  *
- * @param {bool} lock - Should deviations browse page be locked.
- * @returns {DeviationsDetailsSetDataLockToggleAction} Action.
+ * @param {Obect} state - Redux state.
+ * @returns {Object} Params object.
  */
-const lockToggle = lock => ({
-  type: DEVIATIONS_DETAILS_SET_DATA_LOCK_TOGGLE,
-  lock,
-});
+const paramsHandler = (state) => {
+  const detailsState = state.deviations.details;
+  const params = {};
 
-/**
- * @description
- * Creates action to lock page with deviation details.
- *
- * @returns {DeviationsDetailsSetDataLockToggleAction} Action.
- */
-const lockActionCreator = () => lockToggle(true);
+  if (detailsState.timestampBegin) {
+    params.timestampbegin = detailsState.timestampBegin;
+  }
 
-/**
- * @description
- * Creates action to unlock page with deviation details.
- *
- * @returns {DeviationsDetailsSetDataLockToggleAction} Action.
- */
-const unlockActionCreator = () => lockToggle(false);
+  if (detailsState.timestampEnd) {
+    params.timestampend = detailsState.timestampEnd;
+  }
+
+  return params;
+};
 
 /**
  * @description
@@ -71,32 +50,20 @@ const deviationsDetailsSetDataActionCreator = ({ deviation, metadata }) => ({
  * Loads deviations details data.
  *
  * @param {Config} config - The config.
+ * @returns {Function} Action to dispatch.
  */
 export default config => (dispatch, getState) => {
-  const { deviations: { details: state } } = getState();
-  if (state.detailsLoading) {
-    return;
-  }
-
-  dispatch(lockActionCreator());
-
-  const { id } = state;
-
-  const params = {};
-  if (state.timestampBegin) {
-    params.timestampbegin = state.timestampBegin;
-  }
-  if (state.timestampEnd) {
-    params.timestampend = state.timestampEnd;
-  }
+  const { deviations: { details: { id } } } = getState();
 
   dispatch(
-    createFetchGetAction(
-      `${DEVIATIONS_DETAILS}${id}`,
+    createFetchAction(
+      GET,
+      `${SERVER_ROUTE_DEVIATIONS_DETAILS}${id}`,
+      state => state.deviations.details.detailsLoading,
+      LOCK_DEVIATION_DETAILS,
       deviationsDetailsSetDataActionCreator,
-      unlockActionCreator,
       config,
-      params,
+      paramsHandler,
     ),
   );
 };

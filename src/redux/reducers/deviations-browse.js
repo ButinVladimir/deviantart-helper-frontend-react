@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import { LOCK_BROWSE_DEVIATIONS } from '../../consts/locks';
 import filterAction from '../../helpers/filter-action';
 
 /**
@@ -36,11 +37,11 @@ const changeFormFieldValues = action => ({
  * @description
  * Load page lock toggle reducer.
  *
- * @param {DeviationsBrowseLoadPageLockToggleAction} action - The action.
+ * @param {LockToggleAction} action - The action.
  * @returns {DeviationBrowseState} New deviations browse state.
  */
 const loadPageLockToggle = action => ({
-  pageLoading: action.lock,
+  pageLoading: action.value,
 });
 
 /**
@@ -79,8 +80,10 @@ export default (deviationsBrowseState, sharedState, action) => {
       difference = changeFormFieldValues(action);
       break;
 
-    case actions.DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE:
-      difference = loadPageLockToggle(action);
+    case actions.LOCK_TOGGLE:
+      if (action.lock === LOCK_BROWSE_DEVIATIONS) {
+        difference = loadPageLockToggle(action);
+      }
       break;
 
     case actions.DEVIATIONS_BROWSE_LOAD_PAGE:

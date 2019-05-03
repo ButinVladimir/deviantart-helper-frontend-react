@@ -41,6 +41,8 @@ import { SHOW_ALL } from '../../consts/nsfw-options';
  * @property {string} publishedTimeBegin - Published time begin value.
  * @property {string} publishedTimeEnd - Published time end value.
  * @property {DeviationPreview[]} deviations - Loaded deviations.
+ * @property {boolean} pageLoading - Is page loading.
+ * @property {boolean} showPagination - Should pagination be shown.
  */
 
 /**

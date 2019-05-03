@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import { LOCK_REVOKE } from '../../consts/locks';
 
 /**
  * @description
@@ -64,11 +65,11 @@ const showError = (sharedState, action) => ({
  * @description
  * Revoke lock toggle reducer.
  *
- * @param {RevokeLockToggleAction} action - The action.
+ * @param {LockToggleAction} action - The action.
  * @returns {SharedState} New shared state.
  */
 const revokeLockToggle = action => ({
-  revokeLoading: action.lock,
+  revokeLoading: action.value,
 });
 
 /**
@@ -114,8 +115,10 @@ export default (sharedState, action) => {
       difference = showError(sharedState, action);
       break;
 
-    case actions.REVOKE_LOCK_TOGGLE:
-      difference = revokeLockToggle(action);
+    case actions.LOCK_TOGGLE:
+      if (action.lock === LOCK_REVOKE) {
+        difference = revokeLockToggle(action);
+      }
       break;
 
     case actions.REVOKE:

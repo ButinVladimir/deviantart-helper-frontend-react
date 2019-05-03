@@ -1,44 +1,9 @@
-import { DEVIATIONS_LOAD } from '../../../consts/server-routes';
-import { DEVIATIONS_LOAD_LOCK_TOGGLE } from '../../actions';
+import { GET } from '../../../consts/fetch-methods';
+import { LOCK_START_LOADING_DATA } from '../../../consts/locks';
+import { SERVER_ROUTE_DEVIATIONS_LOAD } from '../../../consts/server-routes';
+import lockToggleActionCreator from '../shared/lock-toggle';
 import showMessageActionCreator from '../shared/show-message';
-import createFetchAction from '../fetch-get';
-
-/**
- * @global
- * @description
- * Action to change lock on loading deviations.
- *
- * @typedef {Object} DeviationsLoadLockToggleAction
- * @property {bool} lock - Should deviations loading be locked.
- */
-
-/**
- * @description
- * Creates action to change lock on loading deviations.
- *
- * @param {bool} lock - Should deviations loading be locked.
- * @returns {DeviationsLoadLockToggleAction} Action.
- */
-const lockToggle = lock => ({
-  type: DEVIATIONS_LOAD_LOCK_TOGGLE,
-  lock,
-});
-
-/**
- * @description
- * Creates action to lock loading deviations.
- *
- * @returns {DeviationsLoadLockToggleAction} Action.
- */
-const lockActionCreator = () => lockToggle(true);
-
-/**
- * @description
- * Creates action to unlock loading deviations.
- *
- * @returns {DeviationsLoadLockToggleAction} Action.
- */
-const unlockActionCreator = () => lockToggle(false);
+import createFetchAction from '../fetch';
 
 /**
  * @description
@@ -47,9 +12,8 @@ const unlockActionCreator = () => lockToggle(false);
  * @returns {Function} Action.
  */
 const loadActionCreator = () => (dispatch) => {
-  dispatch(unlockActionCreator());
-
   dispatch(showMessageActionCreator('Deviations have been started loading'));
+  dispatch(lockToggleActionCreator(LOCK_START_LOADING_DATA, false));
 };
 
 /**
@@ -59,18 +23,11 @@ const loadActionCreator = () => (dispatch) => {
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => async (dispatch, getState) => {
-  const { deviations: { common: state } } = getState();
-  if (state.deviationsLoading) {
-    return;
-  }
-
-  dispatch(lockActionCreator());
-
-  dispatch(createFetchAction(
-    DEVIATIONS_LOAD,
-    loadActionCreator,
-    unlockActionCreator,
-    config,
-  ));
-};
+export default config => createFetchAction(
+  GET,
+  SERVER_ROUTE_DEVIATIONS_LOAD,
+  state => state.deviations.common.deviationsLoading,
+  LOCK_START_LOADING_DATA,
+  loadActionCreator,
+  config,
+);

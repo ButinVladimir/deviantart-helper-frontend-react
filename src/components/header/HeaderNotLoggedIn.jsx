@@ -9,7 +9,7 @@ export default function HeaderNotLoggedIn({
   userInfoLoading,
   config,
 }) {
-  const loginUrl = `${config.serverUrl}${serverRoutes.AUTH_CONNECT}`;
+  const loginUrl = `${config.serverUrl}${serverRoutes.SERVER_ROUTE_AUTH_CONNECT}`;
 
   return (
     <Navbar.Brand>

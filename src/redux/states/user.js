@@ -4,7 +4,7 @@
  * User state.
  *
  * @typedef {Object} UserState
- * @property {bool} userInfoLoading - Is user info loading.
+ * @property {boolean} userInfoLoading - Is user info loading.
  * @property {string} userName - User name.
  * @property {string} userId - User ID.
  * @property {string} userIcon - User icon.

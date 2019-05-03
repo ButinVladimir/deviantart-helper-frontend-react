@@ -1,14 +1,44 @@
-import { DEVIATIONS_STATISTICS, PAGE_PARAM } from '../../../../consts/server-routes';
+import { SERVER_ROUTE_DEVIATIONS_STATISTICS, PAGE_PARAM } from '../../../../consts/server-routes';
 import { DEVIATIONS_STATISTICS_LOAD_PAGE } from '../../../actions';
-import createFetchGetAction from '../../fetch-get';
+import { POST } from '../../../../consts/fetch-methods';
+import { LOCK_DEVIATIONS_STATISTICS } from '../../../../consts/locks';
+import createFetchAction from '../../fetch';
 
 /**
- * @global
  * @description
- * Action to load page with deviations to get statistics.
+ * Function to handle preparing params object.
  *
- * @typedef {Object} DeviationsStatisticsLoadPageAction
+ * @param {Obect} state - Redux state.
+ * @returns {Object} Params object.
  */
+const paramsHandler = (state) => {
+  const statisticsState = state.deviations.statistics;
+  const params = {};
+
+  if (statisticsState.title) {
+    params.title = statisticsState.title;
+  }
+
+  if (statisticsState.publishedTimeBegin) {
+    params.publishedtimebegin = statisticsState.publishedTimeBegin;
+  }
+
+  if (statisticsState.publishedTimeEnd) {
+    params.publishedtimeend = statisticsState.publishedTimeEnd;
+  }
+
+  params.sortfield = statisticsState.sortField;
+  params.sortorder = statisticsState.sortOrder;
+
+  if (statisticsState.timestampBegin) {
+    params.timestampbegin = statisticsState.timestampBegin;
+  }
+  if (statisticsState.timestampEnd) {
+    params.timestampend = statisticsState.timestampEnd;
+  }
+
+  return params;
+};
 
 /**
  * @description
@@ -30,31 +60,17 @@ const deviationsStatisticsLoadPageActionCreator = page => ({ deviations, metadat
  *
  * @param {number} page - The page number.
  * @param {Config} config - The config.
+ * @returns {Function} Function to dispatch.
  */
-export const loadPage = (page, config) => (dispatch, getState) => {
-  const { deviations: { statistics: state } } = getState();
-
-  const params = {};
-  if (state.title) {
-    params.title = state.title;
-  }
-  if (state.publishedTimeBegin) {
-    params.publishedtimebegin = state.publishedTimeBegin;
-  }
-  if (state.publishedTimeEnd) {
-    params.publishedtimeend = state.publishedTimeEnd;
-  }
-  params.sortfield = state.sortField;
-  params.sortorder = state.sortOrder;
-  if (state.timestampBegin) {
-    params.timestampbegin = state.timestampBegin;
-  }
-  if (state.timestampEnd) {
-    params.timestampend = state.timestampEnd;
-  }
-
-  dispatch(createFetchGetAction(`${DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page)}`, deviationsStatisticsLoadPageActionCreator(page), {}, config, params));
-};
+export const loadPage = (page, config) => createFetchAction(
+  POST,
+  SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page),
+  state => state.deviations.statistics.pageLoading,
+  LOCK_DEVIATIONS_STATISTICS,
+  deviationsStatisticsLoadPageActionCreator(page),
+  config,
+  paramsHandler,
+);
 
 /**
  * @description

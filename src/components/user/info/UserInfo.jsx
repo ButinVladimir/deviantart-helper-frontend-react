@@ -29,7 +29,7 @@ export default class UserInfo extends Component {
       <Section>
         <Container>
           <Content>
-            <Heading size={3}>Current user info</Heading>
+            <Heading size={2}>Current user info</Heading>
             <p>
               <span>User: </span>
               <strong>{userName}</strong>

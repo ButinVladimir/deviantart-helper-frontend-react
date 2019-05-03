@@ -1,52 +1,42 @@
-import { DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../consts/server-routes';
-import { DEVIATIONS_BROWSE_LOAD_PAGE, DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE } from '../../../actions';
-import createFetchGetAction from '../../fetch-get';
+import { SERVER_ROUTE_DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../consts/server-routes';
+import { DEVIATIONS_BROWSE_LOAD_PAGE } from '../../../actions';
+import { POST } from '../../../../consts/fetch-methods';
+import { LOCK_BROWSE_DEVIATIONS } from '../../../../consts/locks';
+import createFetchAction from '../../fetch';
 import { SHOW_ALL, SHOW_NSFW } from '../../../../consts/nsfw-options';
 
 /**
- * @global
  * @description
- * Action to load page with deviations to browse.
+ * Function to handle preparing params object.
  *
- * @typedef {Object} DeviationsBrowseLoadPageAction
+ * @param {Obect} state - Redux state.
+ * @returns {Object} Params object.
  */
+const paramsHandler = (state) => {
+  const browseState = state.deviations.browse;
+  const params = {};
 
-/**
- * @global
- * @description
- * Action to change lock on loading page with deviations to browse.
- *
- * @typedef {Object} DeviationsBrowseLoadPageLockToggleAction
- * @property {bool} lock - Should deviations browse page be locked.
- */
+  if (browseState.title) {
+    params.title = browseState.title;
+  }
 
-/**
- * @description
- * Creates action to change lock on loading page with deviations to browse.
- *
- * @param {bool} lock - Should deviations browse page be locked.
- * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
- */
-const lockToggle = lock => ({
-  type: DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE,
-  lock,
-});
+  if (browseState.publishedTimeBegin) {
+    params.publishedtimebegin = browseState.publishedTimeBegin;
+  }
 
-/**
- * @description
- * Creates action to lock page with deviations to browse.
- *
- * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
- */
-const lockActionCreator = () => lockToggle(true);
+  if (browseState.publishedTimeEnd) {
+    params.publishedtimeend = browseState.publishedTimeEnd;
+  }
 
-/**
- * @description
- * Creates action to unlock page with deviations to browse.
- *
- * @returns {DeviationsBrowseLoadPageLockToggleAction} Action.
- */
-const unlockActionCreator = () => lockToggle(false);
+  if (browseState.nsfw !== SHOW_ALL) {
+    params.nsfw = browseState.nsfw === SHOW_NSFW;
+  }
+
+  params.sortfield = browseState.sortField;
+  params.sortorder = browseState.sortOrder;
+
+  return params;
+};
 
 /**
  * @description
@@ -70,40 +60,15 @@ const deviationsBrowseLoadPageActionCreator = page => ({ deviations, pageCount }
  * @param {Config} config - The config.
  * @returns {Function} Function to dispatch.
  */
-const loadPage = (page, config) => (dispatch, getState) => {
-  const { deviations: { browse: state } } = getState();
-  if (state.pageLoading) {
-    return;
-  }
-
-  dispatch(lockActionCreator());
-
-  const params = {};
-  if (state.title) {
-    params.title = state.title;
-  }
-  if (state.publishedTimeBegin) {
-    params.publishedtimebegin = state.publishedTimeBegin;
-  }
-  if (state.publishedTimeEnd) {
-    params.publishedtimeend = state.publishedTimeEnd;
-  }
-  if (state.nsfw !== SHOW_ALL) {
-    params.nsfw = state.nsfw === SHOW_NSFW;
-  }
-  params.sortfield = state.sortField;
-  params.sortorder = state.sortOrder;
-
-  dispatch(
-    createFetchGetAction(
-      `${DEVIATIONS_BROWSE.replace(PAGE_PARAM, page)}`,
-      deviationsBrowseLoadPageActionCreator(page),
-      unlockActionCreator,
-      config,
-      params,
-    ),
-  );
-};
+const loadPage = (page, config) => createFetchAction(
+  POST,
+  SERVER_ROUTE_DEVIATIONS_BROWSE.replace(PAGE_PARAM, page),
+  state => state.deviations.browse.pageLoading,
+  LOCK_BROWSE_DEVIATIONS,
+  deviationsBrowseLoadPageActionCreator(page),
+  config,
+  paramsHandler,
+);
 
 /**
  * @description

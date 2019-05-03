@@ -1,10 +1,11 @@
 import * as actions from '../actions';
+import { LOCK_DEVIATIONS_STATISTICS } from '../../consts/locks';
 
 /**
  * @description
  * Clear loaded data reducer.
  *
- * @returns {DeviationStatisticsState} New deviations browse state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const clearLoadedData = () => ({
   deviations: [],
@@ -90,6 +91,17 @@ const changeTimestampEnd = action => ({
 
 /**
  * @description
+ * Load page lock toggle reducer.
+ *
+ * @param {LockToggleAction} action - The action.
+ * @returns {DeviationStatisticsState} New deviations browse state.
+ */
+const loadPageLockToggle = action => ({
+  pageLoading: action.value,
+});
+
+/**
+ * @description
  * Change chart type value reducer.
  *
  * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
@@ -110,6 +122,8 @@ const loadPage = action => ({
   deviations: Array.from(action.deviations),
   metadata: Array.from(action.metadata),
   page: action.page,
+  pageLoading: false,
+  showPagination: true,
 });
 
 /**
@@ -159,6 +173,12 @@ export default (deviationsStatisticsState, sharedState, action) => {
 
     case actions.DEVIATIONS_STATISTICS_CHANGE_CHART_TYPE:
       difference = changeChartType(action);
+      break;
+
+    case actions.LOCK_TOGGLE:
+      if (action.lock === LOCK_DEVIATIONS_STATISTICS) {
+        difference = loadPageLockToggle(action);
+      }
       break;
 
     case actions.DEVIATIONS_STATISTICS_LOAD_PAGE:

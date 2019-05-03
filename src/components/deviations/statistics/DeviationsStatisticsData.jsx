@@ -52,7 +52,5 @@ DeviationsStatisticsData.propTypes = {
   config: PropTypes.instanceOf(Config).isRequired,
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   metadata: PropTypes.arrayOf(PropTypes.any).isRequired,
-  dataSet: PropTypes.string.isRequired,
   preloadDeviationsHandler: PropTypes.func.isRequired,
-  dataSetChangeHandler: PropTypes.func.isRequired,
 };

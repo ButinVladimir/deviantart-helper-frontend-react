@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import DeviationsStatisticsData from './DeviationsStatisticsData';
 import deviationsStatisticsLoadPageActionCreator from '../../../redux/action-creators/deviations/statistics/load-page';
-import deviationsStatisticsChangeDataSetActionCreator from '../../../redux/action-creators/deviations/statistics/change-chart-type';
 
 /**
  * @description
@@ -13,7 +12,6 @@ import deviationsStatisticsChangeDataSetActionCreator from '../../../redux/actio
 const mapStateToProps = state => ({
   deviations: state.deviations.statistics.deviations,
   metadata: state.deviations.statistics.metadata,
-  dataSet: state.deviations.statistics.dataSet,
 });
 
 /**
@@ -27,8 +25,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   preloadDeviationsHandler:
     () => dispatch(deviationsStatisticsLoadPageActionCreator(ownProps.config)),
-  dataSetChangeHandler:
-    e => dispatch(deviationsStatisticsChangeDataSetActionCreator(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsData);

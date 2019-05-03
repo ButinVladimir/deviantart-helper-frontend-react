@@ -57,6 +57,8 @@ import * as sort from '../../consts/sort';
  * @property {string} timestampEnd - The timestamp end value.
  * @property {DeviationStatistic[]} deviations - Loaded deviations.
  * @property {DeviationMetadata[]} metadata - The metadata.
+ * @property {boolean} pageLoading - Is page loading.
+ * @property {boolean} showPagination - Should pagination be shown.
  */
 
 const timestampBeginDate = new Date();
@@ -79,4 +81,6 @@ export default () => ({
   timestampEnd: '',
   deviations: [],
   metadata: [],
+  pageLoading: false,
+  showPagination: false,
 });
