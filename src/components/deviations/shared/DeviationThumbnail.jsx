@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Media from 'react-bulma-components/lib/components/media';
+import Tag from 'react-bulma-components/lib/components/tag';
 
 export default function DeviationThumbnail({
   title,
   thumbnail,
   url,
   publishedTime,
+  nsfw,
 }) {
   const publishedTimeDate = new Date(publishedTime);
 
@@ -26,6 +28,7 @@ export default function DeviationThumbnail({
       <div>
         <a href={url}>Visit DA page</a>
       </div>
+      {nsfw && <Tag color="danger">NSFW</Tag>}
     </Media.Item>
   );
 }
@@ -39,4 +42,5 @@ DeviationThumbnail.propTypes = {
   }).isRequired,
   url: PropTypes.string.isRequired,
   publishedTime: PropTypes.number.isRequired,
+  nsfw: PropTypes.bool.isRequired,
 };

@@ -15,7 +15,9 @@ import {
   Input,
   Select,
 } from 'react-bulma-components/lib/components/form';
-import * as sort from '../../../consts/sort';
+import convertOptions from '../../../helpers/convert-options';
+import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
+import { nsfwOptions } from '../../../consts/nsfw-options';
 import Config from '../../../config/config';
 
 export default function DeviationsBrowseForm({
@@ -28,6 +30,7 @@ export default function DeviationsBrowseForm({
   title,
   publishedTimeBegin,
   publishedTimeEnd,
+  nsfw,
   pageLoading,
   showPagination,
   sortFieldChangeHandler,
@@ -35,11 +38,15 @@ export default function DeviationsBrowseForm({
   titleChangeHandler,
   publishedTimeBeginChangeHandler,
   publishedTimeEndChangeHandler,
+  nsfwChangeHandler,
   submitHandler,
   loadPageHandler,
 }) {
   const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
   const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
+  const sortOptions = convertOptions(deviationsSortOptions);
+  const orderOptionsElements = convertOptions(orderOptions);
+  const nsfwOptionsElements = convertOptions(nsfwOptions);
 
   return (
     <Section>
@@ -118,12 +125,7 @@ export default function DeviationsBrowseForm({
                   value={sortField}
                   onChange={sortFieldChangeHandler}
                 >
-                  <option value={sort.FIELD_TITLE}>Title</option>
-                  <option value={sort.FIELD_PUBLISHED_TIME}>Published time</option>
-                  <option value={sort.FIELD_VIEWS}>Views count</option>
-                  <option value={sort.FIELD_FAVOURITES}>Favourites count</option>
-                  <option value={sort.FIELD_COMMENTS}>Comments count</option>
-                  <option value={sort.FIELD_DOWNLOADS}>Downloads count</option>
+                  {sortOptions}
                 </Select>
               </Control>
             </Field>
@@ -139,11 +141,31 @@ export default function DeviationsBrowseForm({
                   value={sortOrder}
                   onChange={sortOrderChangeHandler}
                 >
-                  <option value={sort.ORDER_ASC}>Ascending</option>
-                  <option value={sort.ORDER_DESC}>Descending</option>
+                  {orderOptionsElements}
                 </Select>
               </Control>
             </Field>
+          </Columns.Column>
+        </Columns>
+
+        <Columns>
+          <Columns.Column>
+            <Field>
+              <Label>NSFW</Label>
+              <Control>
+                <Select
+                  disabled={pageLoading}
+                  name="nsfw"
+                  value={nsfw}
+                  onChange={nsfwChangeHandler}
+                >
+                  {nsfwOptionsElements}
+                </Select>
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column>
           </Columns.Column>
         </Columns>
 
@@ -178,6 +200,7 @@ DeviationsBrowseForm.propTypes = {
   title: PropTypes.string.isRequired,
   publishedTimeBegin: PropTypes.number,
   publishedTimeEnd: PropTypes.number,
+  nsfw: PropTypes.string.isRequired,
   pageLoading: PropTypes.bool.isRequired,
   showPagination: PropTypes.bool.isRequired,
   sortFieldChangeHandler: PropTypes.func.isRequired,
@@ -185,6 +208,7 @@ DeviationsBrowseForm.propTypes = {
   titleChangeHandler: PropTypes.func.isRequired,
   publishedTimeBeginChangeHandler: PropTypes.func.isRequired,
   publishedTimeEndChangeHandler: PropTypes.func.isRequired,
+  nsfwChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
   loadPageHandler: PropTypes.func.isRequired,
 };

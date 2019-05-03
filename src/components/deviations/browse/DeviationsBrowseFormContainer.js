@@ -18,6 +18,7 @@ const mapStateToProps = state => ({
   title: state.deviations.browse.title,
   publishedTimeBegin: state.deviations.browse.publishedTimeBegin,
   publishedTimeEnd: state.deviations.browse.publishedTimeEnd,
+  nsfw: state.deviations.browse.nsfw,
   pageLoading: state.deviations.browse.pageLoading,
   showPagination: state.deviations.browse.showPagination,
 });
@@ -40,6 +41,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     e => dispatch(deviationsBrowseForm.changeSortFieldActionCreator(e.target.value)),
   sortOrderChangeHandler:
     e => dispatch(deviationsBrowseForm.changeSortOrderActionCreator(e.target.value)),
+  nsfwChangeHandler:
+    e => dispatch(deviationsBrowseForm.changeNsfwActionCreator(e.target.value)),
   submitHandler: () => dispatch(deviationsBrowseLoadFirstPageActionCreator(ownProps.config)),
   // Pagination in Bulma starts from 1 while pagination on backend start from 0.
   loadPageHandler:

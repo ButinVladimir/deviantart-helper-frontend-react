@@ -12,6 +12,7 @@ import DeviationsDetailsPreviewTab from './DeviationsDetailsPreviewTabContainer'
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTabContainer';
 import Config from '../../../config/config';
 import * as tabs from '../../../consts/tabs';
+import convertTabs from '../../../helpers/convert-tabs';
 
 export default class DeviationsDetails extends Component {
   componentDidMount() {
@@ -30,16 +31,7 @@ export default class DeviationsDetails extends Component {
       changeTabHandler,
     } = this.props;
 
-    const tabTitles = [
-      [tabs.DESCRIPTION, 'Description'],
-      [tabs.PREVIEW, 'Preview'],
-      [tabs.CHART, 'Chart'],
-    ];
-    const mappedTabs = tabTitles.map(t => (
-      <Tabs.Tab key={t[0]} active={tab === t[0]} onClick={changeTabHandler(t[0])}>
-        {t[1]}
-      </Tabs.Tab>
-    ));
+    const mappedTabs = convertTabs(tabs.deviationDetailsTabs, tab, changeTabHandler);
 
     return (
       <>

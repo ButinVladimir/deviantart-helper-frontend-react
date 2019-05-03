@@ -96,6 +96,7 @@ const detailsSetData = action => ({
     height: action.deviation.preview.height,
   },
   description: action.deviation.description,
+  nsfw: action.deviation.nsfw,
   views: action.deviation.views,
   favourites: action.deviation.favourites,
   comments: action.deviation.comments,

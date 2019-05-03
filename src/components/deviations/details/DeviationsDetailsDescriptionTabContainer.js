@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   url: state.deviations.details.url,
   publishedTime: state.deviations.details.publishedTime,
   description: state.deviations.details.description,
+  nsfw: state.deviations.details.nsfw,
   views: state.deviations.details.views,
   favourites: state.deviations.details.favourites,
   comments: state.deviations.details.comments,

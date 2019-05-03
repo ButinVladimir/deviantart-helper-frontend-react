@@ -1,6 +1,7 @@
 import { DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../consts/server-routes';
 import { DEVIATIONS_BROWSE_LOAD_PAGE, DEVIATIONS_BROWSE_LOAD_PAGE_LOCK_TOGGLE } from '../../../actions';
 import createFetchGetAction from '../../fetch-get';
+import { SHOW_ALL, SHOW_NSFW } from '../../../../consts/nsfw-options';
 
 /**
  * @global
@@ -86,6 +87,9 @@ const loadPage = (page, config) => (dispatch, getState) => {
   }
   if (state.publishedTimeEnd) {
     params.publishedtimeend = state.publishedTimeEnd;
+  }
+  if (state.nsfw !== SHOW_ALL) {
+    params.nsfw = state.nsfw === SHOW_NSFW;
   }
   params.sortfield = state.sortField;
   params.sortorder = state.sortOrder;

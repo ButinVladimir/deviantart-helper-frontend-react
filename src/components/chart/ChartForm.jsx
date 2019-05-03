@@ -8,7 +8,8 @@ import {
   Checkbox,
 } from 'react-bulma-components/lib/components/form';
 import Columns from 'react-bulma-components/lib/components/columns';
-import * as roundPeriods from '../../consts/round-periods';
+import convertOptions from '../../helpers/convert-options';
+import { roundPeriodOptions } from '../../consts/round-periods';
 
 export default function ChartForm({
   dataSetTitlesMap,
@@ -19,23 +20,8 @@ export default function ChartForm({
   roundPeriodChangeHandler,
   showTimeChangeHandler,
 }) {
-  const dataSetOptions = Array.from(dataSetTitlesMap.entries()).map(dataSetOption => (
-    <option key={dataSetOption[0]} value={dataSetOption[0]}>
-      {dataSetOption[1]}
-    </option>
-  ));
-
-  const roundPeriodOptions = [
-    [roundPeriods.ROUND_PERIOD_NO_ROUND, 'No rounding'],
-    [roundPeriods.ROUND_PERIOD_1_HOUR, '1 hour'],
-    [roundPeriods.ROUND_PERIOD_4_HOURS, '4 hours'],
-    [roundPeriods.ROUND_PERIOD_12_HOURS, '12 hours'],
-    [roundPeriods.ROUND_PERIOD_1_DAY, '1 day'],
-  ].map(roundPeriodOption => (
-    <option key={roundPeriodOption[0]} value={roundPeriodOption[0]}>
-      {roundPeriodOption[1]}
-    </option>
-  ));
+  const dataSetOptionsElements = convertOptions(Array.from(dataSetTitlesMap.entries()));
+  const roundPeriodOptionsElements = convertOptions(roundPeriodOptions);
 
   return (
     <Columns>
@@ -44,7 +30,7 @@ export default function ChartForm({
           <FormLabel>Data set</FormLabel>
           <Control>
             <Select name="data-set" value={dataSet} onChange={dataSetChangeHandler}>
-              {dataSetOptions}
+              {dataSetOptionsElements}
             </Select>
           </Control>
         </Field>
@@ -55,7 +41,7 @@ export default function ChartForm({
           <FormLabel>Round period</FormLabel>
           <Control>
             <Select name="round-period" value={roundPeriod} onChange={roundPeriodChangeHandler}>
-              {roundPeriodOptions}
+              {roundPeriodOptionsElements}
             </Select>
           </Control>
         </Field>

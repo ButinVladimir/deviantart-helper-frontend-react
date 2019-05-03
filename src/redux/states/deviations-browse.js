@@ -1,4 +1,5 @@
 import * as sort from '../../consts/sort';
+import { SHOW_ALL } from '../../consts/nsfw-options';
 
 /**
  * @global
@@ -56,6 +57,7 @@ export default () => ({
   title: '',
   publishedTimeBegin: 0,
   publishedTimeEnd: 0,
+  nsfw: SHOW_ALL,
   deviations: [],
   pageLoading: false,
   showPagination: false,

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Chart from '../../chart/Chart';
 import * as deviationChart from '../../../redux/action-creators/deviations/chart/change-form-field-values';
-import * as dataSet from '../../../consts/data-sets';
+import { dataSetOptions } from '../../../consts/data-sets';
 
 /**
  * @description
@@ -11,12 +11,7 @@ import * as dataSet from '../../../consts/data-sets';
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  dataSetTitlesMap: new Map([
-    [dataSet.DATA_SET_VIEWS, 'Views'],
-    [dataSet.DATA_SET_FAVOURITES, 'Favourites'],
-    [dataSet.DATA_SET_COMMENTS, 'Comments'],
-    [dataSet.DATA_SET_DOWNLOADS, 'Downloads'],
-  ]),
+  dataSetTitlesMap: new Map(dataSetOptions),
   dataSet: state.deviations.chart.dataSet,
   roundPeriod: state.deviations.chart.roundPeriod,
   showTime: state.deviations.chart.showTime,

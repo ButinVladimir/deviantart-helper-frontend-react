@@ -17,6 +17,7 @@ const formFields = [
   'sortField',
   'sortOrder',
   'title',
+  'nsfw',
 ];
 
 /**

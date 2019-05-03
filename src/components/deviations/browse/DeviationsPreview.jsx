@@ -15,6 +15,7 @@ export default function DeviationsPreview({
   url,
   id,
   publishedTime,
+  nsfw,
   views,
   favourites,
   comments,
@@ -27,6 +28,7 @@ export default function DeviationsPreview({
         thumbnail={thumbnail}
         url={url}
         publishedTime={publishedTime}
+        nsfw={nsfw}
       />
       <Media.Item>
         <Content>

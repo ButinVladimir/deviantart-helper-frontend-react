@@ -16,6 +16,7 @@ export default function DeviationsDetailsDescriptionTab({
   url,
   publishedTime,
   description,
+  nsfw,
   views,
   favourites,
   comments,
@@ -31,6 +32,7 @@ export default function DeviationsDetailsDescriptionTab({
               thumbnail={thumbnail}
               url={url}
               publishedTime={publishedTime}
+              nsfw={nsfw}
             />
             <Media.Item>
               <Content dangerouslySetInnerHTML={{ __html: description }} />

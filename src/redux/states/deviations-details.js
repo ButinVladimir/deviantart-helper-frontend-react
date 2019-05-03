@@ -36,6 +36,7 @@ import { DESCRIPTION } from '../../consts/tabs';
  * @property {number} publishedTime - The published time.
  * @property {DeviationPreviewImage} preview - The preview image.
  * @property {string} description - The description.
+ * @property {bool} nsfw - Is deviation NSFW.
  * @property {number} views - The views count.
  * @property {number} favourites - The favourites count.
  * @property {number} comments - The comments count.
@@ -68,6 +69,7 @@ export default () => ({
     width: 0,
   },
   description: '',
+  nsfw: false,
   views: 0,
   favourites: 0,
   comments: 0,

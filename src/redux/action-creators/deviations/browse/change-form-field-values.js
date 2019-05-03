@@ -75,3 +75,14 @@ export const changeSortOrderActionCreator = sortOrder => changeFormFieldValues({
 export const changeTitleActionCreator = title => changeFormFieldValues({
   title,
 });
+
+/**
+ * @description
+ * Creates action to change NSFW value on deviations browse page.
+ *
+ * @param {string} nsfw - NSFW value.
+ * @returns {DeviationsBrowseChangeFormFieldValuesAction} Action.
+ */
+export const changeNsfwActionCreator = nsfw => changeFormFieldValues({
+  nsfw,
+});
