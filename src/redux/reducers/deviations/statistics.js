@@ -1,5 +1,5 @@
-import * as actions from '../actions';
-import { LOCK_DEVIATIONS_STATISTICS } from '../../consts/locks';
+import * as actions from '../../actions';
+import { LOCK_DEVIATIONS_STATISTICS } from '../../../consts/locks';
 
 /**
  * @description
@@ -122,7 +122,6 @@ const loadPage = action => ({
   deviations: Array.from(action.deviations),
   metadata: Array.from(action.metadata),
   page: action.page,
-  pageLoading: false,
   showPagination: true,
 });
 

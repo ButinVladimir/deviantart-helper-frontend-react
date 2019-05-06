@@ -1,8 +1,8 @@
-import deviationsBrowseReducer from './deviations-browse';
-import deviationsDetailsReducer from './deviations-details';
-import deviationsStatisticsReducer from './deviations-statistics';
-import deviationsChartReducer from './deviations-chart';
-import deviationsCommonReducer from './deviations-common';
+import deviationsBrowseReducer from './deviations/browse';
+import deviationsDetailsReducer from './deviations/details';
+import deviationsStatisticsReducer from './deviations/statistics';
+import deviationsChartReducer from './deviations/chart';
+import deviationsCommonReducer from './deviations/common';
 
 /**
  * @description

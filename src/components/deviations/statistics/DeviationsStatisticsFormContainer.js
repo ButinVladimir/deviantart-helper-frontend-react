@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import deviationsStatisticsChangeTitleActionCreator from '../../../redux/action-creators/deviations/statistics/change-title';
 import deviationsStatisticsChangePublishedTimeBeginActionCreator from '../../../redux/action-creators/deviations/statistics/change-published-time-begin';
 import deviationsStatisticsChangePublishedTimeEndActionCreator from '../../../redux/action-creators/deviations/statistics/change-published-time-end';
@@ -56,4 +57,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   nextPageHandler: () => dispatch(deviationsStatisticsNextPageActionCreator(ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsForm);
+export default consumeConfig(
+  connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsForm),
+);

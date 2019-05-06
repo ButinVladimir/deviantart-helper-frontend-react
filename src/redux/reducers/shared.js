@@ -79,7 +79,6 @@ const revokeLockToggle = action => ({
  * @returns {SharedState} New shared state.
  */
 const revoke = () => ({
-  revokeLoading: false,
   isLoggedIn: false,
 });
 

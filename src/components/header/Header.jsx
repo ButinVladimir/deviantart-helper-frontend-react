@@ -4,18 +4,16 @@ import Container from 'react-bulma-components/lib/components/container';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import HeaderNotLoggedIn from './HeaderNotLoggedInContainer';
 import HeaderLoggedIn from './HeaderLoggedInContainer';
-import Config from '../../config/config';
 
 export default function Header({
   isLoggedIn,
   menuToggled,
-  config,
 }) {
   return (
     <Navbar color="dark" active={menuToggled}>
       <Container breakpoint="fullhd">
-        {!isLoggedIn && <HeaderNotLoggedIn config={config} />}
-        {isLoggedIn && <HeaderLoggedIn config={config} />}
+        {!isLoggedIn && <HeaderNotLoggedIn />}
+        {isLoggedIn && <HeaderLoggedIn />}
       </Container>
     </Navbar>
   );
@@ -24,5 +22,4 @@ export default function Header({
 Header.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   menuToggled: PropTypes.bool.isRequired,
-  config: PropTypes.instanceOf(Config).isRequired,
 };

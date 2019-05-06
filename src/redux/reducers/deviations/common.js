@@ -1,5 +1,5 @@
-import * as actions from '../actions';
-import { LOCK_START_LOADING_DATA } from '../../consts/locks';
+import * as actions from '../../actions';
+import { LOCK_START_LOADING_DATA } from '../../../consts/locks';
 
 /**
  * @description

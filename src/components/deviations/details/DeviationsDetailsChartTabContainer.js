@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTab';
-import deviationsDetailsSetDataActionCreator from '../../../redux/action-creators/deviations/details/set-data';
+import deviationsDetailsSetMetadataActionCreator from '../../../redux/action-creators/deviations/details/set-metadata';
 import * as deviationsDetails from '../../../redux/action-creators/deviations/details/change-form-field-values';
 
 /**
@@ -16,6 +17,7 @@ const mapStateToProps = state => ({
   timestampBegin: state.deviations.details.timestampBegin,
   timestampEnd: state.deviations.details.timestampEnd,
   metadata: state.deviations.details.metadata,
+  metadataLoading: state.deviations.details.metadataLoading,
 });
 
 /**
@@ -31,7 +33,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     value => dispatch(deviationsDetails.changeTimestampBeginActionCreator(value)),
   timestampEndChangeHandler:
     value => dispatch(deviationsDetails.changeTimestampEndActionCreator(value)),
-  submitHandler: () => dispatch(deviationsDetailsSetDataActionCreator(ownProps.config)),
+  submitHandler: () => dispatch(deviationsDetailsSetMetadataActionCreator(ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsDetailsChartTab);
+export default consumeConfig(
+  connect(mapStateToProps, mapDispatchToProps)(DeviationsDetailsChartTab),
+);

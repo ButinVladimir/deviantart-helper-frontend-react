@@ -1,6 +1,6 @@
-import * as actions from '../actions';
-import { LOCK_DEVIATION_DETAILS } from '../../consts/locks';
-import filterAction from '../../helpers/filter-action';
+import * as actions from '../../actions';
+import { LOCK_DEVIATION_DETAILS, LOCK_DEVIATION_DETAILS_METADATA } from '../../../consts/locks';
+import filterAction from '../../../helpers/filter-action';
 
 /**
  * @description
@@ -77,6 +77,17 @@ const detailsSetDataLockToggle = action => ({
 
 /**
  * @description
+ * Set data for deviation details metadata lock toggle reducer.
+ *
+ * @param {LockToggleAction} action - The action.
+ * @returns {DeviationDetailsState} New deviations details state.
+ */
+const metadataSetDataLockToggle = action => ({
+  metadataLoading: action.value,
+});
+
+/**
+ * @description
  * Set data for deviation details reducer.
  *
  * @param {DeviationsDetailsSetDataAction} action - The action.
@@ -102,8 +113,18 @@ const detailsSetData = action => ({
   favourites: action.deviation.favourites,
   comments: action.deviation.comments,
   downloads: action.deviation.downloads,
-  metadata: action.metadata.concat(),
-  detailsLoading: false,
+  metadata: action.metadata ? [...action.metadata] : null,
+});
+
+/**
+ * @description
+ * Set metadata for deviation details reducer.
+ *
+ * @param {DeviationsDetailsSetDataAction} action - The action.
+ * @returns {DeviationDetailsState} New deviations details state.
+ */
+const detailsSetMetadata = action => ({
+  metadata: action.metadata ? [...action.metadata] : null,
 });
 
 /**
@@ -139,10 +160,17 @@ export default (deviationsDetailsState, sharedState, action) => {
       if (action.lock === LOCK_DEVIATION_DETAILS) {
         difference = detailsSetDataLockToggle(action);
       }
+      if (action.lock === LOCK_DEVIATION_DETAILS_METADATA) {
+        difference = metadataSetDataLockToggle(action);
+      }
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_DATA:
       difference = detailsSetData(action);
+      break;
+
+    case actions.DEVIATIONS_DETAILS_SET_METADATA:
+      difference = detailsSetMetadata(action);
       break;
 
     default:

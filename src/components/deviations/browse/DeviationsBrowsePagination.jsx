@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Pagination from 'react-bulma-components/lib/components/pagination';
-import Config from '../../../config/config';
 
 export default function DeviationsBrowsePagination({
-  // eslint-disable-next-line no-unused-vars
-  config,
   page,
   pageCount,
   showPagination,
@@ -31,7 +28,6 @@ export default function DeviationsBrowsePagination({
 }
 
 DeviationsBrowsePagination.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   showPagination: PropTypes.bool.isRequired,

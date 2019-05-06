@@ -1,20 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DeviationsStatisticsForm from './DeviationsStatisticsFormContainer';
 import DeviationsStatisticsData from './DeviationsStatisticsDataContainer';
-import Config from '../../../config/config';
 
-export default function DeviationsBrowse({
-  config,
-}) {
+export default function DeviationsBrowse() {
   return (
     <div>
-      <DeviationsStatisticsForm config={config} />
-      <DeviationsStatisticsData config={config} />
+      <DeviationsStatisticsForm />
+      <DeviationsStatisticsData />
     </div>
   );
 }
-
-DeviationsBrowse.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
-};

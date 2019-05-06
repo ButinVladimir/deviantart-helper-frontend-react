@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../shared/ConfigContext';
 import HeaderLoggedIn from './HeaderLoggedIn';
 import toggleMenuActionCreator from '../../redux/action-creators/shared/toggle-menu';
 import revokeQueryActionCreator from '../../redux/action-creators/shared/revoke-query';
-import userRefreshActionCreator from '../../redux/action-creators/user/refresh';
 import deviationsLoadActionCreator from '../../redux/action-creators/deviations/load';
 
 /**
@@ -30,8 +30,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleMenuHandler: () => dispatch(toggleMenuActionCreator()),
   revokeHandler: () => dispatch(revokeQueryActionCreator(ownProps.config)),
-  refreshHandler: () => dispatch(userRefreshActionCreator(ownProps.config)),
   deviationsLoadHandler: () => dispatch(deviationsLoadActionCreator(ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderLoggedIn);
+export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(HeaderLoggedIn));

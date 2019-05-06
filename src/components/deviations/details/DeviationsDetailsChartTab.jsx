@@ -17,6 +17,7 @@ export default function DeviationsDetailsChartTab({
   timestampBegin,
   timestampEnd,
   metadata,
+  metadataLoading,
   timestampBeginChangeHandler,
   timestampEndChangeHandler,
   submitHandler,
@@ -40,6 +41,7 @@ export default function DeviationsDetailsChartTab({
               <Field>
                 <Control>
                   <DatePicker
+                    disabled={metadataLoading}
                     isClearable
                     className="input"
                     autoComplete="off"
@@ -69,6 +71,7 @@ export default function DeviationsDetailsChartTab({
               <Field>
                 <Control>
                   <DatePicker
+                    disabled={metadataLoading}
                     isClearable
                     className="input"
                     autoComplete="off"
@@ -95,7 +98,7 @@ export default function DeviationsDetailsChartTab({
             <Field.Body>
               <Field>
                 <Control>
-                  <Button color="primary" onClick={submitHandler}>Submit</Button>
+                  <Button color="primary" onClick={submitHandler} loading={metadataLoading}>Submit</Button>
                 </Control>
               </Field>
             </Field.Body>
@@ -126,7 +129,8 @@ DeviationsDetailsChartTab.propTypes = {
     favourites: PropTypes.number.isRequired,
     comments: PropTypes.number.isRequired,
     downloads: PropTypes.number.isRequired,
-  })).isRequired,
+  })),
+  metadataLoading: PropTypes.bool.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
@@ -135,4 +139,5 @@ DeviationsDetailsChartTab.propTypes = {
 DeviationsDetailsChartTab.defaultProps = {
   timestampBegin: null,
   timestampEnd: null,
+  metadata: null,
 };

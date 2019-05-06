@@ -1,5 +1,4 @@
-import * as sort from '../../consts/sort';
-import { SHOW_ALL } from '../../consts/nsfw-options';
+import * as sort from '../../../consts/sort';
 
 /**
  * @global
@@ -14,9 +13,9 @@ import { SHOW_ALL } from '../../consts/nsfw-options';
 
 /**
  * @description
- * Deviation preview object.
+ * Deviation statistic object.
  *
- * @typedef {Object} DeviationPreview
+ * @typedef {Object} DeviationStatistic
  * @property {string} id - The ID.
  * @property {string} title - The title.
  * @property {string} url - The URL.
@@ -31,36 +30,57 @@ import { SHOW_ALL } from '../../consts/nsfw-options';
 /**
  * @global
  * @description
- * State of deviations browse page.
+ * Deviation metadata object.
  *
- * @typedef {Object} DeviationBrowseState
+ * @typedef {Object} DeviationMetadata
+ * @property {string} deviationId - The deviation ID.
+ * @property {number} timestamp - The timestamp.
+ * @property {number} views - The views count.
+ * @property {number} favourites - The favourites count.
+ * @property {number} comments - The comments count.
+ * @property {number} downloads - The downloads count.
+ */
+
+/**
+ * @global
+ * @description
+ * State of deviations statistics page.
+ *
+ * @typedef {Object} DeviationStatisticsState
  * @property {boolean} page - Current page.
  * @property {string} sortField - Sort field value.
  * @property {number} sortOrder - Sort order value.
  * @property {string} title - Title value.
  * @property {string} publishedTimeBegin - Published time begin value.
  * @property {string} publishedTimeEnd - Published time end value.
- * @property {DeviationPreview[]} deviations - Loaded deviations.
+ * @property {string} timestampBegin - The timestamp begin value.
+ * @property {string} timestampEnd - The timestamp end value.
+ * @property {DeviationStatistic[]} deviations - Loaded deviations.
+ * @property {DeviationMetadata[]} metadata - The metadata.
  * @property {boolean} pageLoading - Is page loading.
  * @property {boolean} showPagination - Should pagination be shown.
  */
 
+const timestampBeginDate = new Date();
+timestampBeginDate.setDate(timestampBeginDate.getDate() - 2);
+
 /**
  * @description
- * Creates default deviations browse state.
+ * Creates default deviations statistics state.
  *
- * @returns {DeviationBrowseState} Default state.
+ * @returns {DeviationStatisticsState} Default state.
  */
 export default () => ({
   page: 0,
-  pageCount: 0,
-  sortField: sort.FIELD_PUBLISHED_TIME,
+  sortField: sort.FIELD_VIEWS,
   sortOrder: sort.ORDER_DESC,
   title: '',
-  publishedTimeBegin: 0,
-  publishedTimeEnd: 0,
-  nsfw: SHOW_ALL,
+  publishedTimeBegin: '',
+  publishedTimeEnd: '',
+  timestampBegin: timestampBeginDate.getTime().toString(),
+  timestampEnd: '',
   deviations: [],
+  metadata: [],
   pageLoading: false,
   showPagination: false,
 });

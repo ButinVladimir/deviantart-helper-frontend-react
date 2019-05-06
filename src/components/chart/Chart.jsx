@@ -55,11 +55,17 @@ export const legendFormatter = titlesMap => (value, entry) => (
  * Converts deviation ID in legend to a title.
  *
  * @param {Map<string, string>} titlesMap - Map of ID to titles.
+ * @param {Map<string, string>} diffMap - Map of timestamps to maps of ID to differences.
  * @returns {Function} Formatter.
  */
-export const tooltipFormatter = titlesMap => (value, name) => [
-  value, titlesMap.get(name),
+export const tooltipFormatter = (titlesMap, diffMap) => (
+  value,
+  name,
+  { payload: { timestamp } },
+) => [
+  `${value}${diffMap.get(timestamp).get(name)}`, titlesMap.get(name),
 ];
+
 
 /**
  * @description
@@ -94,22 +100,47 @@ export default function DeviationsChart({
 
   metadata.forEach((md) => {
     const timestamp = roundTimestamp(md.timestamp, roundPeriod);
-    let entry;
+    let bucketValues;
 
     if (!flattenedMetadataMap.has(timestamp)) {
-      entry = {};
-      flattenedMetadataMap.set(timestamp, entry);
+      bucketValues = {};
+      flattenedMetadataMap.set(timestamp, bucketValues);
     } else {
-      entry = flattenedMetadataMap.get(timestamp);
+      bucketValues = flattenedMetadataMap.get(timestamp);
     }
 
-    entry[md.deviationId] = md[dataSet];
+    bucketValues[md.deviationId] = md[dataSet];
   });
 
-  const convertedMetadata = Array.from(flattenedMetadataMap.entries()).map(e => ({
-    timestamp: e[0],
-    ...e[1],
-  }));
+  const previousValuesMap = new Map();
+  const diffMap = new Map();
+  const convertedMetadata = Array
+    .from(flattenedMetadataMap.entries())
+    .map((flattenedMetadataEntry) => {
+      const diffs = new Map();
+      diffMap.set(flattenedMetadataEntry[0], diffs);
+
+      Object.entries(flattenedMetadataEntry[1]).forEach((entry) => {
+        if (!previousValuesMap.has(entry[0])) {
+          diffs.set(entry[0], '');
+        } else {
+          const diff = entry[1] - previousValuesMap.get(entry[0]);
+
+          if (diff > 0) {
+            diffs.set(entry[0], ` (+${diff})`);
+          } else {
+            diffs.set(entry[0], ` (${diff})`);
+          }
+        }
+
+        previousValuesMap.set(entry[0], entry[1]);
+      });
+
+      return {
+        timestamp: flattenedMetadataEntry[0],
+        ...flattenedMetadataEntry[1],
+      };
+    });
 
   const lines = Array.from(titlesMap.keys()).map((key, index) => (
     <Line
@@ -159,7 +190,7 @@ export default function DeviationsChart({
                 <Label value={dataSetTitlesMap[dataSet]} angle={-90} offset={5} position="insideLeft" />
               </YAxis>
               <Tooltip
-                formatter={tooltipFormatter(titlesMap)}
+                formatter={tooltipFormatter(titlesMap, diffMap)}
                 labelFormatter={showTime ? dateTimeFormatter : dateFormatter}
               />
               <Legend formatter={legendFormatter(titlesMap)} />

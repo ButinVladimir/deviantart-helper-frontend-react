@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import config from './config';
 import App from './AppContainer';
 import reducer from './redux/reducers/reducer';
+import { getConfigProvider } from './components/shared/ConfigContext';
 import 'react-datepicker/dist/react-datepicker.css';
 import './index.css';
 
@@ -15,13 +16,16 @@ const logger = createLogger({
   duration: true,
 });
 const store = createStore(reducer, applyMiddleware(thunk, logger));
+const ConfigProvider = getConfigProvider();
 ReactDOM.render(
   (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App config={config} />
-      </BrowserRouter>
-    </Provider>
+    <ConfigProvider value={config}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ConfigProvider>
   ),
   document.getElementById('root'),
 );

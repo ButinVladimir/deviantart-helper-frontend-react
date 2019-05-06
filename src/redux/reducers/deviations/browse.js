@@ -1,6 +1,6 @@
-import * as actions from '../actions';
-import { LOCK_BROWSE_DEVIATIONS } from '../../consts/locks';
-import filterAction from '../../helpers/filter-action';
+import * as actions from '../../actions';
+import { LOCK_BROWSE_DEVIATIONS } from '../../../consts/locks';
+import filterAction from '../../../helpers/filter-action';
 
 /**
  * @description
@@ -52,10 +52,9 @@ const loadPageLockToggle = action => ({
  * @returns {DeviationBrowseState} New deviations browse state.
  */
 const loadPage = action => ({
-  deviations: Array.from(action.deviations),
+  deviations: [...action.deviations],
   page: action.page,
   pageCount: action.pageCount,
-  pageLoading: false,
   showPagination: true,
 });
 

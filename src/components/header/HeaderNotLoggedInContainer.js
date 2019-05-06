@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../shared/ConfigContext';
 import HeaderNotLoggedIn from './HeaderNotLoggedIn';
 
 /**
@@ -12,4 +13,4 @@ const mapStateToProps = state => ({
   userInfoLoading: state.user.userInfoLoading,
 });
 
-export default connect(mapStateToProps)(HeaderNotLoggedIn);
+export default consumeConfig(connect(mapStateToProps)(HeaderNotLoggedIn));

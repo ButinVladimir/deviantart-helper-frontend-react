@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from './components/shared/ConfigContext';
 import App from './App';
 import userLoadInfoActionCreator from './redux/action-creators/user/load-info';
 
@@ -18,12 +19,13 @@ const mapStateToProps = state => ({
  * Maps Redux dispatch to app props.
  *
  * @param {Function} dispatch - Redux dispatch.
+ * @param {Object} ownProps - Own props.
  * @returns {Object} Props.
  */
-const mapDispatchToProps = dispatch => ({
-  fetchUserData: (config) => {
-    dispatch(userLoadInfoActionCreator(config));
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchUserData: () => {
+    dispatch(userLoadInfoActionCreator(ownProps.config));
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(App));

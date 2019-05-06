@@ -1,8 +1,8 @@
-import createDefaultDeviationsBrowseState from './deviations-browse';
-import createDefaultDeviationsDetailsState from './deviations-details';
-import createDefaultDeviationsStatisticsState from './deviations-statistics';
-import createDefaultDeviationsChartState from './deviations-chart';
-import createDefaultDeviationsCommonState from './deviations-common';
+import createDefaultDeviationsBrowseState from './deviations/browse';
+import createDefaultDeviationsDetailsState from './deviations/details';
+import createDefaultDeviationsStatisticsState from './deviations/statistics';
+import createDefaultDeviationsChartState from './deviations/chart';
+import createDefaultDeviationsCommonState from './deviations/common';
 
 /**
  * @global

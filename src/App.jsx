@@ -1,7 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Config from './config/config';
 import Header from './components/header/HeaderContainer';
 import Message from './components/message/MessageContainer';
 import UserInfo from './components/user/info/UserInfoContainer';
@@ -13,17 +12,17 @@ import './App.sass';
 
 export default class App extends PureComponent {
   componentDidMount() {
-    const { fetchUserData, config } = this.props;
+    const { fetchUserData } = this.props;
 
-    fetchUserData(config);
+    fetchUserData();
   }
 
   render() {
-    const { isLoggedIn, config } = this.props;
+    const { isLoggedIn } = this.props;
 
     return (
       <Fragment>
-        <Header config={config} />
+        <Header />
         <Message />
         {isLoggedIn && (
           <Switch>
@@ -31,28 +30,28 @@ export default class App extends PureComponent {
               exact
               path={routes.USER_INFO}
               render={() => (
-                <UserInfo config={config} />
+                <UserInfo />
               )}
             />
             <Route
               exact
               path={routes.DEVIATIONS_BROWSE}
               render={() => (
-                <DeviationsBrowse config={config} />
+                <DeviationsBrowse />
               )}
             />
             <Route
               exact
               path={routes.DEVIATIONS_DETAILS}
               render={props => (
-                <DeviationsDetails {...props} config={config} />
+                <DeviationsDetails {...props} />
               )}
             />
             <Route
               exact
               path={routes.DEVIATIONS_STATISTICS}
               render={() => (
-                <DeviationsStatistics config={config} />
+                <DeviationsStatistics />
               )}
             />
           </Switch>
@@ -64,6 +63,5 @@ export default class App extends PureComponent {
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  config: PropTypes.instanceOf(Config).isRequired,
   fetchUserData: PropTypes.func.isRequired,
 };

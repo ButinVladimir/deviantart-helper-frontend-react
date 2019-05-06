@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsStatistic from './DeviationsStatistic';
-import Config from '../../../config/config';
 import Chart from '../shared/DeviationsChartContainer';
 
 export default class DeviationsStatisticsData extends Component {
@@ -49,7 +48,6 @@ export default class DeviationsStatisticsData extends Component {
 }
 
 DeviationsStatisticsData.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   metadata: PropTypes.arrayOf(PropTypes.any).isRequired,
   preloadDeviationsHandler: PropTypes.func.isRequired,

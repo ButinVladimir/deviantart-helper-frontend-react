@@ -5,7 +5,6 @@ import Container from 'react-bulma-components/lib/components/container';
 import Level from 'react-bulma-components/lib/components/level';
 import Loader from 'react-bulma-components/lib/components/loader';
 import DeviationsPreview from './DeviationsPreview';
-import Config from '../../../config/config';
 
 export default class DeviationsBrowseList extends Component {
   componentDidMount() {
@@ -42,7 +41,6 @@ export default class DeviationsBrowseList extends Component {
 }
 
 DeviationsBrowseList.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   pageLoading: PropTypes.bool.isRequired,
   preloadDeviationsHandler: PropTypes.func.isRequired,

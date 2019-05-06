@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import * as deviationsBrowseForm from '../../../redux/action-creators/deviations/browse/change-form-field-values';
 import deviationsBrowseLoadPageActionCreator, { deviationsBrowseLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
 import DeviationsBrowseForm from './DeviationsBrowseForm';
@@ -49,4 +50,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     page => dispatch(deviationsBrowseLoadPageActionCreator(page - 1, ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm);
+export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm));

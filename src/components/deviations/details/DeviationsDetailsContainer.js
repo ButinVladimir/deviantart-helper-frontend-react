@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import DeviationDetails from './DeviationsDetails';
 import clearLoadedDataActionCreator from '../../../redux/action-creators/shared/clear-loaded-data';
 import deviationsDetailsChangeTabActionCreator from '../../../redux/action-creators/deviations/details/change-tab';
@@ -27,10 +28,12 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clearDataHander: () => dispatch(clearLoadedDataActionCreator()),
-  changeTabHandler: tab => () => dispatch(deviationsDetailsChangeTabActionCreator(tab)),
+  changeTabHandler: tab => () => {
+    dispatch(deviationsDetailsChangeTabActionCreator(tab, ownProps.config));
+  },
   loadDeviationDetailsHandler: () => {
     dispatch(deviationsDetailsSetIdActionCreator(ownProps.match.params.id, ownProps.config));
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationDetails);
+export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationDetails));

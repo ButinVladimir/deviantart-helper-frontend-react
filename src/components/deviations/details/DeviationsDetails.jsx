@@ -10,7 +10,6 @@ import Loader from 'react-bulma-components/lib/components/loader';
 import DeviationsDetailsDescriptionTab from './DeviationsDetailsDescriptionTabContainer';
 import DeviationsDetailsPreviewTab from './DeviationsDetailsPreviewTabContainer';
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTabContainer';
-import Config from '../../../config/config';
 import * as tabs from '../../../consts/tabs';
 import convertTabs from '../../../helpers/convert-tabs';
 
@@ -24,7 +23,6 @@ export default class DeviationsDetails extends Component {
 
   render() {
     const {
-      config,
       title,
       tab,
       detailsLoading,
@@ -61,7 +59,7 @@ export default class DeviationsDetails extends Component {
           <>
             {tab === tabs.DESCRIPTION && <DeviationsDetailsDescriptionTab />}
             {tab === tabs.PREVIEW && <DeviationsDetailsPreviewTab />}
-            {tab === tabs.CHART && <DeviationsDetailsChartTab config={config} />}
+            {tab === tabs.CHART && <DeviationsDetailsChartTab />}
           </>
         )}
       </>
@@ -70,7 +68,6 @@ export default class DeviationsDetails extends Component {
 }
 
 DeviationsDetails.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   title: PropTypes.string.isRequired,
   tab: PropTypes.string.isRequired,
   detailsLoading: PropTypes.bool.isRequired,

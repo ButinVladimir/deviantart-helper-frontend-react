@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import DeviationsStatisticsData from './DeviationsStatisticsData';
 import deviationsStatisticsLoadPageActionCreator from '../../../redux/action-creators/deviations/statistics/load-page';
 
@@ -27,4 +28,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     () => dispatch(deviationsStatisticsLoadPageActionCreator(ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsData);
+export default consumeConfig(
+  connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsData),
+);

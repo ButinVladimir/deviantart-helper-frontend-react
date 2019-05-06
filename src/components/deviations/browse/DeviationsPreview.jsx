@@ -11,7 +11,6 @@ import { DEVIATIONS_DETAILS, ID_PARAM } from '../../../consts/routes';
 export default function DeviationsPreview({
   thumbnail,
   title,
-  // eslint-disable-next-line no-unused-vars
   url,
   id,
   publishedTime,

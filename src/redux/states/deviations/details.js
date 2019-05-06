@@ -1,4 +1,4 @@
-import { DESCRIPTION } from '../../consts/tabs';
+import { DESCRIPTION } from '../../../consts/tabs';
 
 /**
  * @global
@@ -44,6 +44,8 @@ import { DESCRIPTION } from '../../consts/tabs';
  * @property {string} timestampBegin - The timestamp begin value.
  * @property {string} timestampEnd - The timestamp end value.
  * @property {DeviationMetadata[]} metadata - The metadata.
+ * @property {boolean} detailsLoading - Are details loading.
+ * @property {boolean} metadatadLoading - Is metadata loading.
  */
 
 /**
@@ -78,4 +80,5 @@ export default () => ({
   timestampEnd: 0,
   metadata: null,
   detailsLoading: false,
+  metadataLoading: false,
 });

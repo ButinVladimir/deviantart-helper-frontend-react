@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as sort from '../../../consts/sort';
-import Config from '../../../config/config';
 
 export default function DeviationsStatisticsForm({
-  // eslint-disable-next-line no-unused-vars
-  config,
   page,
   sortField,
   sortOrder,
@@ -82,7 +79,6 @@ export default function DeviationsStatisticsForm({
 }
 
 DeviationsStatisticsForm.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   page: PropTypes.number.isRequired,
   sortField: PropTypes.string.isRequired,
   sortOrder: PropTypes.number.isRequired,

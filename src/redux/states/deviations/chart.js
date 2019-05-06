@@ -1,5 +1,5 @@
-import { DATA_SET_VIEWS } from '../../consts/data-sets';
-import { ROUND_PERIOD_1_DAY } from '../../consts/round-periods';
+import { DATA_SET_VIEWS } from '../../../consts/data-sets';
+import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
 
 /**
  * @global

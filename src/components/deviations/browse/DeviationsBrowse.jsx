@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import DeviationsBrowseForm from './DeviationsBrowseFormContainer';
 import DeviationsBrowseList from './DeviationsBrowseListContainer';
 import DeviationsBrowsePagination from './DeviationsBrowsePaginationContainer';
-import Config from '../../../config/config';
 
 export default class DeviationsBrowse extends Component {
   componentDidMount() {
@@ -12,19 +11,16 @@ export default class DeviationsBrowse extends Component {
   }
 
   render() {
-    const { config } = this.props;
-
     return (
       <Fragment>
-        <DeviationsBrowseForm config={config} />
-        <DeviationsBrowseList config={config} />
-        <DeviationsBrowsePagination config={config} />
+        <DeviationsBrowseForm />
+        <DeviationsBrowseList />
+        <DeviationsBrowsePagination />
       </Fragment>
     );
   }
 }
 
 DeviationsBrowse.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   clearDataHander: PropTypes.func.isRequired,
 };

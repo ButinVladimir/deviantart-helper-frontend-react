@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
-import Button from 'react-bulma-components/lib/components/button';
 import Heading from 'react-bulma-components/lib/components/heading';
-import Config from '../../../config/config';
 
 export default class UserInfo extends Component {
   componentDidMount() {
@@ -16,13 +14,11 @@ export default class UserInfo extends Component {
 
   render() {
     const {
-      userInfoLoading,
       userName,
       userId,
       userType,
       accessTokenExpires,
       refreshTokenExpires,
-      refreshHandler,
     } = this.props;
 
     return (
@@ -50,9 +46,6 @@ export default class UserInfo extends Component {
               <span>Refresh token expires: </span>
               <strong>{new Date(refreshTokenExpires).toLocaleString()}</strong>
             </p>
-            <p>
-              <Button color="primary" loading={userInfoLoading} onClick={refreshHandler}>Refresh tokens</Button>
-            </p>
           </Content>
         </Container>
       </Section>
@@ -61,16 +54,12 @@ export default class UserInfo extends Component {
 }
 
 UserInfo.propTypes = {
-  // eslint-disable-next-line react/no-unused-prop-types
-  config: PropTypes.instanceOf(Config).isRequired,
   fetchUserData: PropTypes.func.isRequired,
-  userInfoLoading: PropTypes.bool.isRequired,
   userId: PropTypes.string,
   userName: PropTypes.string,
   userType: PropTypes.string,
   accessTokenExpires: PropTypes.number,
   refreshTokenExpires: PropTypes.number,
-  refreshHandler: PropTypes.func.isRequired,
 };
 
 UserInfo.defaultProps = {

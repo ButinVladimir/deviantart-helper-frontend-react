@@ -4,15 +4,12 @@ import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Button from 'react-bulma-components/lib/components/button';
 import * as routes from '../../consts/routes';
-import Config from '../../config/config';
 
 export default function HeaderLoggedIn({
   deviationsLoading,
   revokeLoading,
   userName,
   userIcon,
-  // eslint-disable-next-line no-unused-vars
-  config,
   toggleMenuHandler,
   deviationsLoadHandler,
   revokeHandler,
@@ -62,7 +59,6 @@ HeaderLoggedIn.propTypes = {
   revokeLoading: PropTypes.bool.isRequired,
   userName: PropTypes.string,
   userIcon: PropTypes.string,
-  config: PropTypes.instanceOf(Config).isRequired,
   toggleMenuHandler: PropTypes.func.isRequired,
   deviationsLoadHandler: PropTypes.func.isRequired,
   revokeHandler: PropTypes.func.isRequired,

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import consumeConfig from '../../shared/ConfigContext';
 import DeviationsBrowseList from './DeviationsBrowseList';
 import { deviationsBrowseLoadCurrentPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
 
@@ -27,4 +28,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     () => dispatch(deviationsBrowseLoadCurrentPageActionCreator(ownProps.config)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseList);
+export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseList));

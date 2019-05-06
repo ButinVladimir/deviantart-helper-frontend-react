@@ -18,11 +18,8 @@ import {
 import convertOptions from '../../../helpers/convert-options';
 import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
 import { nsfwOptions } from '../../../consts/nsfw-options';
-import Config from '../../../config/config';
 
 export default function DeviationsBrowseForm({
-  // eslint-disable-next-line no-unused-vars
-  config,
   page,
   pageCount,
   sortField,
@@ -192,7 +189,6 @@ export default function DeviationsBrowseForm({
 }
 
 DeviationsBrowseForm.propTypes = {
-  config: PropTypes.instanceOf(Config).isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   sortField: PropTypes.string.isRequired,

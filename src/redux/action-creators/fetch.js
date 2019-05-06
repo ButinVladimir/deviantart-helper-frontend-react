@@ -67,8 +67,9 @@ export default (
     const jsonResponse = await response.json();
     dispatch(successActionCreator(jsonResponse));
   } catch (e) {
-    dispatch(lockToggleActionCreator(lock, false));
     dispatch(showErrorActionCreator(e.message));
     console.error(e);
+  } finally {
+    dispatch(lockToggleActionCreator(lock, false));
   }
 };

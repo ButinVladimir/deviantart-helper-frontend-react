@@ -1,6 +1,7 @@
 import { GET } from '../../../../consts/fetch-methods';
 import { LOCK_DEVIATION_DETAILS } from '../../../../consts/locks';
-import { SERVER_ROUTE_DEVIATIONS_DETAILS } from '../../../../consts/server-routes';
+import { SERVER_ROUTE_DEVIATIONS_DETAILS, ID_PARAM } from '../../../../consts/server-routes';
+import { CHART } from '../../../../consts/tabs';
 import { DEVIATIONS_DETAILS_SET_DATA } from '../../../actions';
 import createFetchAction from '../../fetch';
 
@@ -23,6 +24,8 @@ const paramsHandler = (state) => {
     params.timestampend = detailsState.timestampEnd;
   }
 
+  params.metadata = detailsState.tab === CHART;
+
   return params;
 };
 
@@ -36,13 +39,15 @@ const paramsHandler = (state) => {
 const deviationsDetailsSetDataActionCreator = ({ deviation, metadata }) => ({
   type: DEVIATIONS_DETAILS_SET_DATA,
   deviation,
-  metadata: metadata.map(md => ({
-    timestamp: md.timestamp,
-    views: md.views,
-    favourites: md.favourites,
-    comments: md.comments,
-    downloads: md.downloads,
-  })),
+  metadata: metadata
+    ? metadata.map(md => ({
+      timestamp: md.timestamp,
+      views: md.views,
+      favourites: md.favourites,
+      comments: md.comments,
+      downloads: md.downloads,
+    }))
+    : null,
 });
 
 /**
@@ -58,7 +63,7 @@ export default config => (dispatch, getState) => {
   dispatch(
     createFetchAction(
       GET,
-      `${SERVER_ROUTE_DEVIATIONS_DETAILS}${id}`,
+      SERVER_ROUTE_DEVIATIONS_DETAILS.replace(ID_PARAM, id),
       state => state.deviations.details.detailsLoading,
       LOCK_DEVIATION_DETAILS,
       deviationsDetailsSetDataActionCreator,

@@ -1,5 +1,5 @@
-import * as actions from '../actions';
-import filterAction from '../../helpers/filter-action';
+import * as actions from '../../actions';
+import filterAction from '../../../helpers/filter-action';
 
 const formFields = [
   'dataSet',
