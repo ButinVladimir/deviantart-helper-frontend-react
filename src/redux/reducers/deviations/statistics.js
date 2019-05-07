@@ -9,7 +9,7 @@ import { LOCK_DEVIATIONS_STATISTICS } from '../../../consts/locks';
  */
 const clearLoadedData = () => ({
   deviations: [],
-  metadata: [],
+  metadata: null,
 });
 
 /**
@@ -119,8 +119,8 @@ const changeChartType = action => ({
  * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const loadPage = action => ({
-  deviations: Array.from(action.deviations),
-  metadata: Array.from(action.metadata),
+  deviations: [...action.deviations],
+  metadata: action.metadata ? { ...action.metadata } : null,
   page: action.page,
   showPagination: true,
 });

@@ -86,3 +86,14 @@ export const changeTitleActionCreator = title => changeFormFieldValues({
 export const changeNsfwActionCreator = nsfw => changeFormFieldValues({
   nsfw,
 });
+
+/**
+ * @description
+ * Creates action to change filter by ids value on deviations browse page.
+ *
+ * @param {boolean} filterByIds - Filter by ids value.
+ * @returns {DeviationsBrowseChangeFormFieldValuesAction} Action.
+ */
+export const changeFilterByIdsActionCreator = filterByIds => changeFormFieldValues({
+  filterByIds,
+});

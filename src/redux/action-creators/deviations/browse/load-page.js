@@ -14,6 +14,7 @@ import { SHOW_ALL, SHOW_NSFW } from '../../../../consts/nsfw-options';
  */
 const paramsHandler = (state) => {
   const browseState = state.deviations.browse;
+  const commonState = state.deviations.common;
   const params = {};
 
   if (browseState.title) {
@@ -30,6 +31,10 @@ const paramsHandler = (state) => {
 
   if (browseState.nsfw !== SHOW_ALL) {
     params.nsfw = browseState.nsfw === SHOW_NSFW;
+  }
+
+  if (browseState.filterByIds) {
+    params.ids = commonState.selectedIds;
   }
 
   params.sortfield = browseState.sortField;

@@ -39,15 +39,7 @@ const paramsHandler = (state) => {
 const deviationsDetailsSetDataActionCreator = ({ deviation, metadata }) => ({
   type: DEVIATIONS_DETAILS_SET_DATA,
   deviation,
-  metadata: metadata
-    ? metadata.map(md => ({
-      timestamp: md.timestamp,
-      views: md.views,
-      favourites: md.favourites,
-      comments: md.comments,
-      downloads: md.downloads,
-    }))
-    : null,
+  metadata: metadata ? [...metadata] : null,
 });
 
 /**

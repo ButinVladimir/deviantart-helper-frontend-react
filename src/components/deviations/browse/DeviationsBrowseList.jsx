@@ -4,7 +4,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Level from 'react-bulma-components/lib/components/level';
 import Loader from 'react-bulma-components/lib/components/loader';
-import DeviationsPreview from './DeviationsPreview';
+import DeviationsPreview from '../shared/DeviationsPreview';
 
 export default class DeviationsBrowseList extends Component {
   componentDidMount() {
@@ -13,9 +13,19 @@ export default class DeviationsBrowseList extends Component {
   }
 
   render() {
-    const { deviations, pageLoading } = this.props;
+    const {
+      deviations,
+      pageLoading,
+      selectedIds,
+      toggleSelectionHandler,
+    } = this.props;
     const mappedDeviations = deviations.map(d => (
-      <DeviationsPreview key={d.id} {...d} />
+      <DeviationsPreview
+        key={d.id}
+        selected={selectedIds.includes(d.id)}
+        toggleSelectionHandler={toggleSelectionHandler}
+        {...d}
+      />
     ));
 
     return (
@@ -43,5 +53,7 @@ export default class DeviationsBrowseList extends Component {
 DeviationsBrowseList.propTypes = {
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   pageLoading: PropTypes.bool.isRequired,
+  selectedIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   preloadDeviationsHandler: PropTypes.func.isRequired,
+  toggleSelectionHandler: PropTypes.func.isRequired,
 };

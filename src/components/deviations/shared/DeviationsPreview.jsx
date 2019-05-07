@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Media from 'react-bulma-components/lib/components/media';
 import Content from 'react-bulma-components/lib/components/content';
 import Heading from 'react-bulma-components/lib/components/heading';
-import DeviationThumbnail from '../shared/DeviationThumbnail';
+import { Field, Control, Checkbox } from 'react-bulma-components/lib/components/form';
+import DeviationThumbnail from './DeviationThumbnail';
 import StatisticsLevel from '../../shared/StatisticsLevel';
 import { DEVIATIONS_DETAILS, ID_PARAM } from '../../../consts/routes';
 
@@ -19,6 +20,8 @@ export default function DeviationsPreview({
   favourites,
   comments,
   downloads,
+  selected,
+  toggleSelectionHandler,
 }) {
   return (
     <Media>
@@ -41,6 +44,13 @@ export default function DeviationsPreview({
           titleValuePairs={[['Views', views], ['Favourites', favourites], ['Comments', comments], ['Downloads', downloads]]}
         />
       </Media.Item>
+      <Media.Item position="right">
+        <Field>
+          <Control>
+            <Checkbox checked={selected} onChange={() => toggleSelectionHandler(id)} />
+          </Control>
+        </Field>
+      </Media.Item>
     </Media>
   );
 }
@@ -54,4 +64,6 @@ DeviationsPreview.propTypes = {
   favourites: PropTypes.number.isRequired,
   comments: PropTypes.number.isRequired,
   downloads: PropTypes.number.isRequired,
+  selected: PropTypes.bool.isRequired,
+  toggleSelectionHandler: PropTypes.func.isRequired,
 };

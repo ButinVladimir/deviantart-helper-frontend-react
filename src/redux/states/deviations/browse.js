@@ -34,12 +34,15 @@ import { SHOW_ALL } from '../../../consts/nsfw-options';
  * State of deviations browse page.
  *
  * @typedef {Object} DeviationBrowseState
- * @property {boolean} page - Current page.
+ * @property {number} page - Current page.
+ * @property {number} pageCount - Pages count.
  * @property {string} sortField - Sort field value.
  * @property {number} sortOrder - Sort order value.
  * @property {string} title - Title value.
- * @property {string} publishedTimeBegin - Published time begin value.
- * @property {string} publishedTimeEnd - Published time end value.
+ * @property {number} publishedTimeBegin - Published time begin value.
+ * @property {number} publishedTimeEnd - Published time end value.
+ * @property {string} nsfw - NSFW value.
+ * @property {boolean} filterByIds - Filter by ids value.
  * @property {DeviationPreview[]} deviations - Loaded deviations.
  * @property {boolean} pageLoading - Is page loading.
  * @property {boolean} showPagination - Should pagination be shown.
@@ -60,6 +63,7 @@ export default () => ({
   publishedTimeBegin: 0,
   publishedTimeEnd: 0,
   nsfw: SHOW_ALL,
+  filterByIds: false,
   deviations: [],
   pageLoading: false,
   showPagination: false,

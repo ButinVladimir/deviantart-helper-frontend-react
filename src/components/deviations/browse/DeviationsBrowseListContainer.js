@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import DeviationsBrowseList from './DeviationsBrowseList';
 import { deviationsBrowseLoadCurrentPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
+import deviationsCommonToggleSelectionActionCreator from '../../../redux/action-creators/deviations/common/toggle-selection';
 
 /**
  * @description
@@ -13,6 +14,7 @@ import { deviationsBrowseLoadCurrentPageActionCreator } from '../../../redux/act
 const mapStateToProps = state => ({
   deviations: state.deviations.browse.deviations,
   pageLoading: state.deviations.browse.pageLoading,
+  selectedIds: state.deviations.common.selectedIds,
 });
 
 /**
@@ -26,6 +28,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   preloadDeviationsHandler:
     () => dispatch(deviationsBrowseLoadCurrentPageActionCreator(ownProps.config)),
+  toggleSelectionHandler:
+    id => dispatch(deviationsCommonToggleSelectionActionCreator(id)),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseList));

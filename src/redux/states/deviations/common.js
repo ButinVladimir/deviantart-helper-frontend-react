@@ -5,6 +5,7 @@
  *
  * @typedef {Object} DeviationCommonState
  * @property {boolean} deviationsLoading - Is deviations data loading.
+ * @property {string[]} selectedIds - Array of ids of selected deviations.
  */
 
 /**
@@ -15,4 +16,5 @@
  */
 export default () => ({
   deviationsLoading: false,
+  selectedIds: [],
 });

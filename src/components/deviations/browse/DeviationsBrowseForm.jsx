@@ -14,6 +14,7 @@ import {
   Control,
   Input,
   Select,
+  Checkbox,
 } from 'react-bulma-components/lib/components/form';
 import convertOptions from '../../../helpers/convert-options';
 import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
@@ -28,6 +29,7 @@ export default function DeviationsBrowseForm({
   publishedTimeBegin,
   publishedTimeEnd,
   nsfw,
+  filterByIds,
   pageLoading,
   showPagination,
   sortFieldChangeHandler,
@@ -38,6 +40,7 @@ export default function DeviationsBrowseForm({
   nsfwChangeHandler,
   submitHandler,
   loadPageHandler,
+  filterByIdsChangeHandler,
 }) {
   const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
   const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
@@ -162,26 +165,43 @@ export default function DeviationsBrowseForm({
             </Field>
           </Columns.Column>
 
-          <Columns.Column>
+          <Columns.Column narrow>
+            <Field>
+              <Label>Filter by selected</Label>
+              <Control>
+                <Checkbox
+                  disabled={pageLoading}
+                  name="filterbyselected"
+                  checked={filterByIds}
+                  onChange={filterByIdsChangeHandler}
+                />
+              </Control>
+            </Field>
           </Columns.Column>
         </Columns>
 
-        {!showPagination && (
-          <Field kind="group" align="right">
-            <Control>
-              <Button color="primary" onClick={submitHandler} loading={pageLoading}>Submit</Button>
-            </Control>
-          </Field>
-        )}
-        {showPagination && (
-          <Pagination
-            // Pagination in Bulma starts from 1 while pagination on backend start from 0.
-            current={page + 1}
-            total={pageCount}
-            delta={3}
-            onChange={loadPageHandler}
-          />
-        )}
+        <Columns>
+          <Columns.Column>
+            {showPagination && (
+              <Pagination
+                // Pagination in Bulma starts from 1 while pagination on backend start from 0.
+                current={page + 1}
+                total={pageCount}
+                delta={3}
+                onChange={loadPageHandler}
+              />
+            )}
+          </Columns.Column>
+          <Columns.Column narrow>
+            <Field kind="group" align="right">
+              <Control>
+                <Button color="primary" onClick={submitHandler} loading={pageLoading}>
+                  {showPagination ? 'Resubmit' : 'Submit' }
+                </Button>
+              </Control>
+            </Field>
+          </Columns.Column>
+        </Columns>
 
       </Container>
     </Section>
@@ -197,6 +217,7 @@ DeviationsBrowseForm.propTypes = {
   publishedTimeBegin: PropTypes.number,
   publishedTimeEnd: PropTypes.number,
   nsfw: PropTypes.string.isRequired,
+  filterByIds: PropTypes.bool.isRequired,
   pageLoading: PropTypes.bool.isRequired,
   showPagination: PropTypes.bool.isRequired,
   sortFieldChangeHandler: PropTypes.func.isRequired,
@@ -205,6 +226,7 @@ DeviationsBrowseForm.propTypes = {
   publishedTimeBeginChangeHandler: PropTypes.func.isRequired,
   publishedTimeEndChangeHandler: PropTypes.func.isRequired,
   nsfwChangeHandler: PropTypes.func.isRequired,
+  filterByIdsChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
   loadPageHandler: PropTypes.func.isRequired,
 };

@@ -30,20 +30,6 @@ import * as sort from '../../../consts/sort';
 /**
  * @global
  * @description
- * Deviation metadata object.
- *
- * @typedef {Object} DeviationMetadata
- * @property {string} deviationId - The deviation ID.
- * @property {number} timestamp - The timestamp.
- * @property {number} views - The views count.
- * @property {number} favourites - The favourites count.
- * @property {number} comments - The comments count.
- * @property {number} downloads - The downloads count.
- */
-
-/**
- * @global
- * @description
  * State of deviations statistics page.
  *
  * @typedef {Object} DeviationStatisticsState
@@ -56,7 +42,7 @@ import * as sort from '../../../consts/sort';
  * @property {string} timestampBegin - The timestamp begin value.
  * @property {string} timestampEnd - The timestamp end value.
  * @property {DeviationStatistic[]} deviations - Loaded deviations.
- * @property {DeviationMetadata[]} metadata - The metadata.
+ * @property {Object} metadata - The metadata.
  * @property {boolean} pageLoading - Is page loading.
  * @property {boolean} showPagination - Should pagination be shown.
  */
@@ -80,7 +66,7 @@ export default () => ({
   timestampBegin: timestampBeginDate.getTime().toString(),
   timestampEnd: '',
   deviations: [],
-  metadata: [],
+  metadata: null,
   pageLoading: false,
   showPagination: false,
 });

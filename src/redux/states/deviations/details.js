@@ -14,19 +14,6 @@ import { DESCRIPTION } from '../../../consts/tabs';
 /**
  * @global
  * @description
- * Deviation metadata object.
- *
- * @typedef {Object} DeviationMetadata
- * @property {number} timestamp - The timestamp.
- * @property {number} views - The views count.
- * @property {number} favourites - The favourites count.
- * @property {number} comments - The comments count.
- * @property {number} downloads - The downloads count.
- */
-
-/**
- * @global
- * @description
  * State of deviations details page.
  *
  * @typedef {Object} DeviationDetailsState
@@ -43,7 +30,7 @@ import { DESCRIPTION } from '../../../consts/tabs';
  * @property {number} downloads - The downloads count.
  * @property {string} timestampBegin - The timestamp begin value.
  * @property {string} timestampEnd - The timestamp end value.
- * @property {DeviationMetadata[]} metadata - The metadata.
+ * @property {Object} metadata - The metadata.
  * @property {boolean} detailsLoading - Are details loading.
  * @property {boolean} metadatadLoading - Is metadata loading.
  */

@@ -24,7 +24,6 @@ export default function DeviationsDetailsChartTab({
 }) {
   const titlesMap = new Map();
   titlesMap.set(id, title);
-  const mappedMetadata = (metadata || []).map(md => Object.assign({}, md, { deviationId: id }));
 
   const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
   const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
@@ -109,7 +108,7 @@ export default function DeviationsDetailsChartTab({
       <Section>
         <Container>
           <Chart
-            metadata={mappedMetadata}
+            metadata={metadata || {}}
             titlesMap={titlesMap}
           />
         </Container>
@@ -123,13 +122,8 @@ DeviationsDetailsChartTab.propTypes = {
   title: PropTypes.string.isRequired,
   timestampBegin: PropTypes.number,
   timestampEnd: PropTypes.number,
-  metadata: PropTypes.arrayOf(PropTypes.shape({
-    timestamp: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    favourites: PropTypes.number.isRequired,
-    comments: PropTypes.number.isRequired,
-    downloads: PropTypes.number.isRequired,
-  })),
+  // eslint-disable-next-line react/forbid-prop-types
+  metadata: PropTypes.object,
   metadataLoading: PropTypes.bool.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,

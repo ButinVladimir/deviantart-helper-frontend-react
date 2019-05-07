@@ -50,7 +50,7 @@ const paramsHandler = (state) => {
 const deviationsStatisticsLoadPageActionCreator = page => ({ deviations, metadata }) => ({
   type: DEVIATIONS_STATISTICS_LOAD_PAGE,
   deviations,
-  metadata,
+  metadata: metadata ? Object.assign({}, metadata) : null,
   page,
 });
 

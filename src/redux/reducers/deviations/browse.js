@@ -19,6 +19,7 @@ const formFields = [
   'sortOrder',
   'title',
   'nsfw',
+  'filterByIds',
 ];
 
 /**
@@ -31,6 +32,17 @@ const formFields = [
 const changeFormFieldValues = action => ({
   showPagination: false,
   ...filterAction(action, formFields),
+});
+
+/**
+ * @description
+ * Toggle deviation selection reducer.
+ *
+ * @param {DeviationBrowseState} deviationsBrowseState - Deviations browse page state.
+ * @returns {DeviationBrowseState} New deviations browse state.
+ */
+const toggleDeviationsSelection = deviationsBrowseState => ({
+  showPagination: deviationsBrowseState.filterByIds ? false : deviationsBrowseState.showPagination,
 });
 
 /**
@@ -87,6 +99,10 @@ export default (deviationsBrowseState, sharedState, action) => {
 
     case actions.DEVIATIONS_BROWSE_LOAD_PAGE:
       difference = loadPage(action);
+      break;
+
+    case actions.DEVIATIONS_COMMON_TOGGLE_SELECTION:
+      difference = toggleDeviationsSelection(deviationsBrowseState);
       break;
 
     default:

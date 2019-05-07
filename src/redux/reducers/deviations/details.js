@@ -90,10 +90,11 @@ const metadataSetDataLockToggle = action => ({
  * @description
  * Set data for deviation details reducer.
  *
+ * @param {DeviationDetailsState} deviationsDetailsState - Deviations details page state.
  * @param {DeviationsDetailsSetDataAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const detailsSetData = action => ({
+const detailsSetData = (deviationsDetailsState, action) => ({
   title: action.deviation.title,
   url: action.deviation.url,
   publishedTime: action.deviation.publishedTime,
@@ -113,7 +114,7 @@ const detailsSetData = action => ({
   favourites: action.deviation.favourites,
   comments: action.deviation.comments,
   downloads: action.deviation.downloads,
-  metadata: action.metadata ? [...action.metadata] : null,
+  metadata: action.metadata ? { [deviationsDetailsState.id]: action.metadata } : null,
 });
 
 /**
@@ -124,7 +125,7 @@ const detailsSetData = action => ({
  * @returns {DeviationDetailsState} New deviations details state.
  */
 const detailsSetMetadata = action => ({
-  metadata: action.metadata ? [...action.metadata] : null,
+  metadata: action.metadata ? { ...action.metadata } : null,
 });
 
 /**
@@ -166,7 +167,7 @@ export default (deviationsDetailsState, sharedState, action) => {
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_DATA:
-      difference = detailsSetData(action);
+      difference = detailsSetData(deviationsDetailsState, action);
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_METADATA:

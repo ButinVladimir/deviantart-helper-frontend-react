@@ -79,44 +79,47 @@ export const roundTimestamp = (timestamp, roundPeriod) => Math.floor(
   timestamp / roundPeriod,
 ) * roundPeriod;
 
-export default function DeviationsChart({
-  dataSetTitlesMap,
-  metadata,
-  titlesMap,
-  dataSet,
-  roundPeriod,
-  showTime,
-  dataSetChangeHandler,
-  roundPeriodChangeHandler,
-  showTimeChangeHandler,
-}) {
-  /**
-   * Recharts doesn't merge data cells with same timestamp by itself.
-   * It had to be done manually, so timestamps are splitted
-   * into different buckets by selected period.
-   * For each bucket, data with latest timestamp is selected.
-   */
+/**
+ * @description
+ * Recharts doesn't merge data cells with same timestamp by itself.
+ * It had to be done manually, so timestamps are splitted
+ * into different buckets by selected period.
+ * For each bucket, data with latest timestamp is selected.
+ *
+ * @param {Object} metadata - The metadata.
+ * Has format of object map of deviation id to array of metadata.
+ * @param {string} dataSet - Selected data set.
+ * @param {number} roundPeriod - Selected round period.
+ * @param {Map<number, Map<string, string>>} diffMap - The difference map.
+ * Has format of timestamp to map of deviation id to diff string.
+ * @returns {Object[]} Parsed metadata.
+ */
+export const convertMetadata = (metadata, dataSet, roundPeriod, diffMap) => {
+  // Map of timestamps to objects with values.
   const flattenedMetadataMap = new Map();
 
-  metadata.forEach((md) => {
-    const timestamp = roundTimestamp(md.timestamp, roundPeriod);
-    let bucketValues;
+  Object.entries(metadata).forEach((deviationMetadata) => {
+    deviationMetadata[1].forEach((md) => {
+      const timestamp = roundTimestamp(md.timestamp, roundPeriod);
+      let bucketValues;
 
-    if (!flattenedMetadataMap.has(timestamp)) {
-      bucketValues = {};
-      flattenedMetadataMap.set(timestamp, bucketValues);
-    } else {
-      bucketValues = flattenedMetadataMap.get(timestamp);
-    }
+      if (!flattenedMetadataMap.has(timestamp)) {
+        bucketValues = {};
+        flattenedMetadataMap.set(timestamp, bucketValues);
+      } else {
+        bucketValues = flattenedMetadataMap.get(timestamp);
+      }
 
-    bucketValues[md.deviationId] = md[dataSet];
+      bucketValues[deviationMetadata[0]] = md[dataSet];
+    });
   });
 
+  // Map of deviation ids to values.
   const previousValuesMap = new Map();
-  const diffMap = new Map();
-  const convertedMetadata = Array
+  return Array
     .from(flattenedMetadataMap.entries())
     .map((flattenedMetadataEntry) => {
+      // Map of deviation ids to diff strings.
       const diffs = new Map();
       diffMap.set(flattenedMetadataEntry[0], diffs);
 
@@ -141,6 +144,21 @@ export default function DeviationsChart({
         ...flattenedMetadataEntry[1],
       };
     });
+};
+
+export default function DeviationsChart({
+  dataSetTitlesMap,
+  metadata,
+  titlesMap,
+  dataSet,
+  roundPeriod,
+  showTime,
+  dataSetChangeHandler,
+  roundPeriodChangeHandler,
+  showTimeChangeHandler,
+}) {
+  const diffMap = new Map();
+  const convertedMetadata = convertMetadata(metadata, dataSet, roundPeriod, diffMap);
 
   const lines = Array.from(titlesMap.keys()).map((key, index) => (
     <Line
@@ -205,13 +223,8 @@ export default function DeviationsChart({
 
 DeviationsChart.propTypes = {
   dataSetTitlesMap: PropTypes.instanceOf(Map).isRequired,
-  metadata: PropTypes.arrayOf(PropTypes.shape({
-    timestamp: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    favourites: PropTypes.number.isRequired,
-    comments: PropTypes.number.isRequired,
-    downloads: PropTypes.number.isRequired,
-  })).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  metadata: PropTypes.object.isRequired,
   titlesMap: PropTypes.instanceOf(Map).isRequired,
   dataSet: PropTypes.string.isRequired,
   roundPeriod: PropTypes.number.isRequired,

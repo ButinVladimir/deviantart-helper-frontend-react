@@ -39,7 +39,7 @@ export default class DeviationsStatisticsData extends Component {
           </tbody>
         </table>
         <Chart
-          metadata={metadata}
+          metadata={metadata || {}}
           titlesMap={titlesMap}
         />
       </div>
@@ -49,6 +49,11 @@ export default class DeviationsStatisticsData extends Component {
 
 DeviationsStatisticsData.propTypes = {
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
-  metadata: PropTypes.arrayOf(PropTypes.any).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  metadata: PropTypes.object,
   preloadDeviationsHandler: PropTypes.func.isRequired,
+};
+
+DeviationsStatisticsData.defaultProps = {
+  metadata: null,
 };
