@@ -4,7 +4,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import DeviationsPreview from '../shared/DeviationsPreview';
 
-export default function DeviationsBrowseList({
+export default function DeviationsStatisticsList({
   deviations,
   selectedIds,
   toggleSelectionHandler,
@@ -18,6 +18,9 @@ export default function DeviationsBrowseList({
     />
   ));
 
+  const titlesMap = new Map();
+  deviations.forEach(d => titlesMap.set(d.id, d.title));
+
   return (
     <Section>
       <Container>
@@ -29,8 +32,7 @@ export default function DeviationsBrowseList({
   );
 }
 
-
-DeviationsBrowseList.propTypes = {
+DeviationsStatisticsList.propTypes = {
   deviations: PropTypes.arrayOf(PropTypes.any).isRequired,
   selectedIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleSelectionHandler: PropTypes.func.isRequired,

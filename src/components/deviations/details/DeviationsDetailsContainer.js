@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  clearDataHander: () => dispatch(clearLoadedDataActionCreator()),
+  clearDataHandler: () => dispatch(clearLoadedDataActionCreator()),
   changeTabHandler: tab => () => {
     dispatch(deviationsDetailsChangeTabActionCreator(tab, ownProps.config));
   },

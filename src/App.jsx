@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from './components/header/HeaderContainer';
@@ -6,7 +6,7 @@ import Message from './components/message/MessageContainer';
 import UserInfo from './components/user/info/UserInfoContainer';
 import DeviationsBrowse from './components/deviations/browse/DeviationsBrowseContainer';
 import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
-import DeviationsStatistics from './components/deviations/statistics/DeviationsStatistics';
+import DeviationsStatistics from './components/deviations/statistics/DeviationsStatisticsContainer';
 import * as routes from './consts/routes';
 import './App.sass';
 
@@ -21,7 +21,7 @@ export default class App extends PureComponent {
     const { isLoggedIn } = this.props;
 
     return (
-      <Fragment>
+      <>
         <Header />
         <Message />
         {isLoggedIn && (
@@ -56,7 +56,7 @@ export default class App extends PureComponent {
             />
           </Switch>
         )}
-      </Fragment>
+      </>
     );
   }
 }

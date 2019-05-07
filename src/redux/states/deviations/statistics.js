@@ -1,4 +1,6 @@
 import * as sort from '../../../consts/sort';
+import { SHOW_ALL } from '../../../consts/nsfw-options';
+import { LIST } from '../../../consts/tabs';
 
 /**
  * @global
@@ -33,7 +35,8 @@ import * as sort from '../../../consts/sort';
  * State of deviations statistics page.
  *
  * @typedef {Object} DeviationStatisticsState
- * @property {boolean} page - Current page.
+ * @property {number} page - Current page.
+ * @property {number} pageCount - Pages count.
  * @property {string} sortField - Sort field value.
  * @property {number} sortOrder - Sort order value.
  * @property {string} title - Title value.
@@ -57,14 +60,18 @@ timestampBeginDate.setDate(timestampBeginDate.getDate() - 2);
  * @returns {DeviationStatisticsState} Default state.
  */
 export default () => ({
+  tab: LIST,
   page: 0,
+  pageCount: 0,
   sortField: sort.FIELD_VIEWS,
   sortOrder: sort.ORDER_DESC,
   title: '',
-  publishedTimeBegin: '',
-  publishedTimeEnd: '',
-  timestampBegin: timestampBeginDate.getTime().toString(),
-  timestampEnd: '',
+  publishedTimeBegin: 0,
+  publishedTimeEnd: 0,
+  timestampBegin: timestampBeginDate.getTime(),
+  timestampEnd: 0,
+  nsfw: SHOW_ALL,
+  filterByIds: false,
   deviations: [],
   metadata: null,
   pageLoading: false,

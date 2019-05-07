@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTab';
-import deviationsDetailsSetMetadataActionCreator from '../../../redux/action-creators/deviations/details/set-metadata';
+import deviationsDetailsLoadMetadataActionCreator from '../../../redux/action-creators/deviations/details/load-metadata';
 import * as deviationsDetails from '../../../redux/action-creators/deviations/details/change-form-field-values';
 
 /**
@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     value => dispatch(deviationsDetails.changeTimestampBeginActionCreator(value)),
   timestampEndChangeHandler:
     value => dispatch(deviationsDetails.changeTimestampEndActionCreator(value)),
-  submitHandler: () => dispatch(deviationsDetailsSetMetadataActionCreator(ownProps.config)),
+  submitHandler: () => dispatch(deviationsDetailsLoadMetadataActionCreator(ownProps.config)),
 });
 
 export default consumeConfig(

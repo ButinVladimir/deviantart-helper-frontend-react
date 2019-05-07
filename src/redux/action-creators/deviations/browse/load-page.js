@@ -89,7 +89,6 @@ export const deviationsBrowseLoadFirstPageActionCreator = config => loadPage(0, 
  * Creates action to load current page with deviations to browse.
  *
  * @param {Config} config - The config.
- * @returns {Promise<any>} The promise object.
  */
 export const deviationsBrowseLoadCurrentPageActionCreator = config => (dispatch, getState) => {
   const { deviations: { browse: state } } = getState();

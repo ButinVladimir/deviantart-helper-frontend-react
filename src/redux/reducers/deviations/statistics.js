@@ -1,5 +1,6 @@
 import * as actions from '../../actions';
 import { LOCK_DEVIATIONS_STATISTICS } from '../../../consts/locks';
+import filterAction from '../../../helpers/filter-action';
 
 /**
  * @description
@@ -14,79 +15,50 @@ const clearLoadedData = () => ({
 
 /**
  * @description
+ * Change active tab reducer.
+ *
+ * @param {DeviationsStatisticsChangeTabAction} action - The action.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
+ */
+const changeTab = action => ({
+  tab: action.tab,
+});
+
+const formFields = [
+  'publishedTimeBegin',
+  'publishedTimeEnd',
+  'timestampBegin',
+  'timestampEnd',
+  'sortField',
+  'sortOrder',
+  'title',
+  'nsfw',
+  'filterByIds',
+];
+
+/**
+ * @description
  * Change title value reducer.
  *
- * @param {DeviationsStatisticsChangeTitleAction} action - The action.
+ * @param {DeviationsStatisticsChangeFormFieldValuesAction} action - The action.
  * @returns {DeviationStatisticsState} New deviations statistics state.
  */
-const changeTitle = action => ({
-  title: action.title,
+const changeFormFieldValues = action => ({
+  showPagination: false,
+  ...filterAction(action, formFields),
 });
 
 /**
  * @description
- * Change published time begin value reducer.
+ * Toggle deviation selection reducer.
  *
- * @param {DeviationsStatisticsChangePublishedTimeBeginAction} action - The action.
+ * @param {DeviationStatisticsState} deviationsStatisticsState - Deviations statistics page state.
  * @returns {DeviationStatisticsState} New deviations statistics state.
  */
-const changePublishedTimeBegin = action => ({
-  publishedTimeBegin: action.publishedTimeBegin,
-});
-
-/**
- * @description
- * Change published time end value reducer.
- *
- * @param {DeviationsStatisticsChangePublishedTimeEndAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changePublishedTimeEnd = action => ({
-  publishedTimeEnd: action.publishedTimeEnd,
-});
-
-/**
- * @description
- * Change sort field value reducer.
- *
- * @param {DeviationsStatisticsChangeSortFieldAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changeSortField = action => ({
-  sortField: action.sortField,
-});
-
-/**
- * @description
- * Change sort order value reducer.
- *
- * @param {DeviationsStatisticsChangeSortOrderAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changeSortOrder = action => ({
-  sortOrder: action.sortOrder,
-});
-
-/**
- * @description
- * Change timestamp begin value reducer.
- *
- * @param {DeviationsStatisticsChangeTimestampBeginAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changeTimestampBegin = action => ({
-  timestampBegin: action.timestampBegin,
-});
-
-/**
- * @description
- * Change timestamp end value reducer.
- *
- * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changeTimestampEnd = action => ({
-  timestampEnd: action.timestampEnd,
+const toggleDeviationsSelection = deviationsStatisticsState => ({
+  showPagination: deviationsStatisticsState.filterByIds
+    ? false
+    : deviationsStatisticsState.showPagination,
 });
 
 /**
@@ -94,21 +66,10 @@ const changeTimestampEnd = action => ({
  * Load page lock toggle reducer.
  *
  * @param {LockToggleAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations browse state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
  */
 const loadPageLockToggle = action => ({
   pageLoading: action.value,
-});
-
-/**
- * @description
- * Change chart type value reducer.
- *
- * @param {DeviationsStatisticsChangeTimestampEndAction} action - The action.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const changeChartType = action => ({
-  chartType: action.chartType,
 });
 
 /**
@@ -122,8 +83,21 @@ const loadPage = action => ({
   deviations: [...action.deviations],
   metadata: action.metadata ? { ...action.metadata } : null,
   page: action.page,
+  pageCount: action.pageCount,
   showPagination: true,
 });
+
+/**
+ * @description
+ * Load metadata for deviation statistics reducer.
+ *
+ * @param {DeviationsStatisticsLoadMetadataAction} action - The action.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
+ */
+const loadMetadata = action => ({
+  metadata: action.metadata ? { ...action.metadata } : null,
+});
+
 
 /**
  * @description
@@ -142,36 +116,12 @@ export default (deviationsStatisticsState, sharedState, action) => {
       difference = clearLoadedData();
       break;
 
-    case actions.DEVIATIONS_STATISTICS_CHANGE_TITLE:
-      difference = changeTitle(action);
+    case actions.DEVIATIONS_STATISTICS_CHANGE_TAB:
+      difference = changeTab(action);
       break;
 
-    case actions.DEVIATIONS_STATISTICS_CHANGE_PUBLISHED_TIME_BEGIN:
-      difference = changePublishedTimeBegin(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_PUBLISHED_TIME_END:
-      difference = changePublishedTimeEnd(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_SORT_FIELD:
-      difference = changeSortField(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_SORT_ORDER:
-      difference = changeSortOrder(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_TIMESTAMP_BEGIN:
-      difference = changeTimestampBegin(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_TIMESTAMP_END:
-      difference = changeTimestampEnd(action);
-      break;
-
-    case actions.DEVIATIONS_STATISTICS_CHANGE_CHART_TYPE:
-      difference = changeChartType(action);
+    case actions.DEVIATIONS_STATISTICS_CHANGE_FORM_FIELD_VALUES:
+      difference = changeFormFieldValues(action);
       break;
 
     case actions.LOCK_TOGGLE:
@@ -182,6 +132,14 @@ export default (deviationsStatisticsState, sharedState, action) => {
 
     case actions.DEVIATIONS_STATISTICS_LOAD_PAGE:
       difference = loadPage(action);
+      break;
+
+    case actions.DEVIATIONS_STATISTICS_LOAD_METADATA:
+      difference = loadMetadata(action);
+      break;
+
+    case actions.DEVIATIONS_COMMON_TOGGLE_SELECTION:
+      difference = toggleDeviationsSelection(deviationsStatisticsState);
       break;
 
     default:

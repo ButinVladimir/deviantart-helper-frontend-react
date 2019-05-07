@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DeviationsBrowseList from './DeviationsBrowseList';
+import DeviationsStatisticsList from './DeviationsStatisticsList';
 import deviationsCommonToggleSelectionActionCreator from '../../../redux/action-creators/deviations/common/toggle-selection';
 
 /**
@@ -10,7 +10,8 @@ import deviationsCommonToggleSelectionActionCreator from '../../../redux/action-
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  deviations: state.deviations.browse.deviations,
+  deviations: state.deviations.statistics.deviations,
+  metadata: state.deviations.statistics.metadata,
   selectedIds: state.deviations.common.selectedIds,
 });
 
@@ -26,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
     id => dispatch(deviationsCommonToggleSelectionActionCreator(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseList);
+export default connect(mapStateToProps, mapDispatchToProps)(DeviationsStatisticsList);

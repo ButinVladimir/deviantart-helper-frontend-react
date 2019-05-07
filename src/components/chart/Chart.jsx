@@ -76,8 +76,8 @@ export const tooltipFormatter = (titlesMap, diffMap) => (
  * @returns {number} Rounded timestamp.
  */
 export const roundTimestamp = (timestamp, roundPeriod) => Math.floor(
-  timestamp / roundPeriod,
-) * roundPeriod;
+  1 + timestamp / roundPeriod,
+) * roundPeriod - 1;
 
 /**
  * @description
@@ -189,8 +189,8 @@ export default function DeviationsChart({
               margin={{
                 top: 0,
                 right: 0,
-                left: 10,
-                bottom: 200,
+                left: 0,
+                bottom: 0,
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />

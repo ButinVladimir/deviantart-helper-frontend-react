@@ -2,7 +2,7 @@ import { GET } from '../../../../consts/fetch-methods';
 import { LOCK_DEVIATION_DETAILS } from '../../../../consts/locks';
 import { SERVER_ROUTE_DEVIATIONS_DETAILS, ID_PARAM } from '../../../../consts/server-routes';
 import { CHART } from '../../../../consts/tabs';
-import { DEVIATIONS_DETAILS_SET_DATA } from '../../../actions';
+import { DEVIATIONS_DETAILS_LOAD_DATA } from '../../../actions';
 import createFetchAction from '../../fetch';
 
 /**
@@ -31,13 +31,13 @@ const paramsHandler = (state) => {
 
 /**
  * @description
- * Creates action to set deviation data on deviation details page.
+ * Creates action to load deviation data on deviation details page.
  *
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsDetailsSetDataActionCreator = ({ deviation, metadata }) => ({
-  type: DEVIATIONS_DETAILS_SET_DATA,
+const deviationsDetailsLoadDataActionCreator = ({ deviation, metadata }) => ({
+  type: DEVIATIONS_DETAILS_LOAD_DATA,
   deviation,
   metadata: metadata ? [...metadata] : null,
 });
@@ -58,7 +58,7 @@ export default config => (dispatch, getState) => {
       SERVER_ROUTE_DEVIATIONS_DETAILS.replace(ID_PARAM, id),
       state => state.deviations.details.detailsLoading,
       LOCK_DEVIATION_DETAILS,
-      deviationsDetailsSetDataActionCreator,
+      deviationsDetailsLoadDataActionCreator,
       config,
       paramsHandler,
     ),

@@ -1,9 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as sort from '../../../consts/sort';
+import DatePicker from 'react-datepicker';
+import Section from 'react-bulma-components/lib/components/section';
+import Container from 'react-bulma-components/lib/components/container';
+import Content from 'react-bulma-components/lib/components/content';
+import Heading from 'react-bulma-components/lib/components/heading';
+import Columns from 'react-bulma-components/lib/components/columns';
+import Button from 'react-bulma-components/lib/components/button';
+import Pagination from 'react-bulma-components/lib/components/pagination';
+import {
+  Field,
+  Label,
+  Control,
+  Input,
+  Select,
+  Checkbox,
+} from 'react-bulma-components/lib/components/form';
+import convertOptions from '../../../helpers/convert-options';
+import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
+import { nsfwOptions } from '../../../consts/nsfw-options';
 
 export default function DeviationsStatisticsForm({
   page,
+  pageCount,
   sortField,
   sortOrder,
   title,
@@ -11,8 +30,10 @@ export default function DeviationsStatisticsForm({
   publishedTimeEnd,
   timestampBegin,
   timestampEnd,
-  prevPageHandler,
-  nextPageHandler,
+  nsfw,
+  filterByIds,
+  pageLoading,
+  showPagination,
   sortFieldChangeHandler,
   sortOrderChangeHandler,
   titleChangeHandler,
@@ -20,75 +41,244 @@ export default function DeviationsStatisticsForm({
   publishedTimeEndChangeHandler,
   timestampBeginChangeHandler,
   timestampEndChangeHandler,
+  nsfwChangeHandler,
+  filterByIdsChangeHandler,
   submitHandler,
+  loadPageHandler,
 }) {
+  const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
+  const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
+  const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
+  const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
+  const sortOptions = convertOptions(deviationsSortOptions);
+  const orderOptionsElements = convertOptions(orderOptions);
+  const nsfwOptionsElements = convertOptions(nsfwOptions);
+
   return (
-    <div>
-      <div>
-        <span>Title: </span>
-        <input name="title" value={title} onChange={titleChangeHandler} />
-      </div>
-      <div>
-        <span>Published time begin: </span>
-        <input name="publishedTimeBegin" value={publishedTimeBegin} onChange={publishedTimeBeginChangeHandler} />
-        <span>{new Date(parseInt(publishedTimeBegin, 10)).toLocaleString()}</span>
-      </div>
-      <div>
-        <span>Published time end: </span>
-        <input name="publishedTimeEnd" value={publishedTimeEnd} onChange={publishedTimeEndChangeHandler} />
-        <span>{new Date(parseInt(publishedTimeEnd, 10)).toLocaleString()}</span>
-      </div>
-      <div>
-        <span>Sort by: </span>
-        <select name="sortField" value={sortField} onChange={sortFieldChangeHandler}>
-          <option value={sort.FIELD_TITLE}>Title</option>
-          <option value={sort.FIELD_PUBLISHED_TIME}>Published time</option>
-          <option value={sort.FIELD_VIEWS}>View count</option>
-          <option value={sort.FIELD_FAVOURITES}>Favourite count</option>
-          <option value={sort.FIELD_COMMENTS}>Comment count</option>
-          <option value={sort.FIELD_DOWNLOADS}>Download count</option>
-        </select>
-      </div>
-      <div>
-        <span>Sort order: </span>
-        <select name="sortOrder" value={sortOrder} onChange={sortOrderChangeHandler}>
-          <option value={sort.ORDER_ASC}>Ascending</option>
-          <option value={sort.ORDER_DESC}>Descending</option>
-        </select>
-      </div>
-      <div>
-        <span>Timestamp begin: </span>
-        <input name="timestampBegin" value={timestampBegin} onChange={timestampBeginChangeHandler} />
-        <span>{new Date(parseInt(timestampBegin, 10)).toLocaleString()}</span>
-      </div>
-      <div>
-        <span>Timestamp end: </span>
-        <input name="timestampEnd" value={timestampEnd} onChange={timestampEndChangeHandler} />
-        <span>{new Date(parseInt(timestampEnd, 10)).toLocaleString()}</span>
-      </div>
-      <div>
-        <button type="button" onClick={submitHandler}>Submit</button>
-      </div>
-      <div>
-        <button type="button" onClick={prevPageHandler}>Prev page</button>
-        <span>{` - ${page} - `}</span>
-        <button type="button" onClick={nextPageHandler}>Next page</button>
-      </div>
-    </div>
+    <Section>
+      <Container>
+        <Content>
+          <Heading size={2}>Deviations detailed statistics</Heading>
+        </Content>
+        <Field>
+          <Label>Title</Label>
+          <Control>
+            <Input
+              disabled={pageLoading}
+              name="title"
+              value={title}
+              onChange={titleChangeHandler}
+            />
+          </Control>
+        </Field>
+
+        <Columns>
+          <Columns.Column>
+            <Field>
+              <Label>Published time range beginning</Label>
+              <Control>
+                <DatePicker
+                  disabled={pageLoading}
+                  isClearable
+                  className="input"
+                  autoComplete="off"
+                  withPortal
+                  showYearDropdown
+                  showMonthDropdown
+                  dateFormat="dd.MM.yyyy"
+                  selectsStart
+                  name="publishedTimeBegin"
+                  startDate={publishedTimeBeginDate}
+                  endDate={publishedTimeEndDate}
+                  selected={publishedTimeBeginDate}
+                  onChange={publishedTimeBeginChangeHandler}
+                />
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column>
+            <Field>
+              <Label>Published time range end</Label>
+              <Control>
+                <DatePicker
+                  disabled={pageLoading}
+                  isClearable
+                  className="input"
+                  autoComplete="off"
+                  withPortal
+                  showYearDropdown
+                  showMonthDropdown
+                  dateFormat="dd.MM.yyyy"
+                  selectsEnd
+                  name="publishedTimeEnd"
+                  startDate={publishedTimeBeginDate}
+                  endDate={publishedTimeEndDate}
+                  selected={publishedTimeEndDate}
+                  onChange={publishedTimeEndChangeHandler}
+                />
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column>
+            <Field>
+              <Label>Sort by</Label>
+              <Control>
+                <Select
+                  disabled={pageLoading}
+                  name="sortField"
+                  value={sortField}
+                  onChange={sortFieldChangeHandler}
+                >
+                  {sortOptions}
+                </Select>
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column narrow>
+            <Field>
+              <Label>Sort order</Label>
+              <Control>
+                <Select
+                  disabled={pageLoading}
+                  name="sortOrder"
+                  value={sortOrder}
+                  onChange={sortOrderChangeHandler}
+                >
+                  {orderOptionsElements}
+                </Select>
+              </Control>
+            </Field>
+          </Columns.Column>
+        </Columns>
+
+        <Columns>
+          <Columns.Column>
+            <Field>
+              <Label>Timestamp range beginning</Label>
+              <Control>
+                <DatePicker
+                  disabled={pageLoading}
+                  isClearable
+                  className="input"
+                  autoComplete="off"
+                  withPortal
+                  showYearDropdown
+                  showMonthDropdown
+                  showTimeSelect
+                  dateFormat="dd.MM.yyyy HH:mm"
+                  timeFormat="HH:mm"
+                  selectsStart
+                  name="timestampBegin"
+                  startDate={timestampBeginDate}
+                  endDate={timestampEndDate}
+                  selected={timestampBeginDate}
+                  onChange={timestampBeginChangeHandler}
+                />
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column>
+            <Field>
+              <Label>Timestamp range end</Label>
+              <Control>
+                <DatePicker
+                  disabled={pageLoading}
+                  isClearable
+                  className="input"
+                  autoComplete="off"
+                  withPortal
+                  showYearDropdown
+                  showMonthDropdown
+                  showTimeSelect
+                  dateFormat="dd.MM.yyyy HH:mm"
+                  timeFormat="HH:mm"
+                  selectsEnd
+                  name="timestampEnd"
+                  startDate={timestampBeginDate}
+                  endDate={timestampEndDate}
+                  selected={timestampEndDate}
+                  onChange={timestampEndChangeHandler}
+                />
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column>
+            <Field>
+              <Label>NSFW</Label>
+              <Control>
+                <Select
+                  disabled={pageLoading}
+                  name="nsfw"
+                  value={nsfw}
+                  onChange={nsfwChangeHandler}
+                >
+                  {nsfwOptionsElements}
+                </Select>
+              </Control>
+            </Field>
+          </Columns.Column>
+
+          <Columns.Column narrow>
+            <Field>
+              <Label>Filter by selected</Label>
+              <Control>
+                <Checkbox
+                  disabled={pageLoading}
+                  name="filterbyselected"
+                  checked={filterByIds}
+                  onChange={filterByIdsChangeHandler}
+                />
+              </Control>
+            </Field>
+          </Columns.Column>
+        </Columns>
+
+        <Columns>
+          <Columns.Column>
+            {showPagination && (
+              <Pagination
+                // Pagination in Bulma starts from 1 while pagination on backend start from 0.
+                current={page + 1}
+                total={pageCount}
+                delta={3}
+                onChange={loadPageHandler}
+              />
+            )}
+          </Columns.Column>
+          <Columns.Column narrow>
+            <Field kind="group" align="right">
+              <Control>
+                <Button color="primary" onClick={submitHandler} loading={pageLoading}>
+                  {showPagination ? 'Resubmit' : 'Submit' }
+                </Button>
+              </Control>
+            </Field>
+          </Columns.Column>
+        </Columns>
+      </Container>
+    </Section>
   );
 }
 
 DeviationsStatisticsForm.propTypes = {
   page: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
   sortField: PropTypes.string.isRequired,
   sortOrder: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  publishedTimeBegin: PropTypes.string.isRequired,
-  publishedTimeEnd: PropTypes.string.isRequired,
-  timestampBegin: PropTypes.string.isRequired,
-  timestampEnd: PropTypes.string.isRequired,
-  prevPageHandler: PropTypes.func.isRequired,
-  nextPageHandler: PropTypes.func.isRequired,
+  publishedTimeBegin: PropTypes.number,
+  publishedTimeEnd: PropTypes.number,
+  timestampBegin: PropTypes.number,
+  timestampEnd: PropTypes.number,
+  nsfw: PropTypes.string.isRequired,
+  filterByIds: PropTypes.bool.isRequired,
+  pageLoading: PropTypes.bool.isRequired,
+  showPagination: PropTypes.bool.isRequired,
   sortFieldChangeHandler: PropTypes.func.isRequired,
   sortOrderChangeHandler: PropTypes.func.isRequired,
   titleChangeHandler: PropTypes.func.isRequired,
@@ -96,5 +286,15 @@ DeviationsStatisticsForm.propTypes = {
   publishedTimeEndChangeHandler: PropTypes.func.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
+  nsfwChangeHandler: PropTypes.func.isRequired,
+  filterByIdsChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
+  loadPageHandler: PropTypes.func.isRequired,
+};
+
+DeviationsStatisticsForm.defaultProps = {
+  publishedTimeBegin: null,
+  publishedTimeEnd: null,
+  timestampBegin: null,
+  timestampEnd: null,
 };

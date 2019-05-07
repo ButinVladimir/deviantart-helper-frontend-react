@@ -1,7 +1,7 @@
 import { POST } from '../../../../consts/fetch-methods';
 import { LOCK_DEVIATION_DETAILS_METADATA } from '../../../../consts/locks';
 import { SERVER_ROUTE_DEVIATIONS_METADATA } from '../../../../consts/server-routes';
-import { DEVIATIONS_DETAILS_SET_METADATA } from '../../../actions';
+import { DEVIATIONS_DETAILS_LOAD_METADATA } from '../../../actions';
 import createFetchAction from '../../fetch';
 
 /**
@@ -15,7 +15,7 @@ const paramsHandler = (state) => {
   const detailsState = state.deviations.details;
   const params = {};
 
-  params.ids = [state.deviations.details.id];
+  params.ids = [detailsState.id];
 
   if (detailsState.timestampBegin) {
     params.timestampbegin = detailsState.timestampBegin;
@@ -30,19 +30,19 @@ const paramsHandler = (state) => {
 
 /**
  * @description
- * Creates action to set deviation data on deviation details page.
+ * Creates action to load deviation metadata on deviation details page.
  *
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsDetailsSetMetadataActionCreator = ({ metadata }) => ({
-  type: DEVIATIONS_DETAILS_SET_METADATA,
+const deviationsDetailsLoadMetadataActionCreator = ({ metadata }) => ({
+  type: DEVIATIONS_DETAILS_LOAD_METADATA,
   metadata: metadata ? Object.assign({}, metadata) : null,
 });
 
 /**
  * @description
- * Loads deviations details data.
+ * Loads deviations details metadata.
  *
  * @param {Config} config - The config.
  * @returns {Function} Action to dispatch.
@@ -52,7 +52,7 @@ export default config => createFetchAction(
   SERVER_ROUTE_DEVIATIONS_METADATA,
   state => state.deviations.details.detailsLoading,
   LOCK_DEVIATION_DETAILS_METADATA,
-  deviationsDetailsSetMetadataActionCreator,
+  deviationsDetailsLoadMetadataActionCreator,
   config,
   paramsHandler,
 );

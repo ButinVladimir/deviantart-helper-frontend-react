@@ -5,19 +5,18 @@ import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
 import Heading from 'react-bulma-components/lib/components/heading';
 import Tabs from 'react-bulma-components/lib/components/tabs';
-import Level from 'react-bulma-components/lib/components/level';
-import Loader from 'react-bulma-components/lib/components/loader';
 import DeviationsDetailsDescriptionTab from './DeviationsDetailsDescriptionTabContainer';
 import DeviationsDetailsPreviewTab from './DeviationsDetailsPreviewTabContainer';
 import DeviationsDetailsChartTab from './DeviationsDetailsChartTabContainer';
+import CustomLoader from '../../shared/CustomLoader';
 import * as tabs from '../../../consts/tabs';
 import convertTabs from '../../../helpers/convert-tabs';
 
 export default class DeviationsDetails extends Component {
   componentDidMount() {
-    const { clearDataHander, loadDeviationDetailsHandler } = this.props;
+    const { clearDataHandler, loadDeviationDetailsHandler } = this.props;
 
-    clearDataHander();
+    clearDataHandler();
     loadDeviationDetailsHandler();
   }
 
@@ -44,17 +43,8 @@ export default class DeviationsDetails extends Component {
           </Container>
         </Section>
 
-        {detailsLoading && (
-          <Section>
-            <Container>
-              <Level>
-                <Level.Item>
-                  <Loader className="custom-loader" />
-                </Level.Item>
-              </Level>
-            </Container>
-          </Section>
-        )}
+        {detailsLoading && <CustomLoader />}
+
         {!detailsLoading && (
           <>
             {tab === tabs.DESCRIPTION && <DeviationsDetailsDescriptionTab />}
@@ -71,7 +61,7 @@ DeviationsDetails.propTypes = {
   title: PropTypes.string.isRequired,
   tab: PropTypes.string.isRequired,
   detailsLoading: PropTypes.bool.isRequired,
-  clearDataHander: PropTypes.func.isRequired,
+  clearDataHandler: PropTypes.func.isRequired,
   changeTabHandler: PropTypes.func.isRequired,
   loadDeviationDetailsHandler: PropTypes.func.isRequired,
 };

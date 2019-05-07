@@ -4,7 +4,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Pagination from 'react-bulma-components/lib/components/pagination';
 
-export default function DeviationsBrowsePagination({
+export default function ContentPagination({
   page,
   pageCount,
   showPagination,
@@ -27,7 +27,7 @@ export default function DeviationsBrowsePagination({
   );
 }
 
-DeviationsBrowsePagination.propTypes = {
+ContentPagination.propTypes = {
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   showPagination: PropTypes.bool.isRequired,

@@ -46,8 +46,8 @@ const formFields = [
  * @description
  * Change title value reducer.
  *
- * @param {DeviationsBrowseChangeTitleAction} action - The action.
- * @returns {DeviationBrowseState} New deviations browse state.
+ * @param {DeviationsDetailsChangeFormFieldValuesAction} action - The action.
+ * @returns {DeviationDetailsState} New deviations details state.
  */
 const changeFormFieldValues = action => ({
   ...filterAction(action, formFields),
@@ -60,41 +60,41 @@ const changeFormFieldValues = action => ({
  * @param {DeviationsDetailsSetIdAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const detailsSetid = action => ({
+const setId = action => ({
   id: action.id,
 });
 
 /**
  * @description
- * Set data for deviation details lock toggle reducer.
+ * Load data for deviation details lock toggle reducer.
  *
  * @param {LockToggleAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const detailsSetDataLockToggle = action => ({
+const loadDataLockToggle = action => ({
   detailsLoading: action.value,
 });
 
 /**
  * @description
- * Set data for deviation details metadata lock toggle reducer.
+ * Load metadata for deviation details lock toggle reducer.
  *
  * @param {LockToggleAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const metadataSetDataLockToggle = action => ({
+const loadMetadataLockToggle = action => ({
   metadataLoading: action.value,
 });
 
 /**
  * @description
- * Set data for deviation details reducer.
+ * Load data for deviation details reducer.
  *
  * @param {DeviationDetailsState} deviationsDetailsState - Deviations details page state.
- * @param {DeviationsDetailsSetDataAction} action - The action.
+ * @param {DeviationsDetailsLoadDataAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const detailsSetData = (deviationsDetailsState, action) => ({
+const loadData = (deviationsDetailsState, action) => ({
   title: action.deviation.title,
   url: action.deviation.url,
   publishedTime: action.deviation.publishedTime,
@@ -119,12 +119,12 @@ const detailsSetData = (deviationsDetailsState, action) => ({
 
 /**
  * @description
- * Set metadata for deviation details reducer.
+ * Load metadata for deviation details reducer.
  *
- * @param {DeviationsDetailsSetDataAction} action - The action.
+ * @param {DeviationsDetailsLoadDataAction} action - The action.
  * @returns {DeviationDetailsState} New deviations details state.
  */
-const detailsSetMetadata = action => ({
+const loadMetadata = action => ({
   metadata: action.metadata ? { ...action.metadata } : null,
 });
 
@@ -154,24 +154,24 @@ export default (deviationsDetailsState, sharedState, action) => {
       break;
 
     case actions.DEVIATIONS_DETAILS_SET_ID:
-      difference = detailsSetid(action);
+      difference = setId(action);
       break;
 
     case actions.LOCK_TOGGLE:
       if (action.lock === LOCK_DEVIATION_DETAILS) {
-        difference = detailsSetDataLockToggle(action);
+        difference = loadDataLockToggle(action);
       }
       if (action.lock === LOCK_DEVIATION_DETAILS_METADATA) {
-        difference = metadataSetDataLockToggle(action);
+        difference = loadMetadataLockToggle(action);
       }
       break;
 
-    case actions.DEVIATIONS_DETAILS_SET_DATA:
-      difference = detailsSetData(deviationsDetailsState, action);
+    case actions.DEVIATIONS_DETAILS_LOAD_DATA:
+      difference = loadData(deviationsDetailsState, action);
       break;
 
-    case actions.DEVIATIONS_DETAILS_SET_METADATA:
-      difference = detailsSetMetadata(action);
+    case actions.DEVIATIONS_DETAILS_LOAD_METADATA:
+      difference = loadMetadata(action);
       break;
 
     default:

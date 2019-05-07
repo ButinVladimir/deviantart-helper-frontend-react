@@ -1,15 +1,7 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
-import deviationsStatisticsChangeTitleActionCreator from '../../../redux/action-creators/deviations/statistics/change-title';
-import deviationsStatisticsChangePublishedTimeBeginActionCreator from '../../../redux/action-creators/deviations/statistics/change-published-time-begin';
-import deviationsStatisticsChangePublishedTimeEndActionCreator from '../../../redux/action-creators/deviations/statistics/change-published-time-end';
-import deviationsStatisticsChangeSortFieldActionCreator from '../../../redux/action-creators/deviations/statistics/change-sort-field';
-import deviationsStatisticsChangeSortOrderActionCreator from '../../../redux/action-creators/deviations/statistics/change-sort-order';
-import deviationsStatisticsChangeTimestampBeginActionCreator from '../../../redux/action-creators/deviations/statistics/change-timestamp-begin';
-import deviationsStatisticsChangeTimestampEndActionCreator from '../../../redux/action-creators/deviations/statistics/change-timestamp-end';
-import deviationsStatisticsLoadPageActionCreator from '../../../redux/action-creators/deviations/statistics/load-page';
-import deviationsStatisticsPrevPageActionCreator from '../../../redux/action-creators/deviations/statistics/prev-page';
-import deviationsStatisticsNextPageActionCreator from '../../../redux/action-creators/deviations/statistics/next-page';
+import * as deviationsStatisticsForm from '../../../redux/action-creators/deviations/statistics/change-form-field-values';
+import deviationsStatisticsLoadPageActionCreator, { deviationsStatisticsLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/statistics/load-page';
 import DeviationsStatisticsForm from './DeviationsStatisticsForm';
 
 /**
@@ -21,6 +13,7 @@ import DeviationsStatisticsForm from './DeviationsStatisticsForm';
  */
 const mapStateToProps = state => ({
   page: state.deviations.statistics.page,
+  pageCount: state.deviations.statistics.pageCount,
   sortField: state.deviations.statistics.sortField,
   sortOrder: state.deviations.statistics.sortOrder,
   title: state.deviations.statistics.title,
@@ -28,6 +21,10 @@ const mapStateToProps = state => ({
   publishedTimeEnd: state.deviations.statistics.publishedTimeEnd,
   timestampBegin: state.deviations.statistics.timestampBegin,
   timestampEnd: state.deviations.statistics.timestampEnd,
+  nsfw: state.deviations.statistics.nsfw,
+  filterByIds: state.deviations.statistics.filterByIds,
+  pageLoading: state.deviations.statistics.pageLoading,
+  showPagination: state.deviations.statistics.showPagination,
 });
 
 /**
@@ -39,22 +36,28 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  titleChangeHandler: e => dispatch(deviationsStatisticsChangeTitleActionCreator(e.target.value)),
+  titleChangeHandler:
+    e => dispatch(deviationsStatisticsForm.changeTitleActionCreator(e.target.value)),
   publishedTimeBeginChangeHandler:
-    e => dispatch(deviationsStatisticsChangePublishedTimeBeginActionCreator(e.target.value)),
+    value => dispatch(deviationsStatisticsForm.changePublishedTimeBeginActionCreator(value)),
   publishedTimeEndChangeHandler:
-    e => dispatch(deviationsStatisticsChangePublishedTimeEndActionCreator(e.target.value)),
+    value => dispatch(deviationsStatisticsForm.changePublishedTimeEndActionCreator(value)),
   sortFieldChangeHandler:
-    e => dispatch(deviationsStatisticsChangeSortFieldActionCreator(e.target.value)),
+    e => dispatch(deviationsStatisticsForm.changeSortFieldActionCreator(e.target.value)),
   sortOrderChangeHandler:
-    e => dispatch(deviationsStatisticsChangeSortOrderActionCreator(e.target.value)),
+    e => dispatch(deviationsStatisticsForm.changeSortOrderActionCreator(e.target.value)),
   timestampBeginChangeHandler:
-    e => dispatch(deviationsStatisticsChangeTimestampBeginActionCreator(e.target.value)),
+    value => dispatch(deviationsStatisticsForm.changeTimestampBeginActionCreator(value)),
   timestampEndChangeHandler:
-    e => dispatch(deviationsStatisticsChangeTimestampEndActionCreator(e.target.value)),
-  submitHandler: () => dispatch(deviationsStatisticsLoadPageActionCreator(ownProps.config)),
-  prevPageHandler: () => dispatch(deviationsStatisticsPrevPageActionCreator(ownProps.config)),
-  nextPageHandler: () => dispatch(deviationsStatisticsNextPageActionCreator(ownProps.config)),
+    value => dispatch(deviationsStatisticsForm.changeTimestampEndActionCreator(value)),
+  nsfwChangeHandler:
+    e => dispatch(deviationsStatisticsForm.changeNsfwActionCreator(e.target.value)),
+  filterByIdsChangeHandler:
+    e => dispatch(deviationsStatisticsForm.changeFilterByIdsActionCreator(e.target.checked)),
+  submitHandler: () => dispatch(deviationsStatisticsLoadFirstPageActionCreator(ownProps.config)),
+  // Pagination in Bulma starts from 1 while pagination on backend start from 0.
+  loadPageHandler:
+    page => dispatch(deviationsStatisticsLoadPageActionCreator(page - 1, ownProps.config)),
 });
 
 export default consumeConfig(

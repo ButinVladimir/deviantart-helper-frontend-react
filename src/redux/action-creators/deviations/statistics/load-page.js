@@ -3,6 +3,8 @@ import { DEVIATIONS_STATISTICS_LOAD_PAGE } from '../../../actions';
 import { POST } from '../../../../consts/fetch-methods';
 import { LOCK_DEVIATIONS_STATISTICS } from '../../../../consts/locks';
 import createFetchAction from '../../fetch';
+import { SHOW_ALL, SHOW_NSFW } from '../../../../consts/nsfw-options';
+import { CHART } from '../../../../consts/tabs';
 
 /**
  * @description
@@ -13,6 +15,7 @@ import createFetchAction from '../../fetch';
  */
 const paramsHandler = (state) => {
   const statisticsState = state.deviations.statistics;
+  const commonState = state.deviations.common;
   const params = {};
 
   if (statisticsState.title) {
@@ -33,9 +36,20 @@ const paramsHandler = (state) => {
   if (statisticsState.timestampBegin) {
     params.timestampbegin = statisticsState.timestampBegin;
   }
+
   if (statisticsState.timestampEnd) {
     params.timestampend = statisticsState.timestampEnd;
   }
+
+  if (statisticsState.nsfw !== SHOW_ALL) {
+    params.nsfw = statisticsState.nsfw === SHOW_NSFW;
+  }
+
+  if (statisticsState.filterByIds) {
+    params.ids = commonState.selectedIds;
+  }
+
+  params.metadata = statisticsState.tab === CHART;
 
   return params;
 };
@@ -47,11 +61,16 @@ const paramsHandler = (state) => {
  * @param {number} page - Number of page to be loaded.
  * @returns {Function} Function to return action.
  */
-const deviationsStatisticsLoadPageActionCreator = page => ({ deviations, metadata }) => ({
+const deviationsStatisticsLoadPageActionCreator = page => ({
+  deviations,
+  metadata,
+  pageCount,
+}) => ({
   type: DEVIATIONS_STATISTICS_LOAD_PAGE,
   deviations,
   metadata: metadata ? Object.assign({}, metadata) : null,
   page,
+  pageCount,
 });
 
 /**
@@ -62,7 +81,7 @@ const deviationsStatisticsLoadPageActionCreator = page => ({ deviations, metadat
  * @param {Config} config - The config.
  * @returns {Function} Function to dispatch.
  */
-export const loadPage = (page, config) => createFetchAction(
+const loadPage = (page, config) => createFetchAction(
   POST,
   SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page),
   state => state.deviations.statistics.pageLoading,
@@ -74,9 +93,23 @@ export const loadPage = (page, config) => createFetchAction(
 
 /**
  * @description
- * Loads first page with deviations to get statistics.
+ * Creates action to load first page with deviations to get statistics.
  *
  * @param {Config} config - The config.
  * @returns {Promise<any>} The promise object.
  */
-export default config => loadPage(0, config);
+export const deviationsStatisticsLoadFirstPageActionCreator = config => loadPage(0, config);
+
+/**
+ * @description
+ * Creates action to load current page with deviations to get statistics.
+ *
+ * @param {Config} config - The config.
+ */
+export const deviationsStatisticsLoadCurrentPageActionCreator = config => (dispatch, getState) => {
+  const { deviations: { statistics: state } } = getState();
+
+  dispatch(loadPage(state.page, config));
+};
+
+export default loadPage;

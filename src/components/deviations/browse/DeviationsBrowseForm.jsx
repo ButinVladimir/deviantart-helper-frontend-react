@@ -38,9 +38,9 @@ export default function DeviationsBrowseForm({
   publishedTimeBeginChangeHandler,
   publishedTimeEndChangeHandler,
   nsfwChangeHandler,
+  filterByIdsChangeHandler,
   submitHandler,
   loadPageHandler,
-  filterByIdsChangeHandler,
 }) {
   const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
   const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;

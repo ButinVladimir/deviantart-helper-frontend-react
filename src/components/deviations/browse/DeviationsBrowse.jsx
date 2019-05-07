@@ -1,26 +1,37 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DeviationsBrowseForm from './DeviationsBrowseFormContainer';
 import DeviationsBrowseList from './DeviationsBrowseListContainer';
 import DeviationsBrowsePagination from './DeviationsBrowsePaginationContainer';
+import CustomLoader from '../../shared/CustomLoader';
 
-export default class DeviationsBrowse extends Component {
+export default class DeviationsBrowse extends PureComponent {
   componentDidMount() {
-    const { clearDataHander } = this.props;
-    clearDataHander();
+    const { clearDataHandler, preloadDeviationsHandler } = this.props;
+
+    clearDataHandler();
+    preloadDeviationsHandler();
   }
 
   render() {
+    const { pageLoading } = this.props;
+
     return (
-      <Fragment>
+      <>
         <DeviationsBrowseForm />
-        <DeviationsBrowseList />
+
+        {pageLoading && <CustomLoader />}
+
+        {!pageLoading && <DeviationsBrowseList />}
+
         <DeviationsBrowsePagination />
-      </Fragment>
+      </>
     );
   }
 }
 
 DeviationsBrowse.propTypes = {
-  clearDataHander: PropTypes.func.isRequired,
+  pageLoading: PropTypes.bool.isRequired,
+  clearDataHandler: PropTypes.func.isRequired,
+  preloadDeviationsHandler: PropTypes.func.isRequired,
 };

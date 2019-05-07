@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
@@ -12,7 +12,7 @@ export default function Message({
   hideMessageHandler,
 }) {
   return (
-    <Fragment>
+    <>
       {showMessage && (
         <Section>
           <Container breakpoint="fullhd">
@@ -23,7 +23,7 @@ export default function Message({
           </Container>
         </Section>
       )}
-    </Fragment>
+    </>
   );
 }
 

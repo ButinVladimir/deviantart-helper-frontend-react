@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bulma-components/lib/components/navbar';
@@ -15,7 +15,7 @@ export default function HeaderLoggedIn({
   revokeHandler,
 }) {
   return (
-    <Fragment>
+    <>
       <Navbar.Brand>
         <Navbar.Item>
           <img src={userIcon} alt={userName} />
@@ -36,7 +36,7 @@ export default function HeaderLoggedIn({
             <Navbar.Link>Deviations</Navbar.Link>
             <Navbar.Dropdown>
               <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_BROWSE}>Browse</NavLink>} />
-              <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_STATISTICS}>Statistics</NavLink>} />
+              <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_STATISTICS}>Detailed statistics</NavLink>} />
             </Navbar.Dropdown>
           </Navbar.Item>
         </Navbar.Container>
@@ -50,7 +50,7 @@ export default function HeaderLoggedIn({
           </Navbar.Item>
         </Navbar.Container>
       </Navbar.Menu>
-    </Fragment>
+    </>
   );
 }
 

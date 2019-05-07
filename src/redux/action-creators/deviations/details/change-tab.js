@@ -1,6 +1,6 @@
 import { DEVIATIONS_DETAILS_CHANGE_TAB } from '../../../actions';
 import { CHART } from '../../../../consts/tabs';
-import deviationsDetailsSetMetadataActionCreator from './set-metadata';
+import deviationsDetailsLoadMetadataActionCreator from './load-metadata';
 
 /**
  * @global
@@ -38,6 +38,6 @@ export default (tab, config) => (dispatch, getState) => {
 
   dispatch(deviationsDetailsChangeTabActionCreator(tab));
   if (tab === CHART && state.metadata === null) {
-    dispatch(deviationsDetailsSetMetadataActionCreator(config));
+    dispatch(deviationsDetailsLoadMetadataActionCreator(config));
   }
 };
