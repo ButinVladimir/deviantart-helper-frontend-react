@@ -15,29 +15,27 @@ import Level from 'react-bulma-components/lib/components/level';
 import ChartForm from './ChartForm';
 import colors from '../../consts/colors';
 
-const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
+const timezoneOffset = -(new Date().getTimezoneOffset()) * 60 * 1000;
 
 /**
  * @description
  * Formatter for chart.
  * Converts timestamp to a proper date string.
- * Timestamp is already in the local zone, so it's need to be converted to UTC time first.
  *
  * @param {number} timestamp - The timestamp in the local zone.
  * @returns {string} Converted date.
  */
-export const dateFormatter = timestamp => new Date(timestamp + timezoneOffset).toLocaleDateString();
+export const dateFormatter = timestamp => new Date(timestamp).toLocaleDateString();
 
 /**
  * @description
  * Formatter for chart.
  * Converts timestamp to a proper datetime string.
- * Timestamp is already in the local zone, so it's need to be converted to UTC time first.
  *
  * @param {number} timestamp - The timestamp in the local zone.
  * @returns {string} Converted datetime.
  */
-export const dateTimeFormatter = timestamp => new Date(timestamp + timezoneOffset).toLocaleString();
+export const dateTimeFormatter = timestamp => new Date(timestamp).toLocaleString();
 
 /**
  * @description
@@ -76,13 +74,13 @@ export const tooltipFormatter = (titlesMap, diffMap) => (
  * Rounds up the timestamp.
  * Calculates rounded timestamp in local time.
  *
- * @param {number} timestamp - The timestamp in the UTC time.
+ * @param {number} timestamp - The timestamp.
  * @param {number} roundPeriod - The round period.
  * @returns {number} Rounded timestamp.
  */
 export const roundTimestamp = (timestamp, roundPeriod) => Math.floor(
-  1 + (timestamp - timezoneOffset) / roundPeriod,
-) * roundPeriod - 1;
+  1 + (timestamp + timezoneOffset) / roundPeriod,
+) * roundPeriod - timezoneOffset - 1;
 
 /**
  * @description
