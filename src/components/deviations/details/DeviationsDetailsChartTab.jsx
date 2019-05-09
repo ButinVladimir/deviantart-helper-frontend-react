@@ -10,6 +10,7 @@ import {
 } from 'react-bulma-components/lib/components/form';
 import Button from 'react-bulma-components/lib/components/button';
 import Chart from '../shared/DeviationsChartContainer';
+import { datetimePickerProps } from '../../../helpers/datepicker-props';
 
 export default function DeviationsDetailsChartTab({
   id,
@@ -40,16 +41,8 @@ export default function DeviationsDetailsChartTab({
               <Field>
                 <Control>
                   <DatePicker
+                    {...datetimePickerProps}
                     disabled={metadataLoading}
-                    isClearable
-                    className="input"
-                    autoComplete="off"
-                    withPortal
-                    showYearDropdown
-                    showMonthDropdown
-                    showTimeSelect
-                    dateFormat="dd.MM.yyyy HH:mm"
-                    timeFormat="HH:mm"
                     selectsStart
                     name="publishedTimeBegin"
                     startDate={timestampBeginDate}
@@ -70,16 +63,8 @@ export default function DeviationsDetailsChartTab({
               <Field>
                 <Control>
                   <DatePicker
+                    {...datetimePickerProps}
                     disabled={metadataLoading}
-                    isClearable
-                    className="input"
-                    autoComplete="off"
-                    withPortal
-                    showYearDropdown
-                    showMonthDropdown
-                    showTimeSelect
-                    dateFormat="dd.MM.yyyy HH:mm"
-                    timeFormat="HH:mm"
                     selectsEnd
                     name="publishedTimeBegin"
                     startDate={timestampBeginDate}

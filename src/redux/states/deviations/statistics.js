@@ -1,6 +1,7 @@
 import * as sort from '../../../consts/sort';
 import { SHOW_ALL } from '../../../consts/nsfw-options';
 import { LIST } from '../../../consts/tabs';
+import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
 
 /**
  * @global
@@ -40,18 +41,17 @@ import { LIST } from '../../../consts/tabs';
  * @property {string} sortField - Sort field value.
  * @property {number} sortOrder - Sort order value.
  * @property {string} title - Title value.
- * @property {string} publishedTimeBegin - Published time begin value.
- * @property {string} publishedTimeEnd - Published time end value.
- * @property {string} timestampBegin - The timestamp begin value.
- * @property {string} timestampEnd - The timestamp end value.
+ * @property {number} publishedTimeBegin - Published time begin value.
+ * @property {number} publishedTimeEnd - Published time end value.
+ * @property {number} timestampBegin - The timestamp begin value.
+ * @property {number} timestampEnd - The timestamp end value.
  * @property {DeviationStatistic[]} deviations - Loaded deviations.
  * @property {Object} metadata - The metadata.
  * @property {boolean} pageLoading - Is page loading.
  * @property {boolean} showPagination - Should pagination be shown.
  */
 
-const timestampBeginDate = new Date();
-timestampBeginDate.setDate(timestampBeginDate.getDate() - 2);
+const timestampBegin = new Date().getTime() - ROUND_PERIOD_1_DAY;
 
 /**
  * @description
@@ -68,7 +68,7 @@ export default () => ({
   title: '',
   publishedTimeBegin: 0,
   publishedTimeEnd: 0,
-  timestampBegin: timestampBeginDate.getTime(),
+  timestampBegin,
   timestampEnd: 0,
   nsfw: SHOW_ALL,
   filterByIds: false,

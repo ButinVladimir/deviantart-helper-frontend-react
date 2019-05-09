@@ -6,12 +6,12 @@ import Button from 'react-bulma-components/lib/components/button';
 import * as routes from '../../consts/routes';
 
 export default function HeaderLoggedIn({
-  deviationsLoading,
+  startFetchDataLoading,
   revokeLoading,
   userName,
   userIcon,
   toggleMenuHandler,
-  deviationsLoadHandler,
+  startFetchDataHandler,
   revokeHandler,
 }) {
   return (
@@ -37,6 +37,7 @@ export default function HeaderLoggedIn({
             <Navbar.Dropdown>
               <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_BROWSE}>Browse</NavLink>} />
               <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_STATISTICS}>Detailed statistics</NavLink>} />
+              <Navbar.Item renderAs={() => <NavLink className="navbar-item" to={routes.DEVIATIONS_TOTAL}>Total statistics</NavLink>} />
             </Navbar.Dropdown>
           </Navbar.Item>
         </Navbar.Container>
@@ -44,7 +45,7 @@ export default function HeaderLoggedIn({
         <Navbar.Container position="end">
           <Navbar.Item>
             <Button.Group>
-              <Button color="light" loading={deviationsLoading} onClick={deviationsLoadHandler}>Refresh data</Button>
+              <Button color="light" loading={startFetchDataLoading} onClick={startFetchDataHandler}>Fetch data</Button>
               <Button color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
             </Button.Group>
           </Navbar.Item>
@@ -55,12 +56,12 @@ export default function HeaderLoggedIn({
 }
 
 HeaderLoggedIn.propTypes = {
-  deviationsLoading: PropTypes.bool.isRequired,
+  startFetchDataLoading: PropTypes.bool.isRequired,
   revokeLoading: PropTypes.bool.isRequired,
   userName: PropTypes.string,
   userIcon: PropTypes.string,
   toggleMenuHandler: PropTypes.func.isRequired,
-  deviationsLoadHandler: PropTypes.func.isRequired,
+  startFetchDataHandler: PropTypes.func.isRequired,
   revokeHandler: PropTypes.func.isRequired,
 };
 

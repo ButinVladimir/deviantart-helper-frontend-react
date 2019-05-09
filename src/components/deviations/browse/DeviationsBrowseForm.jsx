@@ -19,6 +19,7 @@ import {
 import convertOptions from '../../../helpers/convert-options';
 import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
 import { nsfwOptions } from '../../../consts/nsfw-options';
+import { datePickerProps } from '../../../helpers/datepicker-props';
 
 export default function DeviationsBrowseForm({
   page,
@@ -72,14 +73,8 @@ export default function DeviationsBrowseForm({
               <Label>Published time range beginning</Label>
               <Control>
                 <DatePicker
+                  {...datePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  dateFormat="dd.MM.yyyy"
                   selectsStart
                   name="publishedTimeBegin"
                   startDate={publishedTimeBeginDate}
@@ -96,14 +91,8 @@ export default function DeviationsBrowseForm({
               <Label>Published time range end</Label>
               <Control>
                 <DatePicker
+                  {...datePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  dateFormat="dd.MM.yyyy"
                   selectsEnd
                   name="publishedTimeEnd"
                   startDate={publishedTimeBeginDate}

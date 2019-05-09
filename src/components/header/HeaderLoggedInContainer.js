@@ -3,7 +3,7 @@ import consumeConfig from '../shared/ConfigContext';
 import HeaderLoggedIn from './HeaderLoggedIn';
 import toggleMenuActionCreator from '../../redux/action-creators/shared/toggle-menu';
 import revokeQueryActionCreator from '../../redux/action-creators/shared/revoke-query';
-import deviationsLoadActionCreator from '../../redux/action-creators/deviations/load';
+import startFetchDataActionCreator from '../../redux/action-creators/shared/start-fetch-data';
 
 /**
  * @description
@@ -13,7 +13,7 @@ import deviationsLoadActionCreator from '../../redux/action-creators/deviations/
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  deviationsLoading: state.deviations.common.deviationsLoading,
+  startFetchDataLoading: state.shared.fetchDataLoading,
   revokeLoading: state.shared.revokeLoading,
   userName: state.user.userName,
   userIcon: state.user.userIcon,
@@ -30,7 +30,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleMenuHandler: () => dispatch(toggleMenuActionCreator()),
   revokeHandler: () => dispatch(revokeQueryActionCreator(ownProps.config)),
-  deviationsLoadHandler: () => dispatch(deviationsLoadActionCreator(ownProps.config)),
+  startFetchDataHandler: () => dispatch(startFetchDataActionCreator(ownProps.config)),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(HeaderLoggedIn));

@@ -7,6 +7,7 @@ import UserInfo from './components/user/info/UserInfoContainer';
 import DeviationsBrowse from './components/deviations/browse/DeviationsBrowseContainer';
 import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
 import DeviationsStatistics from './components/deviations/statistics/DeviationsStatisticsContainer';
+import DeviationsTotal from './components/deviations/total/DeviationsTotalContainer';
 import * as routes from './consts/routes';
 import './App.sass';
 
@@ -52,6 +53,13 @@ export default class App extends PureComponent {
               path={routes.DEVIATIONS_STATISTICS}
               render={() => (
                 <DeviationsStatistics />
+              )}
+            />
+            <Route
+              exact
+              path={routes.DEVIATIONS_TOTAL}
+              render={() => (
+                <DeviationsTotal />
               )}
             />
           </Switch>

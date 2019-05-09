@@ -38,7 +38,7 @@ const formFields = [
 
 /**
  * @description
- * Change title value reducer.
+ * Change form values reducer.
  *
  * @param {DeviationsStatisticsChangeFormFieldValuesAction} action - The action.
  * @returns {DeviationStatisticsState} New deviations statistics state.

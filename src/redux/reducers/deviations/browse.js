@@ -24,7 +24,7 @@ const formFields = [
 
 /**
  * @description
- * Change title value reducer.
+ * Change form values reducer.
  *
  * @param {DeviationsBrowseChangeFormFieldValuesAction} action - The action.
  * @returns {DeviationBrowseState} New deviations browse state.

@@ -19,6 +19,7 @@ import {
 import convertOptions from '../../../helpers/convert-options';
 import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
 import { nsfwOptions } from '../../../consts/nsfw-options';
+import { datePickerProps, datetimePickerProps } from '../../../helpers/datepicker-props';
 
 export default function DeviationsStatisticsForm({
   page,
@@ -78,14 +79,8 @@ export default function DeviationsStatisticsForm({
               <Label>Published time range beginning</Label>
               <Control>
                 <DatePicker
+                  {...datePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  dateFormat="dd.MM.yyyy"
                   selectsStart
                   name="publishedTimeBegin"
                   startDate={publishedTimeBeginDate}
@@ -102,14 +97,8 @@ export default function DeviationsStatisticsForm({
               <Label>Published time range end</Label>
               <Control>
                 <DatePicker
+                  {...datePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  dateFormat="dd.MM.yyyy"
                   selectsEnd
                   name="publishedTimeEnd"
                   startDate={publishedTimeBeginDate}
@@ -160,16 +149,8 @@ export default function DeviationsStatisticsForm({
               <Label>Timestamp range beginning</Label>
               <Control>
                 <DatePicker
+                  {...datetimePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  showTimeSelect
-                  dateFormat="dd.MM.yyyy HH:mm"
-                  timeFormat="HH:mm"
                   selectsStart
                   name="timestampBegin"
                   startDate={timestampBeginDate}
@@ -186,16 +167,8 @@ export default function DeviationsStatisticsForm({
               <Label>Timestamp range end</Label>
               <Control>
                 <DatePicker
+                  {...datetimePickerProps}
                   disabled={pageLoading}
-                  isClearable
-                  className="input"
-                  autoComplete="off"
-                  withPortal
-                  showYearDropdown
-                  showMonthDropdown
-                  showTimeSelect
-                  dateFormat="dd.MM.yyyy HH:mm"
-                  timeFormat="HH:mm"
                   selectsEnd
                   name="timestampEnd"
                   startDate={timestampBeginDate}

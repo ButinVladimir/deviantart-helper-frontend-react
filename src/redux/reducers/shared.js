@@ -1,5 +1,5 @@
 import * as actions from '../actions';
-import { LOCK_REVOKE } from '../../consts/locks';
+import { LOCK_REVOKE, LOCK_START_LOADING_DATA } from '../../consts/locks';
 
 /**
  * @description
@@ -74,6 +74,17 @@ const revokeLockToggle = action => ({
 
 /**
  * @description
+ * Loading deviations lock toggle reducer.
+ *
+ * @param {LockToggleAction} action - The action.
+ * @returns {DeviationsCommonState} New deviations common state.
+ */
+const fetchDataLockToggle = action => ({
+  fetchDataLoading: action.value,
+});
+
+/**
+ * @description
  * Revoke reducer.
  *
  * @returns {SharedState} New shared state.
@@ -118,6 +129,11 @@ export default (sharedState, action) => {
       if (action.lock === LOCK_REVOKE) {
         difference = revokeLockToggle(action);
       }
+
+      if (action.lock === LOCK_START_LOADING_DATA) {
+        difference = fetchDataLockToggle(action);
+      }
+
       break;
 
     case actions.REVOKE:

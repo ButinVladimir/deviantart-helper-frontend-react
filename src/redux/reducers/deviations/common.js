@@ -1,16 +1,4 @@
 import * as actions from '../../actions';
-import { LOCK_START_LOADING_DATA } from '../../../consts/locks';
-
-/**
- * @description
- * Loading deviations lock toggle reducer.
- *
- * @param {LockToggleAction} action - The action.
- * @returns {DeviationsCommonState} New deviations common state.
- */
-const loadLockToggle = action => ({
-  deviationsLoading: action.value,
-});
 
 /**
  * @description
@@ -39,12 +27,6 @@ export default (deviationsCommonState, sharedState, action) => {
   let difference = null;
 
   switch (action.type) {
-    case actions.LOCK_TOGGLE:
-      if (action.lock === LOCK_START_LOADING_DATA) {
-        difference = loadLockToggle(action);
-      }
-      break;
-
     case actions.DEVIATIONS_COMMON_TOGGLE_SELECTION:
       difference = toggleSelection(deviationsCommonState, action);
       break;

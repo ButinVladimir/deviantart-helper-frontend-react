@@ -1,4 +1,5 @@
 import { DESCRIPTION } from '../../../consts/tabs';
+import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
 
 /**
  * @global
@@ -28,12 +29,14 @@ import { DESCRIPTION } from '../../../consts/tabs';
  * @property {number} favourites - The favourites count.
  * @property {number} comments - The comments count.
  * @property {number} downloads - The downloads count.
- * @property {string} timestampBegin - The timestamp begin value.
- * @property {string} timestampEnd - The timestamp end value.
+ * @property {number} timestampBegin - The timestamp begin value.
+ * @property {number} timestampEnd - The timestamp end value.
  * @property {Object} metadata - The metadata.
  * @property {boolean} detailsLoading - Are details loading.
  * @property {boolean} metadatadLoading - Is metadata loading.
  */
+
+const timestampBegin = new Date().getTime() - ROUND_PERIOD_1_DAY;
 
 /**
  * @description
@@ -63,7 +66,7 @@ export default () => ({
   favourites: 0,
   comments: 0,
   downloads: 0,
-  timestampBegin: 0,
+  timestampBegin,
   timestampEnd: 0,
   metadata: null,
   detailsLoading: false,
