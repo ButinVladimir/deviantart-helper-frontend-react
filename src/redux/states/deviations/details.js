@@ -1,5 +1,5 @@
 import { DESCRIPTION } from '../../../consts/tabs';
-import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
+import { ROUND_PERIOD_7_DAYS } from '../../../consts/round-periods';
 
 /**
  * @global
@@ -36,7 +36,7 @@ import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
  * @property {boolean} metadatadLoading - Is metadata loading.
  */
 
-const timestampBegin = new Date().getTime() - ROUND_PERIOD_1_DAY;
+const timestampBegin = new Date().getTime() - ROUND_PERIOD_7_DAYS;
 
 /**
  * @description

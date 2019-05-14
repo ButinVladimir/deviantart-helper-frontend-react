@@ -9,8 +9,10 @@
  * @property {string} userId - User ID.
  * @property {string} userIcon - User icon.
  * @property {string} userType - User type.
- * @property {number} accessTokenExpires - Expiration date of access token.
- * @property {number} refreshTokenExpires - Expiration date of refresh token.
+ * @property {number|null} accessTokenExpires - Expiration date of access token.
+ * @property {number|null} refreshTokenExpires - Expiration date of refresh token.
+ * @property {number|null} fetchDateThreshold - Date until that data cannot be fetched.
+ * @property {number|null} requestDateThreshold - Date until that data fetching cannot be requested.
  */
 
 /**
@@ -25,6 +27,8 @@ export default () => ({
   userId: '',
   userIcon: '',
   userType: '',
-  accessTokenExpires: 0,
-  refreshTokenExpires: 0,
+  accessTokenExpires: null,
+  refreshTokenExpires: null,
+  fetchDateThreshold: null,
+  requestDateThreshold: null,
 });

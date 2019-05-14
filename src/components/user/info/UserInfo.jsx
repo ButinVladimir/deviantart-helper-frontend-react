@@ -6,6 +6,10 @@ import Content from 'react-bulma-components/lib/components/content';
 import Heading from 'react-bulma-components/lib/components/heading';
 
 export default class UserInfo extends Component {
+  static formatDate(date) {
+    return date === null ? 'Null' : new Date(date).toLocaleString();
+  }
+
   componentDidMount() {
     const { fetchUserData } = this.props;
 
@@ -19,6 +23,8 @@ export default class UserInfo extends Component {
       userType,
       accessTokenExpires,
       refreshTokenExpires,
+      fetchDateThreshold,
+      requestDateThreshold,
     } = this.props;
 
     return (
@@ -40,11 +46,19 @@ export default class UserInfo extends Component {
             </p>
             <p>
               <span>Access token expires: </span>
-              <strong>{new Date(accessTokenExpires).toLocaleString()}</strong>
+              <strong>{UserInfo.formatDate(accessTokenExpires)}</strong>
             </p>
             <p>
               <span>Refresh token expires: </span>
-              <strong>{new Date(refreshTokenExpires).toLocaleString()}</strong>
+              <strong>{UserInfo.formatDate(refreshTokenExpires)}</strong>
+            </p>
+            <p>
+              <span>Fetch date threshold: </span>
+              <strong>{UserInfo.formatDate(fetchDateThreshold)}</strong>
+            </p>
+            <p>
+              <span>Request date threshold: </span>
+              <strong>{UserInfo.formatDate(requestDateThreshold)}</strong>
             </p>
           </Content>
         </Container>
@@ -60,12 +74,16 @@ UserInfo.propTypes = {
   userType: PropTypes.string,
   accessTokenExpires: PropTypes.number,
   refreshTokenExpires: PropTypes.number,
+  fetchDateThreshold: PropTypes.number,
+  requestDateThreshold: PropTypes.number,
 };
 
 UserInfo.defaultProps = {
   userId: '',
   userName: '',
   userType: '',
-  accessTokenExpires: 0,
-  refreshTokenExpires: 0,
+  accessTokenExpires: null,
+  refreshTokenExpires: null,
+  fetchDateThreshold: null,
+  requestDateThreshold: null,
 };

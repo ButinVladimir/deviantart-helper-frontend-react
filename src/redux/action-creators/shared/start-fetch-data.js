@@ -16,7 +16,7 @@ const startFetchDataActionCreator = ({ status }) => (dispatch) => {
   if (status) {
     dispatch(showMessageActionCreator('Requested data fetching successfully'));
   } else {
-    dispatch(showErrorActionCreator('Unable to request data fetching'));
+    dispatch(showErrorActionCreator('Unable to request data fetching, please try later'));
   }
 };
 

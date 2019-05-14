@@ -29,6 +29,8 @@ const loadUserInfo = (userState, sharedState, action) => ({
   userType: action.userType,
   accessTokenExpires: action.accessTokenExpires,
   refreshTokenExpires: action.refreshTokenExpires,
+  fetchDateThreshold: action.fetchDateThreshold,
+  requestDateThreshold: action.requestDateThreshold,
 });
 
 /**

@@ -16,6 +16,8 @@ const mapStateToProps = state => ({
   userType: state.user.userType,
   accessTokenExpires: state.user.accessTokenExpires,
   refreshTokenExpires: state.user.refreshTokenExpires,
+  fetchDateThreshold: state.user.fetchDateThreshold,
+  requestDateThreshold: state.user.requestDateThreshold,
 });
 
 /**

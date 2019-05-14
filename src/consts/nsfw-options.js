@@ -4,6 +4,6 @@ export const SHOW_NSFW = 'SHOW_NSFW';
 
 export const nsfwOptions = [
   [SHOW_ALL, 'Show everything'],
-  [SHOW_NON_NSFW, 'Show non-NSFW'],
-  [SHOW_NSFW, 'Show NSFW'],
+  [SHOW_NON_NSFW, 'Show only non-NSFW'],
+  [SHOW_NSFW, 'Show only NSFW'],
 ];

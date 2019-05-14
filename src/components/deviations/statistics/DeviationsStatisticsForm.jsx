@@ -227,7 +227,7 @@ export default function DeviationsStatisticsForm({
             <Field kind="group" align="right">
               <Control>
                 <Button color="primary" onClick={submitHandler} loading={pageLoading}>
-                  {showPagination ? 'Resubmit' : 'Submit' }
+                  {showPagination ? 'Refresh' : 'Submit' }
                 </Button>
               </Control>
             </Field>

@@ -5,6 +5,7 @@ export const ROUND_PERIOD_1_HOUR = 60 * ROUND_PERIOD_1_MINUTE;
 export const ROUND_PERIOD_4_HOURS = 4 * ROUND_PERIOD_1_HOUR;
 export const ROUND_PERIOD_12_HOURS = 12 * ROUND_PERIOD_1_HOUR;
 export const ROUND_PERIOD_1_DAY = 24 * ROUND_PERIOD_1_HOUR;
+export const ROUND_PERIOD_7_DAYS = 7 * ROUND_PERIOD_1_DAY;
 export const ROUND_PERIOD_10_DAYS = 10 * ROUND_PERIOD_1_DAY;
 export const ROUND_PERIOD_30_DAYS = 30 * ROUND_PERIOD_1_DAY;
 
@@ -16,6 +17,7 @@ export const roundPeriodOptions = [
   [ROUND_PERIOD_4_HOURS, '4 hours'],
   [ROUND_PERIOD_12_HOURS, '12 hours'],
   [ROUND_PERIOD_1_DAY, '1 day'],
+  [ROUND_PERIOD_7_DAYS, '7 days'],
   [ROUND_PERIOD_10_DAYS, '10 days'],
   [ROUND_PERIOD_30_DAYS, '30 days'],
 ];

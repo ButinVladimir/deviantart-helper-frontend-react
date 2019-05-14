@@ -14,6 +14,11 @@ import createFetchAction from '../fetch';
  * @param {string} userId - The user ID.
  * @param {string} userName - The user name.
  * @param {string} userIcon - The user icon.
+ * @param {string} userType - The user type.
+ * @param {number|null} accessTokenExpires - Expiration date of access token.
+ * @param {number|null} refreshTokenExpires - Expiration date of refresh token.
+ * @param {number|null} fetchDateThreshold - Date until that data cannot be fetched.
+ * @param {number|null} requestDateThreshold - Date until that data fetching cannot be requested.
  */
 
 /**
@@ -30,6 +35,8 @@ const userLoadInfoActionCreator = ({
   userType,
   accessTokenExpires,
   refreshTokenExpires,
+  fetchDateThreshold,
+  requestDateThreshold,
 }) => ({
   type: USER_LOAD_INFO,
   userId,
@@ -38,6 +45,8 @@ const userLoadInfoActionCreator = ({
   userType,
   accessTokenExpires,
   refreshTokenExpires,
+  fetchDateThreshold,
+  requestDateThreshold,
 });
 
 /**

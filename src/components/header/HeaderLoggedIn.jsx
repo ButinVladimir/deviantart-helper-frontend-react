@@ -45,7 +45,7 @@ export default function HeaderLoggedIn({
         <Navbar.Container position="end">
           <Navbar.Item>
             <Button.Group>
-              <Button color="light" loading={startFetchDataLoading} onClick={startFetchDataHandler}>Fetch data</Button>
+              <Button color="light" loading={startFetchDataLoading} onClick={startFetchDataHandler}>Request data fetching</Button>
               <Button color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
             </Button.Group>
           </Navbar.Item>
