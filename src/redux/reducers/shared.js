@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import * as userStates from '../../consts/user-states';
 import { LOCK_REVOKE, LOCK_START_LOADING_DATA } from '../../consts/locks';
 
 /**
@@ -16,22 +17,33 @@ const toggleMenu = sharedState => ({
  * @description
  * Load user info reducer.
  *
+ * @param {LoadUserInfoAction} action - The action.
  * @returns {SharedState} New shared state.
  */
-const loadUserInfo = () => ({
-  isLoggedIn: true,
-});
+const loadUserInfo = (action) => {
+  if (action.fullyLoginned) {
+    return {
+      userState: userStates.FULLY_LOGINNED,
+    };
+  }
+
+  return {
+    userState: userStates.FETCHING_INFO,
+    showMessage: true,
+    messageColor: 'info',
+    message: 'Your info is being fetched at this moment. Please try later.',
+  };
+};
 
 
 /**
  * @description
  * Show message reducer.
  *
- * @param {SharedState} sharedState - Shared state.
  * @param {ShowErrorAction} action - The action.
  * @returns {SharedState} New shared state.
  */
-const showMessage = (sharedState, action) => ({
+const showMessage = action => ({
   showMessage: true,
   messageColor: 'info',
   message: action.message,
@@ -51,11 +63,10 @@ const hideMessage = () => ({
  * @description
  * Show error reducer.
  *
- * @param {SharedState} sharedState - Shared state.
  * @param {ShowErrorAction} action - The action.
  * @returns {SharedState} New shared state.
  */
-const showError = (sharedState, action) => ({
+const showError = action => ({
   showMessage: true,
   messageColor: 'danger',
   message: action.message,
@@ -87,11 +98,23 @@ const fetchDataLockToggle = action => ({
  * @description
  * Revoke reducer.
  *
+ * @param {SharedState} sharedState - Shared state.
  * @returns {SharedState} New shared state.
  */
-const revoke = () => ({
-  isLoggedIn: false,
-});
+const revoke = (sharedState) => {
+  if (sharedState.userState !== userStates.NOT_LOGGINED) {
+    return {
+      userState: userStates.NOT_LOGGINED,
+      showMessage: true,
+      messageColor: 'info',
+      message: 'Your account have been revoked.',
+    };
+  }
+
+  return {
+    userState: userStates.NOT_LOGGINED,
+  };
+};
 
 /**
  * @description
@@ -110,11 +133,11 @@ export default (sharedState, action) => {
       break;
 
     case actions.USER_LOAD_INFO:
-      difference = loadUserInfo();
+      difference = loadUserInfo(action);
       break;
 
     case actions.MESSAGE_SHOW:
-      difference = showMessage(sharedState, action);
+      difference = showMessage(action);
       break;
 
     case actions.MESSAGE_HIDE:
@@ -122,7 +145,7 @@ export default (sharedState, action) => {
       break;
 
     case actions.ERROR_SHOW:
-      difference = showError(sharedState, action);
+      difference = showError(action);
       break;
 
     case actions.LOCK_TOGGLE:
@@ -137,7 +160,7 @@ export default (sharedState, action) => {
       break;
 
     case actions.REVOKE:
-      difference = revoke();
+      difference = revoke(sharedState);
       break;
 
     default:

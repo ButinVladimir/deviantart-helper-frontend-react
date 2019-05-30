@@ -11,7 +11,7 @@ import userLoadInfoActionCreator from './redux/action-creators/user/load-info';
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  isLoggedIn: state.shared.isLoggedIn,
+  userState: state.shared.userState,
 });
 
 /**

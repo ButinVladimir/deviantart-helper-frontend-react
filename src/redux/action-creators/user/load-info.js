@@ -11,6 +11,7 @@ import createFetchAction from '../fetch';
  *
  * @typedef {Object} UserLoadInfoAction
  *
+ * @param {boolean} fullyLoginned - Is user fully loginned.
  * @param {string} userId - The user ID.
  * @param {string} userName - The user name.
  * @param {string} userIcon - The user icon.
@@ -29,6 +30,7 @@ import createFetchAction from '../fetch';
  * @returns {UserLoadInfoAction} Action.
  */
 const userLoadInfoActionCreator = ({
+  fullyLoginned,
   userId,
   userName,
   userIcon,
@@ -39,6 +41,7 @@ const userLoadInfoActionCreator = ({
   requestDateThreshold,
 }) => ({
   type: USER_LOAD_INFO,
+  fullyLoginned,
   userId,
   userName,
   userIcon,

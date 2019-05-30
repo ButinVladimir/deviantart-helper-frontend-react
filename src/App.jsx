@@ -8,6 +8,7 @@ import DeviationsBrowse from './components/deviations/browse/DeviationsBrowseCon
 import DeviationsDetails from './components/deviations/details/DeviationsDetailsContainer';
 import DeviationsStatistics from './components/deviations/statistics/DeviationsStatisticsContainer';
 import DeviationsTotal from './components/deviations/total/DeviationsTotalContainer';
+import { FULLY_LOGINNED } from './consts/user-states';
 import * as routes from './consts/routes';
 import './App.sass';
 
@@ -19,13 +20,13 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { isLoggedIn } = this.props;
+    const { userState } = this.props;
 
     return (
       <>
         <Header />
         <Message />
-        {isLoggedIn && (
+        {userState === FULLY_LOGINNED && (
           <Switch>
             <Route
               exact
@@ -70,6 +71,6 @@ export default class App extends PureComponent {
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  userState: PropTypes.number.isRequired,
   fetchUserData: PropTypes.func.isRequired,
 };

@@ -16,22 +16,28 @@ const loadUserInfoLockToggle = action => ({
  * @description
  * Load user info reducer.
  *
- * @param {UserState} userState - User state.
- * @param {SharedState} sharedState - Shared state.
  * @param {LoadUserInfoAction} action - The action.
  * @returns {UserState} New user state.
  */
-const loadUserInfo = (userState, sharedState, action) => ({
-  userInfoLoading: false,
-  userName: action.userName,
-  userId: action.userId,
-  userIcon: action.userIcon,
-  userType: action.userType,
-  accessTokenExpires: action.accessTokenExpires,
-  refreshTokenExpires: action.refreshTokenExpires,
-  fetchDateThreshold: action.fetchDateThreshold,
-  requestDateThreshold: action.requestDateThreshold,
-});
+const loadUserInfo = (action) => {
+  if (action.fullyLoginned) {
+    return {
+      userInfoLoading: false,
+      userName: action.userName,
+      userId: action.userId,
+      userIcon: action.userIcon,
+      userType: action.userType,
+      accessTokenExpires: action.accessTokenExpires,
+      refreshTokenExpires: action.refreshTokenExpires,
+      fetchDateThreshold: action.fetchDateThreshold,
+      requestDateThreshold: action.requestDateThreshold,
+    };
+  }
+
+  return {
+    userInfoLoading: false,
+  };
+};
 
 /**
  * @description
@@ -53,7 +59,7 @@ export default (userState, sharedState, action) => {
       break;
 
     case actions.USER_LOAD_INFO:
-      difference = loadUserInfo(userState, sharedState, action);
+      difference = loadUserInfo(action);
       break;
 
     default:

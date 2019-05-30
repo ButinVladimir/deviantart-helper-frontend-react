@@ -1,3 +1,5 @@
+import { NOT_LOGGINED } from '../../consts/user-states';
+
 /**
  * @global
  * @description
@@ -5,7 +7,7 @@
  *
  * @typedef {Object} SharedState
  * @property {boolean} menuToggled - Is menu is toggled.
- * @property {boolean} isLoggedIn - Is user logged in.
+ * @property {number} userState - Is user login state.
  * @property {boolean} revokeLoading - Is user revoking session.
  * @property {boolean} fetchDataLoading - Is start fetching data loading.
  * @property {string} messageColor - Message color.
@@ -21,7 +23,7 @@
  */
 export default () => ({
   menuToggled: false,
-  isLoggedIn: false,
+  userState: NOT_LOGGINED,
   revokeLoading: false,
   fetchDataLoading: false,
   messageColor: '',

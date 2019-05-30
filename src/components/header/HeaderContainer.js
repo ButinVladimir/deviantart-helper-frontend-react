@@ -9,7 +9,7 @@ import Header from './Header';
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
-  isLoggedIn: state.shared.isLoggedIn,
+  userState: state.shared.userState,
   menuToggled: state.shared.menuToggled,
 });
 
