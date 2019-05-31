@@ -1,3 +1,3 @@
-import config from './development';
+import Config from './config';
 
-export default config;
+export default new Config();

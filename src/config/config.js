@@ -5,12 +5,8 @@ export default class Config {
   /**
    * @description
    * The constructor.
-   *
-   * @param {string} serverUrl - The server URL.
    */
-  constructor(
-    serverUrl,
-  ) {
-    this.serverUrl = serverUrl;
+  constructor() {
+    this.serverUrl = process.env.REACT_APP_SERVER_URL;
   }
 }
