@@ -24,10 +24,10 @@
   "scripts": {
     "start": "cross-env NODE_PATH=./src react-scripts start",
     "build": "cross-env NODE_PATH=./src react-scripts build",
-    "test": "cross-env NODE_PATH=./src jest",
-    "test:staged": "cross-env NODE_PATH=./src jest --env=jsdom --findRelatedTests",
-    "coverage": "cross-env NODE_PATH=./src jest --coverage --no-cache",
-    "eject": "cross-env NODE_PATH=./src react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
+    "coverage": "react-scripts test --coverage --no-cache",
+    "eject": "react-scripts eject"
   },
   "author": "VladimirButin",
   "license": "ISC",
@@ -40,6 +40,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "eslint",
+      "npm run test:staged",
       "git add"
     ]
   },
