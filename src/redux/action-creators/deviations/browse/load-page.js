@@ -50,7 +50,7 @@ const paramsHandler = (state) => {
  * @param {number} page - Number of page to be loaded.
  * @returns {Function} Function to return action.
  */
-const deviationsBrowseLoadPageActionCreator = page => ({ deviations, pageCount }) => ({
+export const deviationsBrowseLoadPageActionCreator = page => ({ deviations, pageCount }) => ({
   type: DEVIATIONS_BROWSE_LOAD_PAGE,
   deviations,
   page,

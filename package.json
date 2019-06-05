@@ -5,6 +5,7 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
+    "driveup": "^1.0.1",
     "install": "^0.12.2",
     "node-sass": "^4.11.0",
     "npm": "^6.9.0",
@@ -24,9 +25,9 @@
   "scripts": {
     "start": "cross-env NODE_PATH=./src react-scripts start",
     "build": "cross-env NODE_PATH=./src react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
-    "coverage": "react-scripts test --coverage --no-cache",
+    "test": "driveup && react-scripts test --env=jsdom",
+    "test:staged": "driveup && cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
+    "coverage": "driveup && react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "author": "VladimirButin",

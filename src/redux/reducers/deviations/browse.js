@@ -36,17 +36,6 @@ const changeFormFieldValues = action => ({
 
 /**
  * @description
- * Toggle deviation selection reducer.
- *
- * @param {DeviationBrowseState} deviationsBrowseState - Deviations browse page state.
- * @returns {DeviationBrowseState} New deviations browse state.
- */
-const toggleDeviationsSelection = deviationsBrowseState => ({
-  showPagination: deviationsBrowseState.filterByIds ? false : deviationsBrowseState.showPagination,
-});
-
-/**
- * @description
  * Load page lock toggle reducer.
  *
  * @param {LockToggleAction} action - The action.
@@ -68,6 +57,17 @@ const loadPage = action => ({
   page: action.page,
   pageCount: action.pageCount,
   showPagination: true,
+});
+
+/**
+ * @description
+ * Toggle deviation selection reducer.
+ *
+ * @param {DeviationBrowseState} deviationsBrowseState - Deviations browse page state.
+ * @returns {DeviationBrowseState} New deviations browse state.
+ */
+const toggleDeviationsSelection = deviationsBrowseState => ({
+  showPagination: deviationsBrowseState.filterByIds ? false : deviationsBrowseState.showPagination,
 });
 
 /**

@@ -29,7 +29,7 @@ import createFetchAction from '../fetch';
  * @param {Object} jsonResponse - The JSON response.
  * @returns {UserLoadInfoAction} Action.
  */
-const userLoadInfoActionCreator = ({
+export const userLoadInfoActionCreator = ({
   fullyLoginned,
   userId,
   userName,

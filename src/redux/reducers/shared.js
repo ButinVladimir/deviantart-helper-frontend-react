@@ -111,9 +111,7 @@ const revoke = (sharedState) => {
     };
   }
 
-  return {
-    userState: userStates.NOT_LOGGINED,
-  };
+  return null;
 };
 
 /**
