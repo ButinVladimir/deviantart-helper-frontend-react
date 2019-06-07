@@ -61,14 +61,14 @@ const paramsHandler = (state) => {
  * @param {number} page - Number of page to be loaded.
  * @returns {Function} Function to return action.
  */
-const deviationsStatisticsLoadPageActionCreator = page => ({
+export const deviationsStatisticsLoadPageActionCreator = page => ({
   deviations,
   metadata,
   pageCount,
 }) => ({
   type: DEVIATIONS_STATISTICS_LOAD_PAGE,
   deviations,
-  metadata: metadata ? Object.assign({}, metadata) : null,
+  metadata: metadata ? { ...metadata } : null,
   page,
   pageCount,
 });

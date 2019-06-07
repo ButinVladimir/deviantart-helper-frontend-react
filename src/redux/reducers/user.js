@@ -66,6 +66,6 @@ export default (userState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, userState, difference)
+    ? { ...userState, ...difference }
     : userState;
 };

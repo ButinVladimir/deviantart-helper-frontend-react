@@ -1,6 +1,6 @@
 import { DEVIATIONS_STATISTICS_CHANGE_TAB } from '../../../actions';
 import { CHART } from '../../../../consts/tabs';
-import deviationsStatisticsLoadMetadataActionCreator from './load-metadata';
+import deviationsStatisticsLoadMetadata from './load-metadata';
 
 /**
  * @global
@@ -17,7 +17,7 @@ import deviationsStatisticsLoadMetadataActionCreator from './load-metadata';
  * @param {string} tab - Tab value.
  * @returns {DeviationsStatisticsChangeTabAction} Action.
  */
-const deviationsStatisticsChangeTabActionCreator = tab => ({
+export const deviationsStatisticsChangeTabActionCreator = tab => ({
   type: DEVIATIONS_STATISTICS_CHANGE_TAB,
   tab,
 });
@@ -38,6 +38,6 @@ export default (tab, config) => (dispatch, getState) => {
 
   dispatch(deviationsStatisticsChangeTabActionCreator(tab));
   if (tab === CHART && state.metadata === null) {
-    dispatch(deviationsStatisticsLoadMetadataActionCreator(config));
+    dispatch(deviationsStatisticsLoadMetadata(config));
   }
 };

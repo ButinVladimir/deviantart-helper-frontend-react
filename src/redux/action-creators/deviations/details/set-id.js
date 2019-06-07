@@ -1,5 +1,5 @@
 import { DEVIATIONS_DETAILS_SET_ID } from '../../../actions';
-import deviationsDetailsLoadDataActionCreator from './load-data';
+import deviationsDetailsLoadData from './load-data';
 
 /**
  * @global
@@ -16,7 +16,7 @@ import deviationsDetailsLoadDataActionCreator from './load-data';
  * @param {string} id - Deviation id value.
  * @returns {DeviationsDetailsSetIdAction} Action.
  */
-const deviationsDetailsSetIdActionCreator = id => ({
+export const deviationsDetailsSetIdActionCreator = id => ({
   type: DEVIATIONS_DETAILS_SET_ID,
   id,
 });
@@ -30,5 +30,5 @@ const deviationsDetailsSetIdActionCreator = id => ({
  */
 export default (deviationDetailsId, config) => (dispatch) => {
   dispatch(deviationsDetailsSetIdActionCreator(deviationDetailsId));
-  dispatch(deviationsDetailsLoadDataActionCreator(config));
+  dispatch(deviationsDetailsLoadData(config));
 };

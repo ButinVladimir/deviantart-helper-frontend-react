@@ -39,6 +39,6 @@ export default (deviationsChartState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsChartState, difference)
+    ? { ...deviationsChartState, ...difference }
     : deviationsChartState;
 };

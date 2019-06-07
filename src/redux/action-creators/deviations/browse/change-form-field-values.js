@@ -58,7 +58,7 @@ export const changeSortFieldActionCreator = sortField => changeFormFieldValues({
  * @description
  * Creates action to change published time end value on deviations browse page.
  *
- * @param {string} sortOrder - Sort order value.
+ * @param {number} sortOrder - Sort order value.
  * @returns {DeviationsBrowseChangeFormFieldValuesAction} Action.
  */
 export const changeSortOrderActionCreator = sortOrder => changeFormFieldValues({

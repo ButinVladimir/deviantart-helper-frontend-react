@@ -25,7 +25,7 @@ describe('Deviations chart reducer', () => {
     expect(newDeviationsChartState).not.toBe(deviationsCommonState);
     expect(newDeviationsChartState).toEqual({
       ...deviationsCommonState,
-      selectedIds: selectedIds.concat(newId),
+      selectedIds: [...selectedIds, newId],
     });
   });
 

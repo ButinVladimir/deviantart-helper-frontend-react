@@ -91,6 +91,6 @@ export default (deviationsTotalState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsTotalState, difference)
+    ? { ...deviationsTotalState, ...difference }
     : deviationsTotalState;
 };

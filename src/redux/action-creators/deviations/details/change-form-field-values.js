@@ -25,7 +25,7 @@ const changeFormFieldValues = values => ({
  * @description
  * Creates action to change timestamp begin value on deviations details page.
  *
- * @param {string} timestampBegin - Timestamp begin value.
+ * @param {Date} timestampBegin - Timestamp begin value.
  * @returns {DeviationsDetailsChangeFormFieldValuesAction} Action.
  */
 export const changeTimestampBeginActionCreator = timestampBegin => changeFormFieldValues({
@@ -36,7 +36,7 @@ export const changeTimestampBeginActionCreator = timestampBegin => changeFormFie
  * @description
  * Creates action to change timestamp end value on deviations details page.
  *
- * @param {string} timestampEnd - Timestamp end value.
+ * @param {Date} timestampEnd - Timestamp end value.
  * @returns {DeviationsDetailsChangeFormFieldValuesAction} Action.
  */
 export const changeTimestampEndActionCreator = timestampEnd => changeFormFieldValues({

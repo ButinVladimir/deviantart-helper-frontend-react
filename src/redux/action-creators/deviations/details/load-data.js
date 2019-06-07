@@ -36,7 +36,7 @@ const paramsHandler = (state) => {
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsDetailsLoadDataActionCreator = ({ deviation, metadata }) => ({
+export const deviationsDetailsLoadDataActionCreator = ({ deviation, metadata }) => ({
   type: DEVIATIONS_DETAILS_LOAD_DATA,
   deviation,
   metadata: metadata ? [...metadata] : null,

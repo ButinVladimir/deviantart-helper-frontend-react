@@ -35,6 +35,6 @@ export default (deviationsCommonState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsCommonState, difference)
+    ? { ...deviationsCommonState, ...difference }
     : deviationsCommonState;
 };

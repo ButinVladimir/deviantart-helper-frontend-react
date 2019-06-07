@@ -109,6 +109,6 @@ export default (deviationsBrowseState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsBrowseState, difference)
+    ? { ...deviationsBrowseState, ...difference }
     : deviationsBrowseState;
 };

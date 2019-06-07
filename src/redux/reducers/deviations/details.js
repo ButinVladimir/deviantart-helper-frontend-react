@@ -18,7 +18,13 @@ const clearLoadedData = () => ({
     width: 0,
     height: 0,
   },
+  thumbnail: {
+    src: '',
+    width: 0,
+    height: 0,
+  },
   description: '',
+  nsfw: false,
   views: 0,
   favourites: 0,
   comments: 0,
@@ -178,6 +184,6 @@ export default (deviationsDetailsState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsDetailsState, difference)
+    ? { ...deviationsDetailsState, ...difference }
     : deviationsDetailsState;
 };

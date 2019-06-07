@@ -50,19 +50,6 @@ const changeFormFieldValues = action => ({
 
 /**
  * @description
- * Toggle deviation selection reducer.
- *
- * @param {DeviationStatisticsState} deviationsStatisticsState - Deviations statistics page state.
- * @returns {DeviationStatisticsState} New deviations statistics state.
- */
-const toggleDeviationsSelection = deviationsStatisticsState => ({
-  showPagination: deviationsStatisticsState.filterByIds
-    ? false
-    : deviationsStatisticsState.showPagination,
-});
-
-/**
- * @description
  * Load page lock toggle reducer.
  *
  * @param {LockToggleAction} action - The action.
@@ -98,6 +85,18 @@ const loadMetadata = action => ({
   metadata: action.metadata ? { ...action.metadata } : null,
 });
 
+/**
+ * @description
+ * Toggle deviation selection reducer.
+ *
+ * @param {DeviationStatisticsState} deviationsStatisticsState - Deviations statistics page state.
+ * @returns {DeviationStatisticsState} New deviations statistics state.
+ */
+const toggleDeviationsSelection = deviationsStatisticsState => ({
+  showPagination: deviationsStatisticsState.filterByIds
+    ? false
+    : deviationsStatisticsState.showPagination,
+});
 
 /**
  * @description
@@ -146,6 +145,6 @@ export default (deviationsStatisticsState, sharedState, action) => {
   }
 
   return difference !== null
-    ? Object.assign({}, deviationsStatisticsState, difference)
+    ? { ...deviationsStatisticsState, ...difference }
     : deviationsStatisticsState;
 };

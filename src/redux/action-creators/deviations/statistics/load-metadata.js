@@ -35,9 +35,9 @@ const paramsHandler = (state) => {
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsStatisticsLoadMetadataActionCreator = ({ metadata }) => ({
+export const deviationsStatisticsLoadMetadataActionCreator = ({ metadata }) => ({
   type: DEVIATIONS_STATISTICS_LOAD_METADATA,
-  metadata: metadata ? Object.assign({}, metadata) : null,
+  metadata: metadata ? { ...metadata } : null,
 });
 
 /**

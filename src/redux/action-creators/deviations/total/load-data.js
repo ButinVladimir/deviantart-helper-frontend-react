@@ -33,7 +33,7 @@ const paramsHandler = (state) => {
  * @param {Object} jsonResponse - The JSON response.
  * @returns {Function} Function to return action.
  */
-const deviationsTotalLoadDataActionCreator = ({
+export const deviationsTotalLoadDataActionCreator = ({
   views,
   favourites,
   comments,
