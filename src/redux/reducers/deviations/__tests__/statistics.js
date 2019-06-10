@@ -15,15 +15,17 @@ import * as nsfwOptions from '../../../../consts/nsfw-options';
 import { LOCK_LOAD_USER_INFO, LOCK_DEVIATIONS_STATISTICS } from '../../../../consts/locks';
 
 describe('Deviations statistics reducer', () => {
+  const metadata = {
+    1: [1, 1],
+    2: [2, 3],
+  };
+
   it('handles clearing loaded data', () => {
     const sharedState = createDefaultSharedState();
     const deviationsStatisticsState = {
       ...createDefaultDeviationsStatisticsState(),
       deviations: [{ id: 1 }, { id: 2 }],
-      metadata: {
-        1: [{ views: 1 }],
-        2: [{ views: 3 }],
-      },
+      metadata,
     };
 
     const action = clearLoadedDataActionCreator();
@@ -326,7 +328,6 @@ describe('Deviations statistics reducer', () => {
 
     const page = 1;
     const deviations = [{ id: '1' }, { id: '2' }];
-    const metadata = { 1: [{ views: 1 }], 2: [{ views: 3 }] };
     const pageCount = 3;
     const action = deviationsStatisticsLoadPageActionCreator(page)({
       deviations,
@@ -374,7 +375,6 @@ describe('Deviations statistics reducer', () => {
     const sharedState = createDefaultSharedState();
     const deviationsStatisticsState = createDefaultDeviationsStatisticsState();
 
-    const metadata = { 1: [{ views: 1 }], 2: [{ views: 3 }] };
     const action = deviationsStatisticsLoadMetadataActionCreator({ metadata });
 
     const newDeviationsStatisticsState = deviationsStatisticsReducer(

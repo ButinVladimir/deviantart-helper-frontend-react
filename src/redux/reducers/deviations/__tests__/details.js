@@ -42,7 +42,7 @@ describe('Deviations details reducer', () => {
       ...createDefaultDeviationsDetailsState(),
       id,
       ...deviation,
-      metadata: { [id]: [{ id: '1' }, { id: '2' }] },
+      metadata: { [id]: [[1, 1], [2, 3]] },
     };
 
     const action = clearLoadedDataActionCreator();
@@ -271,7 +271,7 @@ describe('Deviations details reducer', () => {
       id,
     };
 
-    const metadata = [{ id: 1 }, { id: 2 }];
+    const metadata = [[1, 1], [2, 3]];
     const action = deviationsDetailsLoadDataActionCreator({
       deviation,
       metadata,
@@ -320,7 +320,7 @@ describe('Deviations details reducer', () => {
       id,
     };
 
-    const metadata = { [id]: [{ id: 1 }, { id: 2 }] };
+    const metadata = { [id]: [[1, 1], [2, 3]] };
     const action = deviationsDetailsLoadMetadataActionCreator({
       metadata,
     });

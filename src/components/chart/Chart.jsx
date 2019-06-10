@@ -14,6 +14,7 @@ import {
 import Level from 'react-bulma-components/lib/components/level';
 import ChartForm from './ChartForm';
 import colors from '../../consts/colors';
+import { DATA_SET_TIMESTAMP } from '../../consts/data-sets';
 
 const timezoneOffset = -(new Date().getTimezoneOffset()) * 60 * 1000;
 
@@ -103,7 +104,7 @@ export const convertMetadata = (metadata, dataSet, roundPeriod, diffMap) => {
 
   Object.entries(metadata).forEach((deviationMetadata) => {
     deviationMetadata[1].forEach((md) => {
-      const timestamp = roundTimestamp(md.timestamp, roundPeriod);
+      const timestamp = roundTimestamp(md[DATA_SET_TIMESTAMP], roundPeriod);
       let bucketValues;
 
       if (!flattenedMetadataMap.has(timestamp)) {
