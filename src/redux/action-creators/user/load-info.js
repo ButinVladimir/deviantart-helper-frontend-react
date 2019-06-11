@@ -54,6 +54,15 @@ export const userLoadInfoActionCreator = ({
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+const getLockState = state => state.user.userInfoLoading;
+
+/**
+ * @description
  * Loads user info.
  *
  * @param {Config} config - The config.
@@ -62,7 +71,7 @@ export const userLoadInfoActionCreator = ({
 export default config => createFetchAction(
   GET,
   SERVER_ROUTE_USER_INFO,
-  state => state.user.userInfoLoading,
+  getLockState,
   LOCK_LOAD_USER_INFO,
   userLoadInfoActionCreator,
   config,

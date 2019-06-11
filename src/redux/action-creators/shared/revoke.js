@@ -11,9 +11,9 @@ import { REVOKE } from '../../actions';
 /**
  * @description
  * Creates action to revoke.
- * User request is fetched in REVOKE_START action to avoid circular dependencies.
- * This is action is called by fetch helper directly if response has unauthorized status.
- * Use REVOKE_START action in all other cases.
+ * User request is fetched in REVOKE action to avoid circular dependencies.
+ * This action is called by fetch helper directly if the response has unauthorized status.
+ * Use REVOKE action in all other cases.
  *
  * @returns {RevokeAction} Action.
  */
