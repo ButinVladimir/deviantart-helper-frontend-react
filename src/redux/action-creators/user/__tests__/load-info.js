@@ -1,4 +1,5 @@
-import userLoadInfo, { userLoadInfoActionCreator } from '../load-info';
+import userLoadInfo, { userLoadInfoActionCreator, getLockState } from '../load-info';
+import createDefaultState from '../../../states/state';
 import Config from '../../../../config/config';
 import createFetchAction from '../../fetch';
 import { USER_LOAD_INFO } from '../../../actions';
@@ -29,22 +30,30 @@ describe('UserLoadInfo action creator', () => {
     });
   });
 
+  it('can get lock state', () => {
+    const state = {
+      ...createDefaultState(),
+      user: {
+        userInfoLoading: true,
+      },
+    };
+
+    expect(getLockState(state)).toBe(true);
+  });
+
   it('can fetch data', () => {
     const config = new Config();
     userLoadInfo(config);
 
-    expect(createFetchAction).toHaveBeenCalledTimes(1);
-    expect(createFetchAction.mock.calls[0].length).toBe(6);
-    expect(createFetchAction.mock.calls[0][0]).toBe(GET);
-    expect(createFetchAction.mock.calls[0][1]).toBe(SERVER_ROUTE_USER_INFO);
-    expect(createFetchAction.mock.calls[0][2]).toBeInstanceOf(Function);
-    expect(createFetchAction.mock.calls[0][2]({
-      user: {
-        userInfoLoading: true,
-      },
-    })).toBe(true);
-    expect(createFetchAction.mock.calls[0][3]).toBe(LOCK_LOAD_USER_INFO);
-    expect(createFetchAction.mock.calls[0][4]).toBe(userLoadInfoActionCreator);
-    expect(createFetchAction.mock.calls[0][5]).toBe(config);
+    expect(createFetchAction.mock.calls).toEqual([
+      [
+        GET,
+        SERVER_ROUTE_USER_INFO,
+        getLockState,
+        LOCK_LOAD_USER_INFO,
+        userLoadInfoActionCreator,
+        config,
+      ],
+    ]);
   });
 });

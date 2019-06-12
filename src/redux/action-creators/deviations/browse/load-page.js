@@ -9,10 +9,10 @@ import { SHOW_ALL, SHOW_NSFW } from '../../../../consts/nsfw-options';
  * @description
  * Function to handle preparing params object.
  *
- * @param {Obect} state - Redux state.
+ * @param {State} state - Redux state.
  * @returns {Object} Params object.
  */
-const paramsHandler = (state) => {
+export const paramsHandler = (state) => {
   const browseState = state.deviations.browse;
   const commonState = state.deviations.common;
   const params = {};
@@ -59,6 +59,15 @@ export const deviationsBrowseLoadPageActionCreator = page => ({ deviations, page
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.deviations.browse.pageLoading;
+
+/**
+ * @description
  * Loads page with deviations and adds them to state.
  *
  * @param {number} page - The page number.
@@ -68,7 +77,7 @@ export const deviationsBrowseLoadPageActionCreator = page => ({ deviations, page
 const loadPage = (page, config) => createFetchAction(
   POST,
   SERVER_ROUTE_DEVIATIONS_BROWSE.replace(PAGE_PARAM, page),
-  state => state.deviations.browse.pageLoading,
+  getLockState,
   LOCK_BROWSE_DEVIATIONS,
   deviationsBrowseLoadPageActionCreator(page),
   config,

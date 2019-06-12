@@ -6,6 +6,15 @@ import revokeActionCreator from './revoke';
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.shared.revokeLoading;
+
+/**
+ * @description
  * Revokes user session.
  *
  * @param {Config} config - The config.
@@ -14,7 +23,7 @@ import revokeActionCreator from './revoke';
 export default config => createFetchAction(
   GET,
   SERVER_ROUTE_AUTH_REVOKE,
-  state => state.shared.revokeLoading,
+  getLockState,
   LOCK_REVOKE,
   revokeActionCreator,
   config,

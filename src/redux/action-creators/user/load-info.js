@@ -59,7 +59,7 @@ export const userLoadInfoActionCreator = ({
  * @param {Object} state - The redux state.
  * @returns {boolean} The state of the lock.
  */
-const getLockState = state => state.user.userInfoLoading;
+export const getLockState = state => state.user.userInfoLoading;
 
 /**
  * @description

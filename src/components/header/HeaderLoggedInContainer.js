@@ -3,7 +3,7 @@ import consumeConfig from '../shared/ConfigContext';
 import HeaderLoggedIn from './HeaderLoggedIn';
 import toggleMenuActionCreator from '../../redux/action-creators/shared/toggle-menu';
 import revokeQueryActionCreator from '../../redux/action-creators/shared/revoke-query';
-import startFetchDataActionCreator from '../../redux/action-creators/shared/start-fetch-data';
+import startFetchData from '../../redux/action-creators/shared/start-fetch-data';
 
 /**
  * @description
@@ -30,7 +30,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleMenuHandler: () => dispatch(toggleMenuActionCreator()),
   revokeHandler: () => dispatch(revokeQueryActionCreator(ownProps.config)),
-  startFetchDataHandler: () => dispatch(startFetchDataActionCreator(ownProps.config)),
+  startFetchDataHandler: () => dispatch(startFetchData(ownProps.config)),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(HeaderLoggedIn));
