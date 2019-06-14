@@ -7,7 +7,7 @@ import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
  * State of deviations chart.
  *
  * @typedef {Object} DeviationChartState
- * @property {string} dataSet - Selected data set.
+ * @property {number} dataSet - Selected data set.
  * @property {number} roundPeriod - Rounding period for data.
  * @property {boolean} showTime - Show time.
  */

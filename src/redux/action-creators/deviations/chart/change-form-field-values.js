@@ -24,7 +24,7 @@ const changeFormFieldValues = values => ({
  * @description
  * Creates action to change data set value for deviations chart.
  *
- * @param {string} dataSet - Data set value.
+ * @param {number} dataSet - Data set value.
  * @returns {DeviationsChartChangeFormFieldValuesAction} Action.
  */
 export const changeDataSetActionCreator = dataSet => changeFormFieldValues({

@@ -12,7 +12,7 @@ import createFetchAction from '../../fetch';
  * @param {Obect} state - Redux state.
  * @returns {Object} Params object.
  */
-const paramsHandler = (state) => {
+export const paramsHandler = (state) => {
   const detailsState = state.deviations.details;
   const params = {};
 
@@ -44,6 +44,15 @@ export const deviationsDetailsLoadDataActionCreator = ({ deviation, metadata }) 
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.deviations.details.detailsLoading;
+
+/**
+ * @description
  * Loads deviations details data.
  *
  * @param {Config} config - The config.
@@ -56,7 +65,7 @@ export default config => (dispatch, getState) => {
     createFetchAction(
       GET,
       SERVER_ROUTE_DEVIATIONS_DETAILS.replace(ID_PARAM, id),
-      state => state.deviations.details.detailsLoading,
+      getLockState,
       LOCK_DEVIATION_DETAILS,
       deviationsDetailsLoadDataActionCreator,
       config,

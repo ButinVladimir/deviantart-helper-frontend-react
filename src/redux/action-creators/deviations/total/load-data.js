@@ -11,7 +11,7 @@ import createFetchAction from '../../fetch';
  * @param {Obect} state - Redux state.
  * @returns {Object} Params object.
  */
-const paramsHandler = (state) => {
+export const paramsHandler = (state) => {
   const totalState = state.deviations.total;
   const params = {};
 
@@ -48,6 +48,15 @@ export const deviationsTotalLoadDataActionCreator = ({
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.deviations.total.totalLoading;
+
+/**
+ * @description
  * Loads deviations total statistics data.
  *
  * @param {Config} config - The config.
@@ -56,7 +65,7 @@ export const deviationsTotalLoadDataActionCreator = ({
 export default config => createFetchAction(
   GET,
   SERVER_ROUTE_DEVIATIONS_TOTAL,
-  state => state.deviations.total.totalLoading,
+  getLockState,
   LOCK_DEVIATIONS_TOTAL,
   deviationsTotalLoadDataActionCreator,
   config,

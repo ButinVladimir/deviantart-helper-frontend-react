@@ -11,7 +11,7 @@ import createFetchAction from '../../fetch';
  * @param {Obect} state - Redux state.
  * @returns {Object} Params object.
  */
-const paramsHandler = (state) => {
+export const paramsHandler = (state) => {
   const detailsState = state.deviations.details;
   const params = {};
 
@@ -42,6 +42,15 @@ export const deviationsDetailsLoadMetadataActionCreator = ({ metadata }) => ({
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.deviations.details.metadataLoading;
+
+/**
+ * @description
  * Loads deviations details metadata.
  *
  * @param {Config} config - The config.
@@ -50,7 +59,7 @@ export const deviationsDetailsLoadMetadataActionCreator = ({ metadata }) => ({
 export default config => createFetchAction(
   POST,
   SERVER_ROUTE_DEVIATIONS_METADATA,
-  state => state.deviations.details.detailsLoading,
+  getLockState,
   LOCK_DEVIATION_DETAILS_METADATA,
   deviationsDetailsLoadMetadataActionCreator,
   config,
