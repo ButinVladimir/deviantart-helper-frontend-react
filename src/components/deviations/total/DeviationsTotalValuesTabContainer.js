@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DeviationsTotalValues from './DeviationsTotalValues';
+import DeviationsTotalValuesTab from './DeviationsTotalValuesTab';
 
 /**
  * @description
@@ -15,4 +15,4 @@ const mapStateToProps = state => ({
   downloads: state.deviations.total.downloads,
 });
 
-export default connect(mapStateToProps)(DeviationsTotalValues);
+export default connect(mapStateToProps)(DeviationsTotalValuesTab);

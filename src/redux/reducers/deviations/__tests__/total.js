@@ -21,6 +21,8 @@ describe('Deviations total reducer', () => {
     const deviationsTotalState = {
       ...createDefaultDeviationsTotalState(),
       ...data,
+      statsLoaded: true,
+      metadata: [[1, 2], [3, 4]],
     };
 
     const action = clearLoadedDataActionCreator();
@@ -38,6 +40,8 @@ describe('Deviations total reducer', () => {
       favourites: 0,
       comments: 0,
       downloads: 0,
+      statsLoaded: false,
+      metadata: null,
     });
   });
 
@@ -138,6 +142,7 @@ describe('Deviations total reducer', () => {
     expect(newDeviationsDetailsState).toEqual({
       ...deviationsTotalState,
       ...data,
+      statsLoaded: true,
     });
   });
 

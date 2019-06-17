@@ -61,7 +61,7 @@ export default function ChartForm({
 
 ChartForm.propTypes = {
   dataSetTitlesMap: PropTypes.instanceOf(Map).isRequired,
-  dataSet: PropTypes.string.isRequired,
+  dataSet: PropTypes.number.isRequired,
   roundPeriod: PropTypes.number.isRequired,
   showTime: PropTypes.bool.isRequired,
   dataSetChangeHandler: PropTypes.func.isRequired,

@@ -28,7 +28,7 @@ const changeFormFieldValues = values => ({
  * @returns {DeviationsChartChangeFormFieldValuesAction} Action.
  */
 export const changeDataSetActionCreator = dataSet => changeFormFieldValues({
-  dataSet,
+  dataSet: parseInt(dataSet, 10),
 });
 
 /**

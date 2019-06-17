@@ -13,6 +13,19 @@ const clearLoadedData = () => ({
   favourites: 0,
   comments: 0,
   downloads: 0,
+  metadata: null,
+  statsLoaded: false,
+});
+
+/**
+ * @description
+ * Change active tab reducer.
+ *
+ * @param {DeviationsTotalChangeTabAction} action - The action.
+ * @returns {DeviationTotalState} New deviations total statistics state.
+ */
+const changeTab = action => ({
+  tab: action.tab,
 });
 
 const formFields = [
@@ -29,6 +42,17 @@ const formFields = [
  */
 const changeFormFieldValues = action => ({
   ...filterAction(action, formFields),
+});
+
+/**
+ * @description
+ * Start loading reducer.
+ *
+ * @returns {DeviationTotalState} New deviations total statistics state.
+ */
+const startLoading = () => ({
+  metadata: null,
+  statsLoaded: false,
 });
 
 /**
@@ -54,6 +78,18 @@ const loadData = action => ({
   favourites: action.favourites,
   comments: action.comments,
   downloads: action.downloads,
+  statsLoaded: true,
+});
+
+/**
+ * @description
+ * Load metadata for deviation total statistics reducer.
+ *
+ * @param {DeviationsTotalLoadDataAction} action - The action.
+ * @returns {DeviationTotalState} New deviations total statistics state.
+ */
+const loadMetadata = action => ({
+  metadata: [...action.metadata],
 });
 
 /**
@@ -73,8 +109,16 @@ export default (deviationsTotalState, sharedState, action) => {
       difference = clearLoadedData();
       break;
 
+    case actions.DEVIATIONS_TOTAL_CHANGE_TAB:
+      difference = changeTab(action);
+      break;
+
     case actions.DEVIATIONS_TOTAL_CHANGE_FORM_FIELD_VALUES:
       difference = changeFormFieldValues(action);
+      break;
+
+    case actions.DEVIATIONS_TOTAL_START_LOADING:
+      difference = startLoading();
       break;
 
     case actions.LOCK_TOGGLE:
@@ -85,6 +129,10 @@ export default (deviationsTotalState, sharedState, action) => {
 
     case actions.DEVIATIONS_TOTAL_LOAD_DATA:
       difference = loadData(action);
+      break;
+
+    case actions.DEVIATIONS_TOTAL_LOAD_METADATA:
+      difference = loadMetadata(action);
       break;
 
     default:

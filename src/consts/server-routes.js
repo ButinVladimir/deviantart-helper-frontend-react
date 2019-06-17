@@ -9,6 +9,7 @@ export const SERVER_ROUTE_DEVIATIONS_DETAILS = '/deviations/details/:id';
 export const SERVER_ROUTE_DEVIATIONS_METADATA = '/deviations/metadata/';
 export const SERVER_ROUTE_DEVIATIONS_STATISTICS = '/deviations/statistics/:page';
 export const SERVER_ROUTE_DEVIATIONS_TOTAL = '/deviations/total/';
+export const SERVER_ROUTE_DEVIATIONS_TOTAL_METADATA = '/deviations/total-metadata/';
 
 export const PAGE_PARAM = ':page';
 export const ID_PARAM = ':id';

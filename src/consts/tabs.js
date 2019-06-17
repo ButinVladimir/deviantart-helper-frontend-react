@@ -2,6 +2,7 @@ export const DESCRIPTION = 'description';
 export const PREVIEW = 'preview';
 export const CHART = 'chart';
 export const LIST = 'list';
+export const STATS = 'stats';
 
 export const deviationDetailsTabs = [
   [DESCRIPTION, 'Description'],
@@ -11,5 +12,10 @@ export const deviationDetailsTabs = [
 
 export const deviationStatisticsTabs = [
   [LIST, 'List'],
+  [CHART, 'Chart'],
+];
+
+export const deviationTotalTabs = [
+  [STATS, 'Stats'],
   [CHART, 'Chart'],
 ];

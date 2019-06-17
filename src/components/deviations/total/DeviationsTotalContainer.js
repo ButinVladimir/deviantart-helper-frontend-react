@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import DeviationsTotal from './DeviationsTotal';
 import clearLoadedDataActionCreator from '../../../redux/action-creators/shared/clear-loaded-data';
-import deviationsTotalLoadDataActionCreator from '../../../redux/action-creators/deviations/total/load-data';
+import deviationsTotalStartLoadingActionCreator from '../../../redux/action-creators/deviations/total/start-loading';
+import deviationsTotalChangeTab from '../../../redux/action-creators/deviations/total/change-tab';
 
 /**
  * @description
@@ -12,6 +13,7 @@ import deviationsTotalLoadDataActionCreator from '../../../redux/action-creators
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
+  tab: state.deviations.total.tab,
   totalLoading: state.deviations.total.totalLoading,
 });
 
@@ -25,7 +27,10 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clearDataHandler: () => dispatch(clearLoadedDataActionCreator()),
-  preloadStatisticsHandler: () => dispatch(deviationsTotalLoadDataActionCreator(ownProps.config)),
+  changeTabHandler: tab => () => dispatch(deviationsTotalChangeTab(tab, ownProps.config)),
+  preloadStatisticsHandler: () => dispatch(
+    deviationsTotalStartLoadingActionCreator(ownProps.config),
+  ),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationsTotal));

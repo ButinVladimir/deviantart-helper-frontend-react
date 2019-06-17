@@ -230,7 +230,7 @@ DeviationsChart.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   metadata: PropTypes.object.isRequired,
   titlesMap: PropTypes.instanceOf(Map).isRequired,
-  dataSet: PropTypes.string.isRequired,
+  dataSet: PropTypes.number.isRequired,
   roundPeriod: PropTypes.number.isRequired,
   showTime: PropTypes.bool.isRequired,
   dataSetChangeHandler: PropTypes.func.isRequired,

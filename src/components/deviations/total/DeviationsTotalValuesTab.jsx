@@ -5,7 +5,7 @@ import Container from 'react-bulma-components/lib/components/container';
 import Box from 'react-bulma-components/lib/components/box';
 import StatisticsLevel from '../../shared/StatisticsLevel';
 
-export default function DeviationsTotalValues({
+export default function DeviationsTotalValuesTab({
   views,
   favourites,
   comments,
@@ -24,7 +24,7 @@ export default function DeviationsTotalValues({
   );
 }
 
-DeviationsTotalValues.propTypes = {
+DeviationsTotalValuesTab.propTypes = {
   views: PropTypes.number.isRequired,
   favourites: PropTypes.number.isRequired,
   comments: PropTypes.number.isRequired,
