@@ -17,7 +17,7 @@ import deviationsTotalLoadMetadata from './load-metadata';
  *
  * @returns {DeviationsTotalStartLoadingAction} Action.
  */
-export const deviationsTotalChangeTabActionCreator = () => ({
+export const deviationsTotalStartLoadingActionCreator = () => ({
   type: DEVIATIONS_TOTAL_START_LOADING,
 });
 
@@ -33,6 +33,8 @@ export default config => (dispatch, getState) => {
   if (state.totalLoading) {
     return;
   }
+
+  dispatch(deviationsTotalStartLoadingActionCreator());
 
   if (state.tab === STATS) {
     dispatch(deviationsTotalLoadData(config));

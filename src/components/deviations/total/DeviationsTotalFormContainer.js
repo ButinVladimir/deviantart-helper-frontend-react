@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import DeviationsTotalForm from './DeviationsTotalForm';
 import * as deviationsTotal from '../../../redux/action-creators/deviations/total/change-form-field-values';
-import deviationsTotalLoadDataActionCreator from '../../../redux/action-creators/deviations/total/load-data';
+import deviationsTotalStartLoading from '../../../redux/action-creators/deviations/total/start-loading';
 
 /**
  * @description
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     value => dispatch(deviationsTotal.changeTimestampBeginActionCreator(value)),
   timestampEndChangeHandler:
     value => dispatch(deviationsTotal.changeTimestampEndActionCreator(value)),
-  submitHandler: () => dispatch(deviationsTotalLoadDataActionCreator(ownProps.config)),
+  submitHandler: () => dispatch(deviationsTotalStartLoading(ownProps.config)),
 });
 
 export default consumeConfig(
