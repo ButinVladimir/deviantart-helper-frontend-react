@@ -1,23 +1,24 @@
 import loadPage, {
   paramsHandler,
-  deviationsBrowseLoadPageActionCreator,
+  deviationsStatisticsLoadPageActionCreator,
   getLockState,
-  deviationsBrowseLoadFirstPageActionCreator,
-  deviationsBrowseLoadCurrentPageActionCreator,
+  deviationsStatisticsLoadFirstPageActionCreator,
+  deviationsStatisticsLoadCurrentPageActionCreator,
 } from '../load-page';
 import createDefaultState from '../../../../states/state';
 import Config from '../../../../../config/config';
 import createFetchAction from '../../../fetch';
 import { POST } from '../../../../../consts/fetch-methods';
-import { LOCK_BROWSE_DEVIATIONS } from '../../../../../consts/locks';
-import { SERVER_ROUTE_DEVIATIONS_BROWSE, PAGE_PARAM } from '../../../../../consts/server-routes';
-import { DEVIATIONS_BROWSE_LOAD_PAGE } from '../../../../actions';
+import { LOCK_DEVIATIONS_STATISTICS } from '../../../../../consts/locks';
+import { SERVER_ROUTE_DEVIATIONS_STATISTICS, PAGE_PARAM } from '../../../../../consts/server-routes';
+import { DEVIATIONS_STATISTICS_LOAD_PAGE } from '../../../../actions';
 import { FIELD_DOWNLOADS, ORDER_ASC } from '../../../../../consts/sort';
 import { SHOW_ALL, SHOW_NON_NSFW } from '../../../../../consts/nsfw-options';
+import { CHART } from '../../../../../consts/tabs';
 
 jest.mock('../../../fetch', () => jest.fn());
 
-describe('DeviationsBrowseLoadPage action creator', () => {
+describe('DeviationsStatisticsLoadPage action creator', () => {
   beforeEach(() => {
     createFetchAction.mockReset();
   });
@@ -29,11 +30,14 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     const selectedIds = ['1', '2', '3'];
     const sortField = FIELD_DOWNLOADS;
     const sortOrder = ORDER_ASC;
+    const timestampBegin = 3;
+    const timestampEnd = 4;
+    const tab = CHART;
 
     const state = {
       ...createDefaultState(),
       deviations: {
-        browse: {
+        statistics: {
           title,
           publishedTimeBegin,
           publishedTimeEnd,
@@ -41,6 +45,9 @@ describe('DeviationsBrowseLoadPage action creator', () => {
           filterByIds: true,
           sortField,
           sortOrder,
+          tab,
+          timestampBegin,
+          timestampEnd,
         },
         common: {
           selectedIds,
@@ -58,6 +65,9 @@ describe('DeviationsBrowseLoadPage action creator', () => {
       ids: selectedIds,
       sortfield: sortField,
       sortorder: sortOrder,
+      metadata: true,
+      timestampbegin: timestampBegin,
+      timestampend: timestampEnd,
     });
   });
 
@@ -68,13 +78,15 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     const state = {
       ...createDefaultState(),
       deviations: {
-        browse: {
+        statistics: {
           publishedTimeBegin: null,
           publishedTimeEnd: null,
           nsfw: SHOW_ALL,
           filterByIds: false,
           sortField,
           sortOrder,
+          timestampBegin: null,
+          timestampEnd: null,
         },
       },
     };
@@ -84,19 +96,47 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     expect(params).toEqual({
       sortfield: sortField,
       sortorder: sortOrder,
+      metadata: false,
     });
   });
 
-  it('can create action', () => {
+  it('can create action when metadata is present', () => {
     const page = 1;
     const deviations = [{ id: '1' }, { id: '2' }];
+    const metadata = { 1: [[1, 2]], 2: [[3, 4]] };
     const pageCount = 3;
 
-    const action = deviationsBrowseLoadPageActionCreator(page)({ deviations, pageCount });
+    const action = deviationsStatisticsLoadPageActionCreator(page)({
+      deviations,
+      metadata,
+      pageCount,
+    });
 
     expect(action).toEqual({
-      type: DEVIATIONS_BROWSE_LOAD_PAGE,
+      type: DEVIATIONS_STATISTICS_LOAD_PAGE,
       deviations,
+      metadata,
+      page,
+      pageCount,
+    });
+  });
+
+  it('can create action when metadata is missing', () => {
+    const page = 1;
+    const deviations = [{ id: '1' }, { id: '2' }];
+    const metadata = null;
+    const pageCount = 3;
+
+    const action = deviationsStatisticsLoadPageActionCreator(page)({
+      deviations,
+      metadata,
+      pageCount,
+    });
+
+    expect(action).toEqual({
+      type: DEVIATIONS_STATISTICS_LOAD_PAGE,
+      deviations,
+      metadata,
       page,
       pageCount,
     });
@@ -106,7 +146,7 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     const state = {
       ...createDefaultState(),
       deviations: {
-        browse: {
+        statistics: {
           pageLoading: true,
         },
       },
@@ -123,9 +163,9 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     expect(createFetchAction.mock.calls).toEqual([
       [
         POST,
-        SERVER_ROUTE_DEVIATIONS_BROWSE.replace(PAGE_PARAM, page),
+        SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page),
         getLockState,
-        LOCK_BROWSE_DEVIATIONS,
+        LOCK_DEVIATIONS_STATISTICS,
         createFetchAction.mock.calls[0][4],
         config,
         paramsHandler,
@@ -136,14 +176,14 @@ describe('DeviationsBrowseLoadPage action creator', () => {
 
   it('can fetch first page', () => {
     const config = new Config();
-    deviationsBrowseLoadFirstPageActionCreator(config);
+    deviationsStatisticsLoadFirstPageActionCreator(config);
 
     expect(createFetchAction.mock.calls).toEqual([
       [
         POST,
-        SERVER_ROUTE_DEVIATIONS_BROWSE.replace(PAGE_PARAM, 0),
+        SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, 0),
         getLockState,
-        LOCK_BROWSE_DEVIATIONS,
+        LOCK_DEVIATIONS_STATISTICS,
         createFetchAction.mock.calls[0][4],
         config,
         paramsHandler,
@@ -157,13 +197,13 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     const state = {
       ...createDefaultState(),
       deviations: {
-        browse: {
+        statistics: {
           page,
         },
       },
     };
     const config = new Config();
-    deviationsBrowseLoadCurrentPageActionCreator(config)(
+    deviationsStatisticsLoadCurrentPageActionCreator(config)(
       () => {},
       () => state,
     );
@@ -171,9 +211,9 @@ describe('DeviationsBrowseLoadPage action creator', () => {
     expect(createFetchAction.mock.calls).toEqual([
       [
         POST,
-        SERVER_ROUTE_DEVIATIONS_BROWSE.replace(PAGE_PARAM, page),
+        SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page),
         getLockState,
-        LOCK_BROWSE_DEVIATIONS,
+        LOCK_DEVIATIONS_STATISTICS,
         createFetchAction.mock.calls[0][4],
         config,
         paramsHandler,

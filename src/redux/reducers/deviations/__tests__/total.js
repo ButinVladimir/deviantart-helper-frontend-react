@@ -2,11 +2,15 @@ import deviationsTotalReducer from '../total';
 import createDefaultSharedState from '../../../states/shared';
 import createDefaultDeviationsTotalState from '../../../states/deviations/total';
 import clearLoadedDataActionCreator from '../../../action-creators/shared/clear-loaded-data';
+import { deviationsTotalChangeTabActionCreator } from '../../../action-creators/deviations/total/change-tab';
 import * as deviationsTotalForm from '../../../action-creators/deviations/total/change-form-field-values';
+import { deviationsTotalStartLoadingActionCreator } from '../../../action-creators/deviations/total/start-loading';
 import { deviationsTotalLoadDataActionCreator } from '../../../action-creators/deviations/total/load-data';
+import { deviationsTotalLoadMetadataActionCreator } from '../../../action-creators/deviations/total/load-metadata';
 import lockToggleActionCreator from '../../../action-creators/shared/lock-toggle';
 import revokeActionCreator from '../../../action-creators/shared/revoke';
 import { LOCK_LOAD_USER_INFO, LOCK_DEVIATIONS_TOTAL } from '../../../../consts/locks';
+import { CHART } from '../../../../consts/tabs';
 
 describe('Deviations total reducer', () => {
   const data = {
@@ -15,6 +19,7 @@ describe('Deviations total reducer', () => {
     comments: 3,
     downloads: 4,
   };
+  const metadata = [[1, 2], [3, 4]];
 
   it('handles clearing loaded data', () => {
     const sharedState = createDefaultSharedState();
@@ -22,7 +27,7 @@ describe('Deviations total reducer', () => {
       ...createDefaultDeviationsTotalState(),
       ...data,
       statsLoaded: true,
-      metadata: [[1, 2], [3, 4]],
+      metadata,
     };
 
     const action = clearLoadedDataActionCreator();
@@ -42,6 +47,26 @@ describe('Deviations total reducer', () => {
       downloads: 0,
       statsLoaded: false,
       metadata: null,
+    });
+  });
+
+  it('handles changing tab', () => {
+    const sharedState = createDefaultSharedState();
+    const deviationsTotalState = createDefaultDeviationsTotalState();
+
+    const tab = CHART;
+    const action = deviationsTotalChangeTabActionCreator(tab);
+
+    const newDeviationsTotalState = deviationsTotalReducer(
+      deviationsTotalState,
+      sharedState,
+      action,
+    );
+
+    expect(newDeviationsTotalState).not.toBe(deviationsTotalState);
+    expect(newDeviationsTotalState).toEqual({
+      ...deviationsTotalState,
+      tab,
     });
   });
 
@@ -126,6 +151,30 @@ describe('Deviations total reducer', () => {
     });
   });
 
+  it('handles starting loading data', () => {
+    const sharedState = createDefaultSharedState();
+    const deviationsTotalState = {
+      ...createDefaultDeviationsTotalState(),
+      statsLoaded: true,
+      metadata,
+    };
+
+    const action = deviationsTotalStartLoadingActionCreator();
+
+    const newDeviationsDetailsState = deviationsTotalReducer(
+      deviationsTotalState,
+      sharedState,
+      action,
+    );
+
+    expect(newDeviationsDetailsState).not.toBe(deviationsTotalState);
+    expect(newDeviationsDetailsState).toEqual({
+      ...deviationsTotalState,
+      statsLoaded: false,
+      metadata: null,
+    });
+  });
+
   it('handles loading data', () => {
     const sharedState = createDefaultSharedState();
     const deviationsTotalState = createDefaultDeviationsTotalState();
@@ -143,6 +192,26 @@ describe('Deviations total reducer', () => {
       ...deviationsTotalState,
       ...data,
       statsLoaded: true,
+    });
+  });
+
+  it('handles loading metadata', () => {
+    const sharedState = createDefaultSharedState();
+    const deviationsTotalState = createDefaultDeviationsTotalState();
+
+    const action = deviationsTotalLoadMetadataActionCreator({ metadata });
+
+    const newDeviationsDetailsState = deviationsTotalReducer(
+      deviationsTotalState,
+      sharedState,
+      action,
+    );
+
+    expect(newDeviationsDetailsState).not.toBe(deviationsTotalState);
+    expect(newDeviationsDetailsState).toEqual({
+      ...deviationsTotalState,
+      metadata,
+
     });
   });
 

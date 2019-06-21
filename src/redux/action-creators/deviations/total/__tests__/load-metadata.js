@@ -1,19 +1,19 @@
-import loadData, {
+import loadMetadata, {
   paramsHandler,
-  deviationsTotalLoadDataActionCreator,
+  deviationsTotalLoadMetadataActionCreator,
   getLockState,
-} from '../load-data';
+} from '../load-metadata';
 import createDefaultState from '../../../../states/state';
 import Config from '../../../../../config/config';
 import createFetchAction from '../../../fetch';
 import { GET } from '../../../../../consts/fetch-methods';
 import { LOCK_DEVIATIONS_TOTAL } from '../../../../../consts/locks';
-import { SERVER_ROUTE_DEVIATIONS_TOTAL } from '../../../../../consts/server-routes';
-import { DEVIATIONS_TOTAL_LOAD_DATA } from '../../../../actions';
+import { SERVER_ROUTE_DEVIATIONS_TOTAL_METADATA } from '../../../../../consts/server-routes';
+import { DEVIATIONS_TOTAL_LOAD_METADATA } from '../../../../actions';
 
 jest.mock('../../../fetch', () => jest.fn());
 
-describe('DeviationsTotalLoadData action creator', () => {
+describe('DeviationsTotalLoadMetadata action creator', () => {
   beforeEach(() => {
     createFetchAction.mockReset();
   });
@@ -57,23 +57,14 @@ describe('DeviationsTotalLoadData action creator', () => {
   });
 
   it('can create action', () => {
-    const views = 1;
-    const favourites = 2;
-    const comments = 3;
-    const downloads = 4;
-    const action = deviationsTotalLoadDataActionCreator({
-      views,
-      favourites,
-      comments,
-      downloads,
+    const metadata = [[1, 2], [3, 4]];
+    const action = deviationsTotalLoadMetadataActionCreator({
+      metadata,
     });
 
     expect(action).toEqual({
-      type: DEVIATIONS_TOTAL_LOAD_DATA,
-      views,
-      favourites,
-      comments,
-      downloads,
+      type: DEVIATIONS_TOTAL_LOAD_METADATA,
+      metadata,
     });
   });
 
@@ -92,15 +83,15 @@ describe('DeviationsTotalLoadData action creator', () => {
 
   it('can fetch data', () => {
     const config = new Config();
-    loadData(config);
+    loadMetadata(config);
 
     expect(createFetchAction.mock.calls).toEqual([
       [
         GET,
-        SERVER_ROUTE_DEVIATIONS_TOTAL,
+        SERVER_ROUTE_DEVIATIONS_TOTAL_METADATA,
         getLockState,
         LOCK_DEVIATIONS_TOTAL,
-        deviationsTotalLoadDataActionCreator,
+        deviationsTotalLoadMetadataActionCreator,
         config,
         paramsHandler,
       ],

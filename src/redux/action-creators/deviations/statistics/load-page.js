@@ -13,7 +13,7 @@ import { CHART } from '../../../../consts/tabs';
  * @param {Obect} state - Redux state.
  * @returns {Object} Params object.
  */
-const paramsHandler = (state) => {
+export const paramsHandler = (state) => {
   const statisticsState = state.deviations.statistics;
   const commonState = state.deviations.common;
   const params = {};
@@ -75,6 +75,15 @@ export const deviationsStatisticsLoadPageActionCreator = page => ({
 
 /**
  * @description
+ * Returns the state of the lock.
+ *
+ * @param {Object} state - The redux state.
+ * @returns {boolean} The state of the lock.
+ */
+export const getLockState = state => state.deviations.statistics.pageLoading;
+
+/**
+ * @description
  * Loads page with deviations and adds them to state.
  *
  * @param {number} page - The page number.
@@ -84,7 +93,7 @@ export const deviationsStatisticsLoadPageActionCreator = page => ({
 const loadPage = (page, config) => createFetchAction(
   POST,
   SERVER_ROUTE_DEVIATIONS_STATISTICS.replace(PAGE_PARAM, page),
-  state => state.deviations.statistics.pageLoading,
+  getLockState,
   LOCK_DEVIATIONS_STATISTICS,
   deviationsStatisticsLoadPageActionCreator(page),
   config,

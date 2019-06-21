@@ -61,7 +61,7 @@ describe('DeviationsDetailsLoadData action creator', () => {
     });
   });
 
-  it('can create action', () => {
+  it('can create action when metadata is present', () => {
     const deviation = {
       views: 1,
       favourites: 2,
@@ -69,6 +69,26 @@ describe('DeviationsDetailsLoadData action creator', () => {
       downloads: 4,
     };
     const metadata = [[1, 2], [3, 4]];
+    const action = deviationsDetailsLoadDataActionCreator({
+      deviation,
+      metadata,
+    });
+
+    expect(action).toEqual({
+      type: DEVIATIONS_DETAILS_LOAD_DATA,
+      deviation,
+      metadata,
+    });
+  });
+
+  it('can create action when metadata is missing', () => {
+    const deviation = {
+      views: 1,
+      favourites: 2,
+      comments: 3,
+      downloads: 4,
+    };
+    const metadata = null;
     const action = deviationsDetailsLoadDataActionCreator({
       deviation,
       metadata,

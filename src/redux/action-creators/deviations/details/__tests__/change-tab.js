@@ -62,7 +62,7 @@ describe('DeviationsDetailsChangeTab action creator', () => {
     expect(dispatch).not.toHaveBeenCalled();
   });
 
-  it('will change tab and load data if chart tab selected and metadata is missing', () => {
+  it('will change tab and load metadata if chart tab selected and metadata is missing', () => {
     const tab = CHART;
     const state = {
       ...createDefaultState(),
