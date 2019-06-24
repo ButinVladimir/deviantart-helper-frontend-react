@@ -54,7 +54,6 @@ export default (
     const response = await fetch(url, fetchOptions);
 
     if (response.status === 401) {
-      dispatch(lockToggleActionCreator(lock, false));
       dispatch(revokeActionCreator());
 
       return;
