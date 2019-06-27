@@ -5,7 +5,7 @@ import Tabs from 'react-bulma-components/lib/components/tabs';
  * @description
  * Converts tabs to tab elements.
  *
- * @param {string[][]]} tabs - Array of tabs and titles.
+ * @param {string[][]} tabs - Array of tabs and titles.
  * @param {string} activeTab - The active tab.
  * @param {Function} changeTabHandler - The tab change handler.
  * @returns {Tabs.Tab[]} Converted options.

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Convert tabs helper can render correctly 1`] = `
+<div>
+  <Tab
+    active={false}
+    className=""
+    key="description"
+    renderAs="a"
+    style={Object {}}
+  >
+    Description
+  </Tab>
+  <Tab
+    active={true}
+    className=""
+    key="preview"
+    renderAs="a"
+    style={Object {}}
+  >
+    Preview
+  </Tab>
+  <Tab
+    active={false}
+    className=""
+    key="chart"
+    renderAs="a"
+    style={Object {}}
+  >
+    Chart
+  </Tab>
+</div>
+`;

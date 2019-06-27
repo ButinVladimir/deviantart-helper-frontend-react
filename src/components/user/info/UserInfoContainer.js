@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import UserInfo from './UserInfo';
-import userLoadInfoActionCreator from '../../../redux/action-creators/user/load-info';
+import userLoadInfo from '../../../redux/action-creators/user/load-info';
 
 /**
  * @description
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchUserData: () => dispatch(userLoadInfoActionCreator(ownProps.config)),
+  fetchUserData: () => dispatch(userLoadInfo(ownProps.config)),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(UserInfo));

@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatisticsLevel can be rendered correctly 1`] = `
+<Level
+  breakpoint="tablet"
+  className=""
+  renderAs="div"
+  style={Object {}}
+>
+  <LevelItem
+    className="has-text-centered"
+    key="Views1"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={4}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          1
+        </Heading>
+      </div>
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={6}
+          spaced={false}
+          subtitle={true}
+          textTransform="uppercase"
+          weight={null}
+        >
+          Views
+        </Heading>
+      </div>
+    </Content>
+  </LevelItem>
+  <LevelItem
+    className="has-text-centered"
+    key="Favourites2"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={4}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          2
+        </Heading>
+      </div>
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={6}
+          spaced={false}
+          subtitle={true}
+          textTransform="uppercase"
+          weight={null}
+        >
+          Favourites
+        </Heading>
+      </div>
+    </Content>
+  </LevelItem>
+  <LevelItem
+    className="has-text-centered"
+    key="Comments3"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={4}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          3
+        </Heading>
+      </div>
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={6}
+          spaced={false}
+          subtitle={true}
+          textTransform="uppercase"
+          weight={null}
+        >
+          Comments
+        </Heading>
+      </div>
+    </Content>
+  </LevelItem>
+  <LevelItem
+    className="has-text-centered"
+    key="Downloads4"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={4}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          4
+        </Heading>
+      </div>
+      <div>
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={6}
+          spaced={false}
+          subtitle={true}
+          textTransform="uppercase"
+          weight={null}
+        >
+          Downloads
+        </Heading>
+      </div>
+    </Content>
+  </LevelItem>
+</Level>
+`;

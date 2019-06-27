@@ -1,6 +1,6 @@
 import filterAction from '../filter-action';
 
-describe('Filter action', () => {
+describe('Filter action helper', () => {
   it('filters fields from action', () => {
     const action = {
       rightField: 'value',

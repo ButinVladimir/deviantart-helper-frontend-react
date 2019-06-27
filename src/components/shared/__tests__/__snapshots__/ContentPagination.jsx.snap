@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentPagination can be rendered correctly when pagination is enabled 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Pagination
+      autoHide={true}
+      className=""
+      current={5}
+      delta={3}
+      next="Next"
+      onChange={[Function]}
+      previous="Previous"
+      renderAs="nav"
+      showPrevNext={true}
+      total={9}
+    />
+  </Container>
+</Section>
+`;
+
+exports[`ContentPagination can be rendered correctly when pagination is not enabled 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  />
+</Section>
+`;

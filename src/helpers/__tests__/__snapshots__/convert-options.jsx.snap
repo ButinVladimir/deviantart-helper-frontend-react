@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Convert options helper can render correctly 1`] = `
+<select>
+  <option
+    key="1"
+    value={1}
+  >
+    No rounding
+  </option>
+  <option
+    key="60000"
+    value={60000}
+  >
+    1 minute
+  </option>
+  <option
+    key="600000"
+    value={600000}
+  >
+    10 minutes
+  </option>
+  <option
+    key="3600000"
+    value={3600000}
+  >
+    1 hour
+  </option>
+  <option
+    key="14400000"
+    value={14400000}
+  >
+    4 hours
+  </option>
+  <option
+    key="43200000"
+    value={43200000}
+  >
+    12 hours
+  </option>
+  <option
+    key="86400000"
+    value={86400000}
+  >
+    1 day
+  </option>
+  <option
+    key="604800000"
+    value={604800000}
+  >
+    7 days
+  </option>
+  <option
+    key="864000000"
+    value={864000000}
+  >
+    10 days
+  </option>
+  <option
+    key="2592000000"
+    value={2592000000}
+  >
+    30 days
+  </option>
+</select>
+`;

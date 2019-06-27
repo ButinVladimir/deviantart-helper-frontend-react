@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigContext can be rendered correctly 1`] = `
+<div
+  config={
+    Config {
+      "serverUrl": "https://test.url/",
+    }
+  }
+>
+  value
+  anotherValue
+</div>
+`;

@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo renders correctly 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <Heading
+        className=""
+        heading={false}
+        renderAs="h1"
+        size={2}
+        spaced={false}
+        subtitle={false}
+        weight={null}
+      >
+        Current user info
+      </Heading>
+      <p>
+        <span>
+          User: 
+        </span>
+        <strong>
+          UserName
+        </strong>
+      </p>
+      <p>
+        <span>
+          User id: 
+        </span>
+        <strong>
+          123-456
+        </strong>
+      </p>
+      <p>
+        <span>
+          User type: 
+        </span>
+        <strong>
+          regular
+        </strong>
+      </p>
+      <p>
+        <span>
+          Access token expires: 
+        </span>
+        <strong>
+          1970-1-1 03:00:01
+        </strong>
+      </p>
+      <p>
+        <span>
+          Refresh token expires: 
+        </span>
+        <strong>
+          1970-1-1 03:00:02
+        </strong>
+      </p>
+      <p>
+        <span>
+          Fetch date threshold: 
+        </span>
+        <strong>
+          1970-1-1 03:00:03
+        </strong>
+      </p>
+      <p>
+        <span>
+          Request date threshold: 
+        </span>
+        <strong>
+          1970-1-1 03:00:04
+        </strong>
+      </p>
+    </Content>
+  </Container>
+</Section>
+`;
+
+exports[`UserInfo renders correctly using default props 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <Heading
+        className=""
+        heading={false}
+        renderAs="h1"
+        size={2}
+        spaced={false}
+        subtitle={false}
+        weight={null}
+      >
+        Current user info
+      </Heading>
+      <p>
+        <span>
+          User: 
+        </span>
+        <strong />
+      </p>
+      <p>
+        <span>
+          User id: 
+        </span>
+        <strong />
+      </p>
+      <p>
+        <span>
+          User type: 
+        </span>
+        <strong />
+      </p>
+      <p>
+        <span>
+          Access token expires: 
+        </span>
+        <strong>
+          Null
+        </strong>
+      </p>
+      <p>
+        <span>
+          Refresh token expires: 
+        </span>
+        <strong>
+          Null
+        </strong>
+      </p>
+      <p>
+        <span>
+          Fetch date threshold: 
+        </span>
+        <strong>
+          Null
+        </strong>
+      </p>
+      <p>
+        <span>
+          Request date threshold: 
+        </span>
+        <strong>
+          Null
+        </strong>
+      </p>
+    </Content>
+  </Container>
+</Section>
+`;
