@@ -1,18 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserInfoContainer renders correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
+<section
+  className="section"
+  style={Object {}}
 >
-  <Component />
-</Provider>
+  <div
+    className="container"
+    style={Object {}}
+  >
+    <div
+      className="content"
+      style={Object {}}
+    >
+      <h1
+        className="title is-2"
+      >
+        Current user info
+      </h1>
+      <p>
+        <span>
+          User: 
+        </span>
+        <strong>
+          User Name
+        </strong>
+      </p>
+      <p>
+        <span>
+          User id: 
+        </span>
+        <strong>
+          User Id
+        </strong>
+      </p>
+      <p>
+        <span>
+          User type: 
+        </span>
+        <strong>
+          regular
+        </strong>
+      </p>
+      <p>
+        <span>
+          Access token expires: 
+        </span>
+        <strong>
+          1970-1-1 03:00:01
+        </strong>
+      </p>
+      <p>
+        <span>
+          Refresh token expires: 
+        </span>
+        <strong>
+          1970-1-1 03:00:02
+        </strong>
+      </p>
+      <p>
+        <span>
+          Fetch date threshold: 
+        </span>
+        <strong>
+          1970-1-1 03:00:03
+        </strong>
+      </p>
+      <p>
+        <span>
+          Request date threshold: 
+        </span>
+        <strong>
+          1970-1-1 03:00:04
+        </strong>
+      </p>
+    </div>
+  </div>
+</section>
 `;

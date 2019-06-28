@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageContainer renders correctly 1`] = `
+<section
+  className="section"
+  style={Object {}}
+>
+  <div
+    className="container is-fullhd"
+    style={Object {}}
+  >
+    <div
+      className="notification is-info"
+      style={Object {}}
+    >
+      <button
+        className="delete"
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+        tabIndex={0}
+      >
+        Hide
+      </button>
+      Message text
+    </div>
+  </div>
+</section>
+`;

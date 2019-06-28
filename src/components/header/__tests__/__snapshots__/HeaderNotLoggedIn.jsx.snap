@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderNotLoggedIn renders correctly 1`] = `
+<NavbarBrand
+  className=""
+  style={Object {}}
+>
+  <NavbarItem
+    active={false}
+    className=""
+    dropdown={false}
+    dropdownUp={false}
+    hoverable={false}
+    renderAs="a"
+    style={Object {}}
+  >
+    <Button
+      className=""
+      color="primary"
+      disabled={false}
+      fullwidth={false}
+      inverted={false}
+      isSelected={false}
+      isStatic={false}
+      loading={true}
+      onClick={[Function]}
+      outlined={false}
+      remove={false}
+      renderAs="button"
+      reset={false}
+      rounded={false}
+      size={null}
+      state={null}
+      style={Object {}}
+      submit={false}
+      text={false}
+    >
+      Log in
+    </Button>
+  </NavbarItem>
+</NavbarBrand>
+`;

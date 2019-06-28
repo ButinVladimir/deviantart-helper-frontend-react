@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message renders correctly when message is hidden 1`] = `<Fragment />`;
+
+exports[`Message renders correctly when message is shown 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint="fullhd"
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Notification
+        className=""
+        color="info"
+        renderAs="div"
+        style={Object {}}
+      >
+        <Button
+          className=""
+          color={null}
+          disabled={false}
+          fullwidth={false}
+          inverted={false}
+          isSelected={false}
+          isStatic={false}
+          loading={false}
+          onClick={[MockFunction]}
+          outlined={false}
+          remove={true}
+          renderAs="button"
+          reset={false}
+          rounded={false}
+          size={null}
+          state={null}
+          style={Object {}}
+          submit={false}
+          text={false}
+        >
+          Hide
+        </Button>
+        Message text
+      </Notification>
+    </Container>
+  </Section>
+</Fragment>
+`;

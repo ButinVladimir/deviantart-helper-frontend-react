@@ -1,21 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import UserInfoContainer from '../UserInfoContainer';
 import { getConfigProvider } from '../../../shared/ConfigContext';
-import defaultConfig from '../../../../config';
+import config from '../../../../config';
 import createDefaultState from '../../../../redux/states/state';
+import userLoadInfo from '../../../../redux/action-creators/user/load-info';
+
+jest.mock('../../../../redux/action-creators/user/load-info', () => jest.fn(() => ({ type: 'TEST_ACTION' })));
 
 describe('UserInfoContainer', () => {
-  const mockStore = configureStore([thunk]);
+  it('renders correctly', () => {
+    const state = {
+      ...createDefaultState(),
+      user: {
+        userId: 'User Id',
+        userName: 'User Name',
+        userType: 'regular',
+        accessTokenExpires: 1001,
+        refreshTokenExpires: 2001,
+        fetchDateThreshold: 3001,
+        requestDateThreshold: 4001,
+      },
+    };
 
-  it('renders correctly', async () => {
-    const store = mockStore(createDefaultState());
+    const mockStore = configureStore([thunk]);
+    const store = mockStore(state);
+
     const ConfigProvider = getConfigProvider();
-    const wrapper = await shallow(
-      <ConfigProvider value={defaultConfig}>
+    const wrapper = mount(
+      <ConfigProvider value={config}>
         <Provider store={store}>
           <UserInfoContainer />
         </Provider>
@@ -23,5 +39,9 @@ describe('UserInfoContainer', () => {
     );
 
     expect(wrapper).toMatchSnapshot();
+    expect(userLoadInfo).toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      { type: 'TEST_ACTION' },
+    ]);
   });
 });

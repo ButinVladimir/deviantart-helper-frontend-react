@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContainer renders correctly 1`] = `
+<nav
+  className="navbar is-dark"
+  role="navigation"
+  style={Object {}}
+>
+  <div
+    className="container is-fullhd"
+    style={Object {}}
+  >
+    <div
+      className="navbar-menu is-active"
+      style={Object {}}
+    >
+      <div
+        className="navbar-end"
+        style={Object {}}
+      >
+        <a
+          className="navbar-item"
+          style={Object {}}
+        >
+          <div
+            className="buttons"
+          >
+            <button
+              className="is-danger button"
+              disabled={false}
+              onClick={[Function]}
+              style={Object {}}
+              tabIndex={0}
+            >
+              Log out
+            </button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message renders correctly when user state is fetching info 1`] = `
+<Navbar
+  active={false}
+  className=""
+  color="dark"
+  fixed={null}
+  renderAs="nav"
+  style={Object {}}
+  transparent={false}
+>
+  <Container
+    breakpoint="fullhd"
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Component />
+  </Container>
+</Navbar>
+`;
+
+exports[`Message renders correctly when user state is fully loginned 1`] = `
+<Navbar
+  active={true}
+  className=""
+  color="dark"
+  fixed={null}
+  renderAs="nav"
+  style={Object {}}
+  transparent={false}
+>
+  <Container
+    breakpoint="fullhd"
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Component />
+  </Container>
+</Navbar>
+`;
+
+exports[`Message renders correctly when user state is not loginned 1`] = `
+<Navbar
+  active={false}
+  className=""
+  color="dark"
+  fixed={null}
+  renderAs="nav"
+  style={Object {}}
+  transparent={false}
+>
+  <Container
+    breakpoint="fullhd"
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Component />
+  </Container>
+</Navbar>
+`;
