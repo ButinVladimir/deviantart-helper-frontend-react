@@ -59,6 +59,7 @@ export default function DeviationsBrowseForm({
           <Label>Title</Label>
           <Control>
             <Input
+              id="title"
               disabled={pageLoading}
               name="title"
               value={title}
@@ -74,6 +75,7 @@ export default function DeviationsBrowseForm({
               <Control>
                 <DatePicker
                   {...datePickerProps}
+                  id="published-time-begin"
                   disabled={pageLoading}
                   selectsStart
                   name="publishedTimeBegin"
@@ -92,6 +94,7 @@ export default function DeviationsBrowseForm({
               <Control>
                 <DatePicker
                   {...datePickerProps}
+                  id="published-time-end"
                   disabled={pageLoading}
                   selectsEnd
                   name="publishedTimeEnd"
@@ -109,6 +112,7 @@ export default function DeviationsBrowseForm({
               <Label>Sort by</Label>
               <Control>
                 <Select
+                  id="sort-field"
                   disabled={pageLoading}
                   name="sortField"
                   value={sortField}
@@ -125,6 +129,7 @@ export default function DeviationsBrowseForm({
               <Label>Sort order</Label>
               <Control>
                 <Select
+                  id="sort-order"
                   disabled={pageLoading}
                   name="sortOrder"
                   value={sortOrder}
@@ -143,6 +148,7 @@ export default function DeviationsBrowseForm({
               <Label>NSFW</Label>
               <Control>
                 <Select
+                  id="nsfw"
                   disabled={pageLoading}
                   name="nsfw"
                   value={nsfw}
@@ -159,6 +165,7 @@ export default function DeviationsBrowseForm({
               <Label>Filter by selected</Label>
               <Control>
                 <Checkbox
+                  id="filter-by-ids"
                   disabled={pageLoading}
                   name="filterbyselected"
                   checked={filterByIds}
@@ -173,6 +180,7 @@ export default function DeviationsBrowseForm({
           <Columns.Column>
             {showPagination && (
               <Pagination
+                id="pagination"
                 // Pagination in Bulma starts from 1 while pagination on backend start from 0.
                 current={page + 1}
                 total={pageCount}
@@ -184,7 +192,7 @@ export default function DeviationsBrowseForm({
           <Columns.Column narrow>
             <Field kind="group" align="right">
               <Control>
-                <Button color="primary" onClick={submitHandler} loading={pageLoading}>
+                <Button id="submit-button" color="primary" onClick={submitHandler} loading={pageLoading}>
                   {showPagination ? 'Refresh' : 'Submit' }
                 </Button>
               </Control>

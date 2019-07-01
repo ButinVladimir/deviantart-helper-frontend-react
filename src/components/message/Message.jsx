@@ -17,7 +17,7 @@ export default function Message({
         <Section>
           <Container breakpoint="fullhd">
             <Notification color={messageColor}>
-              <Button remove onClick={hideMessageHandler}>Hide</Button>
+              <Button id="hide-message-button" remove onClick={hideMessageHandler}>Hide</Button>
               {message}
             </Notification>
           </Container>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderContainer renders correctly 1`] = `
+exports[`HeaderContainer can be rendered correctly 1`] = `
 <nav
   className="navbar is-dark"
   role="navigation"
@@ -28,6 +28,7 @@ exports[`HeaderContainer renders correctly 1`] = `
             <button
               className="is-danger button"
               disabled={false}
+              id="revoke-button"
               onClick={[Function]}
               style={Object {}}
               tabIndex={0}

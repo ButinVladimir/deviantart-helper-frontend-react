@@ -10,7 +10,7 @@ import * as userStates from '../../../consts/user-states';
 jest.mock('../../../redux/action-creators/shared/hide-message', () => jest.fn(() => ({ type: 'TEST_ACTION' })));
 
 describe('HeaderContainer', () => {
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const state = {
       ...createDefaultState(),
       shared: {

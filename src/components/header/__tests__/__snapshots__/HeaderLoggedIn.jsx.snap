@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderLoggedIn can be rendered correctly 1`] = `
+Array [
+  <div
+    className="navbar-brand"
+    style={Object {}}
+  >
+    <a
+      className="navbar-item"
+      style={Object {}}
+    >
+      <img
+        alt="User Name"
+        src="/path/to/user/icon"
+      />
+    </a>
+    <div
+      className="navbar-burger is-active"
+      id="toggle-menu-button"
+      onClick={[Function]}
+      role="button"
+      style={
+        Object {
+          "outline": "none",
+        }
+      }
+      tabIndex="0"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>,
+  <div
+    className="navbar-menu is-active"
+    style={Object {}}
+  >
+    <div
+      className="navbar-start"
+      style={Object {}}
+    >
+      <span
+        className="navbar-item has-dropdown is-hoverable"
+        style={Object {}}
+      >
+        <span
+          className="navbar-link"
+          style={Object {}}
+        >
+          Application
+        </span>
+        <span
+          className="navbar-dropdown"
+          style={Object {}}
+        >
+          <a
+            aria-current={null}
+            className="navbar-item"
+            href="/user/info"
+            onClick={[Function]}
+          >
+            User info
+          </a>
+        </span>
+      </span>
+      <span
+        className="navbar-item has-dropdown is-hoverable"
+        style={Object {}}
+      >
+        <span
+          className="navbar-link"
+          style={Object {}}
+        >
+          Deviations
+        </span>
+        <span
+          className="navbar-dropdown"
+          style={Object {}}
+        >
+          <a
+            aria-current={null}
+            className="navbar-item"
+            href="/deviations/browse"
+            onClick={[Function]}
+          >
+            Browse
+          </a>
+          <a
+            aria-current={null}
+            className="navbar-item"
+            href="/deviations/statistics"
+            onClick={[Function]}
+          >
+            Detailed statistics
+          </a>
+          <a
+            aria-current={null}
+            className="navbar-item"
+            href="/deviations/total"
+            onClick={[Function]}
+          >
+            Total statistics
+          </a>
+        </span>
+      </span>
+    </div>
+    <div
+      className="navbar-end"
+      style={Object {}}
+    >
+      <a
+        className="navbar-item"
+        style={Object {}}
+      >
+        <div
+          className="buttons"
+        >
+          <button
+            className="is-light button"
+            disabled={false}
+            id="start-fetch-data-button"
+            onClick={[Function]}
+            style={Object {}}
+            tabIndex={0}
+          >
+            Request data fetching
+          </button>
+          <button
+            className="is-danger button"
+            disabled={false}
+            id="revoke-button"
+            onClick={[Function]}
+            style={Object {}}
+            tabIndex={0}
+          >
+            Log out
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>,
+]
+`;

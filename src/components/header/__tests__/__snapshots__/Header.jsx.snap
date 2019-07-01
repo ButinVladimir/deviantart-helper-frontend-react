@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message renders correctly when user state is fetching info 1`] = `
+exports[`Header can be rendered correctly when user state is fetching info 1`] = `
 <Navbar
   active={false}
   className=""
@@ -21,7 +21,7 @@ exports[`Message renders correctly when user state is fetching info 1`] = `
 </Navbar>
 `;
 
-exports[`Message renders correctly when user state is fully loginned 1`] = `
+exports[`Header can be rendered correctly when user state is fully loginned 1`] = `
 <Navbar
   active={true}
   className=""
@@ -42,7 +42,7 @@ exports[`Message renders correctly when user state is fully loginned 1`] = `
 </Navbar>
 `;
 
-exports[`Message renders correctly when user state is not loginned 1`] = `
+exports[`Header can be rendered correctly when user state is not loginned 1`] = `
 <Navbar
   active={false}
   className=""

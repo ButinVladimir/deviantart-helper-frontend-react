@@ -4,7 +4,7 @@ import HeaderNotLoggedIn from '../HeaderNotLoggedIn';
 import config from '../../../config';
 
 describe('HeaderNotLoggedIn', () => {
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const wrapper = shallow(
       <HeaderNotLoggedIn
         userInfoLoading

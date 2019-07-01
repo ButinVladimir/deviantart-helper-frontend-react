@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderFetchingInfo can be rendered correctly 1`] = `
+<NavbarMenu
+  className=""
+  style={Object {}}
+>
+  <NavbarContainer
+    className=""
+    position="end"
+    renderAs="div"
+    style={Object {}}
+  >
+    <NavbarItem
+      active={false}
+      className=""
+      dropdown={false}
+      dropdownUp={false}
+      hoverable={false}
+      renderAs="a"
+      style={Object {}}
+    >
+      <ButtonGroup
+        renderAs="div"
+      >
+        <Button
+          className=""
+          color="danger"
+          disabled={false}
+          fullwidth={false}
+          id="revoke-button"
+          inverted={false}
+          isSelected={false}
+          isStatic={false}
+          loading={false}
+          onClick={[Function]}
+          outlined={false}
+          remove={false}
+          renderAs="button"
+          reset={false}
+          rounded={false}
+          size={null}
+          state={null}
+          style={Object {}}
+          submit={false}
+          text={false}
+        >
+          Log out
+        </Button>
+      </ButtonGroup>
+    </NavbarItem>
+  </NavbarContainer>
+</NavbarMenu>
+`;

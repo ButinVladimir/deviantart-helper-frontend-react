@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 import UserInfo from '../UserInfo';
 
 describe('UserInfo', () => {
-  it('renders correctly using default props', () => {
+  it('can be rendered correctly using default props', () => {
     const wrapper = shallow(<UserInfo fetchUserData={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const wrapper = shallow(
       <UserInfo
         fetchUserData={jest.fn()}

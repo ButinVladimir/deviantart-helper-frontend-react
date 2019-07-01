@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message renders correctly when message is hidden 1`] = `<Fragment />`;
+exports[`Message can be rendered correctly when message is hidden 1`] = `<Fragment />`;
 
-exports[`Message renders correctly when message is shown 1`] = `
+exports[`Message can be rendered correctly when message is shown 1`] = `
 <Fragment>
   <Section
     className=""
@@ -27,6 +27,7 @@ exports[`Message renders correctly when message is shown 1`] = `
           color={null}
           disabled={false}
           fullwidth={false}
+          id="hide-message-button"
           inverted={false}
           isSelected={false}
           isStatic={false}

@@ -9,7 +9,7 @@ import config from '../../../config';
 import createDefaultState from '../../../redux/states/state';
 
 describe('HeaderNotLoggedInContainer', () => {
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const state = {
       ...createDefaultState(),
       shared: {

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsBrowse can be rendered correctly when page is loading 1`] = `
+<Fragment>
+  <Component />
+  <CustomLoader />
+  <Component />
+</Fragment>
+`;
+
+exports[`DeviationsBrowse can be rendered correctly when page is not loading 1`] = `
+<Fragment>
+  <Component />
+  <Connect(DeviationsBrowseList) />
+  <Component />
+</Fragment>
+`;

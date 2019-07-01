@@ -20,7 +20,7 @@ export default function HeaderLoggedIn({
         <Navbar.Item>
           <img src={userIcon} alt={userName} />
         </Navbar.Item>
-        <Navbar.Burger onClick={toggleMenuHandler} />
+        <Navbar.Burger id="toggle-menu-button" onClick={toggleMenuHandler} />
       </Navbar.Brand>
 
       <Navbar.Menu>
@@ -45,8 +45,8 @@ export default function HeaderLoggedIn({
         <Navbar.Container position="end">
           <Navbar.Item>
             <Button.Group>
-              <Button color="light" loading={startFetchDataLoading} onClick={startFetchDataHandler}>Request data fetching</Button>
-              <Button color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
+              <Button id="start-fetch-data-button" color="light" loading={startFetchDataLoading} onClick={startFetchDataHandler}>Request data fetching</Button>
+              <Button id="revoke-button" color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
             </Button.Group>
           </Navbar.Item>
         </Navbar.Container>

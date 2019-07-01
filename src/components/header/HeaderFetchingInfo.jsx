@@ -12,7 +12,7 @@ export default function HeaderFetchingInfo({
       <Navbar.Container position="end">
         <Navbar.Item>
           <Button.Group>
-            <Button color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
+            <Button id="revoke-button" color="danger" loading={revokeLoading} onClick={revokeHandler}>Log out</Button>
           </Button.Group>
         </Navbar.Item>
       </Navbar.Container>

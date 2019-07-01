@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderFetchingInfoContainer can be rendered correctly 1`] = `
+<div
+  className="navbar-menu is-active"
+  style={Object {}}
+>
+  <div
+    className="navbar-end"
+    style={Object {}}
+  >
+    <a
+      className="navbar-item"
+      style={Object {}}
+    >
+      <div
+        className="buttons"
+      >
+        <button
+          className="is-danger is-loading button"
+          disabled={false}
+          id="revoke-button"
+          onClick={[Function]}
+          style={Object {}}
+          tabIndex={0}
+        >
+          Log out
+        </button>
+      </div>
+    </a>
+  </div>
+</div>
+`;

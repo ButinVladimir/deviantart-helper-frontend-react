@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderNotLoggedIn renders correctly 1`] = `
+exports[`HeaderNotLoggedIn can be rendered correctly 1`] = `
 <NavbarBrand
   className=""
   style={Object {}}
@@ -19,6 +19,7 @@ exports[`HeaderNotLoggedIn renders correctly 1`] = `
       color="primary"
       disabled={false}
       fullwidth={false}
+      id="login-button"
       inverted={false}
       isSelected={false}
       isStatic={false}

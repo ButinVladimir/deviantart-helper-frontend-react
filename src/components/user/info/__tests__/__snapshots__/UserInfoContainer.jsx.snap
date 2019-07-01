@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserInfoContainer renders correctly 1`] = `
+exports[`UserInfoContainer can be rendered correctly 1`] = `
 <section
   className="section"
   style={Object {}}

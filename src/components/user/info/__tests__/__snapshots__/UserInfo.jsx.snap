@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserInfo renders correctly 1`] = `
+exports[`UserInfo can be rendered correctly 1`] = `
 <Section
   className=""
   renderAs="section"
@@ -90,7 +90,7 @@ exports[`UserInfo renders correctly 1`] = `
 </Section>
 `;
 
-exports[`UserInfo renders correctly using default props 1`] = `
+exports[`UserInfo can be rendered correctly using default props 1`] = `
 <Section
   className=""
   renderAs="section"

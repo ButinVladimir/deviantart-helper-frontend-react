@@ -6,7 +6,7 @@ describe('Message', () => {
   const message = 'Message text';
   const messageColor = 'info';
 
-  it('renders correctly when message is shown', () => {
+  it('can be rendered correctly when message is shown', () => {
     const wrapper = shallow(
       <Message
         showMessage
@@ -19,7 +19,7 @@ describe('Message', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly when message is hidden', () => {
+  it('can be rendered correctly when message is hidden', () => {
     const wrapper = shallow(
       <Message
         showMessage={false}
@@ -43,7 +43,7 @@ describe('Message', () => {
       />,
     );
 
-    wrapper.find('Button').simulate('click');
+    wrapper.find('#hide-message-button').simulate('click');
 
     expect(hideMessageHandler).toHaveBeenCalled();
   });

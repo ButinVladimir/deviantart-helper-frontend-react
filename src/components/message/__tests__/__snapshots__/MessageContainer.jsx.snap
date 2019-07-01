@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MessageContainer renders correctly 1`] = `
+exports[`MessageContainer can be rendered correctly 1`] = `
 <section
   className="section"
   style={Object {}}
@@ -16,6 +16,7 @@ exports[`MessageContainer renders correctly 1`] = `
       <button
         className="delete"
         disabled={false}
+        id="hide-message-button"
         onClick={[Function]}
         style={Object {}}
         tabIndex={0}

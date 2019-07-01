@@ -14,7 +14,7 @@ export default function HeaderNotLoggedIn({
   return (
     <Navbar.Brand>
       <Navbar.Item>
-        <Button color="primary" loading={userInfoLoading} onClick={() => { window.location = loginUrl; }}>Log in</Button>
+        <Button id="login-button" color="primary" loading={userInfoLoading} onClick={() => { window.location = loginUrl; }}>Log in</Button>
       </Navbar.Item>
     </Navbar.Brand>
   );

@@ -10,7 +10,7 @@ import hideMessageActionCreator from '../../../redux/action-creators/shared/hide
 jest.mock('../../../redux/action-creators/shared/hide-message', () => jest.fn(() => ({ type: 'TEST_ACTION' })));
 
 describe('MessageContainer', () => {
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const state = {
       ...createDefaultState(),
       shared: {
@@ -51,7 +51,7 @@ describe('MessageContainer', () => {
       </Provider>,
     );
 
-    wrapper.find('button.delete').simulate('click');
+    wrapper.find('button#hide-message-button').simulate('click');
     const actions = store.getActions();
 
     expect(hideMessageActionCreator).toHaveBeenCalled();

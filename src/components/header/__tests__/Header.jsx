@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import Header from '../Header';
 import * as userStates from '../../../consts/user-states';
 
-describe('Message', () => {
-  it('renders correctly when user state is not loginned', () => {
+describe('Header', () => {
+  it('can be rendered correctly when user state is not loginned', () => {
     const wrapper = shallow(
       <Header
         userState={userStates.NOT_LOGGINED}
@@ -15,7 +15,7 @@ describe('Message', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly when user state is fetching info', () => {
+  it('can be rendered correctly when user state is fetching info', () => {
     const wrapper = shallow(
       <Header
         userState={userStates.FETCHING_INFO}
@@ -26,7 +26,7 @@ describe('Message', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly when user state is fully loginned', () => {
+  it('can be rendered correctly when user state is fully loginned', () => {
     const wrapper = shallow(
       <Header
         userState={userStates.FULLY_LOGINNED}

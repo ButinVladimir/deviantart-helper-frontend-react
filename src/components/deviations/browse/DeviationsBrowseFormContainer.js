@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import * as deviationsBrowseForm from '../../../redux/action-creators/deviations/browse/change-form-field-values';
-import deviationsBrowseLoadPageActionCreator, { deviationsBrowseLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
+import deviationsBrowseLoadPage, { deviationsBrowseLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/browse/load-page';
 import DeviationsBrowseForm from './DeviationsBrowseForm';
 
 /**
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   submitHandler: () => dispatch(deviationsBrowseLoadFirstPageActionCreator(ownProps.config)),
   // Pagination in Bulma starts from 1 while pagination on backend start from 0.
   loadPageHandler:
-    page => dispatch(deviationsBrowseLoadPageActionCreator(page - 1, ownProps.config)),
+    page => dispatch(deviationsBrowseLoadPage(page - 1, ownProps.config)),
 });
 
 export default consumeConfig(connect(mapStateToProps, mapDispatchToProps)(DeviationsBrowseForm));

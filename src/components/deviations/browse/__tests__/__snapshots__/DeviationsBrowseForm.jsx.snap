@@ -1,0 +1,1771 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsBrowseForm can be rendered correctly when pagination is not shown 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <Heading
+        className=""
+        heading={false}
+        renderAs="h1"
+        size={2}
+        spaced={false}
+        subtitle={false}
+        weight={null}
+      >
+        Browse deviations
+      </Heading>
+    </Content>
+    <Field
+      align={null}
+      className=""
+      horizontal={false}
+      kind={null}
+      multiline={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Label
+        className=""
+        htmlFor={null}
+        size={null}
+        style={Object {}}
+      >
+        Title
+      </Label>
+      <Control
+        className=""
+        fullwidth={false}
+        iconLeft={false}
+        iconRight={false}
+        loading={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Input
+          className=""
+          color={null}
+          disabled={true}
+          id="title"
+          isStatic={false}
+          name="title"
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          size={null}
+          style={Object {}}
+          type="text"
+          value="Title"
+        />
+      </Control>
+    </Field>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Published time range beginning
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <DatePicker
+              allowSameDay={false}
+              autoComplete="off"
+              className="input"
+              dateFormat="dd.MM.yyyy"
+              dateFormatCalendar="LLLL yyyy"
+              disabled={true}
+              disabledKeyboardNavigation={false}
+              dropdownMode="scroll"
+              endDate={null}
+              id="published-time-begin"
+              inlineFocusSelectedMonth={false}
+              isClearable={true}
+              monthsShown={1}
+              name="publishedTimeBegin"
+              nextMonthButtonLabel="Next month"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClickOutside={[Function]}
+              onFocus={[Function]}
+              onInputClick={[Function]}
+              onInputError={[Function]}
+              onKeyDown={[Function]}
+              onMonthChange={[Function]}
+              onSelect={[Function]}
+              onYearChange={[Function]}
+              preventOpenOnFocus={false}
+              previousMonthButtonLabel="Previous Month"
+              readOnly={false}
+              renderDayContents={[Function]}
+              selected={null}
+              selectsStart={true}
+              shouldCloseOnSelect={true}
+              showMonthDropdown={true}
+              showMonthYearPicker={false}
+              showTimeInput={false}
+              showTimeSelect={false}
+              showYearDropdown={true}
+              startDate={null}
+              strictParsing={false}
+              timeCaption="Time"
+              timeInputLabel="Time"
+              timeIntervals={30}
+              withPortal={true}
+            />
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Published time range end
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <DatePicker
+              allowSameDay={false}
+              autoComplete="off"
+              className="input"
+              dateFormat="dd.MM.yyyy"
+              dateFormatCalendar="LLLL yyyy"
+              disabled={true}
+              disabledKeyboardNavigation={false}
+              dropdownMode="scroll"
+              endDate={null}
+              id="published-time-end"
+              inlineFocusSelectedMonth={false}
+              isClearable={true}
+              monthsShown={1}
+              name="publishedTimeEnd"
+              nextMonthButtonLabel="Next month"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClickOutside={[Function]}
+              onFocus={[Function]}
+              onInputClick={[Function]}
+              onInputError={[Function]}
+              onKeyDown={[Function]}
+              onMonthChange={[Function]}
+              onSelect={[Function]}
+              onYearChange={[Function]}
+              preventOpenOnFocus={false}
+              previousMonthButtonLabel="Previous Month"
+              readOnly={false}
+              renderDayContents={[Function]}
+              selected={null}
+              selectsEnd={true}
+              shouldCloseOnSelect={true}
+              showMonthDropdown={true}
+              showMonthYearPicker={false}
+              showTimeInput={false}
+              showTimeSelect={false}
+              showYearDropdown={true}
+              startDate={null}
+              strictParsing={false}
+              timeCaption="Time"
+              timeInputLabel="Time"
+              timeIntervals={30}
+              withPortal={true}
+            />
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Sort by
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={true}
+              id="sort-field"
+              loading={false}
+              multiple={false}
+              name="sortField"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value="comments"
+            >
+              <option
+                key="title"
+                value="title"
+              >
+                Title
+              </option>
+              <option
+                key="publishedTime"
+                value="publishedTime"
+              >
+                Published time
+              </option>
+              <option
+                key="views"
+                value="views"
+              >
+                Views
+              </option>
+              <option
+                key="favourites"
+                value="favourites"
+              >
+                Favourites
+              </option>
+              <option
+                key="comments"
+                value="comments"
+              >
+                Comments
+              </option>
+              <option
+                key="downloads"
+                value="downloads"
+              >
+                Downloads
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Sort order
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={true}
+              id="sort-order"
+              loading={false}
+              multiple={false}
+              name="sortOrder"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value={-1}
+            >
+              <option
+                key="1"
+                value={1}
+              >
+                Ascending
+              </option>
+              <option
+                key="-1"
+                value={-1}
+              >
+                Descending
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            NSFW
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={true}
+              id="nsfw"
+              loading={false}
+              multiple={false}
+              name="nsfw"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value="SHOW_NSFW"
+            >
+              <option
+                key="SHOW_ALL"
+                value="SHOW_ALL"
+              >
+                Show everything
+              </option>
+              <option
+                key="SHOW_NON_NSFW"
+                value="SHOW_NON_NSFW"
+              >
+                Show only non-NSFW
+              </option>
+              <option
+                key="SHOW_NSFW"
+                value="SHOW_NSFW"
+              >
+                Show only NSFW
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Filter by selected
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Checkbox
+              checked={false}
+              className=""
+              disabled={true}
+              id="filter-by-ids"
+              name="filterbyselected"
+              onChange={[Function]}
+              style={Object {}}
+              value=""
+            />
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      />
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align="right"
+          className=""
+          horizontal={false}
+          kind="group"
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Button
+              className=""
+              color="primary"
+              disabled={false}
+              fullwidth={false}
+              id="submit-button"
+              inverted={false}
+              isSelected={false}
+              isStatic={false}
+              loading={true}
+              onClick={[Function]}
+              outlined={false}
+              remove={false}
+              renderAs="button"
+              reset={false}
+              rounded={false}
+              size={null}
+              state={null}
+              style={Object {}}
+              submit={false}
+              text={false}
+            >
+              Submit
+            </Button>
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+  </Container>
+</Section>
+`;
+
+exports[`DeviationsBrowseForm can be rendered correctly when pagination is shown 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <Heading
+        className=""
+        heading={false}
+        renderAs="h1"
+        size={2}
+        spaced={false}
+        subtitle={false}
+        weight={null}
+      >
+        Browse deviations
+      </Heading>
+    </Content>
+    <Field
+      align={null}
+      className=""
+      horizontal={false}
+      kind={null}
+      multiline={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Label
+        className=""
+        htmlFor={null}
+        size={null}
+        style={Object {}}
+      >
+        Title
+      </Label>
+      <Control
+        className=""
+        fullwidth={false}
+        iconLeft={false}
+        iconRight={false}
+        loading={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Input
+          className=""
+          color={null}
+          disabled={false}
+          id="title"
+          isStatic={false}
+          name="title"
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          size={null}
+          style={Object {}}
+          type="text"
+          value="Title"
+        />
+      </Control>
+    </Field>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Published time range beginning
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <DatePicker
+              allowSameDay={false}
+              autoComplete="off"
+              className="input"
+              dateFormat="dd.MM.yyyy"
+              dateFormatCalendar="LLLL yyyy"
+              disabled={false}
+              disabledKeyboardNavigation={false}
+              dropdownMode="scroll"
+              endDate={1970-01-01T00:00:20.001Z}
+              id="published-time-begin"
+              inlineFocusSelectedMonth={false}
+              isClearable={true}
+              monthsShown={1}
+              name="publishedTimeBegin"
+              nextMonthButtonLabel="Next month"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClickOutside={[Function]}
+              onFocus={[Function]}
+              onInputClick={[Function]}
+              onInputError={[Function]}
+              onKeyDown={[Function]}
+              onMonthChange={[Function]}
+              onSelect={[Function]}
+              onYearChange={[Function]}
+              preventOpenOnFocus={false}
+              previousMonthButtonLabel="Previous Month"
+              readOnly={false}
+              renderDayContents={[Function]}
+              selected={1970-01-01T00:00:10.001Z}
+              selectsStart={true}
+              shouldCloseOnSelect={true}
+              showMonthDropdown={true}
+              showMonthYearPicker={false}
+              showTimeInput={false}
+              showTimeSelect={false}
+              showYearDropdown={true}
+              startDate={1970-01-01T00:00:10.001Z}
+              strictParsing={false}
+              timeCaption="Time"
+              timeInputLabel="Time"
+              timeIntervals={30}
+              withPortal={true}
+            />
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Published time range end
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <DatePicker
+              allowSameDay={false}
+              autoComplete="off"
+              className="input"
+              dateFormat="dd.MM.yyyy"
+              dateFormatCalendar="LLLL yyyy"
+              disabled={false}
+              disabledKeyboardNavigation={false}
+              dropdownMode="scroll"
+              endDate={1970-01-01T00:00:20.001Z}
+              id="published-time-end"
+              inlineFocusSelectedMonth={false}
+              isClearable={true}
+              monthsShown={1}
+              name="publishedTimeEnd"
+              nextMonthButtonLabel="Next month"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClickOutside={[Function]}
+              onFocus={[Function]}
+              onInputClick={[Function]}
+              onInputError={[Function]}
+              onKeyDown={[Function]}
+              onMonthChange={[Function]}
+              onSelect={[Function]}
+              onYearChange={[Function]}
+              preventOpenOnFocus={false}
+              previousMonthButtonLabel="Previous Month"
+              readOnly={false}
+              renderDayContents={[Function]}
+              selected={1970-01-01T00:00:20.001Z}
+              selectsEnd={true}
+              shouldCloseOnSelect={true}
+              showMonthDropdown={true}
+              showMonthYearPicker={false}
+              showTimeInput={false}
+              showTimeSelect={false}
+              showYearDropdown={true}
+              startDate={1970-01-01T00:00:10.001Z}
+              strictParsing={false}
+              timeCaption="Time"
+              timeInputLabel="Time"
+              timeIntervals={30}
+              withPortal={true}
+            />
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Sort by
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={false}
+              id="sort-field"
+              loading={false}
+              multiple={false}
+              name="sortField"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value="comments"
+            >
+              <option
+                key="title"
+                value="title"
+              >
+                Title
+              </option>
+              <option
+                key="publishedTime"
+                value="publishedTime"
+              >
+                Published time
+              </option>
+              <option
+                key="views"
+                value="views"
+              >
+                Views
+              </option>
+              <option
+                key="favourites"
+                value="favourites"
+              >
+                Favourites
+              </option>
+              <option
+                key="comments"
+                value="comments"
+              >
+                Comments
+              </option>
+              <option
+                key="downloads"
+                value="downloads"
+              >
+                Downloads
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Sort order
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={false}
+              id="sort-order"
+              loading={false}
+              multiple={false}
+              name="sortOrder"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value={-1}
+            >
+              <option
+                key="1"
+                value={1}
+              >
+                Ascending
+              </option>
+              <option
+                key="-1"
+                value={-1}
+              >
+                Descending
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            NSFW
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Select
+              className=""
+              color={null}
+              disabled={false}
+              id="nsfw"
+              loading={false}
+              multiple={false}
+              name="nsfw"
+              onChange={[Function]}
+              readOnly={false}
+              size={null}
+              style={Object {}}
+              value="SHOW_NSFW"
+            >
+              <option
+                key="SHOW_ALL"
+                value="SHOW_ALL"
+              >
+                Show everything
+              </option>
+              <option
+                key="SHOW_NON_NSFW"
+                value="SHOW_NON_NSFW"
+              >
+                Show only non-NSFW
+              </option>
+              <option
+                key="SHOW_NSFW"
+                value="SHOW_NSFW"
+              >
+                Show only NSFW
+              </option>
+            </Select>
+          </Control>
+        </Field>
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align={null}
+          className=""
+          horizontal={false}
+          kind={null}
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Filter by selected
+          </Label>
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Checkbox
+              checked={false}
+              className=""
+              disabled={false}
+              id="filter-by-ids"
+              name="filterbyselected"
+              onChange={[Function]}
+              style={Object {}}
+              value=""
+            />
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+    <Columns
+      breakpoint={null}
+      centered={false}
+      className=""
+      gapless={false}
+      multiline={true}
+      style={Object {}}
+    >
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={false}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Pagination
+          autoHide={true}
+          className=""
+          current={2}
+          delta={3}
+          id="pagination"
+          next="Next"
+          onChange={[Function]}
+          previous="Previous"
+          renderAs="nav"
+          showPrevNext={true}
+          total={3}
+        />
+      </Column>
+      <Column
+        className=""
+        desktop={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        fullhd={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        mobile={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        narrow={true}
+        offset={null}
+        size={null}
+        style={Object {}}
+        tablet={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+        widescreen={
+          Object {
+            "narrow": false,
+            "offset": null,
+            "size": null,
+          }
+        }
+      >
+        <Field
+          align="right"
+          className=""
+          horizontal={false}
+          kind="group"
+          multiline={false}
+          renderAs="div"
+          style={Object {}}
+        >
+          <Control
+            className=""
+            fullwidth={false}
+            iconLeft={false}
+            iconRight={false}
+            loading={false}
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          >
+            <Button
+              className=""
+              color="primary"
+              disabled={false}
+              fullwidth={false}
+              id="submit-button"
+              inverted={false}
+              isSelected={false}
+              isStatic={false}
+              loading={false}
+              onClick={[Function]}
+              outlined={false}
+              remove={false}
+              renderAs="button"
+              reset={false}
+              rounded={false}
+              size={null}
+              state={null}
+              style={Object {}}
+              submit={false}
+              text={false}
+            >
+              Refresh
+            </Button>
+          </Control>
+        </Field>
+      </Column>
+    </Columns>
+  </Container>
+</Section>
+`;

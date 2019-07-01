@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderNotLoggedInContainer renders correctly 1`] = `
+exports[`HeaderNotLoggedInContainer can be rendered correctly 1`] = `
 <div
   className="navbar-brand"
   style={Object {}}
@@ -12,6 +12,7 @@ exports[`HeaderNotLoggedInContainer renders correctly 1`] = `
     <button
       className="is-primary button"
       disabled={false}
+      id="login-button"
       onClick={[Function]}
       style={Object {}}
       tabIndex={0}

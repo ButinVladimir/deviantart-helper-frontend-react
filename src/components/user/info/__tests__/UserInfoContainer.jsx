@@ -12,7 +12,7 @@ import userLoadInfo from '../../../../redux/action-creators/user/load-info';
 jest.mock('../../../../redux/action-creators/user/load-info', () => jest.fn(() => ({ type: 'TEST_ACTION' })));
 
 describe('UserInfoContainer', () => {
-  it('renders correctly', () => {
+  it('can be rendered correctly', () => {
     const state = {
       ...createDefaultState(),
       user: {
