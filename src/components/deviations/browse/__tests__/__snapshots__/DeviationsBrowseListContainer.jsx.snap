@@ -1,0 +1,742 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsBrowseListContainer can be rendered correctly 1`] = `
+<section
+  className="section"
+  style={Object {}}
+>
+  <div
+    className="container"
+    style={Object {}}
+  >
+    <article
+      className="media"
+      style={Object {}}
+    >
+      <div
+        className="image-container media-left"
+        style={Object {}}
+      >
+        <div>
+          <img
+            alt="Deviation 1"
+            src="/path/to/thumbnail/1"
+          />
+        </div>
+        <div>
+          <small
+            className="has-text-grey"
+          >
+            1970-1-1 03:00:00
+          </small>
+        </div>
+        <div>
+          <a
+            href="/path/to/deviation/1"
+          >
+            Visit DA page
+          </a>
+        </div>
+      </div>
+      <div
+        className="media-content"
+        style={Object {}}
+      >
+        <div
+          className="content"
+          style={Object {}}
+        >
+          <h1
+            className="title is-3"
+          >
+            <a
+              aria-current={null}
+              href="/deviations/details/1"
+              onClick={[Function]}
+            >
+              Deviation 1
+            </a>
+          </h1>
+        </div>
+        <div
+          className="level is-tablet"
+          style={Object {}}
+        >
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  1
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Views
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  2
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Favourites
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  3
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Comments
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  4
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Downloads
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="media-right"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <label
+              className="checkbox"
+              disabled={false}
+              style={Object {}}
+            >
+              <input
+                checked={false}
+                disabled={false}
+                id="selection-1"
+                name={null}
+                onChange={[Function]}
+                type="checkbox"
+                value=""
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      className="media"
+      style={Object {}}
+    >
+      <div
+        className="image-container media-left"
+        style={Object {}}
+      >
+        <div>
+          <img
+            alt="Deviation 2"
+            src="/path/to/thumbnail/2"
+          />
+        </div>
+        <div>
+          <small
+            className="has-text-grey"
+          >
+            1970-1-1 03:00:00
+          </small>
+        </div>
+        <div>
+          <a
+            href="/path/to/deviation/2"
+          >
+            Visit DA page
+          </a>
+        </div>
+      </div>
+      <div
+        className="media-content"
+        style={Object {}}
+      >
+        <div
+          className="content"
+          style={Object {}}
+        >
+          <h1
+            className="title is-3"
+          >
+            <a
+              aria-current={null}
+              href="/deviations/details/2"
+              onClick={[Function]}
+            >
+              Deviation 2
+            </a>
+          </h1>
+        </div>
+        <div
+          className="level is-tablet"
+          style={Object {}}
+        >
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  1
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Views
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  2
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Favourites
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  3
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Comments
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  4
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Downloads
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="media-right"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <label
+              className="checkbox"
+              disabled={false}
+              style={Object {}}
+            >
+              <input
+                checked={false}
+                disabled={false}
+                id="selection-2"
+                name={null}
+                onChange={[Function]}
+                type="checkbox"
+                value=""
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      className="media"
+      style={Object {}}
+    >
+      <div
+        className="image-container media-left"
+        style={Object {}}
+      >
+        <div>
+          <img
+            alt="Deviation 3"
+            src="/path/to/thumbnail/3"
+          />
+        </div>
+        <div>
+          <small
+            className="has-text-grey"
+          >
+            1970-1-1 03:00:00
+          </small>
+        </div>
+        <div>
+          <a
+            href="/path/to/deviation/3"
+          >
+            Visit DA page
+          </a>
+        </div>
+      </div>
+      <div
+        className="media-content"
+        style={Object {}}
+      >
+        <div
+          className="content"
+          style={Object {}}
+        >
+          <h1
+            className="title is-3"
+          >
+            <a
+              aria-current={null}
+              href="/deviations/details/3"
+              onClick={[Function]}
+            >
+              Deviation 3
+            </a>
+          </h1>
+        </div>
+        <div
+          className="level is-tablet"
+          style={Object {}}
+        >
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  1
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Views
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  2
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Favourites
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  3
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Comments
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  4
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Downloads
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="media-right"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <label
+              className="checkbox"
+              disabled={false}
+              style={Object {}}
+            >
+              <input
+                checked={false}
+                disabled={false}
+                id="selection-3"
+                name={null}
+                onChange={[Function]}
+                type="checkbox"
+                value=""
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article
+      className="media"
+      style={Object {}}
+    >
+      <div
+        className="image-container media-left"
+        style={Object {}}
+      >
+        <div>
+          <img
+            alt="Deviation 4"
+            src="/path/to/thumbnail/4"
+          />
+        </div>
+        <div>
+          <small
+            className="has-text-grey"
+          >
+            1970-1-1 03:00:00
+          </small>
+        </div>
+        <div>
+          <a
+            href="/path/to/deviation/4"
+          >
+            Visit DA page
+          </a>
+        </div>
+      </div>
+      <div
+        className="media-content"
+        style={Object {}}
+      >
+        <div
+          className="content"
+          style={Object {}}
+        >
+          <h1
+            className="title is-3"
+          >
+            <a
+              aria-current={null}
+              href="/deviations/details/4"
+              onClick={[Function]}
+            >
+              Deviation 4
+            </a>
+          </h1>
+        </div>
+        <div
+          className="level is-tablet"
+          style={Object {}}
+        >
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  1
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Views
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  2
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Favourites
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  3
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Comments
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  4
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Downloads
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="media-right"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <label
+              className="checkbox"
+              disabled={false}
+              style={Object {}}
+            >
+              <input
+                checked={false}
+                disabled={false}
+                id="selection-4"
+                name={null}
+                onChange={[Function]}
+                type="checkbox"
+                value=""
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+`;

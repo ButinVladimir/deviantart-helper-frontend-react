@@ -21,9 +21,7 @@ export default function DeviationsBrowseList({
   return (
     <Section>
       <Container>
-        <ul>
-          {mappedDeviations}
-        </ul>
+        {mappedDeviations}
       </Container>
     </Section>
   );

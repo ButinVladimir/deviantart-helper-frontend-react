@@ -23,6 +23,11 @@ jest.mock(
 );
 
 describe('DeviationsBrowseContainer', () => {
+  beforeEach(() => {
+    clearLoadedDataActionCreator.mockClear();
+    deviationsBrowseLoadCurrentPageActionCreator.mockClear();
+  });
+
   it('can be rendered correctly', () => {
     const state = createDefaultState();
 
@@ -42,7 +47,7 @@ describe('DeviationsBrowseContainer', () => {
 
     expect(wrapper).toMatchSnapshot();
     expect(clearLoadedDataActionCreator).toHaveBeenCalled();
-    expect(deviationsBrowseLoadCurrentPageActionCreator).toHaveBeenCalled();
+    expect(deviationsBrowseLoadCurrentPageActionCreator).toHaveBeenCalledWith(config);
     expect(actions).toEqual([
       { type: 'CLEAR_LOADED_DATA' },
       { type: 'LOAD_PAGE' },

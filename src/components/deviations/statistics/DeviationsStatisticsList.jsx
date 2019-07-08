@@ -24,9 +24,7 @@ export default function DeviationsStatisticsList({
   return (
     <Section>
       <Container>
-        <ul>
-          {mappedDeviations}
-        </ul>
+        {mappedDeviations}
       </Container>
     </Section>
   );

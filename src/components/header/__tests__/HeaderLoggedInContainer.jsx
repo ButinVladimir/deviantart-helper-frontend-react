@@ -89,7 +89,7 @@ describe('HeaderLoggedInContainer', () => {
     wrapper.find('button#revoke-button').simulate('click');
     const actions = store.getActions();
 
-    expect(revokeQueryActionCreator).toHaveBeenCalled();
+    expect(revokeQueryActionCreator).toHaveBeenCalledWith(config);
     expect(actions).toEqual([{ type: 'REVOKE' }]);
   });
 
@@ -111,7 +111,7 @@ describe('HeaderLoggedInContainer', () => {
     wrapper.find('button#start-fetch-data-button').simulate('click');
     const actions = store.getActions();
 
-    expect(startFetchData).toHaveBeenCalled();
+    expect(startFetchData).toHaveBeenCalledWith(config);
     expect(actions).toEqual([{ type: 'FETCH_DATA' }]);
   });
 });

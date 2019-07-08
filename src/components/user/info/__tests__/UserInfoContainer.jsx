@@ -39,7 +39,7 @@ describe('UserInfoContainer', () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-    expect(userLoadInfo).toHaveBeenCalled();
+    expect(userLoadInfo).toHaveBeenCalledWith(config);
     expect(store.getActions()).toEqual([
       { type: 'TEST_ACTION' },
     ]);

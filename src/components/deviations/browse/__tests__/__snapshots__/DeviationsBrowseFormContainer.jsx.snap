@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsBrowseFormContainer can be rendered correctly 1`] = `
+<section
+  className="section"
+  style={Object {}}
+>
+  <div
+    className="container"
+    style={Object {}}
+  >
+    <div
+      className="content"
+      style={Object {}}
+    >
+      <h1
+        className="title is-2"
+      >
+        Browse deviations
+      </h1>
+    </div>
+    <div
+      className="field"
+      style={Object {}}
+    >
+      <label
+        className="label"
+        htmlFor={null}
+        style={Object {}}
+      >
+        Title
+      </label>
+      <div
+        className="control"
+        style={Object {}}
+      >
+        <input
+          className="input"
+          disabled={false}
+          id="title"
+          name="title"
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          style={Object {}}
+          type="text"
+          value="Title"
+        />
+      </div>
+    </div>
+    <div
+      className="columns is-multiline"
+      style={Object {}}
+    >
+      <div
+        className="column"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            Published time range beginning
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete="off"
+                  className="input"
+                  disabled={false}
+                  id="published-time-begin"
+                  name="publishedTimeBegin"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  type="text"
+                  value="01.01.1970"
+                />
+                <button
+                  className="react-datepicker__close-icon"
+                  onClick={[Function]}
+                  tabIndex={-1}
+                  type="button"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="column"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            Published time range end
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete="off"
+                  className="input"
+                  disabled={false}
+                  id="published-time-end"
+                  name="publishedTimeEnd"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  readOnly={false}
+                  type="text"
+                  value="01.01.1970"
+                />
+                <button
+                  className="react-datepicker__close-icon"
+                  onClick={[Function]}
+                  tabIndex={-1}
+                  type="button"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="column"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            Sort by
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <div
+              className="select"
+              style={Object {}}
+            >
+              <select
+                disabled={false}
+                id="sort-field"
+                multiple={false}
+                name="sortField"
+                onChange={[Function]}
+                readOnly={false}
+                value="comments"
+              >
+                <option
+                  key="title"
+                  value="title"
+                >
+                  Title
+                </option>
+                <option
+                  key="publishedTime"
+                  value="publishedTime"
+                >
+                  Published time
+                </option>
+                <option
+                  key="views"
+                  value="views"
+                >
+                  Views
+                </option>
+                <option
+                  key="favourites"
+                  value="favourites"
+                >
+                  Favourites
+                </option>
+                <option
+                  key="comments"
+                  value="comments"
+                >
+                  Comments
+                </option>
+                <option
+                  key="downloads"
+                  value="downloads"
+                >
+                  Downloads
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="column is-narrow"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            Sort order
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <div
+              className="select"
+              style={Object {}}
+            >
+              <select
+                disabled={false}
+                id="sort-order"
+                multiple={false}
+                name="sortOrder"
+                onChange={[Function]}
+                readOnly={false}
+                value={-1}
+              >
+                <option
+                  key="1"
+                  value={1}
+                >
+                  Ascending
+                </option>
+                <option
+                  key="-1"
+                  value={-1}
+                >
+                  Descending
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="columns is-multiline"
+      style={Object {}}
+    >
+      <div
+        className="column"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            NSFW
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <div
+              className="select"
+              style={Object {}}
+            >
+              <select
+                disabled={false}
+                id="nsfw"
+                multiple={false}
+                name="nsfw"
+                onChange={[Function]}
+                readOnly={false}
+                value="SHOW_NSFW"
+              >
+                <option
+                  key="SHOW_ALL"
+                  value="SHOW_ALL"
+                >
+                  Show everything
+                </option>
+                <option
+                  key="SHOW_NON_NSFW"
+                  value="SHOW_NON_NSFW"
+                >
+                  Show only non-NSFW
+                </option>
+                <option
+                  key="SHOW_NSFW"
+                  value="SHOW_NSFW"
+                >
+                  Show only NSFW
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="column is-narrow"
+        style={Object {}}
+      >
+        <div
+          className="field"
+          style={Object {}}
+        >
+          <label
+            className="label"
+            htmlFor={null}
+            style={Object {}}
+          >
+            Filter by selected
+          </label>
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <label
+              className="checkbox"
+              disabled={false}
+              style={Object {}}
+            >
+              <input
+                checked={true}
+                disabled={false}
+                id="filter-by-ids"
+                name="filterbyselected"
+                onChange={[Function]}
+                type="checkbox"
+                value=""
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="columns is-multiline"
+      style={Object {}}
+    >
+      <div
+        className="column"
+        style={Object {}}
+      >
+        <nav
+          aria-label="pagination"
+          className="pagination"
+          id="pagination"
+        >
+          <a
+            className="pagination-previous"
+            disabled={false}
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+            title="This is the first page"
+          >
+            Previous
+          </a>
+          <a
+            className="pagination-next"
+            disabled={false}
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            Next
+          </a>
+          <ul
+            className="pagination-list"
+          >
+            <li
+              key="1"
+            >
+              <a
+                aria-current="page"
+                aria-label="Page 1"
+                className="pagination-link"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                1
+              </a>
+            </li>
+            <li
+              key="2"
+            >
+              <a
+                aria-current="page"
+                aria-label="Page 2"
+                className="pagination-link is-current"
+                role="button"
+                tabIndex={0}
+              >
+                2
+              </a>
+            </li>
+            <li
+              key="3"
+            >
+              <a
+                aria-current="page"
+                aria-label="Page 3"
+                className="pagination-link"
+                onClick={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                3
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div
+        className="column is-narrow"
+        style={Object {}}
+      >
+        <div
+          className="field is-grouped is-grouped-right"
+          style={Object {}}
+        >
+          <div
+            className="control"
+            style={Object {}}
+          >
+            <button
+              className="is-primary button"
+              disabled={false}
+              id="submit-button"
+              onClick={[Function]}
+              style={Object {}}
+              tabIndex={0}
+            >
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

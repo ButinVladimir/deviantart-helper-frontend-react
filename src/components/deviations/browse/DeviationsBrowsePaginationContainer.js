@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
-import deviationsBrowseLoadPageActionCreator from '../../../redux/action-creators/deviations/browse/load-page';
+import deviationsBrowseLoadPage from '../../../redux/action-creators/deviations/browse/load-page';
 import ContentPagination from '../../shared/ContentPagination';
 
 /**
@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   // Pagination in Bulma starts from 1 while pagination on backend start from 0.
   loadPageHandler:
-    page => dispatch(deviationsBrowseLoadPageActionCreator(page - 1, ownProps.config)),
+    page => dispatch(deviationsBrowseLoadPage(page - 1, ownProps.config)),
 });
 
 export default consumeConfig(

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationThumbnail can be rendered correctly when deviation is NSFW 1`] = `
+<MediaItem
+  className="image-container"
+  position="left"
+  renderAs="div"
+  style={Object {}}
+>
+  <div>
+    <img
+      alt="Title"
+      src="/path/to/thumbnail"
+    />
+  </div>
+  <div>
+    <small
+      className="has-text-grey"
+    >
+      1970-1-1 03:00:01
+    </small>
+  </div>
+  <div>
+    <a
+      href="/path/to/deviation"
+    >
+      Visit DA page
+    </a>
+  </div>
+  <Tag
+    className=""
+    color="danger"
+    remove={false}
+    renderAs="span"
+    rounded={false}
+    size={null}
+    style={Object {}}
+  >
+    NSFW
+  </Tag>
+</MediaItem>
+`;
+
+exports[`DeviationThumbnail can be rendered correctly when deviation is not NSFW 1`] = `
+<MediaItem
+  className="image-container"
+  position="left"
+  renderAs="div"
+  style={Object {}}
+>
+  <div>
+    <img
+      alt="Title"
+      src="/path/to/thumbnail"
+    />
+  </div>
+  <div>
+    <small
+      className="has-text-grey"
+    >
+      1970-1-1 03:00:01
+    </small>
+  </div>
+  <div>
+    <a
+      href="/path/to/deviation"
+    >
+      Visit DA page
+    </a>
+  </div>
+</MediaItem>
+`;

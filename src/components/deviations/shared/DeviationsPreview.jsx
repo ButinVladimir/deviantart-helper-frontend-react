@@ -47,7 +47,7 @@ export default function DeviationsPreview({
       <Media.Item position="right">
         <Field>
           <Control>
-            <Checkbox checked={selected} onChange={() => toggleSelectionHandler(id)} />
+            <Checkbox id={`selection-${id}`} checked={selected} onChange={() => toggleSelectionHandler(id)} />
           </Control>
         </Field>
       </Media.Item>
@@ -57,8 +57,6 @@ export default function DeviationsPreview({
 
 DeviationsPreview.propTypes = {
   ...DeviationThumbnail.PropTypes,
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   views: PropTypes.number.isRequired,
   favourites: PropTypes.number.isRequired,

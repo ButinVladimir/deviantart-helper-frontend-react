@@ -402,9 +402,7 @@ Array [
     <div
       className="container"
       style={Object {}}
-    >
-      <ul />
-    </div>
+    />
   </section>,
   <section
     className="section"

@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsPreview can be rendered correctly 1`] = `
+<Media
+  className=""
+  renderAs="article"
+  style={Object {}}
+>
+  <DeviationThumbnail
+    nsfw={true}
+    publishedTime={1234}
+    thumbnail={
+      Object {
+        "height": 2,
+        "src": "/path/to/thumbnail",
+        "width": 1,
+      }
+    }
+    title="Title"
+    url="/path/to/deviation"
+  />
+  <MediaItem
+    className=""
+    position="center"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Content
+      renderAs="div"
+      size={null}
+      style={Object {}}
+    >
+      <Heading
+        className=""
+        heading={false}
+        renderAs="h1"
+        size={3}
+        spaced={false}
+        subtitle={false}
+        weight={null}
+      >
+        <NavLink
+          to="/deviations/details/1"
+        >
+          Title
+        </NavLink>
+      </Heading>
+    </Content>
+    <StatisticsLevel
+      titleValuePairs={
+        Array [
+          Array [
+            "Views",
+            1,
+          ],
+          Array [
+            "Favourites",
+            2,
+          ],
+          Array [
+            "Comments",
+            3,
+          ],
+          Array [
+            "Downloads",
+            4,
+          ],
+        ]
+      }
+    />
+  </MediaItem>
+  <MediaItem
+    className=""
+    position="right"
+    renderAs="div"
+    style={Object {}}
+  >
+    <Field
+      align={null}
+      className=""
+      horizontal={false}
+      kind={null}
+      multiline={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Control
+        className=""
+        fullwidth={false}
+        iconLeft={false}
+        iconRight={false}
+        loading={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Checkbox
+          checked={true}
+          className=""
+          disabled={false}
+          id="selection-1"
+          name={null}
+          onChange={[Function]}
+          style={Object {}}
+          value=""
+        />
+      </Control>
+    </Field>
+  </MediaItem>
+</Media>
+`;
