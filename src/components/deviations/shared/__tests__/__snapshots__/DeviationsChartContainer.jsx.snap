@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsChartContainer can be rendered correctly 1`] = `
+Array [
+  <div
+    className="columns is-multiline"
+    style={Object {}}
+  >
+    <div
+      className="column"
+      style={Object {}}
+    >
+      <div
+        className="field"
+        style={Object {}}
+      >
+        <label
+          className="label"
+          htmlFor={null}
+          style={Object {}}
+        >
+          Data set
+        </label>
+        <div
+          className="control"
+          style={Object {}}
+        >
+          <div
+            className="select"
+            style={Object {}}
+          >
+            <select
+              disabled={false}
+              id="data-set"
+              multiple={false}
+              name="data-set"
+              onChange={[Function]}
+              readOnly={false}
+              value={4}
+            >
+              <option
+                key="1"
+                value={1}
+              >
+                Views
+              </option>
+              <option
+                key="2"
+                value={2}
+              >
+                Favourites
+              </option>
+              <option
+                key="3"
+                value={3}
+              >
+                Comments
+              </option>
+              <option
+                key="4"
+                value={4}
+              >
+                Downloads
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+      style={Object {}}
+    >
+      <div
+        className="field"
+        style={Object {}}
+      >
+        <label
+          className="label"
+          htmlFor={null}
+          style={Object {}}
+        >
+          Round period
+        </label>
+        <div
+          className="control"
+          style={Object {}}
+        >
+          <div
+            className="select"
+            style={Object {}}
+          >
+            <select
+              disabled={false}
+              id="round-period"
+              multiple={false}
+              name="round-period"
+              onChange={[Function]}
+              readOnly={false}
+              value={14400000}
+            >
+              <option
+                key="1"
+                value={1}
+              >
+                No rounding
+              </option>
+              <option
+                key="60000"
+                value={60000}
+              >
+                1 minute
+              </option>
+              <option
+                key="600000"
+                value={600000}
+              >
+                10 minutes
+              </option>
+              <option
+                key="3600000"
+                value={3600000}
+              >
+                1 hour
+              </option>
+              <option
+                key="14400000"
+                value={14400000}
+              >
+                4 hours
+              </option>
+              <option
+                key="43200000"
+                value={43200000}
+              >
+                12 hours
+              </option>
+              <option
+                key="86400000"
+                value={86400000}
+              >
+                1 day
+              </option>
+              <option
+                key="604800000"
+                value={604800000}
+              >
+                7 days
+              </option>
+              <option
+                key="864000000"
+                value={864000000}
+              >
+                10 days
+              </option>
+              <option
+                key="2592000000"
+                value={2592000000}
+              >
+                30 days
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+      style={Object {}}
+    >
+      <div
+        className="field"
+        style={Object {}}
+      >
+        <label
+          className="label"
+          htmlFor={null}
+          style={Object {}}
+        >
+          Show time
+        </label>
+        <div
+          className="control"
+          style={Object {}}
+        >
+          <label
+            className="checkbox"
+            disabled={false}
+            style={Object {}}
+          >
+            <input
+              checked={true}
+              disabled={false}
+              id="show-time"
+              name="show-time"
+              onChange={[Function]}
+              type="checkbox"
+              value=""
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="level"
+    style={Object {}}
+  >
+    <div
+      className="level-item"
+      style={Object {}}
+    >
+      <div
+        className="recharts-responsive-container"
+        style={
+          Object {
+            "height": 550,
+            "maxHeight": undefined,
+            "minHeight": undefined,
+            "minWidth": undefined,
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "height": 0,
+              "position": "absolute",
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;

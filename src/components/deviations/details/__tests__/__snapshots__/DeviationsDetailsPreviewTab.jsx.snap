@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetailsPreviewTab can be rendered correctly 1`] = `
+<Section
+  className=""
+  renderAs="section"
+  size={null}
+  style={Object {}}
+>
+  <Container
+    breakpoint={null}
+    fluid={false}
+    renderAs="div"
+    style={Object {}}
+  >
+    <Level
+      breakpoint={null}
+      className=""
+      renderAs="div"
+      style={Object {}}
+    >
+      <LevelItem
+        className=""
+        renderAs="div"
+        style={Object {}}
+      >
+        <img
+          alt="Deviation title"
+          src="/path/to/image"
+        />
+      </LevelItem>
+    </Level>
+  </Container>
+</Section>
+`;

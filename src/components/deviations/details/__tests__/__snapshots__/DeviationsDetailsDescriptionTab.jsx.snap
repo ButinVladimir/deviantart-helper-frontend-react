@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetailsDescriptionTab can be rendered correctly 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Media
+        className=""
+        renderAs="article"
+        style={Object {}}
+      >
+        <DeviationThumbnail
+          nsfw={true}
+          publishedTime={4}
+          thumbnail={
+            Object {
+              "height": 2,
+              "src": "/path/to/thumbnail",
+              "width": 1,
+            }
+          }
+          title="Deviation title"
+          url="https://path/to/deviation"
+        />
+        <MediaItem
+          className=""
+          position="center"
+          renderAs="div"
+          style={Object {}}
+        >
+          <Content
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Description",
+              }
+            }
+            renderAs="div"
+            size={null}
+            style={Object {}}
+          />
+        </MediaItem>
+      </Media>
+    </Container>
+  </Section>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Box
+        className=""
+        renderAs="div"
+        style={Object {}}
+      >
+        <StatisticsLevel
+          titleValuePairs={
+            Array [
+              Array [
+                "Views",
+                1,
+              ],
+              Array [
+                "Favourites",
+                2,
+              ],
+              Array [
+                "Comments",
+                3,
+              ],
+              Array [
+                "Downloads",
+                4,
+              ],
+            ]
+          }
+        />
+      </Box>
+    </Container>
+  </Section>
+</Fragment>
+`;

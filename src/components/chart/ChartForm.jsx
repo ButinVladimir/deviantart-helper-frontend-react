@@ -29,7 +29,12 @@ export default function ChartForm({
         <Field>
           <FormLabel>Data set</FormLabel>
           <Control>
-            <Select name="data-set" value={dataSet} onChange={dataSetChangeHandler}>
+            <Select
+              id="data-set"
+              name="data-set"
+              value={dataSet}
+              onChange={dataSetChangeHandler}
+            >
               {dataSetOptionsElements}
             </Select>
           </Control>
@@ -40,7 +45,12 @@ export default function ChartForm({
         <Field>
           <FormLabel>Round period</FormLabel>
           <Control>
-            <Select name="round-period" value={roundPeriod} onChange={roundPeriodChangeHandler}>
+            <Select
+              id="round-period"
+              name="round-period"
+              value={roundPeriod}
+              onChange={roundPeriodChangeHandler}
+            >
               {roundPeriodOptionsElements}
             </Select>
           </Control>
@@ -51,7 +61,12 @@ export default function ChartForm({
         <Field>
           <FormLabel>Show time</FormLabel>
           <Control>
-            <Checkbox name="round-period" checked={showTime} onChange={showTimeChangeHandler} />
+            <Checkbox
+              id="show-time"
+              name="show-time"
+              checked={showTime}
+              onChange={showTimeChangeHandler}
+            />
           </Control>
         </Field>
       </Columns.Column>

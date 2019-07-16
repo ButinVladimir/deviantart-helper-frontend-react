@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetails can be rendered correctly when details are loading 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Content
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={2}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          Deviation details
+        </Heading>
+      </Content>
+      <Tabs
+        align={null}
+        className=""
+        fullwidth={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+        type="toggle"
+      >
+        <Tab
+          active={false}
+          className=""
+          key="description"
+          renderAs="a"
+          style={Object {}}
+        >
+          Description
+        </Tab>
+        <Tab
+          active={true}
+          className=""
+          key="preview"
+          renderAs="a"
+          style={Object {}}
+        >
+          Preview
+        </Tab>
+        <Tab
+          active={false}
+          className=""
+          key="chart"
+          renderAs="a"
+          style={Object {}}
+        >
+          Chart
+        </Tab>
+      </Tabs>
+    </Container>
+  </Section>
+  <CustomLoader />
+</Fragment>
+`;
+
+exports[`DeviationsDetails when details are not loading can be rendered when selected tab is chart 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Content
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={2}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          Details
+        </Heading>
+      </Content>
+      <Tabs
+        align={null}
+        className=""
+        fullwidth={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+        type="toggle"
+      >
+        <Tab
+          active={false}
+          className=""
+          key="description"
+          renderAs="a"
+          style={Object {}}
+        >
+          Description
+        </Tab>
+        <Tab
+          active={false}
+          className=""
+          key="preview"
+          renderAs="a"
+          style={Object {}}
+        >
+          Preview
+        </Tab>
+        <Tab
+          active={true}
+          className=""
+          key="chart"
+          renderAs="a"
+          style={Object {}}
+        >
+          Chart
+        </Tab>
+      </Tabs>
+    </Container>
+  </Section>
+  <Component />
+</Fragment>
+`;
+
+exports[`DeviationsDetails when details are not loading can be rendered when selected tab is description 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Content
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={2}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          Details
+        </Heading>
+      </Content>
+      <Tabs
+        align={null}
+        className=""
+        fullwidth={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+        type="toggle"
+      >
+        <Tab
+          active={true}
+          className=""
+          key="description"
+          renderAs="a"
+          style={Object {}}
+        >
+          Description
+        </Tab>
+        <Tab
+          active={false}
+          className=""
+          key="preview"
+          renderAs="a"
+          style={Object {}}
+        >
+          Preview
+        </Tab>
+        <Tab
+          active={false}
+          className=""
+          key="chart"
+          renderAs="a"
+          style={Object {}}
+        >
+          Chart
+        </Tab>
+      </Tabs>
+    </Container>
+  </Section>
+  <Connect(DeviationsDetailsDescriptionTab) />
+</Fragment>
+`;
+
+exports[`DeviationsDetails when details are not loading can be rendered when selected tab is preview 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Content
+        renderAs="div"
+        size={null}
+        style={Object {}}
+      >
+        <Heading
+          className=""
+          heading={false}
+          renderAs="h1"
+          size={2}
+          spaced={false}
+          subtitle={false}
+          weight={null}
+        >
+          Details
+        </Heading>
+      </Content>
+      <Tabs
+        align={null}
+        className=""
+        fullwidth={false}
+        renderAs="div"
+        size={null}
+        style={Object {}}
+        type="toggle"
+      >
+        <Tab
+          active={false}
+          className=""
+          key="description"
+          renderAs="a"
+          style={Object {}}
+        >
+          Description
+        </Tab>
+        <Tab
+          active={true}
+          className=""
+          key="preview"
+          renderAs="a"
+          style={Object {}}
+        >
+          Preview
+        </Tab>
+        <Tab
+          active={false}
+          className=""
+          key="chart"
+          renderAs="a"
+          style={Object {}}
+        >
+          Chart
+        </Tab>
+      </Tabs>
+    </Container>
+  </Section>
+  <Connect(DeviationsDetailsPreviewTab) />
+</Fragment>
+`;
