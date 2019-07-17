@@ -201,6 +201,43 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      className="column is-narrow"
+      style={Object {}}
+    >
+      <div
+        className="field"
+        style={Object {}}
+      >
+        <label
+          className="label"
+          htmlFor={null}
+          style={Object {}}
+        >
+          Show differences
+        </label>
+        <div
+          className="control"
+          style={Object {}}
+        >
+          <label
+            className="checkbox"
+            disabled={false}
+            style={Object {}}
+          >
+            <input
+              checked={false}
+              disabled={false}
+              id="show-differences"
+              name="show-differences"
+              onChange={[Function]}
+              type="checkbox"
+              value=""
+            />
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     className="level"

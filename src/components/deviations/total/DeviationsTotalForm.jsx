@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
+import Tabs from 'react-bulma-components/lib/components/tabs';
 import Heading from 'react-bulma-components/lib/components/heading';
 import {
   Field,
@@ -12,15 +13,20 @@ import {
 } from 'react-bulma-components/lib/components/form';
 import Button from 'react-bulma-components/lib/components/button';
 import { datetimePickerProps } from '../../../helpers/datepicker-props';
+import * as tabs from '../../../consts/tabs';
+import convertTabs from '../../../helpers/convert-tabs';
 
 export default function DeviationsTotalForm({
+  tab,
   timestampBegin,
   timestampEnd,
   totalLoading,
+  changeTabHandler,
   timestampBeginChangeHandler,
   timestampEndChangeHandler,
   submitHandler,
 }) {
+  const mappedTabs = convertTabs(tabs.deviationTotalTabs, tab, changeTabHandler);
   const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
   const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
 
@@ -30,6 +36,11 @@ export default function DeviationsTotalForm({
         <Content>
           <Heading size={2}>Deviation total statistics</Heading>
         </Content>
+
+        <Tabs type="toggle">
+          {mappedTabs}
+        </Tabs>
+
         <Field horizontal>
           <Field.Label>
             <Label>Timestamp range beginning</Label>
@@ -90,9 +101,11 @@ export default function DeviationsTotalForm({
 }
 
 DeviationsTotalForm.propTypes = {
+  tab: PropTypes.string.isRequired,
   timestampBegin: PropTypes.number,
   timestampEnd: PropTypes.number,
   totalLoading: PropTypes.bool.isRequired,
+  changeTabHandler: PropTypes.func.isRequired,
   timestampBeginChangeHandler: PropTypes.func.isRequired,
   timestampEndChangeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,

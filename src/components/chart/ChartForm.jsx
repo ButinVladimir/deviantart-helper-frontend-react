@@ -16,9 +16,11 @@ export default function ChartForm({
   dataSet,
   roundPeriod,
   showTime,
+  showDifferences,
   dataSetChangeHandler,
   roundPeriodChangeHandler,
   showTimeChangeHandler,
+  showDifferencesChangeHandler,
 }) {
   const dataSetOptionsElements = convertOptions(Array.from(dataSetTitlesMap.entries()));
   const roundPeriodOptionsElements = convertOptions(roundPeriodOptions);
@@ -70,6 +72,20 @@ export default function ChartForm({
           </Control>
         </Field>
       </Columns.Column>
+
+      <Columns.Column narrow>
+        <Field>
+          <FormLabel>Show differences</FormLabel>
+          <Control>
+            <Checkbox
+              id="show-differences"
+              name="show-differences"
+              checked={showDifferences}
+              onChange={showDifferencesChangeHandler}
+            />
+          </Control>
+        </Field>
+      </Columns.Column>
     </Columns>
   );
 }
@@ -79,7 +95,9 @@ ChartForm.propTypes = {
   dataSet: PropTypes.number.isRequired,
   roundPeriod: PropTypes.number.isRequired,
   showTime: PropTypes.bool.isRequired,
+  showDifferences: PropTypes.bool.isRequired,
   dataSetChangeHandler: PropTypes.func.isRequired,
   roundPeriodChangeHandler: PropTypes.func.isRequired,
   showTimeChangeHandler: PropTypes.func.isRequired,
+  showDifferencesChangeHandler: PropTypes.func.isRequired,
 };

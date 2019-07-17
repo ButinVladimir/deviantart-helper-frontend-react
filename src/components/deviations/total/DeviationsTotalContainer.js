@@ -3,7 +3,6 @@ import consumeConfig from '../../shared/ConfigContext';
 import DeviationsTotal from './DeviationsTotal';
 import clearLoadedDataActionCreator from '../../../redux/action-creators/shared/clear-loaded-data';
 import deviationsTotalStartLoading from '../../../redux/action-creators/deviations/total/start-loading';
-import deviationsTotalChangeTab from '../../../redux/action-creators/deviations/total/change-tab';
 
 /**
  * @description
@@ -27,7 +26,6 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clearDataHandler: () => dispatch(clearLoadedDataActionCreator()),
-  changeTabHandler: tab => () => dispatch(deviationsTotalChangeTab(tab, ownProps.config)),
   preloadStatisticsHandler: () => dispatch(
     deviationsTotalStartLoading(ownProps.config),
   ),

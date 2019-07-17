@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
+import Tabs from 'react-bulma-components/lib/components/tabs';
 import Heading from 'react-bulma-components/lib/components/heading';
 import Columns from 'react-bulma-components/lib/components/columns';
 import Button from 'react-bulma-components/lib/components/button';
@@ -20,10 +21,13 @@ import convertOptions from '../../../helpers/convert-options';
 import { orderOptions, deviationsSortOptions } from '../../../consts/sort';
 import { nsfwOptions } from '../../../consts/nsfw-options';
 import { datePickerProps, datetimePickerProps } from '../../../helpers/datepicker-props';
+import * as tabs from '../../../consts/tabs';
+import convertTabs from '../../../helpers/convert-tabs';
 
 export default function DeviationsStatisticsForm({
   page,
   pageCount,
+  tab,
   sortField,
   sortOrder,
   title,
@@ -35,6 +39,7 @@ export default function DeviationsStatisticsForm({
   filterByIds,
   pageLoading,
   showPagination,
+  changeTabHandler,
   sortFieldChangeHandler,
   sortOrderChangeHandler,
   titleChangeHandler,
@@ -47,6 +52,7 @@ export default function DeviationsStatisticsForm({
   submitHandler,
   loadPageHandler,
 }) {
+  const mappedTabs = convertTabs(tabs.deviationStatisticsTabs, tab, changeTabHandler);
   const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
   const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
   const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
@@ -61,6 +67,11 @@ export default function DeviationsStatisticsForm({
         <Content>
           <Heading size={2}>Deviations detailed statistics</Heading>
         </Content>
+
+        <Tabs type="toggle">
+          {mappedTabs}
+        </Tabs>
+
         <Field>
           <Label>Title</Label>
           <Control>
@@ -241,6 +252,7 @@ export default function DeviationsStatisticsForm({
 DeviationsStatisticsForm.propTypes = {
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
+  tab: PropTypes.string.isRequired,
   sortField: PropTypes.string.isRequired,
   sortOrder: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -252,6 +264,7 @@ DeviationsStatisticsForm.propTypes = {
   filterByIds: PropTypes.bool.isRequired,
   pageLoading: PropTypes.bool.isRequired,
   showPagination: PropTypes.bool.isRequired,
+  changeTabHandler: PropTypes.func.isRequired,
   sortFieldChangeHandler: PropTypes.func.isRequired,
   sortOrderChangeHandler: PropTypes.func.isRequired,
   titleChangeHandler: PropTypes.func.isRequired,

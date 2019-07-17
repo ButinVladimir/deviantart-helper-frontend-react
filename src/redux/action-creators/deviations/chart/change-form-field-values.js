@@ -52,3 +52,14 @@ export const changeRoundPeriodActionCreator = roundPeriod => changeFormFieldValu
 export const changeShowTimeActionCreator = showTime => changeFormFieldValues({
   showTime,
 });
+
+/**
+ * @description
+ * Creates action to change show differences value for deviations chart.
+ *
+ * @param {boolean} showDifferences - Show time value.
+ * @returns {DeviationsChartChangeFormFieldValuesAction} Action.
+ */
+export const changeShowDifferencesActionCreator = showDifferences => changeFormFieldValues({
+  showDifferences,
+});

@@ -10,6 +10,7 @@ describe('Default deviations chart state', () => {
       dataSet: DATA_SET_VIEWS,
       roundPeriod: ROUND_PERIOD_1_DAY,
       showTime: false,
+      showDifferences: false,
     });
   });
 });

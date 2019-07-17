@@ -33,4 +33,14 @@ describe('DeviationsCharthangeFormFieldValues action creator', () => {
       showTime,
     });
   });
+
+  it('can change show differences', () => {
+    const showDifferences = true;
+    const action = deviationsChartForm.changeShowDifferencesActionCreator(showDifferences);
+
+    expect(action).toEqual({
+      type: DEVIATIONS_CHART_CHANGE_FORM_FIELD_VALUES,
+      showDifferences,
+    });
+  });
 });

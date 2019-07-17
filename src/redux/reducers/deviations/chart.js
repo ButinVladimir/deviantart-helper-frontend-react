@@ -5,6 +5,7 @@ const formFields = [
   'dataSet',
   'roundPeriod',
   'showTime',
+  'showDifferences',
 ];
 
 /**

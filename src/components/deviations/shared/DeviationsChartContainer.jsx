@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   dataSet: state.deviations.chart.dataSet,
   roundPeriod: state.deviations.chart.roundPeriod,
   showTime: state.deviations.chart.showTime,
+  showDifferences: state.deviations.chart.showDifferences,
 });
 
 /**
@@ -31,6 +32,8 @@ const mapDispatchToProps = dispatch => ({
     e => dispatch(deviationChart.changeRoundPeriodActionCreator(e.target.value)),
   showTimeChangeHandler:
     e => dispatch(deviationChart.changeShowTimeActionCreator(e.target.checked)),
+  showDifferencesChangeHandler:
+    e => dispatch(deviationChart.changeShowDifferencesActionCreator(e.target.checked)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chart);

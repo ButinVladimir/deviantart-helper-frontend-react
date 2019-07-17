@@ -67,6 +67,26 @@ describe('Deviations chart reducer', () => {
     });
   });
 
+  it('handles changing show differences', () => {
+    const sharedState = createDefaultSharedState();
+    const deviationsChartState = createDefaultDeviationsChartState();
+
+    const showDifferences = true;
+    const action = deviationsChartForm.changeShowDifferencesActionCreator(showDifferences);
+
+    const newDeviationsChartState = deviationsChartReducer(
+      deviationsChartState,
+      sharedState,
+      action,
+    );
+
+    expect(newDeviationsChartState).not.toBe(deviationsChartState);
+    expect(newDeviationsChartState).toEqual({
+      ...deviationsChartState,
+      showDifferences,
+    });
+  });
+
   it('handles unrelated action', () => {
     const sharedState = createDefaultSharedState();
     const deviationsChartState = createDefaultDeviationsChartState();

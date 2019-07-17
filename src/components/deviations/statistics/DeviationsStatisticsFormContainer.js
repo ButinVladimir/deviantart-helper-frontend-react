@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import * as deviationsStatisticsForm from '../../../redux/action-creators/deviations/statistics/change-form-field-values';
-import deviationsStatisticsLoadPageActionCreator, { deviationsStatisticsLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/statistics/load-page';
+import deviationsStatisticsChangeTab from '../../../redux/action-creators/deviations/statistics/change-tab';
+import deviationsStatisticsLoadPage, { deviationsStatisticsLoadFirstPageActionCreator } from '../../../redux/action-creators/deviations/statistics/load-page';
 import DeviationsStatisticsForm from './DeviationsStatisticsForm';
 
 /**
@@ -12,6 +13,7 @@ import DeviationsStatisticsForm from './DeviationsStatisticsForm';
  * @returns {Object} Props.
  */
 const mapStateToProps = state => ({
+  tab: state.deviations.statistics.tab,
   page: state.deviations.statistics.page,
   pageCount: state.deviations.statistics.pageCount,
   sortField: state.deviations.statistics.sortField,
@@ -36,6 +38,9 @@ const mapStateToProps = state => ({
  * @returns {Object} Props.
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  changeTabHandler: tab => () => {
+    dispatch(deviationsStatisticsChangeTab(tab, ownProps.config));
+  },
   titleChangeHandler:
     e => dispatch(deviationsStatisticsForm.changeTitleActionCreator(e.target.value)),
   publishedTimeBeginChangeHandler:
@@ -57,7 +62,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   submitHandler: () => dispatch(deviationsStatisticsLoadFirstPageActionCreator(ownProps.config)),
   // Pagination in Bulma starts from 1 while pagination on backend start from 0.
   loadPageHandler:
-    page => dispatch(deviationsStatisticsLoadPageActionCreator(page - 1, ownProps.config)),
+    page => dispatch(deviationsStatisticsLoadPage(page - 1, ownProps.config)),
 });
 
 export default consumeConfig(

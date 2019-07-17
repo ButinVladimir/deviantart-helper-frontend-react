@@ -15,6 +15,7 @@ jest.mock(
     changeDataSetActionCreator: jest.fn(() => ({ type: 'CHANGE_DATA_SET' })),
     changeRoundPeriodActionCreator: jest.fn(() => ({ type: 'CHANGE_ROUND_PERIOD' })),
     changeShowTimeActionCreator: jest.fn(() => ({ type: 'CHANGE_SHOW_TIME' })),
+    changeShowDifferencesActionCreator: jest.fn(() => ({ type: 'CHANGE_SHOW_DIFFERENCES' })),
   }),
 );
 
@@ -94,5 +95,20 @@ describe('DeviationsChartContainer', () => {
 
     expect(deviationsChart.changeShowTimeActionCreator).toHaveBeenCalled();
     expect(actions).toEqual([{ type: 'CHANGE_SHOW_TIME' }]);
+  });
+
+  it('can handle changing show differences', () => {
+    const store = createStore();
+    const wrapper = mount(
+      <Provider store={store}>
+        <DeviationsChartContainer {...props} />
+      </Provider>,
+    );
+
+    wrapper.find('input#show-differences').simulate('change');
+    const actions = store.getActions();
+
+    expect(deviationsChart.changeShowDifferencesActionCreator).toHaveBeenCalled();
+    expect(actions).toEqual([{ type: 'CHANGE_SHOW_DIFFERENCES' }]);
   });
 });

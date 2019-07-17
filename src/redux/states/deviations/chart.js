@@ -10,6 +10,7 @@ import { ROUND_PERIOD_1_DAY } from '../../../consts/round-periods';
  * @property {number} dataSet - Selected data set.
  * @property {number} roundPeriod - Rounding period for data.
  * @property {boolean} showTime - Show time.
+ * @property {boolean} showDifferences - Show differences.
  */
 
 /**
@@ -22,4 +23,5 @@ export default () => ({
   dataSet: DATA_SET_VIEWS,
   roundPeriod: ROUND_PERIOD_1_DAY,
   showTime: false,
+  showDifferences: false,
 });
