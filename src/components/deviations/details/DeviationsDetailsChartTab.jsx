@@ -26,8 +26,8 @@ export default function DeviationsDetailsChartTab({
   const titlesMap = new Map();
   titlesMap.set(id, title);
 
-  const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
-  const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
+  const timestampBeginDate = timestampBegin !== null ? new Date(timestampBegin) : null;
+  const timestampEndDate = timestampEnd != null ? new Date(timestampEnd) : null;
 
   return (
     <>
@@ -42,9 +42,10 @@ export default function DeviationsDetailsChartTab({
                 <Control>
                   <DatePicker
                     {...datetimePickerProps}
+                    id="timestamp-begin"
                     disabled={metadataLoading}
                     selectsStart
-                    name="publishedTimeBegin"
+                    name="timestampBegin"
                     startDate={timestampBeginDate}
                     endDate={timestampEndDate}
                     selected={timestampBeginDate}
@@ -64,9 +65,10 @@ export default function DeviationsDetailsChartTab({
                 <Control>
                   <DatePicker
                     {...datetimePickerProps}
+                    id="timestamp-end"
                     disabled={metadataLoading}
                     selectsEnd
-                    name="publishedTimeBegin"
+                    name="timestampEnd"
                     startDate={timestampBeginDate}
                     endDate={timestampEndDate}
                     selected={timestampEndDate}
@@ -82,7 +84,7 @@ export default function DeviationsDetailsChartTab({
             <Field.Body>
               <Field>
                 <Control>
-                  <Button color="primary" onClick={submitHandler} loading={metadataLoading}>Submit</Button>
+                  <Button id="submit-button" color="primary" onClick={submitHandler} loading={metadataLoading}>Submit</Button>
                 </Control>
               </Field>
             </Field.Body>

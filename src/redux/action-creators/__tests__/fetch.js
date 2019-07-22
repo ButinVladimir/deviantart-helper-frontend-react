@@ -213,7 +213,7 @@ describe('Fetch action creator helper', () => {
   });
 
   it('handles requests with status 500', async () => {
-    const errorText = 'An test error has occurred, ignore in logs';
+    const errorText = 'A test error has occurred, ignore in logs';
     const fetchPromise = Promise.resolve({
       status: 500,
       text: () => Promise.resolve(errorText),
@@ -243,7 +243,7 @@ describe('Fetch action creator helper', () => {
   });
 
   it('handles requests with exceptions', async () => {
-    const errorText = 'An test exception has been thrown, ignore in logs';
+    const errorText = 'A test exception has been thrown, ignore in logs';
     jest.spyOn(global, 'fetch').mockImplementation(() => { throw new Error(errorText); });
     const successActionCreator = jest.fn();
 

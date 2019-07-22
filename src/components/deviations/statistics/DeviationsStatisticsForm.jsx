@@ -53,10 +53,10 @@ export default function DeviationsStatisticsForm({
   loadPageHandler,
 }) {
   const mappedTabs = convertTabs(tabs.deviationStatisticsTabs, tab, changeTabHandler);
-  const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
-  const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
-  const timestampBeginDate = timestampBegin ? new Date(timestampBegin) : null;
-  const timestampEndDate = timestampEnd ? new Date(timestampEnd) : null;
+  const publishedTimeBeginDate = publishedTimeBegin !== null ? new Date(publishedTimeBegin) : null;
+  const publishedTimeEndDate = publishedTimeEnd !== null ? new Date(publishedTimeEnd) : null;
+  const timestampBeginDate = timestampBegin !== null ? new Date(timestampBegin) : null;
+  const timestampEndDate = timestampEnd !== null ? new Date(timestampEnd) : null;
   const sortOptions = convertOptions(deviationsSortOptions);
   const orderOptionsElements = convertOptions(orderOptions);
   const nsfwOptionsElements = convertOptions(nsfwOptions);

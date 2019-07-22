@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetailsDescriptionTabContainer can be rendered correctly 1`] = `
+Array [
+  <section
+    className="section"
+    style={Object {}}
+  >
+    <div
+      className="container"
+      style={Object {}}
+    >
+      <article
+        className="media"
+        style={Object {}}
+      >
+        <div
+          className="image-container media-left"
+          style={Object {}}
+        >
+          <div>
+            <img
+              alt="Title"
+              src="/path/to/image"
+            />
+          </div>
+          <div>
+            <small
+              className="has-text-grey"
+            >
+              1970-1-1 03:00:00
+            </small>
+          </div>
+          <div>
+            <a
+              href="http://path/to/deviation"
+            >
+              Visit DA page
+            </a>
+          </div>
+          <span
+            className="tag is-danger"
+            style={Object {}}
+          >
+            NSFW
+          </span>
+        </div>
+        <div
+          className="media-content"
+          style={Object {}}
+        >
+          <div
+            className="content"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Description",
+              }
+            }
+            style={Object {}}
+          />
+        </div>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="section"
+    style={Object {}}
+  >
+    <div
+      className="container"
+      style={Object {}}
+    >
+      <div
+        className="box"
+        style={Object {}}
+      >
+        <div
+          className="level is-tablet"
+          style={Object {}}
+        >
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  2
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Views
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  3
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Favourites
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  4
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Comments
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+            style={Object {}}
+          >
+            <div
+              className="content"
+              style={Object {}}
+            >
+              <div>
+                <h1
+                  className="title is-4"
+                >
+                  5
+                </h1>
+              </div>
+              <div>
+                <h1
+                  className="subtitle is-6 is-uppercase"
+                >
+                  Downloads
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+]
+`;

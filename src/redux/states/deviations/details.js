@@ -67,7 +67,7 @@ export default () => ({
   comments: 0,
   downloads: 0,
   timestampBegin,
-  timestampEnd: 0,
+  timestampEnd: null,
   metadata: null,
   detailsLoading: false,
   metadataLoading: false,

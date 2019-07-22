@@ -43,8 +43,8 @@ export default function DeviationsBrowseForm({
   submitHandler,
   loadPageHandler,
 }) {
-  const publishedTimeBeginDate = publishedTimeBegin ? new Date(publishedTimeBegin) : null;
-  const publishedTimeEndDate = publishedTimeEnd ? new Date(publishedTimeEnd) : null;
+  const publishedTimeBeginDate = publishedTimeBegin !== null ? new Date(publishedTimeBegin) : null;
+  const publishedTimeEndDate = publishedTimeEnd !== null ? new Date(publishedTimeEnd) : null;
   const sortOptions = convertOptions(deviationsSortOptions);
   const orderOptionsElements = convertOptions(orderOptions);
   const nsfwOptionsElements = convertOptions(nsfwOptions);

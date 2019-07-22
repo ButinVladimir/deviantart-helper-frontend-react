@@ -27,7 +27,7 @@ describe('Default deviations details state', () => {
       favourites: 0,
       comments: 0,
       downloads: 0,
-      timestampEnd: 0,
+      timestampEnd: null,
       metadata: null,
       detailsLoading: false,
       metadataLoading: false,

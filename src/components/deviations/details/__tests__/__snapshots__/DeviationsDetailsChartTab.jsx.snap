@@ -1,0 +1,609 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetailsChartTab can be rendered correctly when timestamps are not null 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Field
+        align={null}
+        className=""
+        horizontal={true}
+        kind={null}
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size={null}
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Timestamp range beginning
+          </Label>
+        </FieldLabel>
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <DatePicker
+                allowSameDay={false}
+                autoComplete="off"
+                className="input"
+                dateFormat="dd.MM.yyyy HH:mm"
+                dateFormatCalendar="LLLL yyyy"
+                disabled={false}
+                disabledKeyboardNavigation={false}
+                dropdownMode="scroll"
+                endDate={1970-01-01T00:00:00.003Z}
+                id="timestamp-begin"
+                inlineFocusSelectedMonth={false}
+                isClearable={true}
+                monthsShown={1}
+                name="timestampBegin"
+                nextMonthButtonLabel="Next month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClickOutside={[Function]}
+                onFocus={[Function]}
+                onInputClick={[Function]}
+                onInputError={[Function]}
+                onKeyDown={[Function]}
+                onMonthChange={[Function]}
+                onSelect={[Function]}
+                onYearChange={[Function]}
+                preventOpenOnFocus={false}
+                previousMonthButtonLabel="Previous Month"
+                readOnly={false}
+                renderDayContents={[Function]}
+                selected={1970-01-01T00:00:00.002Z}
+                selectsStart={true}
+                shouldCloseOnSelect={true}
+                showMonthDropdown={true}
+                showMonthYearPicker={false}
+                showTimeInput={false}
+                showTimeSelect={true}
+                showYearDropdown={true}
+                startDate={1970-01-01T00:00:00.002Z}
+                strictParsing={false}
+                timeCaption="Time"
+                timeFormat="HH:mm"
+                timeInputLabel="Time"
+                timeIntervals={30}
+                withPortal={true}
+              />
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+      <Field
+        align={null}
+        className=""
+        horizontal={true}
+        kind={null}
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size="normal"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Timestamp range end
+          </Label>
+        </FieldLabel>
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <DatePicker
+                allowSameDay={false}
+                autoComplete="off"
+                className="input"
+                dateFormat="dd.MM.yyyy HH:mm"
+                dateFormatCalendar="LLLL yyyy"
+                disabled={false}
+                disabledKeyboardNavigation={false}
+                dropdownMode="scroll"
+                endDate={1970-01-01T00:00:00.003Z}
+                id="timestamp-end"
+                inlineFocusSelectedMonth={false}
+                isClearable={true}
+                monthsShown={1}
+                name="timestampEnd"
+                nextMonthButtonLabel="Next month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClickOutside={[Function]}
+                onFocus={[Function]}
+                onInputClick={[Function]}
+                onInputError={[Function]}
+                onKeyDown={[Function]}
+                onMonthChange={[Function]}
+                onSelect={[Function]}
+                onYearChange={[Function]}
+                preventOpenOnFocus={false}
+                previousMonthButtonLabel="Previous Month"
+                readOnly={false}
+                renderDayContents={[Function]}
+                selected={1970-01-01T00:00:00.003Z}
+                selectsEnd={true}
+                shouldCloseOnSelect={true}
+                showMonthDropdown={true}
+                showMonthYearPicker={false}
+                showTimeInput={false}
+                showTimeSelect={true}
+                showYearDropdown={true}
+                startDate={1970-01-01T00:00:00.002Z}
+                strictParsing={false}
+                timeCaption="Time"
+                timeFormat="HH:mm"
+                timeInputLabel="Time"
+                timeIntervals={30}
+                withPortal={true}
+              />
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+      <Field
+        align={null}
+        className=""
+        horizontal={false}
+        kind="group"
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size="normal"
+          style={Object {}}
+        />
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <Button
+                className=""
+                color="primary"
+                disabled={false}
+                fullwidth={false}
+                id="submit-button"
+                inverted={false}
+                isSelected={false}
+                isStatic={false}
+                loading={false}
+                onClick={[Function]}
+                outlined={false}
+                remove={false}
+                renderAs="button"
+                reset={false}
+                rounded={false}
+                size={null}
+                state={null}
+                style={Object {}}
+                submit={false}
+                text={false}
+              >
+                Submit
+              </Button>
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+    </Container>
+  </Section>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Connect(Chart)
+        metadata={Object {}}
+        titlesMap={
+          Map {
+            "1234-567" => "Title",
+          }
+        }
+      />
+    </Container>
+  </Section>
+</Fragment>
+`;
+
+exports[`DeviationsDetailsChartTab can be rendered correctly when timestamps are null 1`] = `
+<Fragment>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Field
+        align={null}
+        className=""
+        horizontal={true}
+        kind={null}
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size={null}
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Timestamp range beginning
+          </Label>
+        </FieldLabel>
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <DatePicker
+                allowSameDay={false}
+                autoComplete="off"
+                className="input"
+                dateFormat="dd.MM.yyyy HH:mm"
+                dateFormatCalendar="LLLL yyyy"
+                disabled={false}
+                disabledKeyboardNavigation={false}
+                dropdownMode="scroll"
+                endDate={null}
+                id="timestamp-begin"
+                inlineFocusSelectedMonth={false}
+                isClearable={true}
+                monthsShown={1}
+                name="timestampBegin"
+                nextMonthButtonLabel="Next month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClickOutside={[Function]}
+                onFocus={[Function]}
+                onInputClick={[Function]}
+                onInputError={[Function]}
+                onKeyDown={[Function]}
+                onMonthChange={[Function]}
+                onSelect={[Function]}
+                onYearChange={[Function]}
+                preventOpenOnFocus={false}
+                previousMonthButtonLabel="Previous Month"
+                readOnly={false}
+                renderDayContents={[Function]}
+                selected={null}
+                selectsStart={true}
+                shouldCloseOnSelect={true}
+                showMonthDropdown={true}
+                showMonthYearPicker={false}
+                showTimeInput={false}
+                showTimeSelect={true}
+                showYearDropdown={true}
+                startDate={null}
+                strictParsing={false}
+                timeCaption="Time"
+                timeFormat="HH:mm"
+                timeInputLabel="Time"
+                timeIntervals={30}
+                withPortal={true}
+              />
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+      <Field
+        align={null}
+        className=""
+        horizontal={true}
+        kind={null}
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size="normal"
+          style={Object {}}
+        >
+          <Label
+            className=""
+            htmlFor={null}
+            size={null}
+            style={Object {}}
+          >
+            Timestamp range end
+          </Label>
+        </FieldLabel>
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <DatePicker
+                allowSameDay={false}
+                autoComplete="off"
+                className="input"
+                dateFormat="dd.MM.yyyy HH:mm"
+                dateFormatCalendar="LLLL yyyy"
+                disabled={false}
+                disabledKeyboardNavigation={false}
+                dropdownMode="scroll"
+                endDate={null}
+                id="timestamp-end"
+                inlineFocusSelectedMonth={false}
+                isClearable={true}
+                monthsShown={1}
+                name="timestampEnd"
+                nextMonthButtonLabel="Next month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClickOutside={[Function]}
+                onFocus={[Function]}
+                onInputClick={[Function]}
+                onInputError={[Function]}
+                onKeyDown={[Function]}
+                onMonthChange={[Function]}
+                onSelect={[Function]}
+                onYearChange={[Function]}
+                preventOpenOnFocus={false}
+                previousMonthButtonLabel="Previous Month"
+                readOnly={false}
+                renderDayContents={[Function]}
+                selected={null}
+                selectsEnd={true}
+                shouldCloseOnSelect={true}
+                showMonthDropdown={true}
+                showMonthYearPicker={false}
+                showTimeInput={false}
+                showTimeSelect={true}
+                showYearDropdown={true}
+                startDate={null}
+                strictParsing={false}
+                timeCaption="Time"
+                timeFormat="HH:mm"
+                timeInputLabel="Time"
+                timeIntervals={30}
+                withPortal={true}
+              />
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+      <Field
+        align={null}
+        className=""
+        horizontal={false}
+        kind="group"
+        multiline={false}
+        renderAs="div"
+        style={Object {}}
+      >
+        <FieldLabel
+          className=""
+          renderAs="div"
+          size="normal"
+          style={Object {}}
+        />
+        <FieldBody
+          className=""
+          renderAs="div"
+          style={Object {}}
+        >
+          <Field
+            align={null}
+            className=""
+            horizontal={false}
+            kind={null}
+            multiline={false}
+            renderAs="div"
+            style={Object {}}
+          >
+            <Control
+              className=""
+              fullwidth={false}
+              iconLeft={false}
+              iconRight={false}
+              loading={false}
+              renderAs="div"
+              size={null}
+              style={Object {}}
+            >
+              <Button
+                className=""
+                color="primary"
+                disabled={false}
+                fullwidth={false}
+                id="submit-button"
+                inverted={false}
+                isSelected={false}
+                isStatic={false}
+                loading={false}
+                onClick={[Function]}
+                outlined={false}
+                remove={false}
+                renderAs="button"
+                reset={false}
+                rounded={false}
+                size={null}
+                state={null}
+                style={Object {}}
+                submit={false}
+                text={false}
+              >
+                Submit
+              </Button>
+            </Control>
+          </Field>
+        </FieldBody>
+      </Field>
+    </Container>
+  </Section>
+  <Section
+    className=""
+    renderAs="section"
+    size={null}
+    style={Object {}}
+  >
+    <Container
+      breakpoint={null}
+      fluid={false}
+      renderAs="div"
+      style={Object {}}
+    >
+      <Connect(Chart)
+        metadata={Object {}}
+        titlesMap={
+          Map {
+            "1234-567" => "Title",
+          }
+        }
+      />
+    </Container>
+  </Section>
+</Fragment>
+`;

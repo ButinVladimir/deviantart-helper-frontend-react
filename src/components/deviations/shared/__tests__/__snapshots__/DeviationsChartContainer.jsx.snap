@@ -226,7 +226,7 @@ Array [
             style={Object {}}
           >
             <input
-              checked={false}
+              checked={true}
               disabled={false}
               id="show-differences"
               name="show-differences"

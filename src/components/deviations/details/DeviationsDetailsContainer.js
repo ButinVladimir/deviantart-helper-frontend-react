@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import consumeConfig from '../../shared/ConfigContext';
 import DeviationDetails from './DeviationsDetails';
 import clearLoadedDataActionCreator from '../../../redux/action-creators/shared/clear-loaded-data';
-import deviationsDetailsChangeTabActionCreator from '../../../redux/action-creators/deviations/details/change-tab';
-import deviationsDetailsSetIdActionCreator from '../../../redux/action-creators/deviations/details/set-id';
+import deviationsDetailsChangeTab from '../../../redux/action-creators/deviations/details/change-tab';
+import deviationsDetailsSetId from '../../../redux/action-creators/deviations/details/set-id';
 
 /**
  * @description
@@ -29,10 +29,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clearDataHandler: () => dispatch(clearLoadedDataActionCreator()),
   changeTabHandler: tab => () => {
-    dispatch(deviationsDetailsChangeTabActionCreator(tab, ownProps.config));
+    dispatch(deviationsDetailsChangeTab(tab, ownProps.config));
   },
   loadDeviationDetailsHandler: () => {
-    dispatch(deviationsDetailsSetIdActionCreator(ownProps.match.params.id, ownProps.config));
+    dispatch(deviationsDetailsSetId(ownProps.match.params.id, ownProps.config));
   },
 });
 

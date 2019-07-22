@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviationsDetailsPreviewTabContainer can be rendered correctly 1`] = `
+<section
+  className="section"
+  style={Object {}}
+>
+  <div
+    className="container"
+    style={Object {}}
+  >
+    <div
+      className="level"
+      style={Object {}}
+    >
+      <div
+        className="level-item"
+        style={Object {}}
+      >
+        <img
+          alt="Title"
+          src="/path/to/image"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+`;

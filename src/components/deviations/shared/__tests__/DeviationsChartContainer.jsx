@@ -30,6 +30,7 @@ describe('DeviationsChartContainer', () => {
           dataSet: DATA_SET_DOWNLOADS,
           roundPeriod: ROUND_PERIOD_4_HOURS,
           showTime: true,
+          showDifferences: true,
         },
       },
     });
