@@ -1,7 +1,7 @@
 {
   "name": "deviantart-helper-frontend-react",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "dependencies": {
     "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
@@ -32,6 +32,7 @@
   },
   "author": "VladimirButin",
   "license": "ISC",
+  "homepage": "https://bitbucket.org/VladimirButin/deviantart-helper-frontend-react",
   "browserslist": [
     ">0.2%",
     "not dead",

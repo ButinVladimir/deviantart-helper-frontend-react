@@ -70,8 +70,12 @@ describe('DeviationsDetailsChartTabContainer', () => {
     );
 
     wrapper.find('button#submit-button').simulate('click');
+    const actions = store.getActions();
 
     expect(deviationsDetailsLoadMetadata).toHaveBeenCalledTimes(1);
     expect(deviationsDetailsLoadMetadata).toHaveBeenCalledWith(config);
+    expect(actions).toEqual([
+      { type: 'SUBMIT' },
+    ]);
   });
 });
